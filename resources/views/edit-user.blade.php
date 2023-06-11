@@ -93,13 +93,7 @@
                                 </div>
                                 <div>
                                     <div class="form-check form-switch">
-                                        <select class="form-select mb-0" id="customer_type"
-                                    
-                                                <option value="owner">owner</option>
-                                                <option value="user" selected="">user</option>
-                                     
-                                    
-                                    </select>   
+                                   
                                      <label class="form-check-label" for="user-notification-1"></label>
                                     </div>
                                 </div>
