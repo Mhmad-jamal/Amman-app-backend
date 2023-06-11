@@ -23,8 +23,8 @@ class CreatePropertiesTable extends Migration
             $table->text('ad_details');
             $table->text('address');
             $table->enum('status', [0, 1, 2]);
-            $table->unsignedBigInteger('owner');
-            $table->foreign('owner')->references('id')->on('clients');
+            $table->unsignedBigInteger('owner_id');
+            $table->foreign('owner_id')->references('id')->on('clients');
             $table->timestamps();
         });
     }

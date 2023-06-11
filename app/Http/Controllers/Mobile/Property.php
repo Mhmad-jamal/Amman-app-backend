@@ -51,7 +51,7 @@ class Property extends Controller
             'ad_details' => $request->ad_details,
             'address' => $request->address,
             'status' => $request->status,
-            'owner' => $request->owner,
+            'owner_id' => $request->owner,
         ]);
 
         return response()->json([

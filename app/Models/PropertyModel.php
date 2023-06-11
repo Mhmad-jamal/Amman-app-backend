@@ -20,7 +20,7 @@ class Property extends Model
         'ad_details',
         'address',
         'status',
-        'owner',
+        'owner_id',
     ];
 
     protected $casts = [
