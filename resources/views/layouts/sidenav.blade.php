@@ -36,7 +36,7 @@
             <img src="/assets/img/brand/light.svg" height="20" width="20" alt="Volt Logo">
           </span>
           <span class="mt-1 ms-1 sidebar-text">
-            Volt Laravel
+            امــــــــــــان
           </span>
         </a>
       </li>
@@ -48,6 +48,15 @@
               <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
             </svg></span></span>
           <span class="sidebar-text">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item {{ Request::segment(1) == 'users' ? 'active' : '' }}">
+        <a href="/users" class="nav-link">
+          <span class="sidebar-icon"> <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 0C4.486 0 0 4.486 0 10v8h20v-8c0-5.514-4.486-10-10-10zm0 2c3.682 0 6.82 2.493 7.75 6H2.25C3.18 4.493 6.318 2 10 2zm0 16c-3.86 0-7-3.14-7-7a6.99 6.99 0 014.547-6.57A5.954 5.954 0 0010 2c3.86 0 7 3.14 7 7 0 1.657-.568 3.172-1.516 4.375A6.99 6.99 0 0110 18z"/>
+          </svg>
+          </span></span>
+          <span class="sidebar-text">Users</span>
         </a>
       </li>
       <li class="nav-item">
@@ -71,11 +80,7 @@
                 <span class="sidebar-text">Profile</span>
               </a>
             </li>
-            <li class="nav-item {{ Request::segment(1) == 'users' ? 'active' : '' }}">
-              <a href="/users" class="nav-link">
-                <span class="sidebar-text">User management</span>
-              </a>
-            </li>
+         
           </ul>
         </div>
       </li>

@@ -19,12 +19,14 @@ use App\Http\Livewire\ForgotPasswordExample;
 use App\Http\Livewire\Index;
 use App\Http\Livewire\LoginExample;
 use App\Http\Livewire\ProfileExample;
+
 use App\Http\Livewire\RegisterExample;
 use App\Http\Livewire\Transactions;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ResetPasswordExample;
 use App\Http\Livewire\UpgradeToPro;
 use App\Http\Livewire\Users;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,4 +70,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/forms', Forms::class)->name('forms');
     Route::get('/modals', Modals::class)->name('modals');
     Route::get('/typography', Typography::class)->name('typography');
+    //for users
+    Route::get('/users', Users::class)->name('users');
+
+    Route::get('/user/view/{id}', [Users::class, 'View'])->name('view_user');
+    Route::get('/user/edit/{id}', [Users::class, 'edit'])->name('edit_user');
+
+    Route::get('/delete_user/{id}', [Users::class, 'delete'])->name('delete_user');
+
+    
 });
+
+//route for mobile 
+Route::post('mobile/register', [RegisterController::class, 'register'])->middleware('guest');
