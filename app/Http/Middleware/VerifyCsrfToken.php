@@ -13,5 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'mobile/register', 
+        'api/*', // Add this line to include all routes under the "api/" prefix
+
     ];
 }
