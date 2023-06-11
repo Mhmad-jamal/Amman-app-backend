@@ -5,13 +5,15 @@ namespace App\Http\Controllers\Mobile;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PropertyModel;
+use Illuminate\Support\Facades\Validator;
+
 
 class Property extends Controller
 {
     //
     public function create(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'section' => 'required|in:Rent,Sale',
             'sub_section' => 'required',
             'room_number' => 'required|integer',
@@ -28,7 +30,12 @@ class Property extends Controller
             'status' => 'required|in:0,1,2',
             'owner' => 'required|exists:clients,id',
         ]);
-
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => $validator->errors(),
+                'status' => 201
+            ], 201);
+        }
         $property = Property::create([
             'section' => $request->section,
             'sub_section' => $request->sub_section,

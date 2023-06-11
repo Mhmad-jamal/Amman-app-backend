@@ -92,5 +92,5 @@ Route::post('api/register', [RegisterController::class, 'register']);
 Route::post('api/login', [LoginMobile::class, 'login']);
 // for property
 //add property
-Route::post('api/roperty', [Property::class, 'Create']);
+Route::post('api/createproperty', [Property::class, 'Create']);
 
