@@ -3,14 +3,12 @@
 namespace App\Http\Controllers\Mobile;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\PropertyModel;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Http\Request;
 
 class Property extends Controller
 {
-    //
     public function create(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -30,33 +28,72 @@ class Property extends Controller
             'status' => 'required|in:0,1,2',
             'owner' => 'required|exists:clients,id',
         ]);
+
         if ($validator->fails()) {
             return response()->json([
                 'message' => $validator->errors(),
                 'status' => 201
             ], 201);
         }
-        $property = Property::create([
-            'section' => $request->section,
-            'sub_section' => $request->sub_section,
-            'room_number' => $request->room_number,
-            'bath_number' => $request->bath_number,
-            'building_area' => $request->building_area,
-            'floor' => $request->floor,
-            'construction_age' => $request->construction_age,
-            'furnished' => $request->furnished,
-            'features' => $request->features,
-            'price' => $request->price,
-            'ad_title' => $request->ad_title,
-            'ad_details' => $request->ad_details,
-            'address' => $request->address,
-            'status' => $request->status,
-            'owner_id' => $request->owner,
-        ]);
+
+        $property = PropertyModel::create($request->all());
 
         return response()->json([
             'message' => 'Property created successfully',
+            'status'=>200,
             'property' => $property,
         ]);
     }
+
+    public function getallproperties()
+    {
+        $properties = PropertyModel::all();
+
+        return response()->json([
+            'message' => 'All properties retrieved successfully',
+            'status'=>200,
+            'properties' => $properties,
+        ]);
+    }
+    public function getpropertiesbyclientId(Request $request)
+    {
+        $id = $request->input('id');
+        
+        $properties = PropertyModel::where('owner_id', $id)->get();
+    
+        return response()->json([
+            'message' => 'Properties retrieved successfully',
+            'status'=>200,
+            'properties' => $properties,
+        ]);
+    }
+    public function getpropertiesbyid(Request $request)
+    {
+        $id = $request->input('id');
+        
+        $properties = PropertyModel::where('id', $id)->get();
+    
+        return response()->json([
+            'message' => 'Properties retrieved successfully',
+            'status'=>200,
+            'properties' => $properties,
+        ]);
+    }
+
+    public function getpropertiesbySection(Request $request)
+    {
+        $section = $request->input('section');
+        
+        $properties = PropertyModel::where('section', $section)->get();
+    
+        return response()->json([
+            'message' => 'Properties retrieved successfully',
+            'status'=>200,
+            'properties' => $properties,
+        ]);
+        
+        
+    }
+    
+    
 }
