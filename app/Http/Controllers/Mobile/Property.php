@@ -58,9 +58,14 @@ class Property extends Controller
     public function getpropertiesbyclientId(Request $request)
     {
         $id = $request->input('owner_id');
+        $status = $request->input('status');
+        $properties = PropertyModel::where('owner_id', $id);
         
-        $properties = PropertyModel::where('owner_id', $id)->get();
-    
+        if (isset($status)) {
+            $properties->where('status', $status);
+        }
+        
+        $properties = $properties->get();
         return response()->json([
             'message' => 'Properties retrieved successfully',
             'status'=>200,
