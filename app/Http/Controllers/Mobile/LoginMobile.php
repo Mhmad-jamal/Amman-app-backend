@@ -6,16 +6,24 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class LoginMobile extends Controller
 {
     public function login(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => $validator->errors(),
+                'status' => 201
+            ], 201);
+        }
+        
         $email = $request->input('email');
         $password = $request->input('password');
 
@@ -23,14 +31,14 @@ class LoginMobile extends Controller
 
         if (!$client) {
             return response()->json([
-                'message' => 'The provided email does not exist.',
+                'message' => ['password'=>['The provided password is incorrect.']],
                 'status' => 201
             ]);
         }
 
         if (!Hash::check($password, $client->password)) {
             return response()->json([
-                'message' => 'The provided password is incorrect.',
+                'message' => ['password'=>['The provided password is incorrect.']],
                 'status' => 201
             ]);
         }
@@ -38,6 +46,7 @@ class LoginMobile extends Controller
         // Email exists and password matches
         return response()->json([
             'message' => 'Login successful',
+            'data' => $client,
             'status' => 200,
         ]);
     }

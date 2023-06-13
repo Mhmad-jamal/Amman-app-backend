@@ -8,7 +8,7 @@ use App\Models\Client;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class RegisterController extends Controller
+class MobileRegisterController extends Controller
 {
     public function register(Request $request)
 {

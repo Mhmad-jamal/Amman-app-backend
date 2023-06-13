@@ -28,16 +28,15 @@ class WebProperties extends Controller
     public function update(Request $request )
 {
     $id = $request->input('id');
-
     $validator = Validator::make($request->all(), [
         'section' => 'required|in:Rent,Sale',
         'sub_section' => 'required',
-        'room_number' => 'required|integer',
-        'bath_number' => 'required|integer',
+        'room_number' => 'required',
+        'bath_number' => 'required',
         'building_area' => 'required|integer',
-        'floor' => 'nullable|integer|min:0|max:8',
-        'construction_age' => 'required|integer',
-        'furnished' => 'required|in:Yes,No',
+        'floor' => 'nullable',
+        'construction_age' => 'required',
+        'furnished' => 'required',
         'features' => 'required|json',
         'price' => 'required|integer',
         'ad_title' => 'required',

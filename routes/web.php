@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\ResetPasswordExample;
 use App\Http\Livewire\UpgradeToPro;
 use App\Http\Livewire\Users;
-use App\Http\Controllers\Mobile\RegisterController;
+use App\Http\Controllers\Mobile\MobileRegisterController;
 use App\Http\Controllers\Mobile\LoginMobile;
 use App\Http\Controllers\Mobile\Property;
 use App\Http\Controllers\Web\WebProperties;
@@ -98,7 +98,7 @@ Route::middleware('auth')->group(function () {
 
 //route for mobile
 // for sign-in and register 
-Route::post('api/register', [RegisterController::class, 'register']);
+Route::post('api/register', [MobileRegisterController::class, 'register']);
 Route::post('api/login', [LoginMobile::class, 'login']);
 // for property
 //add property
