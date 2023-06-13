@@ -29,6 +29,9 @@ use App\Http\Livewire\Users;
 use App\Http\Controllers\Mobile\RegisterController;
 use App\Http\Controllers\Mobile\LoginMobile;
 use App\Http\Controllers\Mobile\Property;
+use App\Http\Controllers\Web\WebProperties;
+
+
 
 
 
@@ -79,9 +82,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/users', Users::class)->name('users');
 
     Route::get('/user/view/{id}', [Users::class, 'View'])->name('view_user');
+    Route::post('/user/editUser', [Users::class, 'editUser'])->name('editUser');
+
+    
     Route::get('/user/edit/{id}', [Users::class, 'edit'])->name('edit_user');
 
     Route::get('/delete_user/{id}', [Users::class, 'delete'])->name('delete_user');
+    //for properties 
+    Route::get('/properties/view/{id}', [WebProperties::class, 'view'])->name('properties_view');
+    Route::get('/properties/edit/{id}', [WebProperties::class, 'edit'])->name('properties_edit');
+    Route::post('/properties/update', [WebProperties::class, 'update'])->name('properties_update');
 
     
 });
@@ -97,5 +107,7 @@ Route::any('api/getallproperties', [Property::class, 'getallproperties']);
 Route::any('api/getpropertiesbyclientId', [Property::class, 'getpropertiesbyclientId']);
 Route::any('api/getpropertiesbySection', [Property::class, 'getpropertiesbySection']);
 Route::any('api/getpropertiesbyid', [Property::class, 'getpropertiesbyid']);
+Route::any('api/editpropety', [Property::class, 'editpropety']);
+
 
 

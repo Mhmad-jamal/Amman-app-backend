@@ -26,7 +26,7 @@ class Property extends Controller
             'ad_details' => 'required',
             'address' => 'required',
             'status' => 'required|in:0,1,2',
-            'owner' => 'required|exists:clients,id',
+            'owner_id' => 'required|exists:clients,id',
         ]);
 
         if ($validator->fails()) {
@@ -57,7 +57,7 @@ class Property extends Controller
     }
     public function getpropertiesbyclientId(Request $request)
     {
-        $id = $request->input('id');
+        $id = $request->input('owner_id');
         
         $properties = PropertyModel::where('owner_id', $id)->get();
     
@@ -94,6 +94,44 @@ class Property extends Controller
         
         
     }
+    public function editpropety(Request $request)
+{
+    $validator = Validator::make($request->all(), [
+        'section' => 'required|in:Rent,Sale',
+        'sub_section' => 'required',
+        'room_number' => 'required|integer',
+        'bath_number' => 'required|integer',
+        'building_area' => 'required|integer',
+        'floor' => 'nullable|integer|min:0|max:8',
+        'construction_age' => 'required|integer',
+        'furnished' => 'required|in:Yes,No',
+        'features' => 'required|json',
+        'price' => 'required|integer',
+        'ad_title' => 'required',
+        'ad_details' => 'required',
+        'address' => 'required',
+        'status' => 'required|in:0,1,2',
+        'owner_id' => 'required|exists:clients,id',
+    ]);
+
+    if ($validator->fails()) {
+        return response()->json([
+            'message' => $validator->errors(),
+            'status' => 201
+        ], 201);
+    }
+    $id = $request->input('id');
+
+    $property = PropertyModel::findOrFail($id);
+    $property->update($request->all());
+
+    return response()->json([
+        'message' => 'Property updated successfully.',
+        'status' => 200,
+        'data' => $property
+    ], 200);
+}
+   
     
     
 }

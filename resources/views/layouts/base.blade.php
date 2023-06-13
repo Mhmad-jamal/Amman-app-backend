@@ -3,6 +3,7 @@
 <head>
 
     @if(env('IS_DEMO')) 
+ 
         <link rel="canonical" href="">
         <meta  name="keywords" content=""></meta>
         <meta  name="description" content="امان backend with Livewire & Alpine.js"></meta>
@@ -26,6 +27,8 @@
     <title>امــان</title>
 
     <!-- Favicons -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+
     <link rel="apple-touch-icon" href="../../assets/img/favicon/apple-touch-icon.png" sizes="180x180">
     <link rel="icon" href="../../assets/img/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="../../assets/img/favicon/favicon-16x16.png" sizes="16x16" type="image/png">
@@ -100,6 +103,9 @@
     
     <!-- Volt JS -->
     <script src="/assets/js/volt.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 
     @if(env('IS_DEMO')) 
         <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -136,7 +142,6 @@
 
     {{ $slot }}
     @include('sweetalert::alert')
-
 
 </body>
 
