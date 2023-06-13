@@ -44,7 +44,8 @@ class MobileRegisterController extends Controller
 
     return response()->json([
         'message' => 'Registration successful',
-        'status' => 200
+        'status' => 200,
+        'data' => $client,
     ], 200);
 
 }

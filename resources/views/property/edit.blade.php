@@ -124,9 +124,9 @@
                                         <label for="status">Status <span class="text-danger">*</span></label>
                                         <select class="form-select mb-0" id="status" name="status">
                                             <option value="0" {{ $property->status == '0' ? 'selected' : '' }}>
-                                                Publish</option>
-                                            <option value="1" {{ $property->status == '1' ? 'selected' : '' }}>
                                                 Draft</option>
+                                            <option value="1" {{ $property->status == '1' ? 'selected' : '' }}>
+                                                Publish</option>
                                             <option value="2" {{ $property->status == '2' ? 'selected' : '' }}>
                                                 Cancel</option>
                                         </select>

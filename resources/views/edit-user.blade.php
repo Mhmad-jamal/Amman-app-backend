@@ -212,17 +212,16 @@
                                                     class="fw-normal d-flex align-items-center">{{ $property->address }}</span>
                                             </td>
                                             @if ($property->status == 0)
-                                                <td><span
-                                                        class="fw-normal d-flex align-items-center text-success">Active</span>
-                                                </td>
-                                            @elseif ($property->status == 1)
-                                                <td><span
-                                                        class="fw-normal d-flex align-items-center text-warning">Draft</span>
-                                                </td>
+                                            @if ($property->status==1)
+                                            <td><span class="fw-normal d-flex align-items-center text-success">Active</span></td>
+
+                                                
+                                            @elseif ($property->status==0)
+                                            <td><span class="fw-normal d-flex align-items-center text-warining">Draft</span></td>
+
                                             @else
-                                                <td><span
-                                                        class="fw-normal d-flex align-items-center text-danger">Removed</span>
-                                                </td>
+                                            <td><span class="fw-normal d-flex align-items-center text-danger ">Delete</span></td>
+
                                             @endif
                                             <td><span
                                                     class="fw-normal d-flex align-items-center">{{ $property->price }}</span>

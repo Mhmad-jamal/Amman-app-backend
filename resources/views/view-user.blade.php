@@ -128,11 +128,11 @@
                                                         <td>
                                                             <span class="fw-normal d-flex align-items-center">
                                                               <?php 
-                                                                foreach ($property->features as $key => $value) {
+                                                             /*    foreach ($property->features as $key => $value) {
                                                                   if ($value == 1) {
                                                                     echo $key . ', ';
                                                                   }
-                                                                }
+                                                                } */
                                                               ?>
                                                             </span>
                                                           </td>                                                        <td><span class="fw-normal d-flex align-items-center">{{$property->ad_title}}</span></td>
@@ -141,11 +141,11 @@
                                                           </td>
 
                                                           <td><span class="fw-normal d-flex align-items-center">{{$property->address}}</span></td>
-                                                          @if ($property->status==0)
+                                                          @if ($property->status==1)
                                                           <td><span class="fw-normal d-flex align-items-center text-success">Active</span></td>
 
                                                               
-                                                          @elseif ($property->status==1)
+                                                          @elseif ($property->status==0)
                                                           <td><span class="fw-normal d-flex align-items-center text-warining">Draft</span></td>
 
                                                           @else
