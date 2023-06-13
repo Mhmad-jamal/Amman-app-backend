@@ -104,6 +104,8 @@ Route::post('api/login', [LoginMobile::class, 'login']);
 //add property
 Route::post('api/createproperty', [Property::class, 'Create']);
 Route::any('api/getallproperties', [Property::class, 'getallproperties']);
+Route::any('api/getallpropertiesSearch', [Property::class, 'getallpropertiesSearch']);
+
 Route::any('api/getpropertiesbyclientId', [Property::class, 'getpropertiesbyclientId']);
 Route::any('api/getpropertiesbySection', [Property::class, 'getpropertiesbySection']);
 Route::any('api/getpropertiesbyid', [Property::class, 'getpropertiesbyid']);

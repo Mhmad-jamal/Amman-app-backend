@@ -55,6 +55,15 @@ class Property extends Controller
             'properties' => $properties,
         ]);
     }
+    public function getallpropertiesSearch(){
+        $id = $request->input('owner_id');
+        $status = $request->input('status');
+        $properties = PropertyModel::where('owner_id', $id);
+        
+        if (isset($status)) {
+            $properties->where('status', $status);
+        }
+    }
     public function getpropertiesbyclientId(Request $request)
     {
         $id = $request->input('owner_id');
