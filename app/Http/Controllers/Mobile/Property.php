@@ -47,8 +47,9 @@ class Property extends Controller
 
     public function getallproperties()
     {
-        $properties = PropertyModel::all();
-
+        $properties = PropertyModel::join('clients', 'properties.owner_id', '=', 'clients.id')
+        ->select('properties.*', 'clients.*')
+        ->get();
         return response()->json([
             'message' => 'All properties retrieved successfully',
             'status'=>200,
@@ -58,11 +59,17 @@ class Property extends Controller
     public function getallpropertiesSearch(){
         $id = $request->input('owner_id');
         $status = $request->input('status');
-        $properties = PropertyModel::where('owner_id', $id);
+        
+        $properties = PropertyModel::join('clients', 'properties.owner_id', '=', 'clients.id')
+            ->select('properties.*', 'clients.*')
+            ->where('properties.owner_id', $id);
         
         if (isset($status)) {
-            $properties->where('status', $status);
+            $properties->where('properties.status', $status);
         }
+        
+        $properties = $properties->get();
+        
     }
     public function getpropertiesbyclientId(Request $request)
     {
