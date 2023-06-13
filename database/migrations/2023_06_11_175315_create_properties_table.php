@@ -14,9 +14,9 @@ class CreatePropertiesTable extends Migration
             $table->string('room_number');
             $table->string('bath_number');
             $table->string('building_area');
-            $table->unsignedTinyInteger('floor')->nullable();
+            $table->string('floor')->nullable();
             $table->string('construction_age');
-            $table->enum('furnished', ['Yes', 'No']);
+            $table->string('furnished');
             $table->json('features');
             $table->string('price');
             $table->string('ad_title');
