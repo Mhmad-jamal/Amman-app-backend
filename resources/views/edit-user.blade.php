@@ -192,10 +192,9 @@
                                             <td>
                                                 <span class="fw-normal d-flex align-items-center">
                                                     <?php
-                                                    foreach ($property->features as $key => $value) {
-                                                        if ($value == 1) {
-                                                            echo $key . ', ';
-                                                        }
+                                                    foreach (json_decode($property->features) as $key => $value) {
+                                                            echo $value . ', ';
+                                                        
                                                     }
                                                     ?>
                                                 </span>

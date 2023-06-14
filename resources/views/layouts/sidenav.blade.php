@@ -59,6 +59,7 @@
           <span class="sidebar-text">Users</span>
         </a>
       </li>
+      {{--
       <li class="nav-item">
         <span class="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
           data-bs-target="#submenu-laravel" aria-expanded="true">
@@ -83,7 +84,7 @@
          
           </ul>
         </div>
-      </li>
+      </li> 
       <li class="nav-item">
         <a href="https://themesberg.com/product/laravel/volt-pro-admin-dashboard-template" target="_blank" class="nav-link d-flex justify-content-between">
           <span>
@@ -336,7 +337,7 @@
           </span>
           <span>Upgrade to Pro</span>
         </a>
-      </li>
+      </li> --}}
     </ul>
   </div>
 </nav>

@@ -20,7 +20,7 @@ class Property extends Controller
             'room_number' => 'required',
             'bath_number' => 'required',
             'building_area' => 'required',
-            'floor' => 'nullable',
+            'floor' => 'required',
             'construction_age' => 'required',
             'furnished' => 'required',
             'features' => 'required',
@@ -32,7 +32,6 @@ class Property extends Controller
             'owner_id' => 'required|exists:clients,id',
             'electric_bill' => 'nullable',
             'water_bill' => 'nullable',
-            'image' => 'nullable',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validate image files
         ]);
     
@@ -100,20 +99,48 @@ class Property extends Controller
         ]);
     }
     public function getallpropertiesSearch(Request $request)
-    {
-        $id = $request->input('owner_id');
-        $status = $request->input('status');
+{
+    $id = $request->input('owner_id');
+    $status = $request->input('status');
 
-        $properties = PropertyModel::join('clients', 'properties.owner_id', '=', 'clients.id')
-            ->select('properties.*', 'clients.*')
-            ->where('properties.owner_id', $id);
+    $properties = PropertyModel::join('clients', 'properties.owner_id', '=', 'clients.id')
+        ->select('properties.*', 'clients.*');
 
-        if (isset($status)) {
-            $properties->where('properties.status', $status);
+    $rules = [
+        'section',
+        'sub_section',
+        'room_number',
+        'bath_number',
+        'building_area',
+        'floor',
+        'construction_age',
+        'furnished',
+        'features',
+        'price',
+        'ad_title',
+        'ad_details',
+        'address',
+        'status',
+        'owner_id',
+        'electric_bill',
+        'water_bill',
+    ];
+
+    foreach ($rules as $key) {
+        $value = $request->input($key);
+        if (isset($value)) {
+            $properties->where("properties.$key", $value);
         }
-
-        $properties = $properties->get();
     }
+
+   
+
+    $properties = $properties->get();
+
+    // Further processing or returning the results
+    // ...
+}
+
     public function getpropertiesbyclientId(Request $request)
     {
         $id = $request->input('owner_id');

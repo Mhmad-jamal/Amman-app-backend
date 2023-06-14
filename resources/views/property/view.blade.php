@@ -254,7 +254,7 @@
                                             @foreach ($features as $feature)
                                                 <label style="margin-left: 10px">
                                                     <input disabled type="radio" name="selected_features" value="{{ $feature }}"
-                                                        {{ in_array($feature, $property->features) ? 'checked' : '' }}>
+                                                        {{ in_array($feature, json_decode($property->features)) ? 'checked' : '' }}>
                                                     {{ $feature }}
                                                 </label>
                                             @endforeach
@@ -280,10 +280,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mt-3">
-                                    <button type="submit" class="btn btn-gray-800 mt-2 animate-up-2">Save
-                                        All</button>
-                                </div>
+                               
                             </form>
                         </div>
 
