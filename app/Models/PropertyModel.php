@@ -1,11 +1,13 @@
-<?php 
+<?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class PropertyModel extends Model
 {
-    protected $table="properties";
+    protected $table = "properties";
+    
     protected $fillable = [
         'section',
         'sub_section',
@@ -22,14 +24,18 @@ class PropertyModel extends Model
         'address',
         'status',
         'owner_id',
+        'electric_bill',
+        'water_bill',
+        'image',
     ];
-
+    
     protected $casts = [
         'features' => 'json',
+        'image' => 'json',
     ];
-
+    
     public function owner()
     {
-        return $this->belongsTo(Client::class, 'owner');
+        return $this->belongsTo(Client::class, 'owner_id');
     }
 }

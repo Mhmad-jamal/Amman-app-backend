@@ -23,6 +23,9 @@ class CreatePropertiesTable extends Migration
             $table->text('ad_details');
             $table->text('address');
             $table->enum('status', [0, 1, 2]);
+            $table->string('electric_bill')->nullable();
+            $table->string('water_bill')->nullable();
+            $table->json('image')->nullable();
             $table->unsignedBigInteger('owner_id');
             $table->foreign('owner_id')->references('id')->on('clients');
             $table->timestamps();

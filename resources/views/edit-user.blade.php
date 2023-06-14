@@ -211,7 +211,6 @@
                                             <td><span
                                                     class="fw-normal d-flex align-items-center">{{ $property->address }}</span>
                                             </td>
-                                            @if ($property->status == 0)
                                             @if ($property->status==1)
                                             <td><span class="fw-normal d-flex align-items-center text-success">Active</span></td>
 
