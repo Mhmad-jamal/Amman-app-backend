@@ -45,14 +45,14 @@ class Property extends Controller
     
         $propertyData = $request->except('image');
         $propertyData['image'] = [];
-    
+        
         if ($request->has('image')) {
             $images = $request->file('image');
-    
+        
             if (is_array($images)) {
                 foreach ($images as $image) {
-                    $imagePath = $image->store('property/images');
-    
+                    $imagePath = $image->store('property/images', 'local');
+        
                     if ($imagePath) {
                         $propertyData['image'][] = $imagePath;
                     } else {
@@ -63,8 +63,8 @@ class Property extends Controller
                     }
                 }
             } else {
-                $imagePath = $images->store('property/images');
-    
+                $imagePath = $images->store('property/images', 'local');
+        
                 if ($imagePath) {
                     $propertyData['image'][] = $imagePath;
                 } else {
@@ -75,6 +75,7 @@ class Property extends Controller
                 }
             }
         }
+        
     
         $propertyData['image'] = json_encode($propertyData['image']); // Encode image paths as JSON
     

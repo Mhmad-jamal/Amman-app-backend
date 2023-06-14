@@ -237,11 +237,12 @@
                                     @endphp
                                 
                                 <div class="row">
-                                    @foreach ($images as $image)
+                                    @foreach ($images as $imagePath)
                                     <div class="col-md-3">
-                                        <img src="{{ asset('storage/property/images/CrxDIUDfOxSMMQIlyRk8jW74h0rlc9HWCxsXgGTa.png') }}" alt="Image">
+                                        <img src="{{ asset('storage/' . $imagePath) }}" alt="Image">
                                     </div>
-                                    @endforeach
+                                @endforeach
+                                
                                 </div>
                            
                                 
