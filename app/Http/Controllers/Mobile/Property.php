@@ -120,7 +120,7 @@ class Property extends Controller
     $properties = PropertyModel::join('clients', 'properties.owner_id', '=', 'clients.id')
         ->select('properties.*', 'clients.*');
 
-  /*   $rules = [
+    $filters = [
         'section',
         'sub_section',
         'room_number',
@@ -138,28 +138,20 @@ class Property extends Controller
         'owner_id',
         'electric_bill',
         'water_bill',
-    ];
-
-    foreach ($rules as $key) {
-        $value = $request->input($key);
-        if (isset($value)) {
-            $properties->where("properties.$key", $value);
-        }
-    }
-    */
-    $filters = [
-        'section',
-        'sub_section',
-        'construction_age',
         // Add more field names here
     ];
     
     foreach ($filters as $field) {
         if ($request->has($field)) {
+            
             $value = $request->input($field);
+            if($value!=""|| $value!=NULL){
             $properties->where("properties.$field", $value);
+            }
         }
     }
+
+    
     
     $properties = $properties->get();
     return response()->json([
