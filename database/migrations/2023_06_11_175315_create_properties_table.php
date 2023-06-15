@@ -18,7 +18,7 @@ class CreatePropertiesTable extends Migration
             $table->string('construction_age');
             $table->string('furnished');
             $table->json('features');
-            $table->string('price');
+            $table->double('price');
             $table->string('ad_title');
             $table->text('ad_details');
             $table->text('address');

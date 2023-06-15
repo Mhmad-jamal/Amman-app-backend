@@ -24,7 +24,7 @@ class Property extends Controller
             'construction_age' => 'required',
             'furnished' => 'required',
             'features' => 'required',
-            'price' => 'required',
+            'price' => 'required'|'numeric',
             'ad_title' => 'required',
             'ad_details' => 'required',
             'address' => 'required',

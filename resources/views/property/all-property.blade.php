@@ -12,16 +12,19 @@
                 <div class="mb-4 col-md-3">
                     <label class="my-1 me-2" for="country">Section</label>
                     <select class="form-select" id="section" name="section" aria-label="Default select example">
-                      <option></option>
+                        <option disabled selected value="">Select an option</option>
+
                         <option value="Rent">Rent</option>
                         <option value="Sale">Sale</option>
                     </select>
                 </div>
                 <div class="mb-4 col-md-3">
                     <div class="form-group">
+
                         <label class="my-1 me-2" for="sub_section"> Sub Section</label>
                         <select class="form-select mb-0" id="sub_section" name="sub_section">
-                                                <option></option>
+                            <option disabled selected value="">Select an option</option>
+
 
                             <option value="Apartments">Apartments</option>
                             <option value="Villa - Palace">Villa - Palace</option>
@@ -38,8 +41,9 @@
                 <div class="col-md-3 mb-3">
                     <div class="form-group">
                         <label for="construction_age">Construction age </label>
-                        <select class="form-select mb-0" id="construction_age" name="construction_age">
-                        <option></option>
+                        <select class="form-select mb-0"  id="construction_age" name="construction_age">
+                            <option disabled selected value="">Select an option</option>
+
                             <option value="0-11 months">0-11 months</option>
                             <option value="1-5 years">1-5 years</option>
                             <option value="6-9 years">6-9 years</option>
@@ -84,6 +88,9 @@
             </div>
 
             <script>
+                $(document).ready(function() {
+  // Your code here
+  
                 $("#submitbtn").click(function() {
                     var formData = new FormData();
                     if (document.getElementById("section") != "" || document.getElementById("section").value !=NULL) {
@@ -96,6 +103,7 @@
                         formData.append("construction_age", document.getElementById("construction_age").value);
               
                     }
+              
                     $.ajax({
                         type: "POST",
                         url: "api/getallpropertiesSearch",
@@ -169,6 +177,7 @@
                         }
                     });
                 });
+            });
             </script>
             @include('layouts.footer')
     </main>
