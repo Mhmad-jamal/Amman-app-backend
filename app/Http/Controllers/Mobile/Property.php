@@ -147,7 +147,14 @@ class Property extends Controller
         if ($request->has($field)) {
             
             $value = $request->input($field);
-            
+            if($value=="min_price"){
+                $properties->where("properties.price", '>=', $value);
+
+            }
+            if($value=="max_price"){
+                $properties->where("properties.price", '<=', $value);
+
+            }
             if($value!=""|| $value!=NULL){
             $properties->where("properties.$field", $value);
             }
