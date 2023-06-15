@@ -82,16 +82,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/users', Users::class)->name('users');
 
     Route::get('/user/view/{id}', [Users::class, 'View'])->name('view_user');
-    Route::post('/user/editUser', [Users::class, 'editUser'])->name('editUser');
 
-    
+
     Route::get('/user/edit/{id}', [Users::class, 'edit'])->name('edit_user');
+    Route::post('/user/editUser', [Users::class, 'editUser'])->name('editUser');
 
     Route::get('/delete_user/{id}', [Users::class, 'delete'])->name('delete_user');
     //for properties 
     Route::get('/properties/view/{id}', [WebProperties::class, 'view'])->name('properties_view');
     Route::get('/properties/edit/{id}', [WebProperties::class, 'edit'])->name('properties_edit');
     Route::post('/properties/update', [WebProperties::class, 'update'])->name('properties_update');
+    Route::post('/properties/deleteimage/', [WebProperties::class, 'deleteImage'])->name('delete_image');
+
+    Route::post('/properties/addimage', [WebProperties::class, 'addImage'])->name('add_image');
+    Route::get('/properties/delte/{id}', [WebProperties::class, 'delete'])->name('properties_delete');
 
     
 });
@@ -110,6 +114,6 @@ Route::any('api/getpropertiesbyclientId', [Property::class, 'getpropertiesbyclie
 Route::any('api/getpropertiesbySection', [Property::class, 'getpropertiesbySection']);
 Route::any('api/getpropertiesbyid', [Property::class, 'getpropertiesbyid']);
 Route::any('api/editpropety', [Property::class, 'editpropety']);
-
+Route::any('api/delteproperty', [Property::class, 'deleteproperty']);
 
 

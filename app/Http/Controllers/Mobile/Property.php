@@ -50,7 +50,7 @@ class Property extends Controller
         
             if (is_array($images)) {
                 foreach ($images as $image) {
-                    $imagePath = $image->store('property/images', 'local');
+                    $imagePath = $image->store('property/images', 'public');
         
                     if ($imagePath) {
                         $propertyData['image'][] = $imagePath;
@@ -62,7 +62,7 @@ class Property extends Controller
                     }
                 }
             } else {
-                $imagePath = $images->store('property/images', 'local');
+                $imagePath = $images->store('property/images', 'public');
         
                 if ($imagePath) {
                     $propertyData['image'][] = $imagePath;
@@ -75,6 +75,7 @@ class Property extends Controller
             }
         }
         
+        
     
         $propertyData['image'] = json_encode($propertyData['image']); // Encode image paths as JSON
     
@@ -86,7 +87,21 @@ class Property extends Controller
             'property' => $property,
         ]);
     }
+    public function deleteproperty(Request $request) {
+        $id=$request->input('id');
+            $property = PropertyModel::findOrFail($id);
+            
+            // Delete the property record
+            $property->delete();
+            return response()->json([
+                'message' => 'Property delete successfully',
+                'status' => 200,
+          
+            ]);
     
+        
+        
+    }
     public function getallproperties()
     {
         $properties = PropertyModel::join('clients', 'properties.owner_id', '=', 'clients.id')

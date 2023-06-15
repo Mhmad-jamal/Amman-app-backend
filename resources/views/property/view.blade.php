@@ -14,14 +14,14 @@
                 <div class="col-12 ">
                     <div class="card card-body border-0 shadow mb-4">
                         <h2 class="h5 mb-4">Property Details</h2>
-                        <input disabled type="hidden" value="{{$property->id}}" name="id">
-                        <input disabled type="hidden" value="{{$property->owner_id}}" name="owner_id">
+                        <input disabled  type="hidden" value="{{$property->id}}" name="id">
+                        <input disabled  type="hidden" value="{{$property->owner_id}}" name="owner_id">
 
                         <div class="row">
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
                                         <label for="section">Section <span class="text-danger">*</span></label>
-                                        <select disabled class="form-select mb-0" id="section" name="section">
+                                        <select  disabled class="form-select mb-0" id="section" name="section">
                                             <option value="Sale"
                                                 {{ $property->section == 'Sale' ? 'selected' : '' }}>Sale</option>
                                             <option value="Rent"
@@ -36,8 +36,17 @@
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
                                         <label for="sub_section">Sub Section <span class="text-danger">*</span></label>
-                                        <input disabled class="form-control" id="sub_section" name="sub_section"
-                                            value="{{ $property->sub_section }}" type="text">
+                                        <select  disabledclass="form-select mb-0" id="sub_section" name="sub_section">
+                                            <option value="Apartments" <?php echo $property->sub_section === 'Apartments' ? 'selected' : ''; ?>>Apartments</option>
+                                            <option value="Villa - Palace" <?php echo $property->sub_section === 'Villa - Palace' ? 'selected' : ''; ?>>Villa - Palace</option>
+                                            <option value="Townhouses" <?php echo $property->sub_section === 'Townhouses' ? 'selected' : ''; ?>>Townhouses</option>
+                                            <option value="Lands" <?php echo $property->sub_section === 'Lands' ? 'selected' : ''; ?>>Lands</option>
+                                            <option value="Commercial" <?php echo $property->sub_section === 'Commercial' ? 'selected' : ''; ?>>Commercial</option>
+                                            <option value="Farms & Chalets" <?php echo $property->sub_section === 'Farms & Chalets' ? 'selected' : ''; ?>>Farms & Chalets</option>
+                                            <option value="Whole Building" <?php echo $property->sub_section === 'Whole Building' ? 'selected' : ''; ?>>Whole Building</option>
+                                            <option value="Foreign Real Estate" <?php echo $property->sub_section === 'Foreign Real Estate' ? 'selected' : ''; ?>>Foreign Real Estate</option>
+                                          </select>
+                                          
                                         @if ($errors->has('sub_section'))
                                             <span class="text-danger">{{ $errors->first('sub_section') }}</span>
                                         @endif
@@ -47,7 +56,7 @@
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
                                         <label for="room_number">Room number <span class="text-danger">*</span></label>
-                                        <select disabled name="room_number" class="form-select mb-0">
+                                        <select  disabled name="room_number" class="form-select mb-0">
                                             <option value="1" {{$property->room_number == '1' ? 'selected' : ''}}>1</option>
                                             <option value="2" {{$property->room_number == '2' ? 'selected' : ''}}>2</option>
                                             <option value="3" {{$property->room_number == '3' ? 'selected' : ''}}>3</option>
@@ -66,7 +75,7 @@
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
                                         <label for="bath_number">Bath number <span class="text-danger">*</span></label>
-                                        <select disabled name="bath_number" class="form-select mb-0">
+                                        <select  disabled name="bath_number" class="form-select mb-0">
                                             <option value="One" {{$property->bath_number == 'One' ? 'selected' : ''}}>One</option>
 
                                             <option value="2" {{$property->bath_number == '2' ? 'selected' : ''}}>2</option>
@@ -86,7 +95,7 @@
                                         <div class="form-group">
                                             <label for="building_area">Building area <span
                                                     class="text-danger">*</span></label>
-                                                    <input disabled class="form-control" name="building_area" id="building_area"
+                                                    <input disabled  class="form-control" name="building_area" id="building_area"
                                                     value="{{ $property->building_area }}" type="text">
                                                                                                       
                                             @if ($errors->has('building_area'))
@@ -97,7 +106,7 @@
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
                                             <label for="floor">Floor <span class="text-danger">*</span></label>
-                                            <select disabled class="form-select mb-0" id="floor" name="floor">
+                                            <select  disabled class="form-select mb-0" id="floor" name="floor">
                                                 <option value="Basement" {{$property->floor == 'Basement' ? 'selected' : ''}}>Basement</option>
                                                 <option value="Ground Floor" {{$property->floor == 'Ground Floor' ? 'selected' : ''}}>Ground Floor</option>
                                                 <option value="First Floor" {{$property->floor == 'First Floor' ? 'selected' : ''}}>First Floor</option>
@@ -118,7 +127,7 @@
                                         <div class="form-group">
                                             <label for="construction_age">Construction age <span
                                                     class="text-danger">*</span></label>
-                                                    <select disabled class="form-select mb-0" id="construction_age" name="construction_age">
+                                                    <select  disabled class="form-select mb-0" id="construction_age" name="construction_age">
                                                         <option value="0-11 months" {{$property->construction_age == '0-11 months' ? 'selected' : ''}}>0-11 months</option>
                                                         <option value="1-5 years" {{$property->construction_age == '1-5 years' ? 'selected' : ''}}>1-5 years</option>
                                                         <option value="6-9 years" {{$property->construction_age == '6-9 years' ? 'selected' : ''}}>6-9 years</option>
@@ -136,7 +145,7 @@
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
                                             <label for="furnished">Furnished <span class="text-danger">*</span></label>
-                                            <select disabled name="furnished" class="form-select mb-0">
+                                            <select  disabled name="furnished" class="form-select mb-0">
                                                 <option value="Furnished" {{$property->furnished == 'Furnished' ? 'selected' : ''}}>Furnished</option>
                                                 <option value="Semi Furnished" {{$property->furnished == 'Semi Furnished' ? 'selected' : ''}}>Semi Furnished</option>
                                                 <option value="Unfurnished" {{$property->furnished == 'Unfurnished' ? 'selected' : ''}}>Unfurnished</option>
@@ -152,7 +161,7 @@
                                 <div class="row">
                                     <div class="col-md-3 mb-3">
                                         <label for="status">Status <span class="text-danger">*</span></label>
-                                        <select disabled class="form-select mb-0" id="status" name="status">
+                                        <select  disabled class="form-select mb-0" id="status" name="status">
                                             <option value="0" {{ $property->status == '0' ? 'selected' : '' }}>
                                                 Draft</option>
                                             <option value="1" {{ $property->status == '1' ? 'selected' : '' }}>
@@ -168,7 +177,7 @@
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
                                             <label for="ad_title">Ad title <span class="text-danger">*</span></label>
-                                            <input disabled class="form-control" id="ad_title" name="ad_title"
+                                            <input disabled  class="form-control" id="ad_title" name="ad_title"
                                                 type="text" value="{{ $property->ad_title }}">
                                             @if ($errors->has('ad_title'))
                                                 <span class="text-danger">{{ $errors->first('ad_title') }}</span>
@@ -178,101 +187,113 @@
 
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
-                                            <label for="ad_details">Ad details <span
-                                                    class="text-danger">*</span></label>
-                                            <input disabled class="form-control" id="ad_details" name="ad_details"
-                                                type="text" value="{{ $property->ad_details }}">
-                                            @if ($errors->has('ad_details'))
-                                                <span class="text-danger">{{ $errors->first('ad_details') }}</span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <div class="form-group">
-                                            <label for="address">Address <span class="text-danger">*</span></label>
-                                            <input disabled class="form-control" id="address" name="address" type="text"
-                                                value="{{ $property->address }}">
-                                            @if ($errors->has('address'))
-                                                <span class="text-danger">{{ $errors->first('address') }}</span>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3 mb-3">
-                                        <div class="form-group">
                                             <label for="electric_bill">Electric bill <span
                                                     class="text-danger">*</span></label>
-                                            <input disabled class="form-control" id="electric_bill" name="electric_bill"
+                                            <input disabled  class="form-control" id="electric_bill" name="electric_bill"
                                                 type="text" value="{{ $property->electric_bill }}">
                                             @if ($errors->has('electric_bill'))
                                                 <span class="text-danger">{{ $errors->first('electric_bill') }}</span>
                                             @endif
                                         </div>
+                                      
                                     </div>
                                     <div class="col-md-3 mb-3">
+                                        
                                         <div class="form-group">
                                             <label for="water_bill">Water bill <span
                                                     class="text-danger">*</span></label>
-                                            <input disabled class="form-control" id="water_bill" name="water_bill"
+                                            <input disabled  class="form-control" id="water_bill" name="water_bill"
                                                 type="text" value="{{ $property->water_bill }}">
                                             @if ($errors->has('water_bill'))
                                                 <span class="text-danger">{{ $errors->first('water_bill') }}</span>
                                             @endif
                                         </div>
                                     </div>
+
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12 mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <div class="form-group">
-                                            <label for="features">Features </label>
-                                            <br>
-                                            @php
-                                            $features = [
-                                                'Air Conditioning',
-                                                'Central Air Conditioning',
-                                                'Heating',
-                                                'Balcony',
-                                                'Maid Room',
-                                                'Laundry Room',
-                                                'Built in Wardrobes',
-                                                'Private Pool',
-                                                'Double Glazed Windows',
-                                                'Jacuzzi',
-                                                'Installed Kitchen',
-                                                'Electric Shutters',
-                                                'Underfloor Heating',
-                                                'Washing Machine',
-                                                'Dishwasher',
-                                                'Microwave',
-                                                'Oven',
-                                                'Refrigerator'
-                                            ];
-                                            @endphp
-                                            
-                                            @foreach ($features as $feature)
-                                                <label style="margin-left: 10px">
-                                                    <input disabled type="radio" name="selected_features" value="{{ $feature }}"
-                                                        {{ in_array($feature, json_decode($property->features)) ? 'checked' : '' }}>
-                                                    {{ $feature }}
-                                                </label>
-                                            @endforeach
-                                            
-                                            @if ($errors->has('features'))
-                                                <span class="text-danger">{{ $errors->first('features') }}</span>
+                                            <label for="ad_details">Ad details <span class="text-danger">*</span></label>
+                                            <textarea class="form-control" id="ad_details" name="ad_details" rows="1" oninput="autoResize(this)">{{ $property->ad_details }}</textarea>
+                                            @if ($errors->has('ad_details'))
+                                                <span class="text-danger">{{ $errors->first('ad_details') }}</span>
                                             @endif
                                         </div>
                                     </div>
-
-                                   
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-group">
+                                            <label for="address">Address <span class="text-danger">*</span></label>
+                                            <input disabled  class="form-control" id="address" name="address" type="text"
+                                                value="{{ $property->address }}">
+                                            @if ($errors->has('address'))
+                                                <span class="text-danger">{{ $errors->first('address') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                    @php
+                                    $images = json_decode($property->image, true);
+                                    @endphp
+                                
+                                <div class="row">
+                                    @foreach ($images as $imagePath)
+                                    <div class="col-md-3">
+                                        <img src="{{ asset('storage/' . $imagePath) }}" alt="Image">
+                                    </div>
+                                @endforeach
+                                
+                                </div>
+                           
+                                
+                                <div class="form-group">
+                                    <label for="features">Features</label>
+                                    <br>
+                                    @php
+                                    $features = [
+                                        'Air Conditioning',
+                                        'Central Air Conditioning',
+                                        'Heating',
+                                        'Balcony',
+                                        'Maid Room',
+                                        'Laundry Room',
+                                        'Built in Wardrobes',
+                                        'Private Pool',
+                                        'Double Glazed Windows',
+                                        'Jacuzzi',
+                                        'Installed Kitchen',
+                                        'Electric Shutters',
+                                        'Underfloor Heating',
+                                        'Washing Machine',
+                                        'Dishwasher',
+                                        'Microwave',
+                                        'Oven',
+                                        'Refrigerator'
+                                    ];
+                                    @endphp
+                                
+                                    @foreach ($features as $index => $feature)
+                                        @if ($index % 4 === 0)
+                                            <div class="row">
+                                        @endif
+                                        <div class="col-md-3">
+                                            <label style="margin-left: 10px">
+                                                <input disabled type="checkbox" name="features[]" value="{{ $feature }}"
+                                                {{ in_array($feature, json_decode($property->features, true)) ? 'checked' : '' }}>
+                                                {{ $feature }}
+                                            </label>
+                                        </div>
+                                        @if (($index + 1) % 4 === 0 || $index === count($features) - 1)
+                                            </div>
+                                        @endif
+                                    @endforeach
                                 </div>
                               
                                 <div class="row">
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
                                             <label for="price">Price <span class="text-danger">*</span></label>
-                                            <input disabled class="form-control" id="price" name="price" type="text"
+                                            <input disabled  class="form-control" id="price" name="price" type="text"
                                                 value="{{ $property->price }}">
                                             @if ($errors->has('price'))
                                                 <span class="text-danger">{{ $errors->first('price') }}</span>
@@ -280,7 +301,7 @@
                                         </div>
                                     </div>
                                 </div>
-                               
+                            
                             </form>
                         </div>
 
@@ -291,6 +312,13 @@
 
 
                 </div>
+                <script>
+                    function autoResize(textarea) {
+                        textarea.style.height = 'auto';
+                        textarea.style.height = textarea.scrollHeight + 'px';
+                    }
+                    autoResize(document.getElementById('ad_details'));
+                </script>
 
 
 

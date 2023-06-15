@@ -232,20 +232,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                    @php
-                                    $images = json_decode($property->image, true);
-                                    @endphp
-                                
-                                <div class="row">
-                                    @foreach ($images as $imagePath)
-                                    <div class="col-md-3">
-                                        <img src="{{ asset('storage/' . $imagePath) }}" alt="Image">
-                                    </div>
-                                @endforeach
-                                
-                                </div>
-                           
-                                
+                              
+                            
+                            <div class="row">
+                            
                                 <div class="form-group">
                                     <label for="features">Features</label>
                                     <br>
@@ -288,7 +278,11 @@
                                         @endif
                                     @endforeach
                                 </div>
-                              
+                            </div>
+                           
+                    
+                        
+                        
                                 <div class="row">
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
@@ -306,6 +300,43 @@
                                         All</button>
                                 </div>
                             </form>
+                            <br>
+                            <div class="row">
+                                <h2 class="h5 mb-4">Property Images</h2>
+                                <br>
+                                @php
+                                $images = json_decode($property->image, true);
+                                 @endphp
+                         <div class="row">
+                            @foreach ($images as $index => $imagePath)
+                            <div class="col-md-3 d-flex flex-column align-items-center">
+                                <a href="{{ asset('storage/' . $imagePath) }}" data-lightbox="property-gallery">
+                                    <img style="width: 100%; height: 150px;" class="property-image" src="{{ asset('storage/' . $imagePath) }}" alt="Image">
+                                </a>
+                                <form method="POST" action="{{ route('delete_image') }}" class="delete-form">
+                                    @csrf
+                                    <input type="hidden" name="index" value="{{ $index }}">
+                                    <input type="hidden" name="id" value="{{ $property->id }}">
+                                    <button type="button" class="btn btn-danger delete-btn mt-3"><i class="fas fa-trash-alt"></i></button>
+                                </form>
+                            </div>
+                            @endforeach
+                        </div>
+                              </div>
+                              <br>
+
+                              <div class="row">
+                                <div class="col-md-6">
+                                    <form method="POST" action="{{ route('add_image') }}" enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{ $property->id }}">
+                                        <input class="form-control" type="file" name="image[]" multiple accept="image/*">
+                                        <br>
+                                        <button type="submit" class="btn btn-primary">Add Images</button>
+                                    </form>
+                                </div>
+                            </div>
+                            
                         </div>
 
                         <br>
@@ -315,12 +346,49 @@
 
 
                 </div>
+               
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+<style>
+    .btn-danger{
+        background-color: #fa3a22;
+    border-color: #fa3a22;
+    }
+    .btn-danger:hover{
+        background-color: #fa3a22;
+    border-color: #fa3a22;
+    transform: scale(1.1);
+    }
+    </style>
                 <script>
+                     $('.delete-btn').on('click', function() {
+        const form = $(this).closest('.delete-form');
+        
+        // Show SweetAlert confirmation dialog
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Submit the form if user confirms deletion
+                form.submit();
+            }
+        });
+    });
                     function autoResize(textarea) {
                         textarea.style.height = 'auto';
                         textarea.style.height = textarea.scrollHeight + 'px';
                     }
                     autoResize(document.getElementById('ad_details'));
+                    lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true
+    });
                 </script>
 
 

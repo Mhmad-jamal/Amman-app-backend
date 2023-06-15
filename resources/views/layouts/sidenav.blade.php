@@ -50,41 +50,28 @@
           <span class="sidebar-text">Dashboard</span>
         </a>
       </li>
-      <li class="nav-item {{ Request::segment(1) == 'users' ? 'active' : '' }}">
+      <li class="nav-item {{ request()->routeIs('view_user', 'edit_user','users') ? 'active' : '' }}">
         <a href="/users" class="nav-link">
           <span class="sidebar-icon"> <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 0C4.486 0 0 4.486 0 10v8h20v-8c0-5.514-4.486-10-10-10zm0 2c3.682 0 6.82 2.493 7.75 6H2.25C3.18 4.493 6.318 2 10 2zm0 16c-3.86 0-7-3.14-7-7a6.99 6.99 0 014.547-6.57A5.954 5.954 0 0010 2c3.86 0 7 3.14 7 7 0 1.657-.568 3.172-1.516 4.375A6.99 6.99 0 0110 18z"/>
           </svg>
           </span></span>
-          <span class="sidebar-text">Users</span>
+          <span class="sidebar-text">Clients</span>
         </a>
       </li>
-      {{--
       <li class="nav-item">
         <span class="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
           data-bs-target="#submenu-laravel" aria-expanded="true">
           <span>
             <span class="sidebar-icon"><i class="fab fa-laravel me-2" style="color: #fb503b;"></i></span>
-            <span class="sidebar-text" style="color: #fb503b;">Laravel Examples</span>
+            <span class="sidebar-text" style="color: #fb503b;">Properties</span>
           </span>
-          <span class="link-arrow"><svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd"
-                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                clip-rule="evenodd"></path>
-            </svg></span>
+          
         </span>
-        <div class="multi-level collapse show" role="list" id="submenu-laravel" aria-expanded="false">
-          <ul class="flex-column nav">
-            <li class="nav-item {{ Request::segment(1) == 'profile' ? 'active' : '' }}">
-              <a href="/profile" class="nav-link">
-                <span class="sidebar-text">Profile</span>
-              </a>
-            </li>
-         
-          </ul>
-        </div>
-      </li> 
+       
+      </li>
+      {{--
+    
       <li class="nav-item">
         <a href="https://themesberg.com/product/laravel/volt-pro-admin-dashboard-template" target="_blank" class="nav-link d-flex justify-content-between">
           <span>

@@ -142,17 +142,11 @@
                                         <th class="border-bottom">Id</th>
                                         <th class="border-bottom"> Section </th>
                                         <th class="border-bottom">sub section </th>
-                                        <th class="border-bottom">Room number</th>
-
-                                        <th class="border-bottom">bath number</th>
-                                        <th class="border-bottom">building area</th>
-                                        <th class="border-bottom">floor </th>
+                                        
                                         <th class="border-bottom">construction age </th>
                                         <th class="border-bottom">furnished </th>
-                                        <th class="border-bottom">features </th>
-                                        <th class="border-bottom">ad title </th>
-                                        <th class="border-bottom">ad details </th>
-                                        <th class="border-bottom">address </th>
+
+                                        
                                         <th class="border-bottom">status </th>
                                         <th class="border-bottom">Price </th>
 
@@ -170,46 +164,20 @@
                                             <td><span
                                                     class="fw-normal d-flex align-items-center">{{ $property->sub_section }}</span>
                                             </td>
-                                            <td><span class="fw-normal d-flex align-items-center"></span>
-                                                {{ $property->room_number }}</td>
+                                        
 
-                                            <td><span
-                                                    class="fw-normal d-flex align-items-center">{{ $property->bath_number }}</span>
-                                            </td>
-                                            <td><span
-                                                    class="fw-normal d-flex align-items-center">{{ $property->building_area }}</span>
-                                            </td>
+                                           
+                                    
 
-                                            <td><span
-                                                    class="fw-normal d-flex align-items-center">{{ $property->floor }}</span>
-                                            </td>
                                             <td><span
                                                     class="fw-normal d-flex align-items-center">{{ $property->construction_age }}</span>
                                             </td>
                                             <td><span
                                                     class="fw-normal d-flex align-items-center">{{ $property->furnished }}</span>
                                             </td>
-                                            <td>
-                                                <span class="fw-normal d-flex align-items-center">
-                                                    <?php
-                                                    foreach (json_decode($property->features) as $key => $value) {
-                                                            echo $value . ', ';
-                                                        
-                                                    }
-                                                    ?>
-                                                </span>
-                                            </td>
-                                            <td><span
-                                                    class="fw-normal d-flex align-items-center">{{ $property->ad_title }}</span>
-                                            </td>
-                                            <td>
-                                                <span
-                                                    class="fw-normal d-flex align-items-center text-truncate">{{ $property->ad_details }}</span>
-                                            </td>
+                                          
 
-                                            <td><span
-                                                    class="fw-normal d-flex align-items-center">{{ $property->address }}</span>
-                                            </td>
+                                    
                                             @if ($property->status==1)
                                             <td><span class="fw-normal d-flex align-items-center text-success">Active</span></td>
 
@@ -253,7 +221,7 @@
                                                             <span class="fas fa-edit"></span>
                                                             Edit Property
                                                         </a>
-                                                        <a class="dropdown-item text-danger d-flex align-items-center">
+                                                        <a class="dropdown-item text-danger d-flex align-items-center"  href="{{ route('properties_delete', ['id' => $property->id]) }}">
                                                             <span class="fas fa-trash-alt"></span>
                                                             Delete Property
                                                         </a>

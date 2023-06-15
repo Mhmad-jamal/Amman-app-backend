@@ -80,28 +80,24 @@
                            
                     
                     </div>
-                    @if ($user->customer_type=="owner")
+                @if (($user->customer_type == 'owner'))
+                    
+
                     <div class="card card-body shadow border-0 table-wrapper table-responsive">
-                        <h2 class="h5 mb-4"> User property</h2>
+                        <h2 class="h5 mb-4">Properties information</h2>
 
                         <table class="table user-table table-hover align-items-center" id="propertytable">
                             <thead>
                                 <tr>
-                                    
+
                                     <th class="border-bottom">Id</th>
                                     <th class="border-bottom"> Section </th>
                                     <th class="border-bottom">sub section </th>
-                                    <th class="border-bottom">Room number</th>
-                    
-                                    <th class="border-bottom">bath number</th>
-                                    <th class="border-bottom">building area</th>
-                                    <th class="border-bottom">floor </th>
+                                    
                                     <th class="border-bottom">construction age </th>
                                     <th class="border-bottom">furnished </th>
-                                    <th class="border-bottom">features </th>
-                                    <th class="border-bottom">ad title </th>
-                                    <th class="border-bottom">ad details </th>
-                                    <th class="border-bottom">address </th>
+
+                                    
                                     <th class="border-bottom">status </th>
                                     <th class="border-bottom">Price </th>
 
@@ -110,90 +106,86 @@
                             </thead>
                             <tbody>
                                 @foreach ($properties as $property)
-                                <tr>
+                                    <tr>
+
+                                        <td>
+                                            {{ $property->id }}
+                                        </td>
+                                        <td><span class="fw-normal"> {{ $property->section }}</span></td>
+                                        <td><span
+                                                class="fw-normal d-flex align-items-center">{{ $property->sub_section }}</span>
+                                        </td>
+                                    
+
+                                       
                                 
-                                    <td>
-                                      {{$property->id}}
-                                    </td>
-                                    <td><span class="fw-normal"> {{$property->section}}</span></td>
-                                    <td><span class="fw-normal d-flex align-items-center">{{$property->sub_section}}</span></td>
-                                    <td><span class="fw-normal d-flex align-items-center"></span> {{$property->room_number}}</td>
-                    
-                                                        <td><span class="fw-normal d-flex align-items-center">{{$property->bath_number}}</span></td>
-                                                        <td><span class="fw-normal d-flex align-items-center">{{$property->building_area}}</span></td>
 
-                                                        <td><span class="fw-normal d-flex align-items-center">{{$property->floor}}</span></td>
-                                                        <td><span class="fw-normal d-flex align-items-center">{{$property->construction_age}}</span></td>
-                                                        <td><span class="fw-normal d-flex align-items-center">{{$property->furnished}}</span></td>
-                                                        <td>
-                                                            <span class="fw-normal d-flex align-items-center">
-                                                              <?php 
-                                                             /*    foreach ($property->features as $key => $value) {
-                                                                  if ($value == 1) {
-                                                                    echo $key . ', ';
-                                                                  }
-                                                                } */
-                                                              ?>
-                                                            </span>
-                                                          </td>                                                        <td><span class="fw-normal d-flex align-items-center">{{$property->ad_title}}</span></td>
-                                                        <td>
-                                                            <span class="fw-normal d-flex align-items-center text-truncate">{{$property->ad_details}}</span>
-                                                          </td>
+                                        <td><span
+                                                class="fw-normal d-flex align-items-center">{{ $property->construction_age }}</span>
+                                        </td>
+                                        <td><span
+                                                class="fw-normal d-flex align-items-center">{{ $property->furnished }}</span>
+                                        </td>
+                                      
 
-                                                          <td><span class="fw-normal d-flex align-items-center">{{$property->address}}</span></td>
-                                                          @if ($property->status==1)
-                                                          <td><span class="fw-normal d-flex align-items-center text-success">Active</span></td>
+                                
+                                        @if ($property->status==1)
+                                        <td><span class="fw-normal d-flex align-items-center text-success">Active</span></td>
 
-                                                              
-                                                          @elseif ($property->status==0)
-                                                          <td><span class="fw-normal d-flex align-items-center text-warining">Draft</span></td>
+                                            
+                                        @elseif ($property->status==0)
+                                        <td><span class="fw-normal d-flex align-items-center text-warining">Draft</span></td>
 
-                                                          @else
-                                                          <td><span class="fw-normal d-flex align-items-center text-danger ">Delete</span></td>
+                                        @else
+                                        <td><span class="fw-normal d-flex align-items-center text-danger ">Delete</span></td>
 
-                                                          @endif
-
-                                                          <td><span class="fw-normal d-flex align-items-center">{{$property->price}}</span></td>
+                                        @endif
+                                        <td><span
+                                                class="fw-normal d-flex align-items-center">{{ $property->price }}</span>
+                                        </td>
 
 
+                                        <td>
 
-                                    <td>
-                    
-                                        <div class="btn-group">
-                                            <button class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
-                                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <svg class="icon icon-xs" fill="currentColor" viewBox="0 0 20 20"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z">
-                                                    </path>
-                                                </svg>
-                                                <span class="visually-hidden">Toggle Dropdown</span>
-                                            </button>
-                                            <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
-                                                <a class="dropdown-item d-flex align-items-center" href="{{ route('properties_view', ['id' => $property->id]) }}">
-                                                    <span class="fas fa-box "></span>
-                                                    View Details
-                                                </a>
-                                                <a class="dropdown-item d-flex align-items-center" href="{{ route('properties_edit', ['id' => $property->id]) }}">
-                                                    <span class="fas fa-edit"></span>
-                                                    Edit Property
-                                                </a>
-                                                <a class="dropdown-item text-danger d-flex align-items-center"   >
-                                                    <span class="fas fa-trash-alt"></span>
-                                                    Delete Property
-                                                </a>
+                                            <div class="btn-group">
+                                                <button
+                                                    class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
+                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                    <svg class="icon icon-xs" fill="currentColor"
+                                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z">
+                                                        </path>
+                                                    </svg>
+                                                    <span class="visually-hidden">Toggle Dropdown</span>
+                                                </button>
+                                                <div
+                                                    class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
+                                                    <a class="dropdown-item d-flex align-items-center"
+                                                        href="{{ route('properties_view', ['id' => $property->id]) }}">
+                                                        <span class="fas fa-box "></span>
+                                                        View Details
+                                                    </a>
+                                                    <a class="dropdown-item d-flex align-items-center"
+                                                        href="{{ route('properties_edit', ['id' => $property->id]) }}">
+                                                        <span class="fas fa-edit"></span>
+                                                        Edit Property
+                                                    </a>
+                                                    <a class="dropdown-item text-danger d-flex align-items-center"  href="{{ route('properties_delete', ['id' => $property->id]) }}">
+                                                        <span class="fas fa-trash-alt"></span>
+                                                        Delete Property
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <!-- Display other client details -->
-                            @endforeach
+                                        </td>
+                                    </tr>
+                                    <!-- Display other client details -->
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
-                        
-                    @endif
+                @endif
                     <br>
                     <br>
                   

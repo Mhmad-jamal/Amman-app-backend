@@ -74,8 +74,9 @@ class Users extends Component
     $client->active = $request->input('status');
 
     $client->save();
+    Alert::success('Success', 'Client  update successfully !');
 
-    return redirect()->route('edit_user', ['id' => $id])->with('success', 'User updated successfully');
+    return redirect()->route('edit_user', ['id' => $id]);
 }
 
     public function delete($id){
