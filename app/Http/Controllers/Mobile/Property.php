@@ -145,21 +145,24 @@ class Property extends Controller
     
     foreach ($filters as $field) {
         if ($request->has($field)) {
-            
+          
             $value = $request->input($field);
-            if($field=="min_price" && ($value!=""||$vlaue!=NULL )){
+           
+            if ($field == "min_price" && ($value != "" || $value != null)) {
                 $properties->where("properties.price", '>=', $value);
-
             }
-            if($field=="max_price" && ($value!=""||$vlaue!=NULL )){
+            else if ($field == "max_price" && ($value != "" || $value != null)) {
                 $properties->where("properties.price", '<=', $value);
-
             }
-            if($value!=""|| $value!=NULL){
-            $properties->where("properties.$field", $value);
+            else {
+                if ($value != "" && $value != null && $field != "max_price" && $field != "min_price") {
+                    $properties->where("properties.$field", $value);
+                }
             }
+            
+}
 
-        }
+        
     }
 
     
