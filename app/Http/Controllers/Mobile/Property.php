@@ -138,6 +138,8 @@ class Property extends Controller
         'owner_id',
         'electric_bill',
         'water_bill',
+        'min_price',
+        'max_price',
         // Add more field names here
     ];
     
@@ -145,9 +147,11 @@ class Property extends Controller
         if ($request->has($field)) {
             
             $value = $request->input($field);
+            
             if($value!=""|| $value!=NULL){
             $properties->where("properties.$field", $value);
             }
+
         }
     }
 
