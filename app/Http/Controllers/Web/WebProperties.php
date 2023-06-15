@@ -170,6 +170,10 @@ class WebProperties extends Controller
         return redirect()->back();
 
     }
+    public function view_all(){
+        return view('property.all-property');
+
+    }
     
 
  

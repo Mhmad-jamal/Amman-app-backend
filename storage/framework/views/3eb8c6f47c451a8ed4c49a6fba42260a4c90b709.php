@@ -59,7 +59,9 @@
           <span class="sidebar-text">Clients</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item <?php echo e(request()->routeIs('all_property', 'properties_edit','properties_view') ? 'active' : ''); ?>" >
+        <a href="<?php echo e(route('all_property')); ?>" class="nav-link">
+
         <span class="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
           data-bs-target="#submenu-laravel" aria-expanded="true">
           <span>
@@ -68,6 +70,7 @@
           </span>
           
         </span>
+      </a>
        
       </li>
       

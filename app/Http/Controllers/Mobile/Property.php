@@ -115,13 +115,12 @@ class Property extends Controller
     }
     public function getallpropertiesSearch(Request $request)
 {
-    $id = $request->input('owner_id');
-    $status = $request->input('status');
+    
 
     $properties = PropertyModel::join('clients', 'properties.owner_id', '=', 'clients.id')
         ->select('properties.*', 'clients.*');
 
-    $rules = [
+  /*   $rules = [
         'section',
         'sub_section',
         'room_number',
@@ -147,10 +146,30 @@ class Property extends Controller
             $properties->where("properties.$key", $value);
         }
     }
+    */
+    $filters = [
+        'section',
+        'sub_section',
+        'construction_age',
+        // Add more field names here
+    ];
+    
+    foreach ($filters as $field) {
+        if ($request->has($field)) {
+            $value = $request->input($field);
+            $properties->where("properties.$field", $value);
+        }
+    }
+    
+    $properties = $properties->get();
+    return response()->json([
+        'message' => 'All properties retrieved successfully',
+        'status' => 200,
+        'data' => $properties,
+    ]);
 
    
 
-    $properties = $properties->get();
 
     // Further processing or returning the results
     // ...

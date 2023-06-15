@@ -96,6 +96,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/properties/addimage', [WebProperties::class, 'addImage'])->name('add_image');
     Route::get('/properties/delte/{id}', [WebProperties::class, 'delete'])->name('properties_delete');
+    Route::get('/properties', [WebProperties::class, 'view_all'])->name('all_property');
 
     
 });

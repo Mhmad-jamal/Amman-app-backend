@@ -5,7 +5,7 @@
     <main class="content">
         {{-- TopBar --}}
         @include('layouts.topbar')
-        <title>Edit user</title>
+        <title>Edit Property</title>
         <div>
             <br>
             <form action="{{route('properties_update')}}" method="POST">
