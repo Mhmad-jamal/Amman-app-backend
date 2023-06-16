@@ -7,6 +7,9 @@ use App\Models\PropertyModel;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\LikeProperty;
+
+
 
 
 
@@ -273,5 +276,30 @@ class Property extends Controller
             'status' => 200,
             'data' => $property
         ], 200);
+    }
+    public function likeProperty(Request $request)
+    {
+
+       
+        $request->validate([
+            'client_id' => 'required|exists:clients,id',
+            'property_id' => 'required|exists:properties,id',
+            // Add validation rules for other columns if needed
+        ]);
+       
+        $likeProperty = new LikeProperty();
+          
+        $likeProperty->client_id = $request->input('client_id');
+        $likeProperty->property_id = $request->input('property_id');
+     
+        // Set values for other columns if needed
+      
+        $likeProperty->save();
+
+        return response()->json([
+            'message' => 'Value added for like_property successfully',
+            'status' => 200,
+            'data' => $likeProperty,
+        ]);
     }
 }
