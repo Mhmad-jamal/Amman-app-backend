@@ -160,7 +160,7 @@
                                         Edit Property
                                     </a>
                                     <a class="dropdown-item text-danger d-flex align-items-center"
-                                        href="/properties_delete/${property.id}">
+                                        href="/properties/delete/${property.id}">
                                         <span class="fas fa-trash-alt"></span>
                                         Delete Property
                                     </a>

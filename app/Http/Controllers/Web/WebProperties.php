@@ -161,9 +161,10 @@ class WebProperties extends Controller
 
     public function delete($id){
         $property = PropertyModel::findOrFail($id);
-        
-        // Delete the property record
-        $property->delete();
+    
+        // Change the property status to 2
+        $property->status = '2';
+        $property->save();
         Alert::success('Success', 'Property delete  successfully!');
 
         // Redirect back to the page or any other desired action

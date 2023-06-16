@@ -28,14 +28,16 @@ class Users extends Component
     }
     public function View($id){
         $user = Client::find($id);
-        $properties = PropertyModel::where('owner_id', $id)->get();
-   
+        $properties = PropertyModel::where('owner_id', $id)
+        ->where('status', '!=', '2')
+        ->get();   
         return view('view-user')->with('user', $user)->with('properties', $properties);
     }
     public function edit($id){
         $user = Client::find($id);
-        $properties = PropertyModel::where('owner_id', $id)->get();
-   
+        $properties = PropertyModel::where('owner_id', $id)
+        ->where('status', '!=', '2')
+        ->get();   
         return view('edit-user')->with('user', $user)->with('properties', $properties);
         
 
