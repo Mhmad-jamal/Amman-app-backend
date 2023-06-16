@@ -57,7 +57,7 @@
                 <div class="col-md-3">
 
                     <button class="btn mx-1 me-2 btn-secondary" style="margin-top:12%" id="submitbtn" type="button"><i
-                            class="fas fa-arrow-down mx-1"></i>Download</button>
+                            class="fas fa-search mx-1"></i>Search</button>
                 </div>
             </div>
             <div class="card card-body shadow border-0 table-wrapper table-responsive">
@@ -150,12 +150,12 @@
                                 </button>
                                 <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
                                     <a class="dropdown-item d-flex align-items-center"
-                                        href="/properties_view/${property.id}">
+                                    href="/properties/view/${property.id}">
                                         <span class="fas fa-box"></span>
                                         View Details
                                     </a>
                                     <a class="dropdown-item d-flex align-items-center"
-                                        href="/properties_edit/${property.id}">
+                                    href="/properties/edit/${property.id}">
                                         <span class="fas fa-edit"></span>
                                         Edit Property
                                     </a>
@@ -179,7 +179,7 @@
                 });
             });
             </script>
-            @include('layouts.footer')
-    </main>
+                </main>
+
 
 </x-layouts.base>

@@ -88,25 +88,25 @@ class Property extends Controller
         ]);
     }
     public function deleteproperty(Request $request) {
-        $id=$request->input('id');
-            $property = PropertyModel::findOrFail($id);
-            
-            // Delete the property record
-            $property->delete();
-            return response()->json([
-                'message' => 'Property delete successfully',
-                'status' => 200,
-          
-            ]);
+        $id = $request->input('id');
+        $property = PropertyModel::findOrFail($id);
     
-        
-        
+        // Change the property status to 2
+        $property->status = '2';
+        $property->save();
+    
+        return response()->json([
+            'message' => 'Property Delete successfully',
+            'status' => 200,
+        ]);
     }
     public function getallproperties()
-    {
-        $properties = PropertyModel::join('clients', 'properties.owner_id', '=', 'clients.id')
-            ->select('properties.*', 'clients.*')
-            ->get();
+    {$properties = PropertyModel::join('clients', 'properties.owner_id', '=', 'clients.id')
+        ->select('properties.id as id', 'clients.id as clients_id', 'properties.section', 'properties.sub_section', 'properties.room_number', 'properties.bath_number', 'properties.building_area', 'properties.floor', 'properties.construction_age', 'properties.furnished', 'properties.features', 'properties.price', 'properties.ad_title', 'properties.ad_details', 'properties.address', 'properties.status', 'properties.electric_bill', 'properties.water_bill', 'properties.image', 'properties.owner_id', 'properties.created_at', 'properties.updated_at', 'clients.name', 'clients.country_code', 'clients.phone', 'clients.nationalty_number', 'clients.email', 'clients.customer_type', 'clients.password', 'clients.active')
+        ->where('properties.status', '!=', '2')
+        ->get();
+
+
         return response()->json([
             'message' => 'All properties retrieved successfully',
             'status' => 200,
@@ -115,11 +115,6 @@ class Property extends Controller
     }
     public function getallpropertiesSearch(Request $request)
 {
-    
-
-    $properties = PropertyModel::join('clients', 'properties.owner_id', '=', 'clients.id')
-        ->select('properties.*', 'clients.*');
-
     $filters = [
         'section',
         'sub_section',
@@ -142,39 +137,58 @@ class Property extends Controller
         'max_price',
         // Add more field names here
     ];
-    
+    $properties = PropertyModel::join('clients', 'properties.owner_id', '=', 'clients.id')
+    ->select( 'properties.*', 'clients.name', 'clients.phone', 'clients.country_code','clients.nationalty_number')
+    ->where('properties.status', '!=', '2');
+
+
+
     foreach ($filters as $field) {
         if ($request->has($field)) {
-          
             $value = $request->input($field);
-           
+
             if ($field == "min_price" && ($value != "" || $value != null)) {
                 $properties->where("properties.price", '>=', $value);
-            }
-            else if ($field == "max_price" && ($value != "" || $value != null)) {
+            } elseif ($field == "max_price" && ($value != "" || $value != null)) {
                 $properties->where("properties.price", '<=', $value);
+            } elseif ($value != "" && $value != null && $field != "max_price" && $field != "min_price") {
+                $properties->where("properties.$field", $value);
             }
-            else {
-                if ($value != "" && $value != null && $field != "max_price" && $field != "min_price") {
-                    $properties->where("properties.$field", $value);
-                }
-            }
-            
-}
+        }
+    }
+    $order_by = $request->input('order_by');
 
-        
+    if (isset($order_by)) {
+        switch ($order_by) {
+            case 'newest':
+                $properties->orderBy('created_at', 'desc');
+                break;
+            case 'oldest':
+                $properties->orderBy('created_at', 'asc');
+                break;
+            case 'price_low':
+                $properties->orderBy('price', 'asc');
+                break;
+            case 'price_high':
+                $properties->orderBy('price', 'desc');
+                break;
+            // Add more cases for other order by options if needed
+            default:
+                // Handle invalid order by option
+                break;
+        }
     }
 
-    
-    
     $properties = $properties->get();
+
     return response()->json([
         'message' => 'All properties retrieved successfully',
         'status' => 200,
         'data' => $properties,
     ]);
 
-   
+
+
 
 
     // Further processing or returning the results

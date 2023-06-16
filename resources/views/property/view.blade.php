@@ -36,7 +36,7 @@
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
                                         <label for="sub_section">Sub Section <span class="text-danger">*</span></label>
-                                        <select  disabledclass="form-select mb-0" id="sub_section" name="sub_section">
+                                        <select  disabled class="form-select mb-0" id="sub_section" name="sub_section">
                                             <option value="Apartments" <?php echo $property->sub_section === 'Apartments' ? 'selected' : ''; ?>>Apartments</option>
                                             <option value="Villa - Palace" <?php echo $property->sub_section === 'Villa - Palace' ? 'selected' : ''; ?>>Villa - Palace</option>
                                             <option value="Townhouses" <?php echo $property->sub_section === 'Townhouses' ? 'selected' : ''; ?>>Townhouses</option>
@@ -215,7 +215,7 @@
                                     <div class="col-md-6 mb-3">
                                         <div class="form-group">
                                             <label for="ad_details">Ad details <span class="text-danger">*</span></label>
-                                            <textarea class="form-control" id="ad_details" name="ad_details" rows="1" oninput="autoResize(this)">{{ $property->ad_details }}</textarea>
+                                            <textarea disabled class="form-control" id="ad_details" name="ad_details" rows="1" oninput="autoResize(this)">{{ $property->ad_details }}</textarea>
                                             @if ($errors->has('ad_details'))
                                                 <span class="text-danger">{{ $errors->first('ad_details') }}</span>
                                             @endif

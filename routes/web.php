@@ -115,6 +115,6 @@ Route::any('api/getpropertiesbyclientId', [Property::class, 'getpropertiesbyclie
 Route::any('api/getpropertiesbySection', [Property::class, 'getpropertiesbySection']);
 Route::any('api/getpropertiesbyid', [Property::class, 'getpropertiesbyid']);
 Route::any('api/editpropety', [Property::class, 'editpropety']);
-Route::any('api/delteproperty', [Property::class, 'deleteproperty']);
+Route::any('api/deleteproperty', [Property::class, 'deleteproperty']);
 
 
