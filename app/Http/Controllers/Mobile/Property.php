@@ -44,6 +44,7 @@ class Property extends Controller
                 'status' => 201
             ], 201);
         }
+        
     
         $propertyData = $request->except('image');
         $propertyData['image'] = [];
@@ -230,6 +231,7 @@ class Property extends Controller
 
     public function getpropertiesbySection(Request $request)
     {
+        
         $section = $request->input('section');
 
         $properties = PropertyModel::where('section', $section)->get();
@@ -241,7 +243,7 @@ class Property extends Controller
         ]);
     }
     public function editpropety(Request $request)
-    {
+    {+
         $validator = Validator::make($request->all(), [
             'section' => 'required|in:Rent,Sale',
             'sub_section' => 'required',
@@ -279,29 +281,40 @@ class Property extends Controller
     }
     public function likeProperty(Request $request)
     {
-
-       
         $request->validate([
             'client_id' => 'required|exists:clients,id',
             'property_id' => 'required|exists:properties,id',
             // Add validation rules for other columns if needed
         ]);
-       
-        $likeProperty = new LikeProperty();
-          
-        $likeProperty->client_id = $request->input('client_id');
-        $likeProperty->property_id = $request->input('property_id');
-     
-        // Set values for other columns if needed
-      
-        $likeProperty->save();
-
-        return response()->json([
-            'message' => 'Value added for like_property successfully',
-            'status' => 200,
-            'data' => $likeProperty,
-        ]);
     
+        $client_id = $request->input('client_id');
+        $property_id = $request->input('property_id');
+    
+        $existingLikeProperty = LikeProperty::where('client_id', $client_id)
+            ->where('property_id', $property_id)
+            ->first();
+    
+        if ($existingLikeProperty) {
+            $existingLikeProperty->delete();
+            return response()->json([
+                'message' => 'remove  like property successfully',
+                'status' => 201,
+                'data' => "",
+            ]);
+        } else {
+            $likeProperty = new LikeProperty();
+            $likeProperty->client_id = $client_id;
+            $likeProperty->property_id = $property_id;
+            // Set values for other columns if needed
+            $likeProperty->save();
+            return response()->json([
+                'message' => ' added  like property successfully',
+                'status' => 200,
+                'data' => $likeProperty
+            ]);
+        }
+    
+      
     }
     public function getlikeProperty(Request $request){
     
