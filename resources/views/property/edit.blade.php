@@ -212,7 +212,7 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-md-4 mb-3">
                                         <div class="form-group">
                                             <label for="ad_details">Ad details <span class="text-danger">*</span></label>
                                             <textarea class="form-control" id="ad_details" name="ad_details" rows="1" oninput="autoResize(this)">{{ $property->ad_details }}</textarea>
@@ -221,7 +221,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-md-4 mb-3">
                                         <div class="form-group">
                                             <label for="address">Address <span class="text-danger">*</span></label>
                                             <input  class="form-control" id="address" name="address" type="text"
@@ -231,6 +231,19 @@
                                             @endif
                                         </div>
                                     </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="form-group">
+                                            <label for="payment_type">Payment Type <span class="text-danger"></span></label>
+                                            <select class="form-control" id="payment_type" name="payment_type">
+                                                <option value="cash" {{ $property->payment_type == 'cash' ? 'selected' : '' }}>Cash</option>
+                                                <option value="installments" {{ $property->payment_type == 'installments' ? 'selected' : '' }}>Installments</option>
+                                            </select>
+                                            @if ($errors->has('payment_type'))
+                                                <span class="text-danger">{{ $errors->first('payment_type') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    
                                 </div>
                               
                             

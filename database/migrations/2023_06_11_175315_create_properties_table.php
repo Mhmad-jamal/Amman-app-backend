@@ -25,6 +25,8 @@ class CreatePropertiesTable extends Migration
             $table->enum('status', [0, 1, 2]);
             $table->string('electric_bill')->nullable();
             $table->string('water_bill')->nullable();
+            $table->enum('payment_type', ['cash', 'installments'])->default('cash');
+
             $table->json('image')->nullable();
             $table->unsignedBigInteger('owner_id');
             $table->foreign('owner_id')->references('id')->on('clients');

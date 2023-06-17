@@ -35,6 +35,8 @@ class Property extends Controller
             'owner_id' => 'required|exists:clients,id',
             'electric_bill' => 'nullable',
             'water_bill' => 'nullable',
+            'payment_type'=>'nullable',
+
             'image.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validate image files
         ]);
     
@@ -139,6 +141,7 @@ class Property extends Controller
         'water_bill',
         'min_price',
         'max_price',
+        
         // Add more field names here
     ];
     $properties = PropertyModel::join('clients', 'properties.owner_id', '=', 'clients.id')
@@ -182,7 +185,10 @@ class Property extends Controller
                 break;
         }
     }
-
+    $take = $request->input('take');
+    if ($take && is_numeric($take)) {
+        $properties->take($take);
+    }
     $properties = $properties->get();
 
     return response()->json([

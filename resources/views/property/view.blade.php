@@ -20,7 +20,7 @@
                         <div class="row">
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
-                                        <label for="section">Section <span class="text-danger">*</span></label>
+                                        <label for="section">Section <span class="text-danger"></span></label>
                                         <select  disabled class="form-select mb-0" id="section" name="section">
                                             <option value="Sale"
                                                 {{ $property->section == 'Sale' ? 'selected' : '' }}>Sale</option>
@@ -35,7 +35,7 @@
 
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
-                                        <label for="sub_section">Sub Section <span class="text-danger">*</span></label>
+                                        <label for="sub_section">Sub Section <span class="text-danger"></span></label>
                                         <select  disabled class="form-select mb-0" id="sub_section" name="sub_section">
                                             <option value="Apartments" <?php echo $property->sub_section === 'Apartments' ? 'selected' : ''; ?>>Apartments</option>
                                             <option value="Villa - Palace" <?php echo $property->sub_section === 'Villa - Palace' ? 'selected' : ''; ?>>Villa - Palace</option>
@@ -55,7 +55,7 @@
 
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
-                                        <label for="room_number">Room number <span class="text-danger">*</span></label>
+                                        <label for="room_number">Room number <span class="text-danger"></span></label>
                                         <select  disabled name="room_number" class="form-select mb-0">
                                             <option value="1" {{$property->room_number == '1' ? 'selected' : ''}}>1</option>
                                             <option value="2" {{$property->room_number == '2' ? 'selected' : ''}}>2</option>
@@ -74,7 +74,7 @@
 
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
-                                        <label for="bath_number">Bath number <span class="text-danger">*</span></label>
+                                        <label for="bath_number">Bath number <span class="text-danger"></span></label>
                                         <select  disabled name="bath_number" class="form-select mb-0">
                                             <option value="One" {{$property->bath_number == 'One' ? 'selected' : ''}}>One</option>
 
@@ -94,7 +94,7 @@
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
                                             <label for="building_area">Building area <span
-                                                    class="text-danger">*</span></label>
+                                                    class="text-danger"></span></label>
                                                     <input disabled  class="form-control" name="building_area" id="building_area"
                                                     value="{{ $property->building_area }}" type="text">
                                                                                                       
@@ -105,7 +105,7 @@
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
-                                            <label for="floor">Floor <span class="text-danger">*</span></label>
+                                            <label for="floor">Floor <span class="text-danger"></span></label>
                                             <select  disabled class="form-select mb-0" id="floor" name="floor">
                                                 <option value="Basement" {{$property->floor == 'Basement' ? 'selected' : ''}}>Basement</option>
                                                 <option value="Ground Floor" {{$property->floor == 'Ground Floor' ? 'selected' : ''}}>Ground Floor</option>
@@ -126,7 +126,7 @@
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
                                             <label for="construction_age">Construction age <span
-                                                    class="text-danger">*</span></label>
+                                                    class="text-danger"></span></label>
                                                     <select  disabled class="form-select mb-0" id="construction_age" name="construction_age">
                                                         <option value="0-11 months" {{$property->construction_age == '0-11 months' ? 'selected' : ''}}>0-11 months</option>
                                                         <option value="1-5 years" {{$property->construction_age == '1-5 years' ? 'selected' : ''}}>1-5 years</option>
@@ -144,7 +144,7 @@
 
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
-                                            <label for="furnished">Furnished <span class="text-danger">*</span></label>
+                                            <label for="furnished">Furnished <span class="text-danger"></span></label>
                                             <select  disabled name="furnished" class="form-select mb-0">
                                                 <option value="Furnished" {{$property->furnished == 'Furnished' ? 'selected' : ''}}>Furnished</option>
                                                 <option value="Semi Furnished" {{$property->furnished == 'Semi Furnished' ? 'selected' : ''}}>Semi Furnished</option>
@@ -160,7 +160,7 @@
 
                                 <div class="row">
                                     <div class="col-md-3 mb-3">
-                                        <label for="status">Status <span class="text-danger">*</span></label>
+                                        <label for="status">Status <span class="text-danger"></span></label>
                                         <select  disabled class="form-select mb-0" id="status" name="status">
                                             <option value="0" {{ $property->status == '0' ? 'selected' : '' }}>
                                                 Draft</option>
@@ -176,7 +176,7 @@
 
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
-                                            <label for="ad_title">Ad title <span class="text-danger">*</span></label>
+                                            <label for="ad_title">Ad title <span class="text-danger"></span></label>
                                             <input disabled  class="form-control" id="ad_title" name="ad_title"
                                                 type="text" value="{{ $property->ad_title }}">
                                             @if ($errors->has('ad_title'))
@@ -188,7 +188,7 @@
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
                                             <label for="electric_bill">Electric bill <span
-                                                    class="text-danger">*</span></label>
+                                                    class="text-danger"></span></label>
                                             <input disabled  class="form-control" id="electric_bill" name="electric_bill"
                                                 type="text" value="{{ $property->electric_bill }}">
                                             @if ($errors->has('electric_bill'))
@@ -201,7 +201,7 @@
                                         
                                         <div class="form-group">
                                             <label for="water_bill">Water bill <span
-                                                    class="text-danger">*</span></label>
+                                                    class="text-danger"></span></label>
                                             <input disabled  class="form-control" id="water_bill" name="water_bill"
                                                 type="text" value="{{ $property->water_bill }}">
                                             @if ($errors->has('water_bill'))
@@ -212,22 +212,32 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-md-4 mb-3">
                                         <div class="form-group">
-                                            <label for="ad_details">Ad details <span class="text-danger">*</span></label>
+                                            <label for="ad_details">Ad details <span class="text-danger"></span></label>
                                             <textarea disabled class="form-control" id="ad_details" name="ad_details" rows="1" oninput="autoResize(this)">{{ $property->ad_details }}</textarea>
                                             @if ($errors->has('ad_details'))
                                                 <span class="text-danger">{{ $errors->first('ad_details') }}</span>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-md-4 mb-3">
                                         <div class="form-group">
-                                            <label for="address">Address <span class="text-danger">*</span></label>
+                                            <label for="address">Address <span class="text-danger"></span></label>
                                             <input disabled  class="form-control" id="address" name="address" type="text"
                                                 value="{{ $property->address }}">
                                             @if ($errors->has('address'))
                                                 <span class="text-danger">{{ $errors->first('address') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="form-group">
+                                            <label for="payment_type">Payment Type <span class="text-danger"></span></label>
+                                            <input disabled  class="form-control" id="payment_type" name="payment_type" type="text"
+                                            value="{{ $property->payment_type }}">
+                                            @if ($errors->has('payment_type'))
+                                                <span class="text-danger">{{ $errors->first('Paymen_type') }}</span>
                                             @endif
                                         </div>
                                     </div>
@@ -292,7 +302,7 @@
                                 <div class="row">
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
-                                            <label for="price">Price <span class="text-danger">*</span></label>
+                                            <label for="price">Price <span class="text-danger"></span></label>
                                             <input disabled  class="form-control" id="price" name="price" type="text"
                                                 value="{{ $property->price }}">
                                             @if ($errors->has('price'))

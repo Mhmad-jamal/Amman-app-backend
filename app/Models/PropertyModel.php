@@ -26,6 +26,7 @@ class PropertyModel extends Model
         'owner_id',
         'electric_bill',
         'water_bill',
+        'payment_type',
         'image',
     ];
     
