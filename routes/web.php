@@ -30,6 +30,8 @@ use App\Http\Controllers\Mobile\MobileRegisterController;
 use App\Http\Controllers\Mobile\LoginMobile;
 use App\Http\Controllers\Mobile\Property;
 use App\Http\Controllers\Web\WebProperties;
+use App\Http\Controllers\BannerController;
+
 
 
 
@@ -97,8 +99,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/properties/addimage', [WebProperties::class, 'addImage'])->name('add_image');
     Route::get('/properties/delete/{id}', [WebProperties::class, 'delete'])->name('properties_delete');
     Route::get('/properties', [WebProperties::class, 'view_all'])->name('all_property');
+// for banner 
+Route::get('/Banner/add', [BannerController::class, 'add'])->name('add_new_banner');
 
-    
+Route::post('/Banner/add', [BannerController::class, 'create'])->name('create_banner');
+
 });
 
 //route for mobile
