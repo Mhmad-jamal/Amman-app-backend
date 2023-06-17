@@ -317,13 +317,23 @@ class Property extends Controller
       
     }
     public function getlikeProperty(Request $request){
-    
-        // Do something with the retrieved liked properties
+   
+            $request->validate([
+                'client_id' => 'required|exists:clients,id',
+                // Add validation rules for other columns if needed
+            ]);
         
-        return response()->json([
-            'message' => 'Liked properties retrieved successfully',
-            'status' => 200,
-            'data' => $likedProperties,
-        ]);
-    }
+            $client_id = $request->input('client_id');
+        
+            $properties = LikeProperty::join('properties', 'like_property.property_id', '=', 'properties.id')
+                ->where('like_property.client_id', $client_id)
+                ->get(['properties.*']);
+        
+            return response()->json([
+                'message' => 'Properties retrieved successfully',
+                'status' => 200,
+                'data' => $properties,
+            ]);
+        }
+        
 }
