@@ -301,5 +301,16 @@ class Property extends Controller
             'status' => 200,
             'data' => $likeProperty,
         ]);
+    
+    }
+    public function getlikeProperty(Request $request){
+    
+        // Do something with the retrieved liked properties
+        
+        return response()->json([
+            'message' => 'Liked properties retrieved successfully',
+            'status' => 200,
+            'data' => $likedProperties,
+        ]);
     }
 }
