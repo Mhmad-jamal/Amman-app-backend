@@ -117,8 +117,11 @@ Route::post('/banner/delete', [BannerController::class, 'delete'])->name('delete
 Route::post('api/register', [MobileRegisterController::class, 'register']);
 Route::post('api/login', [LoginMobile::class, 'login']);
 // for property
-//add property
+
 Route::post('api/createproperty', [Property::class, 'Create']);
+Route::post('api/deletePropertyImage', [Property::class, 'deletePropertyImage']);
+
+
 Route::any('api/getallproperties', [Property::class, 'getallproperties']);
 Route::any('api/getallpropertiesSearch', [Property::class, 'getallpropertiesSearch']);
 
@@ -129,6 +132,9 @@ Route::any('api/editpropety', [Property::class, 'editpropety']);
 Route::any('api/deleteproperty', [Property::class, 'deleteproperty']);
 Route::any('api/likeProperty', [Property::class, 'likeProperty']);
 Route::any('api/getlikeProperty', [Property::class, 'getlikeProperty']);
+
+// for banner 
+
 Route::any('api/getbannerimage', [BannerMobileController::class, 'get']);
 
 

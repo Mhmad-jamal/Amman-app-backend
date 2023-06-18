@@ -39,4 +39,5 @@ class PropertyModel extends Model
     {
         return $this->belongsTo(Client::class, 'owner_id');
     }
+  
 }
