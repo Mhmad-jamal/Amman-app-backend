@@ -14,12 +14,14 @@ class Banner extends Model
     protected $fillable = [
         'id',
         'image',
+        'href',
         // Add other fillable attributes here
     ];
 
     protected $casts = [
         'id' => 'integer',
         'image' => 'array',
+        
     ];
 
     // Add any additional model configurations or relationships if needed

@@ -13,18 +13,28 @@ use Illuminate\Support\Facades\Storage;
 class BannerController extends Controller
 {
     //
-    public function add(){
-        return view('banner.add');
+    public function add()
+    {
+        $banners = Banner::all();
+        return view('banner.add')->with('banners', $banners);
     }
 
    public function create(Request $request)
 {
-    $request->validate([
+    $validator = Validator::make($request->all(), [
         'image.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
     ]);
-
+    if ($validator->fails()) {
+        $errors = $validator->errors();
+    
+        // Flash the error messages to the session
+        Alert::error('Validation Error', 'Please fix the following errors:')->footer($errors->all()[0]);
+    
+        return redirect()->back()->withErrors($errors)->withInput();
+    }
     $images = $request->file('image');
-
+    $href=$request->input("href");
+   
     if ($images) {
         if (is_array($images)) {
             foreach ($images as $image) {
@@ -36,7 +46,8 @@ class BannerController extends Controller
     
                 // Save the image path in the "banner" table
                 $banner = new Banner();
-                $banner->image = ['banner/' . $fileName]; // Store the path in an array
+                $banner->image = 'banner/' . $fileName; // Store the path as a string
+                $banner->href=$href;
                 $banner->save();
             }
         } else {
@@ -48,7 +59,8 @@ class BannerController extends Controller
     
             // Save the image path in the "banner" table
             $banner = new Banner();
-            $banner->image = ['banner/' . $fileName]; // Store the path in an array
+            $banner->image = 'banner/' . $fileName; // Store the path as a string
+            $banner->href=$href;
             $banner->save();
         }
         Alert::success('Success', 'Image(s) saved successfully!');

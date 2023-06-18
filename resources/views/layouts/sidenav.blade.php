@@ -78,7 +78,7 @@
   
       <li class="nav-item">
         <span
-          class="nav-link {{ Request::segment(1) !== 'add' ? 'collapsed' : '' }} d-flex justify-content-between align-items-center"
+          class="nav-link {{ Request::segment(1) == 'Banner' ? 'collapsed' : '' }} d-flex justify-content-between align-items-center"
           data-bs-toggle="collapse" data-bs-target="#submenu-app">
           <span>
             <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
@@ -96,24 +96,21 @@
                 clip-rule="evenodd"></path>
             </svg></span>
         </span>
-        <div class="multi-level collapse {{ Request::segment(1) == 'bootstrap-tables' ? 'show' : '' }}" role="list"
+        <div class="multi-level collapse {{ Request::segment(1) == 'Banner' ? 'show' : '' }}" role="list"
           id="submenu-app" aria-expanded="false">
           <ul class="flex-column nav">
-            <li class="nav-item {{ Request::segment(1) == 'bootstrap-tables' ? 'active' : '' }}">
+            <li class="nav-item {{ Request::segment(2) == 'add' ? 'active' : '' }}">
               <a class="nav-link" href="{{route('add_new_banner')}}">
-                <i class="fas fa-plus"></i> <!-- Font Awesome icon for "Add" -->
                 <span class="sidebar-text">Add</span>
               </a>
             </li>
             <li class="nav-item {{ Request::segment(1) == 'bootstrap-tables' ? 'active' : '' }}">
               <a class="nav-link" href="/bootstrap-tables">
-                <i class="fas fa-eye"></i> <!-- Font Awesome icon for "View" -->
                 <span class="sidebar-text">View</span>
               </a>
             </li>
             <li class="nav-item {{ Request::segment(3) == 'bootstrap-tables' ? 'active' : '' }}">
               <a class="nav-link" href="/bootstrap-tables">
-                <i class="fas fa-trash"></i> <!-- Font Awesome icon for "Delete" -->
                 <span class="sidebar-text">Delete</span>
               </a>
             </li>
@@ -121,8 +118,8 @@
           </ul>
         </div>
       </li>
-    
-      {{--  <li class="nav-item {{ Request::segment(1) == 'transactions' ? 'active' : '' }}">
+    {{--
+       <li class="nav-item {{ Request::segment(1) == 'transactions' ? 'active' : '' }}">
         <a href="/transactions" class="nav-link">
           <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg">

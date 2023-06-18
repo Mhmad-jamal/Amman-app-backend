@@ -78,7 +78,7 @@
   
       <li class="nav-item">
         <span
-          class="nav-link <?php echo e(Request::segment(1) !== 'add' ? 'collapsed' : ''); ?> d-flex justify-content-between align-items-center"
+          class="nav-link <?php echo e(Request::segment(1) == 'Banner' ? 'collapsed' : ''); ?> d-flex justify-content-between align-items-center"
           data-bs-toggle="collapse" data-bs-target="#submenu-app">
           <span>
             <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
@@ -96,24 +96,21 @@
                 clip-rule="evenodd"></path>
             </svg></span>
         </span>
-        <div class="multi-level collapse <?php echo e(Request::segment(1) == 'bootstrap-tables' ? 'show' : ''); ?>" role="list"
+        <div class="multi-level collapse <?php echo e(Request::segment(1) == 'Banner' ? 'show' : ''); ?>" role="list"
           id="submenu-app" aria-expanded="false">
           <ul class="flex-column nav">
-            <li class="nav-item <?php echo e(Request::segment(1) == 'bootstrap-tables' ? 'active' : ''); ?>">
+            <li class="nav-item <?php echo e(Request::segment(2) == 'add' ? 'active' : ''); ?>">
               <a class="nav-link" href="<?php echo e(route('add_new_banner')); ?>">
-                <i class="fas fa-plus"></i> <!-- Font Awesome icon for "Add" -->
                 <span class="sidebar-text">Add</span>
               </a>
             </li>
             <li class="nav-item <?php echo e(Request::segment(1) == 'bootstrap-tables' ? 'active' : ''); ?>">
               <a class="nav-link" href="/bootstrap-tables">
-                <i class="fas fa-eye"></i> <!-- Font Awesome icon for "View" -->
                 <span class="sidebar-text">View</span>
               </a>
             </li>
             <li class="nav-item <?php echo e(Request::segment(3) == 'bootstrap-tables' ? 'active' : ''); ?>">
               <a class="nav-link" href="/bootstrap-tables">
-                <i class="fas fa-trash"></i> <!-- Font Awesome icon for "Delete" -->
                 <span class="sidebar-text">Delete</span>
               </a>
             </li>
@@ -122,7 +119,6 @@
         </div>
       </li>
     
-      
     </ul>
   </div>
 </nav><?php /**PATH D:\github\Amman-app-backend\resources\views/layouts/sidenav.blade.php ENDPATH**/ ?>

@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('banner', function (Blueprint $table) {
             $table->id();
             $table->json('image');
+            $table->string('href');
+
             // Add other columns if needed
             $table->timestamps();
         });
