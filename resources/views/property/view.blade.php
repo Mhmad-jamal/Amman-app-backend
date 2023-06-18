@@ -5,11 +5,10 @@
     <main class="content">
         {{-- TopBar --}}
         @include('layouts.topbar')
-        <title>Edit user</title>
+        <title>Edit Property</title>
         <div>
             <br>
-            <form action="{{route('properties_update')}}" method="POST">
-@csrf
+
             <div class="row">
                 <div class="col-12 ">
                     <div class="card card-body border-0 shadow mb-4">
@@ -20,8 +19,8 @@
                         <div class="row">
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
-                                        <label for="section">Section <span class="text-danger"></span></label>
-                                        <select  disabled class="form-select mb-0" id="section" name="section">
+                                        <label for="section">Section <span class="text-danger">*</span></label>
+                                        <select disabled  class="form-select mb-0" id="section" name="section">
                                             <option value="Sale"
                                                 {{ $property->section == 'Sale' ? 'selected' : '' }}>Sale</option>
                                             <option value="Rent"
@@ -35,8 +34,8 @@
 
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
-                                        <label for="sub_section">Sub Section <span class="text-danger"></span></label>
-                                        <select  disabled class="form-select mb-0" id="sub_section" name="sub_section">
+                                        <label for="sub_section">Sub Section <span class="text-danger">*</span></label>
+                                        <select disabled class="form-select mb-0" id="sub_section" name="sub_section">
                                             <option value="Apartments" <?php echo $property->sub_section === 'Apartments' ? 'selected' : ''; ?>>Apartments</option>
                                             <option value="Villa - Palace" <?php echo $property->sub_section === 'Villa - Palace' ? 'selected' : ''; ?>>Villa - Palace</option>
                                             <option value="Townhouses" <?php echo $property->sub_section === 'Townhouses' ? 'selected' : ''; ?>>Townhouses</option>
@@ -55,8 +54,8 @@
 
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
-                                        <label for="room_number">Room number <span class="text-danger"></span></label>
-                                        <select  disabled name="room_number" class="form-select mb-0">
+                                        <label for="room_number">Room number <span class="text-danger">*</span></label>
+                                        <select disabled  name="room_number" class="form-select mb-0">
                                             <option value="1" {{$property->room_number == '1' ? 'selected' : ''}}>1</option>
                                             <option value="2" {{$property->room_number == '2' ? 'selected' : ''}}>2</option>
                                             <option value="3" {{$property->room_number == '3' ? 'selected' : ''}}>3</option>
@@ -74,8 +73,8 @@
 
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
-                                        <label for="bath_number">Bath number <span class="text-danger"></span></label>
-                                        <select  disabled name="bath_number" class="form-select mb-0">
+                                        <label for="bath_number">Bath number <span class="text-danger">*</span></label>
+                                        <select disabled  name="bath_number" class="form-select mb-0">
                                             <option value="One" {{$property->bath_number == 'One' ? 'selected' : ''}}>One</option>
 
                                             <option value="2" {{$property->bath_number == '2' ? 'selected' : ''}}>2</option>
@@ -94,7 +93,7 @@
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
                                             <label for="building_area">Building area <span
-                                                    class="text-danger"></span></label>
+                                                    class="text-danger">*</span></label>
                                                     <input disabled  class="form-control" name="building_area" id="building_area"
                                                     value="{{ $property->building_area }}" type="text">
                                                                                                       
@@ -105,8 +104,8 @@
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
-                                            <label for="floor">Floor <span class="text-danger"></span></label>
-                                            <select  disabled class="form-select mb-0" id="floor" name="floor">
+                                            <label for="floor">Floor <span class="text-danger">*</span></label>
+                                            <select disabled  class="form-select mb-0" id="floor" name="floor">
                                                 <option value="Basement" {{$property->floor == 'Basement' ? 'selected' : ''}}>Basement</option>
                                                 <option value="Ground Floor" {{$property->floor == 'Ground Floor' ? 'selected' : ''}}>Ground Floor</option>
                                                 <option value="First Floor" {{$property->floor == 'First Floor' ? 'selected' : ''}}>First Floor</option>
@@ -126,8 +125,8 @@
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
                                             <label for="construction_age">Construction age <span
-                                                    class="text-danger"></span></label>
-                                                    <select  disabled class="form-select mb-0" id="construction_age" name="construction_age">
+                                                    class="text-danger">*</span></label>
+                                                    <select disabled  class="form-select mb-0" id="construction_age" name="construction_age">
                                                         <option value="0-11 months" {{$property->construction_age == '0-11 months' ? 'selected' : ''}}>0-11 months</option>
                                                         <option value="1-5 years" {{$property->construction_age == '1-5 years' ? 'selected' : ''}}>1-5 years</option>
                                                         <option value="6-9 years" {{$property->construction_age == '6-9 years' ? 'selected' : ''}}>6-9 years</option>
@@ -144,8 +143,8 @@
 
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
-                                            <label for="furnished">Furnished <span class="text-danger"></span></label>
-                                            <select  disabled name="furnished" class="form-select mb-0">
+                                            <label for="furnished">Furnished <span class="text-danger">*</span></label>
+                                            <select disabled  name="furnished" class="form-select mb-0">
                                                 <option value="Furnished" {{$property->furnished == 'Furnished' ? 'selected' : ''}}>Furnished</option>
                                                 <option value="Semi Furnished" {{$property->furnished == 'Semi Furnished' ? 'selected' : ''}}>Semi Furnished</option>
                                                 <option value="Unfurnished" {{$property->furnished == 'Unfurnished' ? 'selected' : ''}}>Unfurnished</option>
@@ -160,8 +159,8 @@
 
                                 <div class="row">
                                     <div class="col-md-3 mb-3">
-                                        <label for="status">Status <span class="text-danger"></span></label>
-                                        <select  disabled class="form-select mb-0" id="status" name="status">
+                                        <label for="status">Status <span class="text-danger">*</span></label>
+                                        <select disabled  class="form-select mb-0" id="status" name="status">
                                             <option value="0" {{ $property->status == '0' ? 'selected' : '' }}>
                                                 Draft</option>
                                             <option value="1" {{ $property->status == '1' ? 'selected' : '' }}>
@@ -176,7 +175,7 @@
 
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
-                                            <label for="ad_title">Ad title <span class="text-danger"></span></label>
+                                            <label for="ad_title">Ad title <span class="text-danger">*</span></label>
                                             <input disabled  class="form-control" id="ad_title" name="ad_title"
                                                 type="text" value="{{ $property->ad_title }}">
                                             @if ($errors->has('ad_title'))
@@ -188,7 +187,7 @@
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
                                             <label for="electric_bill">Electric bill <span
-                                                    class="text-danger"></span></label>
+                                                    class="text-danger">*</span></label>
                                             <input disabled  class="form-control" id="electric_bill" name="electric_bill"
                                                 type="text" value="{{ $property->electric_bill }}">
                                             @if ($errors->has('electric_bill'))
@@ -201,7 +200,7 @@
                                         
                                         <div class="form-group">
                                             <label for="water_bill">Water bill <span
-                                                    class="text-danger"></span></label>
+                                                    class="text-danger">*</span></label>
                                             <input disabled  class="form-control" id="water_bill" name="water_bill"
                                                 type="text" value="{{ $property->water_bill }}">
                                             @if ($errors->has('water_bill'))
@@ -214,8 +213,8 @@
                                 <div class="row">
                                     <div class="col-md-4 mb-3">
                                         <div class="form-group">
-                                            <label for="ad_details">Ad details <span class="text-danger"></span></label>
-                                            <textarea disabled class="form-control" id="ad_details" name="ad_details" rows="1" oninput="autoResize(this)">{{ $property->ad_details }}</textarea>
+                                            <label for="ad_details">Ad details <span class="text-danger">*</span></label>
+                                            <textarea disabled class="form-control" id="ad_details" name="ad_details" rows="1" oninput disabled="autoResize(this)">{{ $property->ad_details }}</textarea>
                                             @if ($errors->has('ad_details'))
                                                 <span class="text-danger">{{ $errors->first('ad_details') }}</span>
                                             @endif
@@ -223,7 +222,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="form-group">
-                                            <label for="address">Address <span class="text-danger"></span></label>
+                                            <label for="address">Address <span class="text-danger">*</span></label>
                                             <input disabled  class="form-control" id="address" name="address" type="text"
                                                 value="{{ $property->address }}">
                                             @if ($errors->has('address'))
@@ -234,28 +233,21 @@
                                     <div class="col-md-4 mb-3">
                                         <div class="form-group">
                                             <label for="payment_type">Payment Type <span class="text-danger"></span></label>
-                                            <input disabled  class="form-control" id="payment_type" name="payment_type" type="text"
-                                            value="{{ $property->payment_type }}">
+                                            <select disabled class="form-control" id="payment_type" name="payment_type">
+                                                <option value="cash" {{ $property->payment_type == 'cash' ? 'selected' : '' }}>Cash</option>
+                                                <option value="installments" {{ $property->payment_type == 'installments' ? 'selected' : '' }}>Installments</option>
+                                            </select>
                                             @if ($errors->has('payment_type'))
-                                                <span class="text-danger">{{ $errors->first('Paymen_type') }}</span>
+                                                <span class="text-danger">{{ $errors->first('payment_type') }}</span>
                                             @endif
                                         </div>
                                     </div>
+                                    
                                 </div>
-                                    @php
-                                    $images = json_decode($property->image, true);
-                                    @endphp
-                                
-                                <div class="row">
-                                    @foreach ($images as $imagePath)
-                                    <div class="col-md-3">
-                                        <img src="{{ asset('storage/' . $imagePath) }}" alt="Image">
-                                    </div>
-                                @endforeach
-                                
-                                </div>
-                           
-                                
+                              
+                            
+                            <div class="row">
+                            
                                 <div class="form-group">
                                     <label for="features">Features</label>
                                     <br>
@@ -298,11 +290,15 @@
                                         @endif
                                     @endforeach
                                 </div>
-                              
+                            </div>
+                           
+                    
+                        
+                        
                                 <div class="row">
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
-                                            <label for="price">Price <span class="text-danger"></span></label>
+                                            <label for="price">Price <span class="text-danger">*</span></label>
                                             <input disabled  class="form-control" id="price" name="price" type="text"
                                                 value="{{ $property->price }}">
                                             @if ($errors->has('price'))
@@ -311,8 +307,31 @@
                                         </div>
                                     </div>
                                 </div>
+                               
+                            <br>
+                            <div class="row">
+                                <h2 class="h5 mb-4">Property Images</h2>
+                                <br>
+                                @php
+                                $images = json_decode($property->image, true);
+                                 @endphp
+                         <div class="row">
+                            @foreach ($images as $index => $imagePath)
+                            <div class="col-md-3 d-flex flex-column align-items-center">
+                                <a href="{{ asset('storage/' . $imagePath) }}" data-lightbox="property-gallery">
+                                    <img style="width: 100%; height: 150px;" class="property-image" src="{{ asset('storage/' . $imagePath) }}" alt="Image">
+                                </a>
+                                    <input disabled type="hidden" name="index" value="{{ $index }}">
+                                    <input disabled type="hidden" name="id" value="{{ $property->id }}">
+                           
+                            </div>
+                            @endforeach
+                        </div>
+                              </div>
+                              <br>
+
+                             
                             
-                            </form>
                         </div>
 
                         <br>
@@ -322,12 +341,49 @@
 
 
                 </div>
+               
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+<style>
+    .btn-danger{
+        background-color: #fa3a22;
+    border-color: #fa3a22;
+    }
+    .btn-danger:hover{
+        background-color: #fa3a22;
+    border-color: #fa3a22;
+    transform: scale(1.1);
+    }
+    </style>
                 <script>
+                     $('.delete-btn').on('click', function() {
+        const form = $(this).closest('.delete-form');
+        
+        // Show SweetAlert confirmation dialog
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Submit the form if user confirms deletion
+                form.submit();
+            }
+        });
+    });
                     function autoResize(textarea) {
                         textarea.style.height = 'auto';
                         textarea.style.height = textarea.scrollHeight + 'px';
                     }
                     autoResize(document.getElementById('ad_details'));
+                    lightbox.option({
+        'resizeDuration': 200,
+        'wrapAround': true
+    });
                 </script>
 
 
