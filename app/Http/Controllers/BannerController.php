@@ -18,7 +18,64 @@ class BannerController extends Controller
         $banners = Banner::all();
         return view('banner.add')->with('banners', $banners);
     }
+    public function view()
+    {
+        $banners = Banner::all();
+        return view('banner.view')->with('banners', $banners);
+    }
+    public function edit()
+    {
+        $banners = Banner::all();
+        return view('banner.edit')->with('banners', $banners);
+    }
+    public function update(Request $request){
 
+        $id = $request->input('id');
+        $href = $request->input('href');
+        $banner = Banner::find($id);
+        $banner->href = $href;
+        $banner->save();
+        if (!$banner) {
+            return response()->json(['status'=>201,'message' => 'Banner not found'], 404);
+        }
+        
+        if (!$banner->save()) {
+            return response()->json(['status'=>201,'message' => 'Failed to update banner'], 500);
+        }
+        
+        return response()->json([
+            'status'=>200
+            ,'message' => 'Banner updated successfully']);
+    }
+    public function delete(Request $request)
+    {
+        $id = $request->input('id');
+        
+        // Find the banner by ID
+        $banner = Banner::find($id);
+        
+        if (!$banner) {
+
+            Alert::warning('Warning', 'the image not found!');
+
+            // Banner not found
+            
+            return redirect()->back();
+        }
+        
+        // Delete the banner
+        if ($banner->delete()) {
+            Alert::success('Success', 'Image delete successfully!');
+
+            // Banner deleted successfully
+            return redirect()->back();
+        } else {
+            // Failed to delete the banner
+            Alert::errorr('Error', 'sorry something worng!');
+
+            return redirect()->back();
+        }
+    }
    public function create(Request $request)
 {
     $validator = Validator::make($request->all(), [

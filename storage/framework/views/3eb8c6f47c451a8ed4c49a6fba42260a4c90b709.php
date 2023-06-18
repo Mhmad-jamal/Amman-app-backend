@@ -104,14 +104,14 @@
                 <span class="sidebar-text">Add</span>
               </a>
             </li>
-            <li class="nav-item <?php echo e(Request::segment(1) == 'bootstrap-tables' ? 'active' : ''); ?>">
-              <a class="nav-link" href="/bootstrap-tables">
+            <li class="nav-item <?php echo e(Request::segment(2) == 'view' ? 'active' : ''); ?>">
+              <a class="nav-link" href="<?php echo e(route('view_banner')); ?>">
                 <span class="sidebar-text">View</span>
               </a>
             </li>
-            <li class="nav-item <?php echo e(Request::segment(3) == 'bootstrap-tables' ? 'active' : ''); ?>">
-              <a class="nav-link" href="/bootstrap-tables">
-                <span class="sidebar-text">Delete</span>
+            <li class="nav-item <?php echo e(Request::segment(2) == 'edit' ? 'active' : ''); ?>">
+              <a class="nav-link" href="<?php echo e(route('edit_banner')); ?>">
+                <span class="sidebar-text">Edit</span>
               </a>
             </li>
             

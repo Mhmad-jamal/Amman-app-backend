@@ -31,6 +31,7 @@ use App\Http\Controllers\Mobile\LoginMobile;
 use App\Http\Controllers\Mobile\Property;
 use App\Http\Controllers\Web\WebProperties;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\Mobile\BannerMobileController;
 
 
 
@@ -101,8 +102,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/properties', [WebProperties::class, 'view_all'])->name('all_property');
 // for banner 
 Route::get('/Banner/add', [BannerController::class, 'add'])->name('add_new_banner');
+Route::get('/Banner/view', [BannerController::class, 'view'])->name('view_banner');
+Route::get('/Banner/edit', [BannerController::class, 'edit'])->name('edit_banner');
 
 Route::post('/Banner/add', [BannerController::class, 'create'])->name('create_banner');
+Route::post('/api/update/banner', [BannerController::class, 'update'])->name('update_banner');
+Route::post('/banner/delete', [BannerController::class, 'delete'])->name('delete_banner_image');
+
 
 });
 
@@ -123,6 +129,7 @@ Route::any('api/editpropety', [Property::class, 'editpropety']);
 Route::any('api/deleteproperty', [Property::class, 'deleteproperty']);
 Route::any('api/likeProperty', [Property::class, 'likeProperty']);
 Route::any('api/getlikeProperty', [Property::class, 'getlikeProperty']);
+Route::any('api/getbannerimage', [BannerMobileController::class, 'get']);
 
 
 
