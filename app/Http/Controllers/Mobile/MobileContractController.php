@@ -71,5 +71,25 @@ class MobileContractController extends Controller
             'contract' => $contract,
         ], 200);
     }
+    public function update(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'price' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors(),
+            ]);
+        }
+        $contract = Contract::findOrFail($id);
+        $contract->update($request->all());
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Contract updated successfully',
+        ]);
+    }
     
 }
