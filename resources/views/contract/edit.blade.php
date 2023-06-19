@@ -180,12 +180,16 @@ for (var entry of formData.entries()) {
     contentType: false,
     processData: false,
     success: function(data) {
-      console.log(data);
-      // Handle the response
-    },
-    error: function(error) {
-      // Handle the error
+      if (data.status === 200) {
+      Swal.fire('Success', 'Contract updated successfully', 'success');
+    } else {
+      Swal.fire('Error', 'Failed to update contract', 'error');
     }
+  },
+  error: function(error) {
+    // Handle the error
+    Swal.fire('Error', 'An error occurred', 'error');
+  }
   });
     });
 });
