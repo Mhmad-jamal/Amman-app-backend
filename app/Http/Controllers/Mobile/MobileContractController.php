@@ -93,7 +93,7 @@ class MobileContractController extends Controller
     }
     public function  get(Request $request) {
        $owner_id=$request->input('owner_id');
-        $contract = Contract::where('owner_id',$owner_id)->firstOrFail();
+        $contract = Contract::where('owner_id',$owner_id)->get();
       
         return response()->json([
             'message' => 'contract retrieved successfully',
