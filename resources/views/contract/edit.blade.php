@@ -180,7 +180,8 @@ for (var entry of formData.entries()) {
     contentType: false,
     processData: false,
     success: function(data) {
-      if (data.status === 200) {
+      console.log(data.status);
+      if (data.status == 200) {
       Swal.fire('Success', 'Contract updated successfully', 'success');
     } else {
       Swal.fire('Error', 'Failed to update contract', 'error');
