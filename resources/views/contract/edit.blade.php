@@ -172,7 +172,7 @@ for (var entry of formData.entries()) {
 
   // Send the data to the server
   $.ajax({
-    url: 'api/cotnract/update',
+    url: '../../api/cotnract/update',
     type: 'POST',
     data: formData,
     cache: false,
