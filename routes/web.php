@@ -31,6 +31,10 @@ use App\Http\Controllers\Mobile\LoginMobile;
 use App\Http\Controllers\Mobile\Property;
 use App\Http\Controllers\Web\WebProperties;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\ContractController;
+use App\Http\Controllers\Mobile\MobileContractController;
+
+
 use App\Http\Controllers\Mobile\BannerMobileController;
 
 
@@ -105,6 +109,12 @@ Route::get('/Banner/add', [BannerController::class, 'add'])->name('add_new_banne
 Route::get('/Banner/view', [BannerController::class, 'view'])->name('view_banner');
 Route::get('/Banner/edit', [BannerController::class, 'edit'])->name('edit_banner');
 
+// end bannner
+// contract
+Route::get('/Contract/add', [ContractController::class, 'add'])->name('add_new_contract');
+Route::get('/Contract/view', [ContractController::class, 'view'])->name('view_contract');
+Route::get('/Contract/edit/{id}', [ContractController::class, 'edit'])->name('edit_contract');
+// end contract 
 Route::post('/Banner/add', [BannerController::class, 'create'])->name('create_banner');
 Route::post('/api/update/banner', [BannerController::class, 'update'])->name('update_banner');
 Route::post('/banner/delete', [BannerController::class, 'delete'])->name('delete_banner_image');
@@ -136,6 +146,8 @@ Route::any('api/getlikeProperty', [Property::class, 'getlikeProperty']);
 // for banner 
 
 Route::any('api/getbannerimage', [BannerMobileController::class, 'get']);
+// for contract
+Route::any('api/cotnract/create', [MobileContractController::class, 'create']);
 
 
 

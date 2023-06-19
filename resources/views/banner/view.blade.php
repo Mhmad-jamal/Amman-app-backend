@@ -7,7 +7,7 @@
     <main class="content">
         {{-- TopBar --}}
         @include('layouts.topbar')
-        <title>View user</title>
+        <title>View </title>
         <div>
           <br>
          
