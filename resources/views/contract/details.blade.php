@@ -15,7 +15,7 @@
            <div class="row">
             <div class="col-md-3">
                 <label for="owner_name"> name</label>
-                <input  disabledtype="text" disabled class="form-control is-valid" id="owner_name" value="{{$contract->owner_name}}" required="">
+                <input   type="text" disabled class="form-control is-valid" id="owner_name" value="{{$contract->owner_name}}" required="">
                 <div class="valid-feedback">
                     
                 </div>  
@@ -23,12 +23,12 @@
            
             <div class="col-md-3">
                 <label for="owner_name"> Phone</label>
-                <input  disableddisabled type="text" class="form-control " id="owner_name" value="{{$contract->owner_country_code.'-'.$contract->owner_phone}}" required="">
+                <input  disabled  type="text" class="form-control " id="owner_name" value="{{$contract->owner_country_code.'-'.$contract->owner_phone}}" required="">
                 
             </div>
             <div class="col-md-3">
                 <label for="owner_name"> Nationality ID</label>
-                <input  disabledtype="text"  name="user_national_number" class="form-control " id="owner_name" value="{{$contract->owner_nationalty_number}}" disabled required="">
+                <input  disabled type="text"  name="user_national_number" class="form-control " id="owner_name" value="{{$contract->owner_nationalty_number}}" disabled required="">
                 
             </div>
             <div class="col-md-3  pt-3">
@@ -49,19 +49,19 @@
            <div class="row">
             <div class="col-md-4">
                 <label for="client_name"> Name</label>
-                <input  disabledtype="text" class="form-control is-valid" name="client_name" id="client_name" value="{{$contract->client_name}}" required="">
+                <input  disabled type="text" class="form-control is-valid" name="client_name" id="client_name" value="{{$contract->client_name}}" required="">
                 <div class="valid-feedback">
                     
                 </div>  
             </div>
             <div class="col-md-4">
                 <label for="client_phone">Phone</label>
-                <input  disabledtype="text" class="form-control" name="client_phone" id="client_phone" value="{{$contract->client_phone}}" required="">
+                <input  disabled type="text" class="form-control" name="client_phone" id="client_phone" value="{{$contract->client_phone}}" required="">
                 
             </div>
             <div class="col-md-4">
                 <label for="user_national_number"> Nationality ID</label>
-                <input  disableddisabled type="text" name="user_national_number" class="form-control " id="user_national_number" value="{{$contract->user_national_number}}" required="">
+                <input  disabled type="text" name="user_national_number" class="form-control " id="user_national_number" value="{{$contract->user_national_number}}" required="">
                 
             </div>
             
@@ -74,12 +74,12 @@
            <div class="row">
             <div class="col-md-4">
                 <label for="start_date"> Start Date</label>
-                <input  disabledtype="date" class="form-control " name="start_date" id="start_date" value="{{$contract->start_date}}" required="">
+                <input  disabled type="date" class="form-control " name="start_date" id="start_date" value="{{$contract->start_date}}" required="">
              
             </div>
             <div class="col-md-4">
                 <label for="end_date"> End Date</label>
-                <input  disabledtype="date" class="form-control " id="end_date" name="end_date" value="{{$contract->end_date}}" required="">
+                <input  disabled type="date" class="form-control " id="end_date" name="end_date" value="{{$contract->end_date}}" required="">
                 
             </div>
             <div class="col-md-4">
@@ -89,11 +89,11 @@
             </div>
             <div class="col-md-4">
                 <label for="discount">Discount</label>
-                <input  disabledtype="text" class="form-control" id="discount" name="discount" value="{{$contract->discount}}" required="">
+                <input  disabled type="text" class="form-control" id="discount" name="discount" value="{{$contract->discount}}" required="">
             </div>
             <div class="col-md-4">
                 <label for="price">price</label>
-                <input  disabledtype="text" class="form-control" id="price" name="price" value="{{$contract->price}}" required="">
+                <input  disabled type="text" class="form-control" id="price" name="price" value="{{$contract->price}}" required="">
             </div>
            </div>
           @php
@@ -104,11 +104,11 @@
            <div class="row due_dates">
              <div class="col-md-3">
                <label for="dateFormat">Date</label>
-               <input  disabledtype="date" class="form-control" id="dateFormat{{$key}}" name="dateFormat" value="{{$item->dateFormat}}" required="">
+               <input  disabled type="date" class="form-control" id="dateFormat{{$key}}" name="dateFormat" value="{{$item->dateFormat}}" required="">
              </div>
              <div class="col-md-3">
                <label for="amount">amount</label>
-               <input  disabledtype="text" class="form-control" id="amount{{$key}}" name="amount" value="{{$item->amount}}" required="">
+               <input  disabled type="text" class="form-control" id="amount{{$key}}" name="amount" value="{{$item->amount}}" required="">
              </div>
            </div>
          @endforeach
