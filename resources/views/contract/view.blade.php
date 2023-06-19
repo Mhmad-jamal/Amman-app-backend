@@ -90,7 +90,7 @@
                                     <div
                                         class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
                                         <a class="dropdown-item d-flex align-items-center"
-                                            href="{{-- {{ route('contract_details', ['id' => $contract->id]) }} --}}">
+                                            href=" {{ route('details_contract', ['id' => $contract->id]) }} ">
                                             <span class="fas fa-box "></span>
                                             View Details
                                         </a>

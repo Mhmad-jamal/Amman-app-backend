@@ -19,6 +19,20 @@ class ContractController extends Controller
  
         return view('contract.view')->with('contracts', $contracts);
     }
+    public function details($id)
+    {
+        $contract = Contract::join('clients', 'clients.id', '=', 'contracts.owner_id')
+            ->select('contracts.*', 'clients.name as owner_name','clients.nationalty_number as owner_nationalty_number', 'clients.phone as owner_phone', 'clients.country_code as owner_country_code')
+            ->where('contracts.id', $id)
+            ->first();
+    
+        // Check if the contract exists
+        if (!$contract) {
+            Alert::errorr('Error', 'Contract Not defined!');
+    
+        }
+        return view('contract.details')->with('contract', $contract);
+    }
     public function edit($id)
 {
     $contract = Contract::join('clients', 'clients.id', '=', 'contracts.owner_id')

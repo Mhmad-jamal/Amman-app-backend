@@ -114,6 +114,7 @@ Route::get('/Banner/edit', [BannerController::class, 'edit'])->name('edit_banner
 Route::get('/Contract/add', [ContractController::class, 'add'])->name('add_new_contract');
 Route::get('/Contract/view', [ContractController::class, 'view'])->name('view_contract');
 Route::get('/Contract/edit/{id}', [ContractController::class, 'edit'])->name('edit_contract');
+Route::get('/Contract/details/{id}', [ContractController::class, 'details'])->name('details_contract');
 
 // end contract 
 Route::post('/Banner/add', [BannerController::class, 'create'])->name('create_banner');
