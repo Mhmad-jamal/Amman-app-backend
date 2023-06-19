@@ -35,6 +35,7 @@ class MobileContractController extends Controller
             return response()->json([
                 'message' => 'Validation error',
                 'errors' => $validator->errors(),
+                'status'=>201,
             ], 201);
         }
    
@@ -69,6 +70,7 @@ class MobileContractController extends Controller
         return response()->json([
             'message' => 'Contract created successfully',
             'contract' => $contract,
+            'status'=>200,
         ], 200);
     }
     public function update(Request $request)
@@ -81,14 +83,14 @@ class MobileContractController extends Controller
         ]);
         if ($validator->fails()) {
             return response()->json([
-                'status' => 'error',
-                'errors' => $validator->errors(),
+                'status' => '201',
+                'message' => $validator->errors(),
             ]);
         }
         $contract = Contract::findOrFail($id);
         $contract->update($request->all());
         return response()->json([
-            'status' => 'success',
+            'status' => '200',
             'message' => 'Contract updated successfully',
         ]);
     }
