@@ -165,7 +165,7 @@ $('.due_dates').each(function() {
       'amount': amount
     });
   }
-});
+
 
 });
 var json = JSON.stringify(due_dates);
