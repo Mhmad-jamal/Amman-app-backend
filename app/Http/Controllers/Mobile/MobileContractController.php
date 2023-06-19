@@ -26,7 +26,7 @@ class MobileContractController extends Controller
             'clause' => 'required|string',
             'discount' => 'nullable|integer',
             'price' => 'required|integer',
-            'due_dates' => 'required|json',
+            'due_dates' => 'required',
             'image' => 'nullable|image',
         ]);
     

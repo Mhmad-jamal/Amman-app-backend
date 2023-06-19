@@ -95,10 +95,8 @@
                 <input type="text" class="form-control" id="price" name="price" value="{{$contract->price}}" required="">
             </div>
            </div>
-          @php
-    $dueDatesArray = json_decode($contract->due_dates, true);
-          @endphp
-           @foreach ($dueDatesArray->due_dates as $key => $item)
+          
+           @foreach ($contract->due_dates as $key => $item)
            <div class="row due_dates">
              <div class="col-md-3">
                <label for="dateFormat">Date</label>
