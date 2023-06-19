@@ -187,7 +187,15 @@ for (var entry of formData.entries()) {
     success: function(data) {
       console.log(data.status);
       if (data.status == 200) {
-      Swal.fire('Success', 'Contract updated successfully', 'success');
+        Swal.fire({
+  title: 'Success',
+  text: 'Contract updated successfully',
+  icon: 'success',
+}).then(function() {
+  location.reload(); // Reload the page
+});
+
+
     } else {
       Swal.fire('Error', 'Failed to update contract', 'error');
     }
