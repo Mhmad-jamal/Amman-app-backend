@@ -33,8 +33,8 @@ class MobileContractController extends Controller
         // Check if validation fails
         if ($validator->fails()) {
             return response()->json([
-                'message' => 'Validation error',
-                'errors' => $validator->errors(),
+                'message' => $validator->errors(),
+                'errors' => "1",
                 'status'=>201,
             ], 201);
         }
@@ -90,7 +90,7 @@ class MobileContractController extends Controller
         $contract = Contract::findOrFail($id);
         $contract->update($request->all());
         return response()->json([
-            'status' => '200',
+            'status' => 200,
             'message' => 'Contract updated successfully',
         ]);
     }
