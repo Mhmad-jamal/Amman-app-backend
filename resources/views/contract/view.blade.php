@@ -10,7 +10,7 @@
        
 
         <div class="card card-body shadow border-0 table-wrapper table-responsive">
-            <h2 class="h5 mb-4">Properties information</h2>
+            <h2 class="h5 mb-4">Contracts information</h2>
 
             <table class="table user-table table-hover align-items-center" id="propertytable">
                 <thead>
@@ -97,11 +97,11 @@
                                         <a class="dropdown-item d-flex align-items-center"
                                             href="{{ route('edit_contract', ['id' => $contract->id]) }}">
                                             <span class="fas fa-edit"></span>
-                                            Edit Property
+                                            Edit Contract
                                         </a>
-                                        <a class="dropdown-item text-danger d-flex align-items-center"  href="{{-- {{ route('properties_delete', ['id' => $property->id]) }} --}}">
+                                        <a class="dropdown-item text-danger d-flex align-items-center"  href="{{-- {{ route('Contracts_delete', ['id' => $Contract->id]) }} --}}">
                                             <span class="fas fa-trash-alt"></span>
-                                            Delete Property
+                                            Delete Contract
                                         </a>
                                     </div>
                                 </div>

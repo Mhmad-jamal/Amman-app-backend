@@ -152,9 +152,9 @@
                       <span class="sidebar-text">All contract</span>
                   </a>
               </li>
-              <li class="nav-item {{ Request::segment(2) == 'edit' ? 'active' : '' }}">
-                  <a class="nav-link" href="{{route('edit_banner')}}">
-                      <span class="sidebar-text">Edit</span>
+              <li class="nav-item {{ (Request::segment(2)== "request" && Request::segment(1) == 'Contract') ? 'active' : '' }}">
+                  <a class="nav-link" href="#">
+                      <span class="sidebar-text">Request Check </span>
                   </a>
               </li>
           </ul>
