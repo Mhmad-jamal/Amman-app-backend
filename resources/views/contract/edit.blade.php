@@ -155,17 +155,18 @@
     }
   });
   var due_dates = [];
+  var due_dates = [];
 $('.due_dates').each(function() {
   var dateFormat = $(this).find('input[name="dateFormat"]').val();
   var amount = $(this).find('input[name="amount"]').val();
-  if(dateFormat !="" && amount !=""){
+  if (dateFormat !== "" && amount !== "") {
+    due_dates.push({
+      'dateFormat': dateFormat,
+      'amount': amount
+    });
+  }
+});
 
-  
-  due_dates.push({
-    'dateFormat': dateFormat,
-    'amount': amount
-  });
-}
 });
 var json = JSON.stringify(due_dates);
 formData.append('due_dates', json);
