@@ -91,5 +91,15 @@ class MobileContractController extends Controller
             'message' => 'Contract updated successfully',
         ]);
     }
+    public function  get(Request $request) {
+        $id=$request->input('id');
+        $contract = Contract::findOrFail($id);
+      
+        return response()->json([
+            'message' => 'contract retrieved successfully',
+            'data' => $contract,
+            'status' => 200,
+        ]);
+    }
     
 }

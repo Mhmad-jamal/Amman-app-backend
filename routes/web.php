@@ -114,6 +114,7 @@ Route::get('/Banner/edit', [BannerController::class, 'edit'])->name('edit_banner
 Route::get('/Contract/add', [ContractController::class, 'add'])->name('add_new_contract');
 Route::get('/Contract/view', [ContractController::class, 'view'])->name('view_contract');
 Route::get('/Contract/edit/{id}', [ContractController::class, 'edit'])->name('edit_contract');
+
 // end contract 
 Route::post('/Banner/add', [BannerController::class, 'create'])->name('create_banner');
 Route::post('/api/update/banner', [BannerController::class, 'update'])->name('update_banner');
@@ -148,6 +149,7 @@ Route::any('api/getlikeProperty', [Property::class, 'getlikeProperty']);
 Route::any('api/getbannerimage', [BannerMobileController::class, 'get']);
 // for contract
 Route::any('api/cotnract/create', [MobileContractController::class, 'create']);
+Route::any('api/cotnract/get', [MobileContractController::class, 'get']);
 
 
 
