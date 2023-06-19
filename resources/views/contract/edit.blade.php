@@ -117,7 +117,34 @@
 <script>
      $(document).ready(function() {
               $('#propertytable').DataTable();
-            });
+           
+    $('#saveButton').on('click', function() {
+        // Create an object to store the form data
+        var formData = {};
+
+        // Iterate over each input element that is not disabled
+        $('input:not(:disabled)').each(function() {
+            formData[$(this).attr('id')] = $(this).val();
+        });
+
+        // Send the formData object to the server using AJAX
+        $.ajax({
+            url: 'your-server-url', // Replace with your server endpoint
+            type: 'POST',
+            data: JSON.stringify(formData),
+            contentType: 'application/json',
+            success: function(response) {
+                // Handle the response from the server
+                console.log(response);
+            },
+            error: function(error) {
+                // Handle any errors that occur during the AJAX request
+                console.log(error);
+            }
+        });
+    });
+});
+
 </script>
 @include('layouts.footer')
 </main>
