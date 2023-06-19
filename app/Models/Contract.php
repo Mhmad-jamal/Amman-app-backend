@@ -24,9 +24,6 @@ class Contract extends Model
     ];
     
 
-    protected $casts = [
-        'due_dates' => 'json',
-    ];
 
     // Define the relationships here (if any)
     public function property()
