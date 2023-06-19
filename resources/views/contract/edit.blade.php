@@ -96,18 +96,18 @@
             </div>
            </div>
           @php
-          $dueDatesArray = json_decode($contract->due_dates, true);
-    
-          @endphp
-           @foreach ($dueDatesArray as $key => $item)
+          
+          $due_date= json_decode($contract->due_dates);
+                @endphp
+           @foreach ( $due_date as $key => $item)
            <div class="row due_dates">
              <div class="col-md-3">
                <label for="dateFormat">Date</label>
-               <input type="date" class="form-control" id="dateFormat{{$key}}" name="dateFormat" value="{{$item["dateFormat"]}}" required="">
+               <input type="date" class="form-control" id="dateFormat{{$key}}" name="dateFormat" value="{{$item->dateFormat}}" required="">
              </div>
              <div class="col-md-3">
                <label for="amount">amount</label>
-               <input type="text" class="form-control" id="amount{{$key}}" name="amount" value="{{$item["amount"]}}" required="">
+               <input type="text" class="form-control" id="amount{{$key}}" name="amount" value="{{$item->amount}}" required="">
              </div>
            </div>
          @endforeach
