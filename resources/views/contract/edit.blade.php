@@ -169,17 +169,17 @@ for (var entry of formData.entries()) {
   console.log(entry[0], entry[1]);
 }
 
-return false;
 
   // Send the data to the server
   $.ajax({
-    url: '/path/to/server/endpoint',
+    url: 'api/cotnract/update',
     type: 'POST',
     data: formData,
     cache: false,
     contentType: false,
     processData: false,
     success: function(data) {
+      console.log(data);
       // Handle the response
     },
     error: function(error) {

@@ -149,6 +149,8 @@ Route::any('api/getlikeProperty', [Property::class, 'getlikeProperty']);
 Route::any('api/getbannerimage', [BannerMobileController::class, 'get']);
 // for contract
 Route::any('api/cotnract/create', [MobileContractController::class, 'create']);
+Route::any('api/cotnract/update', [MobileContractController::class, 'update']);
+
 Route::any('api/cotnract/get', [MobileContractController::class, 'get']);
 
 
