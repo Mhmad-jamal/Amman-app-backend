@@ -11,6 +11,7 @@
 
         <div class="card card-body shadow border-0 p-3 mt-3">
             <h2 class="h5 mb-4"> Owner Information </h2>
+            <input type="hidden" name="id" value="{{$contract->id}}" >
            <div class="row">
             <div class="col-md-3">
                 <label for="owner_name"> name</label>

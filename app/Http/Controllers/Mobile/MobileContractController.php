@@ -71,8 +71,9 @@ class MobileContractController extends Controller
             'contract' => $contract,
         ], 200);
     }
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+        $id=$request->input('id');
         $validator = Validator::make($request->all(), [
             'start_date' => 'required',
             'end_date' => 'required',
