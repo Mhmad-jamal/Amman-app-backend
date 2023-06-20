@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
+
 use Illuminate\Http\Request;
 use App\Models\Contract;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -47,6 +49,23 @@ class ContractController extends Controller
     }
     return view('contract.edit')->with('contract', $contract);
 }
+
+
+public function ContractPdf()
+{
+  /*   $html = view('contract.contract_pdf')->render();
+
+    $pdf = PDF::loadHTML($html);
+
+    // (Optional) Configure the PDF output
+
+    // Output the generated PDF to the browser
+    return $pdf->stream('document.pdf'); */
+    return view('contract.contract_pdf');
+}
+
+
+
 
    
 }

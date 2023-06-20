@@ -55,6 +55,8 @@ use App\Http\Controllers\Mobile\BannerMobileController;
 */
 
 Route::redirect('/', '/login');
+Route::get('api/contract/details', [ContractController::class, 'ContractPdf'])->name('contract_details_pdf');
+
 
 Route::get('/register', Register::class)->name('register');
 
@@ -125,6 +127,7 @@ Route::post('/banner/delete', [BannerController::class, 'delete'])->name('delete
 });
 
 //route for mobile
+
 // for sign-in and register 
 Route::post('api/register', [MobileRegisterController::class, 'register']);
 Route::post('api/login', [LoginMobile::class, 'login']);
