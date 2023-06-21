@@ -8,35 +8,35 @@ use Illuminate\Support\Facades\Validator;
 
 class PaymentController extends Controller
 {
-    public function create(Request $request)
-    {
-
-        $validator = $request->validate([
-            'owner_id' => 'required|exists:clients,id',
-            'client_id' => 'required|exists:clients,id',
-            'contract_id' => 'required|exists:contracts,id',
-            'date' => 'required|date',
-            'amount' => 'required|numeric',
-        ]);
-        
-        if ($validator->fails()) {
-            return response()->json([
-                'message' => 'Validation error',
-                'data' => $validator->errors(),
-                'status' => 201,
-            ]);
-        }
-
-        // Create a new Payment
-        $Payment = Payment::create($validatedData);
-
-        // Optionally, perform additional operations or logic related to the payment
-
-        // Return a response or redirect as needed
-        return response()->json([
-            'message' => 'Payment saved successfully',
-            'data' => $Payment,
-            'status'=>200,
-        ]);
-    }
+    public function  get(Request $request) {
+        $owner_id=$request->input('owner_id');
+         $Payment = Payment::where('owner_id',$owner_id)->get();
+       
+         return response()->json([
+             'message' => 'Payment retrieved successfully',
+             'data' => $Payment,
+             'status' => 200,
+         ]);
+     }
+     public function updateStatus(Request $request)
+     {
+         $id = $request->input('id');
+         
+         $payment = Payment::find($id);
+     
+         if (!$payment) {
+             return response()->json([
+                 'message' => 'Payment not found',
+                 'status' => 404,
+             ], 404);
+         }
+     
+         $payment->status = 1;
+         $payment->save();
+     
+         return response()->json([
+             'message' => 'Payment status updated successfully',
+             'status' => 200,
+         ], 200);
+     }
 }

@@ -160,7 +160,12 @@ Route::any('api/contract/update', [MobileContractController::class, 'update']);
 Route::any('api/payment/create', [PaymentController::class, 'create'])->name('create_payment');
 
 Route::any('api/contract/get', [MobileContractController::class, 'get']);
+
 Route::get('api/contract/details/{id}', [ContractController::class, 'ContractPdf'])->name('contract_details_pdf');
+// for payment
+Route::any('api/payment/get', [PaymentController::class, 'get']);
+Route::any('api/payment/update/status', [PaymentController::class, 'updateStatus']);
+
 
 
 
