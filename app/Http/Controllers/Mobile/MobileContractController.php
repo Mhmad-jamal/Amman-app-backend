@@ -62,7 +62,7 @@ class MobileContractController extends Controller
 
     // Save the contract
     $paymentarr=json_decode($request->input('due_dates'));
-    var_dump($payment);
+    var_dump($paymentarr);
     die();
     $contract->save();
 
