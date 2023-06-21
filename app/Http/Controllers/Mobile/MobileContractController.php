@@ -66,10 +66,22 @@ class MobileContractController extends Controller
     $contract->save();
 
     $paymentarr=json_decode($request->input('due_dates'));
+    $client_id = DB::table('clients')
+            ->where('nationalty_number', $contract->user_national_number)
+            ->value('id');
+
+if ($client_id) {
+    // Client found, and $client_id contains the client's id
+    return $client_id;
+} else {
+    // Client not found
+    // Handle the case when the client with the given national number doesn't exist
+    return null;
+}
  foreach ($paymentarr as $key => $value) {
     $paymentData = [
         'owner_id' => $contract->owner_id,
-        'client_id' => $contract->owner_id,
+        'client_id' => $client_id,
         'contract_id' => $contract->id,
         'date' => $value->dateFormat, // Set the payment date as the current date
         'amount' => $value->amount,
