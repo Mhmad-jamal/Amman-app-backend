@@ -72,14 +72,8 @@ class MobileContractController extends Controller
             ->where('nationalty_number', $contract->user_national_number)
             ->value('id');
 
-if ($client_id) {
-    // Client found, and $client_id contains the client's id
-    return $client_id;
-} else {
-    // Client not found
-    // Handle the case when the client with the given national number doesn't exist
-    return null;
-}
+
+
  foreach ($paymentarr as $key => $value) {
     $paymentData = [
         'owner_id' => $contract->owner_id,
