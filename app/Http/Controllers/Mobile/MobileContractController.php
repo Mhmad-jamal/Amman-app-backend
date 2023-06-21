@@ -67,8 +67,8 @@ class MobileContractController extends Controller
         'owner_id' => $contract->owner_id,
         'client_id' => $contract->owner_id,
         'contract_id' => $contract->id,
-        'date' => $value["dateFormat"], // Set the payment date as the current date
-        'amount' => $value["amount"],
+        'date' => $value->dateFormat, // Set the payment date as the current date
+        'amount' => $value->amount,
         'status'=>0,
     ];
     $payment = Payment::create($paymentData);
