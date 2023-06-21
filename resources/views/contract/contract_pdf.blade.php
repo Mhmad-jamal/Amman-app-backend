@@ -14,40 +14,41 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-   {{--  <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const element = document.body;
-            var opt = {
-                margin: 1,
-                filename: 'myfile.pdf',
-                image: {
-                    type: 'jpeg',
-                    quality: 0.98
-                },
-                html2canvas: {
-                    scale: 1
-                },
-                jsPDF: {
-                    unit: 'in',
-                    format: 'letter',
-                    orientation: 'portrait'
-                }
-            };
+     <script>
+       document.addEventListener('DOMContentLoaded', function() {
+    const element = document.body;
+    var opt = {
+        margin: 1,
+        filename: 'myfile.pdf',
+        image: {
+            type: 'jpeg',
+            quality: 0.98
+        },
+        html2canvas: {
+            scale: 1
+        },
+        jsPDF: {
+            unit: 'in',
+            format: 'letter',
+            orientation: 'portrait'
+        }
+    };
 
-            html2pdf().from(element).set(opt).output('blob').then(function(pdfBlob) {
-                // Create a URL for the Blob
-                const url = URL.createObjectURL(pdfBlob);
+    html2pdf().from(element).set(opt).output('blob').then(function(pdfBlob) {
+        // Create a URL for the Blob
+        const url = URL.createObjectURL(pdfBlob);
 
-                // Open the URL in a new tab or window
-                window.open(url, '_blank');
-            });
+        // Open the URL in a new tab or window
+        window.open(url, '_blank');
+    });
+});
 
 
-        });
-    </script> --}}
+       
+    </script> 
 </head>
 
-<body style="font-family: 'Arial', sans-serif;">
+<body style="font-family: 'arabic', sans-serif;">
 
 
     <div class="row">
@@ -73,86 +74,86 @@
                             <tr>
                                 <td colspan="7"
                                     style="width: 509.8pt;border: 1pt solid rgb(217, 217, 217);background: rgb(242, 242, 242);padding: 0in 1.4pt;vertical-align: top;">
-                                    <p dir="RTL"
+                                    <p dir="rtl"
                                         style='margin:0in;margin-bottom:.0001pt;text-align:center;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
-                                        الطرف الأول ( المؤجر)</p>
+                                               الطرف الأول ( المؤجر)</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td
                                     style="width:77.7pt;border:solid #D9D9D9 1.0pt;border-top:none;padding:0in 1.4pt 0in 1.4pt;height:34.0pt;">
                                     <p dir="rtl"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
-                                          المؤجر :</p>
+                                        style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
+                                          المؤجر </p>
                                 </td>
-                                <td colspan="4"
-                                    style="width:262.45pt;border-top:none;border-left:  solid #D9D9D9 1.0pt;border-bottom:solid #D9D9D9 1.0pt;border-right:none;padding:0in 1.4pt 0in 1.4pt;height:  34.0pt;">
-                                    <p dir="RTL"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
-                                        <span style="font-size:16px;font-weight:normal;">&nbsp;</span></p>
+                                <td colspan="4" style="width: 262.45pt; border-top: none; border-left: solid #D9D9D9 1.0pt; border-bottom: solid #D9D9D9 1.0pt; border-right: none; padding: 0in 1.4pt 0in 1.4pt; height: 34.0pt;">
+                                    <p dir="RTL" style="margin: 0in; margin-bottom: .0001pt; ; font-size: 19px; font-family: 'Times New Roman', serif; font-weight: bold; margin-left: 9pt;">
+                                        <span dir="rtl" style="font-size: 16px; font-weight: normal; direction: rtl;">{{$contract->owner_name}}</span>
+                                    </p>
                                 </td>
+                                
                                 <td
-                                    style="width:35.45pt;border-top:none;border-left:solid #D9D9D9 1.0pt;border-bottom:solid #D9D9D9 1.0pt;border-right:none;padding:0in 1.4pt 0in 1.4pt;height:  34.0pt;">
+                                    style="width:70pt;border-top:none;border-left:solid #D9D9D9 1.0pt;border-bottom:solid #D9D9D9 1.0pt;border-right:none;padding:0in 1.4pt 0in 1.4pt;height:  34.0pt;">
                                     <p dir="RTL"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
+                                        style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
                                         <span style="font-size:16px;font-weight:normal;">رقم وطني &nbsp;</span></p>
                                 </td>
                                 <td
                                     style="width:134.2pt;border-top:none;border-left:solid #D9D9D9 1.0pt;border-bottom:solid #D9D9D9 1.0pt;border-right:none;padding:0in 1.4pt 0in 1.4pt;height:  34.0pt;">
                                     <p dir="RTL"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
-                                        <span style="font-size:16px;font-weight:normal;">&nbsp;</span></p>
+                                        style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
+                                        <span style="font-size:16px;font-weight:normal;">{{$contract->owner_nationalty_number}}</span></p>
                                 </td>
                             </tr>
                             <tr>
                                 <td
                                     style="width:77.7pt;border:solid #D9D9D9 1.0pt;border-top:none;padding:0in 1.4pt 0in 1.4pt;height:34.0pt;">
                                     <p dir="RTL"
-                                        style='margin:0;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                        style='margin:0;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                         وكيل المؤجر<span style="font-weight:normal;">:&nbsp;</span></p>
                                 </td>
                                 <td colspan="4"
                                     style="width:262.45pt;border-top:none;border-left:  solid #D9D9D9 1.0pt;border-bottom:solid #D9D9D9 1.0pt;border-right:none;padding:0in 1.4pt 0in 1.4pt;height:  34.0pt;">
                                     <p dir="RTL"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
+                                        style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
                                         <span dir="LTR"></span></p>
                                 </td>
                                 <td
-                                    style="width:35.45pt;border-top:none;border-left:solid #D9D9D9 1.0pt;border-bottom:solid #D9D9D9 1.0pt;border-right:none;padding:0in 1.4pt 0in 1.4pt;height:  34.0pt;">
+                                    style="width:70pt;border-top:none;border-left:solid #D9D9D9 1.0pt;border-bottom:solid #D9D9D9 1.0pt;border-right:none;padding:0in 1.4pt 0in 1.4pt;height:  34.0pt;">
                                     <p dir="RTL"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
+                                        style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
                                         <span style="font-size:16px;font-weight:normal;">رقم وطني &nbsp;</span></p>
                                 </td>
                                 <td
                                     style="width:134.2pt;border-top:none;border-left:solid #D9D9D9 1.0pt;border-bottom:solid #D9D9D9 1.0pt;border-right:none;padding:0in 1.4pt 0in 1.4pt;height:  34.0pt;">
                                     <p dir="RTL"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
+                                        style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
                                         <span style="font-size:16px;font-weight:normal;">&nbsp;</span></p>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="7"
-                                    style="width: 509.8pt;border-right: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-left: 1pt solid rgb(217, 217, 217);border-image: initial;border-top: none;padding: 0in 1.4pt;vertical-align: top;">
+                                    style="width: 100%;border-right: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-left: 1pt solid rgb(217, 217, 217);border-image: initial;border-top: none;padding: 0in 1.4pt;vertical-align: top;">
                                     <p dir="RTL"
                                         style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
-                                        <span style="font-size:16px;">و يسمى لاحقا &nbsp;كل من ورد اسمهما
-                                            أعلاه&nbsp;</span><span style="font-size:16px;font-weight:normal;">مجتمعان
-                                            او منفردان</span><span style="font-weight:normal;">.</span><span
-                                            style="font-size:16px;">&nbsp;(الطرف الأول).</span></p>
+                                        <span style="font-size:14px;">و يسمى لاحقا كل من ورد اسمهما
+                                            أعلاه;</span><span style="font-size:14px;font-weight:normal;">مجتمعان
+                                             او  منفردان</span><span style="font-weight:normal;"></span><span
+                                            style="font-size:14px;">الطرف  الاول</span></p>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2"
-                                    style="width: 91.85pt;border-right: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-left: 1pt solid rgb(217, 217, 217);border-image: initial;border-top: none;padding: 0in 1.4pt;vertical-align: top;">
+                                    style="width: 109.85pt;border-right: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-left: 1pt solid rgb(217, 217, 217);border-image: initial;border-top: none;padding: 0in 1.4pt;vertical-align: top;">
                                     <p dir="RTL"
                                         style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
-                                        <span style="font-size:14px;font-weight:normal;">موبايل/واتس اب:</span></p>
+                                        <span style="font-size:14px;font-weight:normal;">   موبايل  / واتس اب : </span></p>
                                 </td>
                                 <td
-                                    style="width: 170.1pt;border-top: none;border-left: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-right: none;padding: 0in 1.4pt;vertical-align: top;">
+                                    style="width: 120pt;border-top: none;border-left: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-right: none;padding: 0in 1.4pt;vertical-align: top;">
                                     <p dir="RTL"
                                         style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
-                                        <span style="font-size:16px;font-weight:normal;">&nbsp;</span></p>
+                                        <span style="font-size:16px;font-weight:normal;">{{$contract->owner_country_code."".$contract->owner_phone}}</span></p>
                                 </td>
                                 <td
                                     style="width: 70.9pt;border-top: none;border-left: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-right: none;padding: 0in 1.4pt;vertical-align: top;">
@@ -165,35 +166,27 @@
                                     style="width: 176.95pt;border-top: none;border-left: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-right: none;padding: 0in 1.4pt;vertical-align: top;">
                                     <p dir="RTL"
                                         style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
-                                        <span style="font-size:16px;font-weight:normal;">&nbsp;</span></p>
+                                        <span style="font-size:16px;font-weight:normal;">{{$contract->owner_email}}</span></p>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="7"
                                     style="width: 509.8pt;border-right: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-left: 1pt solid rgb(217, 217, 217);border-image: initial;border-top: none;padding: 0in 1.4pt;vertical-align: top;">
                                     <p dir="RTL"
-                                        style='margin: 0in 7.1pt 0.0001pt 9pt;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
-                                        <span style="font-size:13px;font-weight:normal;">ويمثل المؤجر/</span><span
+                                        style='margin: 0in 7.1pt 0.0001pt 9pt;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                        <span style="font-size:13px;font-weight:normal;">ويمثل المؤجر</span><span
                                             dir="LTR" style="font-size:11px;">&nbsp;</span><span
-                                            style="font-size:13px;font-weight:normal;">مالك العقار وكيله القانوني (
-                                            المذكور اسمه اعلاه )&nbsp;</span><span
+                                            style="font-size:13px;font-weight:normal;">مالك العقار وكيله القانوني 
+                                            المذكور اسمه اعلاه </span><span
                                             style="font-size:13px;font-weight:normal;">بموجب التفويض الذي تم الاطلاع
                                             عليه في حينه و تأكد منه الطرف الثاني.</span></p>
                                 </td>
                             </tr>
-                            <tr>
-                                <td style="border:none;"><br></td>
-                                <td style="border:none;"><br></td>
-                                <td style="border:none;"><br></td>
-                                <td style="border:none;"><br></td>
-                                <td style="border:none;"><br></td>
-                                <td style="border:none;"><br></td>
-                                <td style="border:none;"><br></td>
-                            </tr>
+                         
                         </tbody>
                     </table>
                 </div>
-                {{-- 
+               
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-top:0in;margin-right:7.1pt;margin-left:9.0pt;'>
                     <span style="font-size:16px;font-weight:normal;">&nbsp;</span></p>
@@ -215,55 +208,57 @@
                             <tr>
                                 <td
                                     style="width:91.85pt;border:solid #D9D9D9 1.0pt;border-top:none;padding:0in 1.4pt 0in 1.4pt;height:28.35pt;">
-                                    <p dir="RTL"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
-                                        المستأجر الاول :</p>
+                                    <p dir="rtl"
+                                        style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
+                                        المستأجر الاول </p>
                                 </td>
                                 <td colspan="3"
                                     style="width:248.3pt;border-top:none;border-left:  solid #D9D9D9 1.0pt;border-bottom:solid #D9D9D9 1.0pt;border-right:none;padding:0in 1.4pt 0in 1.4pt;height:  28.35pt;">
                                     <p dir="RTL"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
-                                        <span style="font-size:16px;font-weight:normal;">&nbsp;</span></p>
+                                        style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
+                                        <span style="font-size:16px;font-weight:normal;">{{$contract->client_name}}</span></p>
                                 </td>
                                 <td
-                                    style="width:49.4pt;border-top:none;border-left:solid #D9D9D9 1.0pt;border-bottom:solid #D9D9D9 1.0pt;border-right:none;padding:0in 1.4pt 0in 1.4pt;height:  28.35pt;">
+                                    style="width:69.4pt;border-top:none;border-left:solid #D9D9D9 1.0pt;border-bottom:solid #D9D9D9 1.0pt;border-right:none;padding:0in 1.4pt 0in 1.4pt;height:  28.35pt;">
                                     <p dir="RTL"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
+                                        style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
                                         <span style="font-size:16px;font-weight:normal;">رقم وطني &nbsp;</span></p>
                                 </td>
                                 <td
-                                    style="width:120.25pt;border-top:none;border-left:solid #D9D9D9 1.0pt;border-bottom:solid #D9D9D9 1.0pt;border-right:none;padding:0in 1.4pt 0in 1.4pt;height:  28.35pt;">
+                                    style="width:100.25pt;border-top:none;border-left:solid #D9D9D9 1.0pt;border-bottom:solid #D9D9D9 1.0pt;border-right:none;padding:0in 1.4pt 0in 1.4pt;height:  28.35pt;">
                                     <p dir="RTL"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
-                                        <span style="font-size:16px;font-weight:normal;">&nbsp;</span></p>
+                                        style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
+                                        <span style="font-size:16px;font-weight:normal;">{{$client->nationalty_number}}</span></p>
                                 </td>
                             </tr>
+                            
                             <tr>
                                 <td
                                     style="width:91.85pt;border:solid #D9D9D9 1.0pt;border-top:none;padding:0in 1.4pt 0in 1.4pt;height:28.35pt;">
                                     <p dir="RTL"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
+                                        style='margin:0in;margin-bottom:.0001pt;font-size:15px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
                                         المستأجر الثاني :</p>
                                 </td>
                                 <td colspan="3"
                                     style="width:248.3pt;border-top:none;border-left:  solid #D9D9D9 1.0pt;border-bottom:solid #D9D9D9 1.0pt;border-right:none;padding:0in 1.4pt 0in 1.4pt;height:  28.35pt;">
                                     <p dir="RTL"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
+                                        style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
                                         <span style="font-size:16px;font-weight:normal;">&nbsp;</span></p>
                                 </td>
                                 <td
-                                    style="width:49.4pt;border-top:none;border-left:solid #D9D9D9 1.0pt;border-bottom:solid #D9D9D9 1.0pt;border-right:none;padding:0in 1.4pt 0in 1.4pt;height:  28.35pt;">
+                                    style="width:69.4pt;border-top:none;border-left:solid #D9D9D9 1.0pt;border-bottom:solid #D9D9D9 1.0pt;border-right:none;padding:0in 1.4pt 0in 1.4pt;height:  28.35pt;">
                                     <p dir="RTL"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
+                                        style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
                                         <span style="font-size:16px;font-weight:normal;">رقم وطني &nbsp;</span></p>
                                 </td>
                                 <td
-                                    style="width:120.25pt;border-top:none;border-left:solid #D9D9D9 1.0pt;border-bottom:solid #D9D9D9 1.0pt;border-right:none;padding:0in 1.4pt 0in 1.4pt;height:  28.35pt;">
+                                    style="width:100.25pt;border-top:none;border-left:solid #D9D9D9 1.0pt;border-bottom:solid #D9D9D9 1.0pt;border-right:none;padding:0in 1.4pt 0in 1.4pt;height:  28.35pt;">
                                     <p dir="RTL"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
+                                        style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
                                         <span style="font-size:16px;font-weight:normal;">&nbsp;</span></p>
                                 </td>
                             </tr>
+
                             <tr>
                                 <td colspan="6"
                                     style="width: 509.8pt;border-right: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-left: 1pt solid rgb(217, 217, 217);border-image: initial;border-top: none;padding: 0in 1.4pt;vertical-align: top;">
@@ -272,36 +267,39 @@
                                         <span style="font-size:16px;">و يسمى لاحقا &nbsp;كل من ورد اسمهما
                                             أعلاه&nbsp;</span><span style="font-size:16px;font-weight:normal;">مجتمعان
                                             او منفردان</span><span style="font-weight:normal;">.</span><span
-                                            style="font-size:16px;">&nbsp;(الطرف الثاني).</span></p>
+                                            style="font-size:16px;">(الطرف الثاني).</span></p>
                                 </td>
                             </tr>
+                                                        
                             <tr>
                                 <td
-                                    style="width: 91.85pt;border-right: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-left: 1pt solid rgb(217, 217, 217);border-image: initial;border-top: none;padding: 0in 1.4pt;vertical-align: top;">
+                                    style="width: 110.85pt;border-right: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-left: 1pt solid rgb(217, 217, 217);border-image: initial;border-top: none;padding: 0in 1.4pt;vertical-align: top;">
                                     <p dir="RTL"
                                         style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
                                         <span style="font-size:16px;font-weight:normal;">موبايل/واتس اب:</span></p>
                                 </td>
                                 <td
-                                    style="width: 170.1pt;border-top: none;border-left: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-right: none;padding: 0in 1.4pt;vertical-align: top;">
+                                    style="width: 150.1pt;border-top: none;border-left: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-right: none;padding: 0in 1.4pt;vertical-align: top;">
                                     <p dir="RTL"
                                         style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
-                                        <span style="font-size:16px;font-weight:normal;">&nbsp;</span></p>
+                                        <span style="font-size:16px;font-weight:normal;">{{$client->country_code."".$client->phone}}</span></p>
                                 </td>
                                 <td
-                                    style="width: 70.9pt;border-top: none;border-left: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-right: none;padding: 0in 1.4pt;vertical-align: top;">
+                                    style="width: 60.9pt;border-top: none;border-left: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-right: none;padding: 0in 1.4pt;vertical-align: top;">
                                     <p dir="RTL"
                                         style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
                                         <span style="font-size:15px;color:#0070C0;font-weight:normal;">بريد
                                             الكتروني</span><span dir="LTR" style="color:#0070C0;">:</span></p>
                                 </td>
+                             
                                 <td colspan="3"
-                                    style="width: 176.95pt;border-top: none;border-left: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-right: none;padding: 0in 1.4pt;vertical-align: top;">
+                                    style="width: 166.95pt;border-top: none;border-left: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-right: none;padding: 0in 1.4pt;vertical-align: top;">
                                     <p dir="RTL"
                                         style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
-                                        <span style="font-size:16px;font-weight:normal;">&nbsp;</span></p>
+                                        <span style="font-size:16px;font-weight:normal;">{{$client->email }}</span></p>
                                 </td>
                             </tr>
+
                             <tr>
                                 <td style="border:none;"><br></td>
                                 <td style="border:none;"><br></td>
@@ -313,6 +311,7 @@
                         </tbody>
                     </table>
                 </div>
+                                           
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
                     <span style="font-size:16px;font-weight:normal;">&nbsp;</span></p>
@@ -325,6 +324,7 @@
                     <span style="font-size:16px;">&nbsp; &nbsp;</span><span
                         style="font-size:16px;font-weight:normal;">&nbsp;شقه سكنيه للاستخدام العائلي (حصراَ) بحسب
                         المعلومات ادناه</span></p>
+                          {{-- 
                 <div align="center" dir="rtl"
                     style='margin:0in;margin-bottom:.0001pt;text-align:right;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                     <table dir="rtl" style="border-collapse:collapse;border:none;">
@@ -502,7 +502,7 @@
                         عدم وجود التوقيعين او احدهما على احدى الصفحات, فان تسلسل الصفحات يعتبر دليلا على تكامل صفحات هذا
                         العقد.</span></p>
                 <p dir="RTL"
-                    style='font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;margin: 0in 7.1pt 0.0001pt 9pt;text-align: left;text-indent: -7.1pt;'>
+                    style='font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;margin: 0in 7.1pt 0.0001pt 9pt;text-indent: -7.1pt;'>
                     <span style="font-weight:normal;">&nbsp; &nbsp;</span><span
                         style="font-size:15px;font-weight:normal;">بموجب هذا العقد &quot;<span
                             style="background:lightgrey;">المكون <u>من&nbsp;</u></span></span><u><span
@@ -1159,16 +1159,16 @@
                                         <span style="font-size:15px;font-weight:normal;">الاسم :................
                                             ..................(حصرا )</span></p>
                                     <p dir="RTL"
-                                        style='margin: 0in 0in 0.0001pt 9pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                        style='margin: 0in 0in 0.0001pt 9pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                         <span style="font-size:15px;font-weight:normal;">منزل :
                                             &nbsp;......................... &nbsp; &nbsp;</span></p>
                                     <p dir="RTL"
-                                        style='margin: 0in 0in 0.0001pt 9pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                        style='margin: 0in 0in 0.0001pt 9pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                         <span style="font-size:15px;font-weight:normal;">موبايل&nbsp;</span><span
                                             style="font-size:16px;font-weight:normal;">&nbsp;.......................................</span>
                                     </p>
                                     <p dir="RTL"
-                                        style='margin: 0in 0in 0.0001pt 9pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                        style='margin: 0in 0in 0.0001pt 9pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                         <span style="font-size:16px;font-weight:normal;">ايميل:
                                             .........................................</span></p>
                                 </td>
@@ -1189,12 +1189,12 @@
                                             &nbsp; &nbsp;عماره رقم ........... &nbsp; &nbsp;الشقه
                                             ...................</span></p>
                                     <p dir="RTL"
-                                        style='margin: 0in 0in 0.0001pt 9pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                        style='margin: 0in 0in 0.0001pt 9pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                         <span style="font-size:15px;font-weight:normal;">موبايل&nbsp;</span><span
                                             style="font-size:16px;font-weight:normal;">&nbsp;.......................................</span>
                                     </p>
                                     <p dir="RTL"
-                                        style='margin: 0in 0in 0.0001pt 9pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                        style='margin: 0in 0in 0.0001pt 9pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                         <span style="font-size:16px;font-weight:normal;">ايميل:
                                             .........................................</span></p>
                                 </td>
@@ -1893,7 +1893,7 @@
                                 <td
                                     style="width: 264.1pt;border: 1pt solid windowtext;padding: 0in 5.4pt;vertical-align: top;">
                                     <p dir="RTL"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
+                                        style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left: 9pt;'>
                                         <span style="font-size:15px;font-weight:normal;">&nbsp;</span></p>
                                 </td>
                                 <td
@@ -2015,7 +2015,7 @@
                         قصر في تسليم العقار تسليما صحيحا كما نص عليه العقد.</span></li>
             </ol>
             <p dir="RTL"
-                style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                 <span style="font-size:16px;font-weight:normal;">&nbsp;</span></p>
             <div align="right" dir="rtl"
                 style='margin:0in;margin-bottom:.0001pt;text-align:right;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
@@ -2059,7 +2059,7 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">الباب الخارجي &quot; و يشمل الحلق
                                         , الضرفه&nbsp;</span><span style="font-size:15px;font-weight:normal;">و الغال
                                         و</span><span style="font-size:16px;font-weight:normal;">&nbsp;المفاتيح
@@ -2069,7 +2069,7 @@
                             <td
                                 style="width:243.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:12px;font-weight:normal;">بحاله ممتازه &nbsp;من دون ايه
                                         عيوب/مدهون بالكامل بدون خدوش</span></p>
                             </td>
@@ -2084,10 +2084,10 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:16px;font-weight:normal;">الابواب الداخليه</span></p>
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:16px;font-weight:normal;">&quot; و يشمل الحلق , الضرفه و
                                         الغال و المفاتيح و الدهان الموجود عليهم &quot;</span></p>
                             </td>
@@ -2112,7 +2112,7 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">الشبابيك و زجاجها</span></p>
                             </td>
                             <td
@@ -2133,13 +2133,13 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">الابجورات</span></p>
                             </td>
                             <td
                                 style="width:243.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:12px;font-weight:normal;">بحاله ممتازه &nbsp;من دون ايه
                                         عيوب</span></p>
                             </td>
@@ -2154,14 +2154,14 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">الحمايات الحديديه المضافه
                                         للشبابيك</span></p>
                             </td>
                             <td
                                 style="width:243.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:12px;font-weight:normal;">بحاله ممتازه &nbsp;من دون ايه
                                         عيوب</span></p>
                             </td>
@@ -2176,19 +2176,19 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">البلاط و البانيل لجميع الغرف و
                                         المطبخ</span></p>
                             </td>
                             <td
                                 style="width:243.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:12px;font-weight:normal;">بحاله ممتازه &nbsp;من دون ايه
                                         عيوب</span><span dir="LTR" style="font-size:12px;">&nbsp;</span><span
                                         style="font-size:12px;font-weight:normal;">او كسور اوتشققات</span></p>
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:12px;font-weight:normal;">بدون وجود غراء او
                                         بقع&nbsp;</span></p>
                             </td>
@@ -2203,14 +2203,14 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">البلاط الارضي و الجانبي
                                         للحمامات</span></p>
                             </td>
                             <td
                                 style="width:243.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:12px;font-weight:normal;">بحاله ممتازه &nbsp;من دون ايه
                                         عيوب/لا يوجد كسر او شرخ او تسريب مياه</span></p>
                             </td>
@@ -2225,18 +2225,18 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">التركيبات الصحيه : المغاسل و
                                         كراسي الحمام&nbsp;</span></p>
                             </td>
                             <td
                                 style="width:243.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:12px;font-weight:normal;">بحاله ممتازه &nbsp;من دون ايه
                                         عيوب او كسور او تهريب مياه</span></p>
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:12px;font-weight:normal;">جميع الاغطية البلاستيكية موجوده
                                         وسليمة</span></p>
                             </td>
@@ -2251,18 +2251,18 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">خلاطات المياه و
                                         الحنفيات&nbsp;</span></p>
                             </td>
                             <td
                                 style="width:243.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:12px;font-weight:normal;">بحاله ممتازه &nbsp;من دون ايه
                                         عيوب</span></p>
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:12px;font-weight:normal;">او كسور او تسريبات مياه</span>
                                 </p>
                             </td>
@@ -2277,13 +2277,13 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">المحابس و البرابيش</span></p>
                             </td>
                             <td
                                 style="width:243.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:12px;font-weight:normal;">بحاله ممتازه &nbsp;من دون ايه
                                         عيوب او تهريب مياه</span></p>
                             </td>
@@ -2298,14 +2298,14 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">تسريبات المياه بشكل عام</span>
                                 </p>
                             </td>
                             <td
                                 style="width:243.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:12px;font-weight:normal;">بحاله ممتازه &nbsp;من دون ايه
                                         عيوب او تهريب مياه</span></p>
                             </td>
@@ -2320,14 +2320,14 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">السخان الكهربائي
                                         الكيزر&nbsp;</span></p>
                             </td>
                             <td
                                 style="width:243.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:12px;font-weight:normal;">بحاله ممتازه &nbsp;من دون ايه
                                         عيوب</span></p>
                             </td>
@@ -2342,14 +2342,14 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">مكيف غاز طاقه 1.5 طن&nbsp;</span>
                                 </p>
                             </td>
                             <td
                                 style="width: 243pt;border-top: none;border-left: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-right: none;padding: 2.85pt;vertical-align: top;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:12px;font-weight:normal;">يعمل / ليس بحاجه الى غاز / يبرد و
                                         معه ريموت كنترول بحاله جيده</span></p>
                             </td>
@@ -2364,14 +2364,14 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">الشفطات بالحمامات &quot; مراوح
                                         الشفط &quot;</span></p>
                             </td>
                             <td
                                 style="width: 243pt;border-top: none;border-left: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-right: none;padding: 2.85pt;vertical-align: top;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:12px;font-weight:normal;">بحاله ممتازه &nbsp;من دون ايه
                                         عيوب</span></p>
                             </td>
@@ -2386,7 +2386,7 @@
                             <td
                                 style="width: 251.6pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;background: rgb(191, 191, 191);padding: 2.85pt;vertical-align: top;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:5px;font-weight:normal;">&nbsp;</span></p>
                             </td>
                             <td
@@ -2406,18 +2406,18 @@
                             <td
                                 style="width: 251.6pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;padding: 2.85pt;vertical-align: top;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">المطبخ : من خزائن و جوارير و ارفف
                                         و خلاط مياه و مجلى و شفاط كهربائي&nbsp;</span></p>
                             </td>
                             <td
                                 style="width: 243pt;border-top: none;border-left: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-right: none;padding: 2.85pt;vertical-align: top;">
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:12px;font-weight:normal;">بحاله ممتازه &nbsp;من دون ايه
                                         عيوب/لا كسور بالارفف او الادراج او الرخام&nbsp;</span></p>
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:12px;font-weight:normal;">الشفاط لا يعمل</span></p>
                             </td>
                             <td
@@ -2431,13 +2431,13 @@
                             <td
                                 style="width: 251.6pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;background: rgb(191, 191, 191);padding: 2.85pt;vertical-align: top;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:8px;font-weight:normal;">&nbsp;</span></p>
                             </td>
                             <td
                                 style="width: 243pt;border-top: none;border-left: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-right: none;background: rgb(191, 191, 191);padding: 2.85pt;vertical-align: top;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:12px;font-weight:normal;">&nbsp;</span></p>
                             </td>
                             <td
@@ -2451,26 +2451,26 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;height:18.4pt;">
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:16px;font-weight:normal;">الاناره الكهربائيه : جميع الغرف و
                                         الحمام&nbsp;</span></p>
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:16px;font-weight:normal;">تشمل الشاصي و السوكه و
                                         اللمبه</span></p>
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:16px;font-weight:normal;">و على المستأجر اعاده جميع وحدات
                                         الاناره من دون وجود تلف او احتراق في اللمبات&nbsp;</span></p>
                             </td>
                             <td
                                 style="width:243.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:2.85pt 2.85pt 2.85pt 2.85pt;height:18.4pt;">
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:12px;font-weight:normal;">بحاله ممتازه &nbsp;من دون ايه
                                         عيوب</span></p>
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:12px;font-weight:normal;">جميع اللمبات تعمل و المفاتيح
                                         والاباريز مع اغطيتها واكسسواراتها</span></p>
                             </td>
@@ -2485,17 +2485,17 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;height:16.15pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">الاباريز الكهربائيه</span></p>
                             </td>
                             <td
                                 style="width:243.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:2.85pt 2.85pt 2.85pt 2.85pt;height:16.15pt;">
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:12px;font-weight:normal;">جميعها تعمل و بحاله ممتازه
                                         &nbsp;من دون ايه عيوب</span></p>
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:12px;font-weight:normal;">لايوجد اي نقص للاغطيه لاي
                                         منها</span></p>
                             </td>
@@ -2510,17 +2510,17 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">مفاتيح الاناره</span></p>
                             </td>
                             <td
                                 style="width:243.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:12px;font-weight:normal;">جميعها تعمل و بحاله ممتازه
                                         &nbsp;من دون ايه عيوب</span></p>
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:12px;font-weight:normal;">لايوجد اي نقص للاغطيه لاي
                                         منها</span></p>
                             </td>
@@ -2535,13 +2535,13 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">جرس الباب الرئيسي</span></p>
                             </td>
                             <td
                                 style="width:243.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:12px;font-weight:normal;">يعمل / بحاله ممتازه &nbsp;من دون
                                         ايه عيوب</span></p>
                             </td>
@@ -2556,13 +2556,13 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;height:17.5pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">الانتركم&nbsp;</span></p>
                             </td>
                             <td
                                 style="width:243.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:2.85pt 2.85pt 2.85pt 2.85pt;height:17.5pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:12px;font-weight:normal;">يعمل / بحاله ممتازه &nbsp;من دون
                                         ايه عيوب</span></p>
                             </td>
@@ -2577,7 +2577,7 @@
                             <td
                                 style="width: 251.6pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;background: rgb(191, 191, 191);padding: 2.85pt;vertical-align: top;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:5px;font-weight:normal;">&nbsp;</span></p>
                             </td>
                             <td
@@ -2597,14 +2597,14 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">دهان الغرف الرئيسيه و غرف
                                         النوم&nbsp;</span></p>
                             </td>
                             <td
                                 style="width:243.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:12px;font-weight:normal;">بحاله ممتازه &nbsp;من دون ايه
                                         عيوب:</span></p>
                                 <div
@@ -2625,7 +2625,7 @@
                                     </ul>
                                 </div>
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:12px;font-weight:normal;">يقر المستاجر باستلامه العقار
                                         مدهون بشكل كامل و ناصع البياض بدون اي حفر او تحفيرات و عليه يتعهد بالتسليم بنفس
                                         الحاله.</span></p>
@@ -2641,7 +2641,7 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">دهان سقف الحمامات&nbsp;</span>
                                 </p>
                             </td>
@@ -2663,7 +2663,7 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">دهان سقف المطبخ</span></p>
                             </td>
                             <td
@@ -2684,14 +2684,14 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">ساعه و عداد الكهرباء و
                                         الماء&nbsp;</span></p>
                             </td>
                             <td
                                 style="width:243.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:12px;font-weight:normal;">بحاله ممتازه &nbsp;من دون ايه
                                         عيوب/الاختام سليمه و لا عيب فيها<span style="color:red;">&nbsp; &nbsp; &nbsp;
                                             &nbsp; &nbsp; &nbsp;&nbsp;</span></span></p>
@@ -2707,18 +2707,18 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">خزنات المياه الارضيه و التي اللي
                                         على السطح</span></p>
                             </td>
                             <td
                                 style="width:243.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:12px;font-weight:normal;">بحاله ممتازه &nbsp;من دون ايه
                                         عيوب/ لا ثقوب او تسريبات فيها</span></p>
                                 <p dir="RTL"
-                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                                    style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                                     <span style="font-size:12px;font-weight:normal;">خزانات مياه علويه 4 متر مكعب +
                                         خزنات مياه سفليه 2 متر مكعب</span></p>
                             </td>
@@ -2733,13 +2733,13 @@
                             <td
                                 style="width:251.6pt;border:solid windowtext 1.0pt;border-top:  none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:16px;font-weight:normal;">مضخة رفع المياه</span></p>
                             </td>
                             <td
                                 style="width:243.0pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:2.85pt 2.85pt 2.85pt 2.85pt;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:12px;font-weight:normal;">بحاله ممتازه &nbsp;من دون ايه
                                         عيوب/ تعمل و بحاله ممتازه</span></p>
                             </td>
@@ -2754,7 +2754,7 @@
                             <td
                                 style="width: 251.6pt;border-right: 1pt solid windowtext;border-bottom: 1pt solid windowtext;border-left: 1pt solid windowtext;border-image: initial;border-top: none;background: red;padding: 2.85pt;vertical-align: top;">
                                 <p dir="RTL"
-                                    style='margin:0in;margin-bottom:.0001pt;text-align: left;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                                    style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                     <span style="font-size:5px;font-weight:normal;">&nbsp;</span></p>
                             </td>
                             <td
@@ -2774,7 +2774,7 @@
                 </table>
             </div>
             <p dir="RTL"
-                style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                 <span style="font-size:16px;font-weight:normal;">&nbsp;</span></p>
             <p dir="RTL"
                 style='margin:0in;margin-bottom:.0001pt;text-align:center;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
@@ -2828,7 +2828,7 @@
                 </table>
             </div>
             <p dir="RTL"
-                style='margin: 0in 0in 0.0001pt 9pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;text-align: left;'>
+                style='margin: 0in 0in 0.0001pt 9pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
                 <span style="font-size:21px;font-weight:normal;">&nbsp;</span></p>
 
         </div>
