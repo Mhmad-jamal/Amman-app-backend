@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Mobile;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Contract;
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Payment;
 
 
