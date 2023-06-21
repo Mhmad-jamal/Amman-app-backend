@@ -63,6 +63,8 @@ class MobileContractController extends Controller
     $contract->image = $imagePath;
 
     // Save the contract
+    $contract->save();
+
     $paymentarr=json_decode($request->input('due_dates'));
  foreach ($paymentarr as $key => $value) {
     $paymentData = [
@@ -75,7 +77,6 @@ class MobileContractController extends Controller
     ];
     $payment = Payment::create($paymentData);
  }
-    $contract->save();
 
     // Create a new Payment
    /*  $ */
