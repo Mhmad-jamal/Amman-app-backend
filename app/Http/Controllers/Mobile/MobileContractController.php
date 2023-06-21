@@ -61,8 +61,7 @@ class MobileContractController extends Controller
     $contract->image = $imagePath;
 
     // Save the contract
-    var_dump($request->input('due_dates'));
-    die();
+    $paymentarr=json_decode($request->input('due_dates'));
     $contract->save();
 
     // Create a new Payment
