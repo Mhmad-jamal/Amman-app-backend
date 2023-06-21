@@ -55,7 +55,6 @@ use App\Http\Controllers\Mobile\BannerMobileController;
 */
 
 Route::redirect('/', '/login');
-Route::get('api/contract/details', [ContractController::class, 'ContractPdf'])->name('contract_details_pdf');
 
 
 Route::get('/register', Register::class)->name('register');
@@ -156,6 +155,7 @@ Route::any('api/cotnract/create', [MobileContractController::class, 'create']);
 Route::any('api/cotnract/update', [MobileContractController::class, 'update']);
 
 Route::any('api/cotnract/get', [MobileContractController::class, 'get']);
+Route::get('api/contract/details', [ContractController::class, 'ContractPdf'])->name('contract_details_pdf');
 
 
 
