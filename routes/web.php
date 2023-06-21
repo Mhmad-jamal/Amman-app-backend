@@ -33,6 +33,10 @@ use App\Http\Controllers\Web\WebProperties;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\Mobile\MobileContractController;
+use App\Http\Controllers\PaymentController;
+
+
+
 
 
 use App\Http\Controllers\Mobile\BannerMobileController;
@@ -151,10 +155,11 @@ Route::any('api/getlikeProperty', [Property::class, 'getlikeProperty']);
 
 Route::any('api/getbannerimage', [BannerMobileController::class, 'get']);
 // for contract
-Route::any('api/cotnract/create', [MobileContractController::class, 'create']);
-Route::any('api/cotnract/update', [MobileContractController::class, 'update']);
+Route::any('api/contract/create', [MobileContractController::class, 'create']);
+Route::any('api/contract/update', [MobileContractController::class, 'update']);
+Route::any('api/payment/create', [PaymentController::class, 'create'])->name('create_payment');
 
-Route::any('api/cotnract/get', [MobileContractController::class, 'get']);
+Route::any('api/contract/get', [MobileContractController::class, 'get']);
 Route::get('api/contract/details/{id}', [ContractController::class, 'ContractPdf'])->name('contract_details_pdf');
 
 

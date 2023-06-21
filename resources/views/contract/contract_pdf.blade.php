@@ -1,3 +1,9 @@
+<style>
+    @font-face {
+    font-family: 'ara';
+    src: url('../../../public/fonts/arabic.ttf') format('truetype');
+}
+</style>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,10 +54,11 @@
     </script> 
 </head>
 
-<body style="font-family: 'arabic', sans-serif;">
+<body style="font-family: 'arabic';max-width: 100%;
+overflow: hidden; ">
 
 
-    <div class="row">
+    <div class="row" style="width:100%">
         <div class="col-md-12 d-flex justify-content-center">
             <div dir="RTL">
                 <p dir="RTL"
@@ -138,11 +145,11 @@
                                         style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
                                         <span style="font-size:14px;">و يسمى لاحقا كل من ورد اسمهما
                                             أعلاه;</span><span style="font-size:14px;font-weight:normal;">مجتمعان
-                                             او  منفردان</span><span style="font-weight:normal;"></span><span
+                                            او  منفردا</span><span style="font-weight:normal;"></span><span
                                             style="font-size:14px;">الطرف  الاول</span></p>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr style="margin-top: 10%">
                                 <td colspan="2"
                                     style="width: 109.85pt;border-right: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-left: 1pt solid rgb(217, 217, 217);border-image: initial;border-top: none;padding: 0in 1.4pt;vertical-align: top;">
                                     <p dir="RTL"
@@ -267,7 +274,7 @@
                                         <span style="font-size:16px;">و يسمى لاحقا &nbsp;كل من ورد اسمهما
                                             أعلاه&nbsp;</span><span style="font-size:16px;font-weight:normal;">مجتمعان
                                             او منفردان</span><span style="font-weight:normal;">.</span><span
-                                            style="font-size:16px;">(الطرف الثاني).</span></p>
+                                            style="font-size:16px;">الطرف الثاني</span></p>
                                 </td>
                             </tr>
                                                         
@@ -276,7 +283,7 @@
                                     style="width: 110.85pt;border-right: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-left: 1pt solid rgb(217, 217, 217);border-image: initial;border-top: none;padding: 0in 1.4pt;vertical-align: top;">
                                     <p dir="RTL"
                                         style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
-                                        <span style="font-size:16px;font-weight:normal;">موبايل/واتس اب:</span></p>
+                                        <span style="font-size:16px;font-weight:normal;">موبايل  واتس اب:</span></p>
                                 </td>
                                 <td
                                     style="width: 150.1pt;border-top: none;border-left: 1pt solid rgb(217, 217, 217);border-bottom: 1pt solid rgb(217, 217, 217);border-right: none;padding: 0in 1.4pt;vertical-align: top;">
@@ -300,17 +307,11 @@
                                 </td>
                             </tr>
 
-                            <tr>
-                                <td style="border:none;"><br></td>
-                                <td style="border:none;"><br></td>
-                                <td style="border:none;"><br></td>
-                                <td style="border:none;"><br></td>
-                                <td style="border:none;"><br></td>
-                                <td style="border:none;"><br></td>
-                            </tr>
+                          
                         </tbody>
                     </table>
                 </div>
+             
                                            
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
@@ -324,7 +325,7 @@
                     <span style="font-size:16px;">&nbsp; &nbsp;</span><span
                         style="font-size:16px;font-weight:normal;">&nbsp;شقه سكنيه للاستخدام العائلي (حصراَ) بحسب
                         المعلومات ادناه</span></p>
-                          {{-- 
+                           
                 <div align="center" dir="rtl"
                     style='margin:0in;margin-bottom:.0001pt;text-align:right;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                     <table dir="rtl" style="border-collapse:collapse;border:none;">
@@ -430,6 +431,7 @@
                                     </p>
                                 </td>
                             </tr>
+                            
                             <tr>
                                 <td
                                     style="width: 117.2pt;border-right: 1pt dotted windowtext;border-bottom: 1pt dotted windowtext;border-left: 1pt dotted windowtext;border-image: initial;border-top: none;background: rgb(231, 230, 230);padding: 0in 5.4pt;height: 8.5pt;vertical-align: top;">
@@ -484,6 +486,7 @@
                         </tbody>
                     </table>
                 </div>
+                <br><br>
                 <h1 dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:right;font-size:19px;font-family:"Calibri Light",sans-serif;color:black;'>
                     <span style='font-size:21px;font-family:"Times New Roman",serif;font-weight:normal;'>مقدمة العقد
@@ -506,45 +509,26 @@
                     <span style="font-weight:normal;">&nbsp; &nbsp;</span><span
                         style="font-size:15px;font-weight:normal;">بموجب هذا العقد &quot;<span
                             style="background:lightgrey;">المكون <u>من&nbsp;</u></span></span><u><span
-                            style="background:lightgrey;font-weight:normal;">12 (اثناى عشر)&nbsp;</span></u><u><span
-                            style="font-size:15px;background:lightgrey;font-weight:normal;">صفحات</span></u><span
+                            style="background:lightgrey;font-weight:normal;">12 اثنا عشر&nbsp;</span></u><u><span
+                            style="font-size:15px;background:lightgrey;font-weight:normal;">صفحة</span></u><span
                         style="font-size:15px;font-weight:normal;">&quot; الموقع من الطرفين برضائنا واتفاقنا وعلى الوجه
                         المحرر أعلاه وبموجب الشروط الآتية قد تم هذا العقد</span><span dir="LTR"
                         style="font-size:21px;">.</span></p>
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:center;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
                     <u><span style="font-size:13px;"><span style="text-decoration:none;">&nbsp;</span></span></u></p>
-                <h1 dir="RTL"
-                    style='margin:0in;margin-bottom:.0001pt;text-align:right;font-size:19px;font-family:"Calibri Light",sans-serif;color:black;'>
-                    <span style='font-size:21px;font-family:"Times New Roman",serif;font-weight:normal;'>مدة
-                        الإيجار:&nbsp;</span></h1>
+              
+            
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
-                    <u><span style="font-weight:normal;">المده: سنة م</span></u><u><span
-                            style="font-weight:normal;">يلادية فقط لا غير</span></u><span
-                        style="font-weight:normal;">&nbsp;&nbsp;</span></p>
-                <p dir="RTL"
-                    style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
-                    <span style="font-weight:normal;">تاريخ ابتداء الإيجار: <span
-                            style="color:black;">&quot;01/11/2022&quot;&nbsp;</span></span><span
-                        style="color:black;font-weight:normal;">&nbsp;</span><span
-                        style="color:black;font-weight:normal;">بداية شهر&nbsp;</span><span
-                        style="color:black;font-weight:normal;">نوفمبر&nbsp;</span><span dir="LTR"
-                        style="color:black;font-weight:normal;">&nbsp;</span><span
-                        style="color:black;font-weight:normal;">&quot;الشهر الحادي عشر ميلادي&quot; عام الفين وواحد
-                        وعشرين.</span></p>
-                <p dir="RTL"
-                    style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
-                    <span style="font-weight:normal;">تاريخ انتهاء الإيجار: <span
-                            style="color:black;">&quot;31/10/2023&quot;</span></span><span dir="LTR"
-                        style="color:black;font-weight:normal;">&nbsp;</span><span
-                        style="color:black;font-weight:normal;">.&nbsp;</span><span
-                        style="color:black;font-weight:normal;">نهاية شهر&nbsp;</span><span
-                        style="color:black;font-weight:normal;">اوكتوبر</span><span
-                        style="color:black;font-weight:normal;">&nbsp;</span><span dir="LTR"
-                        style="color:black;font-weight:normal;">&nbsp;</span><span
-                        style="color:black;font-weight:normal;">&quot;الشهر العاشر ميلادي&quot; &nbsp;عام الفين واثنان
-                        وعشرين&nbsp;</span></p>
+                    <span style="font-weight:normal;">  تاريخ ابتداء الإيجار <span
+                            style="color:black;">{{$contract->start_date}}</span>
+                            <br>
+                            <span style="font-weight:normal;">   تاريخ انتهاء الإيجار </span>
+                                <span style="color:black;">{{$contract->end_date}}</span>
+                       
+                     
+               
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
                     <span style="font-size:11px;font-weight:normal;">&nbsp;</span></p>
@@ -558,12 +542,9 @@
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
                     <span style="font-size:16px;font-weight:normal;">&nbsp;&nbsp;</span><span
-                        style="font-weight:normal;">250&nbsp;</span><span
-                        style="font-size:15px;font-weight:normal;">دينار اردني (&nbsp;</span><span
-                        style="font-weight:normal;">مئتان&nbsp;</span><span style="font-weight:normal;">و</span><span
-                        style="font-weight:normal;">خمسون دينار</span><span dir="LTR">&nbsp;</span><span
-                        style="font-weight:normal;">اردني فقط لاغير</span><span
-                        style="font-size:15px;font-weight:normal;">) تدفع عن كل شهر&nbsp;</span><span
+                        style="font-weight:normal;">{{$contract->price}}</span><span
+                        style="font-size:15px;font-weight:normal;">دينار اردني </span><span
+                        style="font-size:15px;font-weight:normal;"> تدفع عن كل شهر;</span><span
                         style="font-size:15px;font-weight:normal;">مقدماً</span><span
                         style="font-size:15px;font-weight:normal;">.</span></p>
                 <p dir="RTL"
@@ -627,6 +608,11 @@
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-top:0in;margin-right:145.95pt;margin-left:9.0pt;text-indent:-145.95pt;'>
                     <span style="font-size:16px;">&nbsp;</span></p>
+                    <br> <br>
+                    <br> <br>
+                   
+                    <br><br><br> <br><br><br>
+                    
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:center;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
                     <u><span style="font-size:24px;">الشـروط والاحكام</span></u></p>
@@ -636,30 +622,28 @@
                 <h1 dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:right;font-size:19px;font-family:"Calibri Light",sans-serif;color:black;'>
                     <span style='font-size:21px;font-family:"Times New Roman",serif;font-weight:normal;'>البند
-                        ال</span><span
-                        style='font-size:21px;font-family:"Times New Roman",serif;font-weight:normal;'>أول: استلام و
+                        </span><span
+                        style='font-size:21px;font-family:"Times New Roman",serif;font-weight:normal;'>ألاول استلام و
                         تسليم الماجور.</span></h1>
-                <ol style="list-style-type: undefined;margin-left:-1px;">
-                    <li><span style="font-weight:normal;">يقر الطرف الثاني بأنه قام بمعاينة العين المؤجرة المعاينة
+                   <span style="font-weight:normal;">يقر الطرف الثاني بأنه قام بمعاينة العين المؤجرة المعاينة
                             النافية لأية نوع او مستوى من الجهالة. وتأكد من صلاحيتها للانتفاع بها للغرض المؤجرة من أجله.
                             ويقر بصلاحية جميع مكونات العقار المذكوره في الجدول رقم 1 بذلك ويقر بأنها بحالة جيدة وسليمة
                             وقد أطمأن تماماً على نتيجة الفحص وتأكد من أن العين المؤجرة قابله للانتفاع الكلي بها وخالية
                             من العيوب التي قد تؤثرعلى إمكانية استعمالها للغرض المؤجرة من أجله وليس لديه أية تحفظات بهذا
-                            الخصوص.</span></li>
-                    <li><span style="font-size:10.0pt;">يقر الطرف الثاني بانه استلم المأجور سالما من كل عيب تام وان
+                            الخصوص.</span>
+                   <span style="font-size:10.0pt;">يقر الطرف الثاني بانه استلم المأجور سالما من كل عيب تام وان
                             جميع هذه الأشياء والتوابع خالية من كل عيب أوخلل ويتعهد <span
                                 style="color:#363636;background:white;">الطرف الثاني&nbsp;</span>بتسليمها عند انتهاء
                             مدة الإجارة كما استلمها. و يُعتمد في تسليم المأجورللطرف الثاني وإستلام الماجور منه عند نهاية
                             العقد او فسخه او التنازع على الجدول رقم 1&nbsp;</span><span style="font-size:10.0pt;">(كشف
-                            معاينه و استلام الشقه) الوارد ضمن صفحات هذا العقد.</span></li>
-                    <li><span style="font-size:10.0pt;">تسليم الحيازة</span><span
+                            معاينه و استلام الشقه) الوارد ضمن صفحات هذا العقد.</span>
+                   <span style="font-size:10.0pt;">تسليم الحيازة</span><span
                             style='font-family:"Times New Roman";font-size:10.0pt;'>:&nbsp;</span><span
                             style='font-family:"Times New Roman";font-size:10.0pt;'>ما لم يتفق الطرفان على خلاف ذلك
                             خطيًا، تُعد حيازة العقار (موضوع هذا العقد) قد جرى تسليمها في تاريخ السريان ،اي تاريخ توقيع
                             العقد دون الحاجة إلى وجود شهادة تسليم أو اتخاذ أي إجراء آخر من جانب
                             الطرفين.&nbsp;</span><span style='font-family:"Times New Roman";font-weight:normal;'>كما
-                            ورد في الجدول رقم 1.</span></li>
-                </ol>
+                            ورد في الجدول رقم 1.</span>
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-top:0in;margin-right:.25in;margin-left:9.0pt;'>
                     <span style="font-size:15px;">توابع المأجور التي استلمها المستأجر:&nbsp;</span><span
@@ -677,22 +661,20 @@
                         تجديد العقد.</span></h1>
                 <div
                     style='margin:0in;margin-bottom:.0001pt;text-align:right;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
-                    <ol style="margin-bottom:0in;list-style-type: decimal;margin-left:-1px;">
-                        <li
-                            style='margin:0in;margin-bottom:.0001pt;text-align:right;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
+                       
                             <span style='font-family:"Times New Roman";font-size:10.0pt;'>في حال انتهى العقد بين
                                 الطرفين ولم يخلي الطرف الثاني العقار ويستحصل من الطرف الأول على براءة ذمة ومخالصه واستمر
                                 الطرف الثاني باشغار العقار لمدة خارج فتره التعاقد الاصلية ومن دون أي تجديد العقد (برضاء
                                 الطرفين وبتوثيق العقد بينهما) &nbsp;يكون الطرف الثاني ملزما بدفع اجره بدل استعمال ماجور
-                                بدون عقد كما هو موصوف في البند رقم 20 ( جدول التعويضات الاتفاقيه).</span></li>
-                    </ol>
+                                بدون عقد كما هو موصوف في البند رقم 20 ( جدول التعويضات الاتفاقيه).</span>
+                    
                 </div>
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-top:0in;margin-right:14.15pt;margin-left:9.0pt;'>
                     <span dir="LTR" style="font-size:11px;">&nbsp;</span></p>
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
-                    <u>تعويض اتفاقي</u>:<span style="font-weight:normal;">&nbsp;</span><span
+                    <u>تعويض اتفاقي</u> :<span style="font-weight:normal;">&nbsp;</span><span
                         style="font-size:15px;font-weight:normal;">في حال الاخلال باي من مواد الفقره أعلاه،</span><span
                         style="font-weight:normal;">&nbsp;</span><span style="font-size:15px;font-weight:normal;">يتم
                         الاستناد للبند رقم <u>واحد وعشرين</u> الخاص بالتعويضات الاتفاقيه.</span></p>
@@ -706,13 +688,11 @@
                     style='margin:0in;margin-bottom:.0001pt;text-align:right;font-size:19px;font-family:"Calibri Light",sans-serif;color:black;'>
                     <span style='font-size:21px;font-family:"Times New Roman",serif;font-weight:normal;'>البند الرابع:
                         انتهاء العقد.</span></h1>
-                <ol style="list-style-type: decimal;margin-left:-1px;">
-                    <li><span style="font-size:10.0pt;">لا يعتبر العقد منتهيا الا بحال سلم الطرف الثاني العقار خاليا من
-                            الشواغر للطرف الأول وحصل على براءة ذمة منه والتي تتضمن المخالصه النهائية بين الاطراف.</span>
-                    </li>
-                    <li><span style="font-size:10.0pt;">سواء عند انتهاء مدة الإجارة او فسخ العقد بالتراضي، وفي حال لم
-                            يجدد العقد كما هو مذكور بهذا البند، فعلى <span
-                                style="color:#363636;background:white;">الطرف الثاني&nbsp;</span>أن يأخذ وصلاً خطياً
+                   <span style="font-size:10.0pt;">لا يعتبر العقد منتهيا الا بحال سلم الطرف الثاني العقار خاليا من
+                            الشواغر للطرف الأول وحصل على براءة ذمة منه والتي تتضمن المخالصه النهائية بين الاطراف.
+                سواء عند انتهاء مدة الإجارة او فسخ العقد بالتراضي، وفي حال لم
+                            يجدد العقد كما هو مذكور بهذا البند، فعلى 
+                               الطرف الثاني&nbsp;</span>أن يأخذ وصلاً خطياً
                             (براءه ذمه و مخالصه) من الطرف الاول يتضمن استلامه للمأجور وتوابعه سالماً. وبحال إخلائه
                             للمأجور بانتهاء المدة وإشعاره المؤجر بذلك (حسب مدة الإنذار الموصوفه) أو بانتهاء السنة التي
                             تجدد العقد بها بحكم هذا البند بدون استحصاله على وصل فيحق للطرف الاول إن وجد عيباً في المأجور
@@ -722,16 +702,16 @@
                             بالعقار و يقدم الطرف الأول صور فوتوستاتيه عن المبالغ المنفقه ويضاف اليها التعويض الاتفاقي
                             المذكور في متن العقد &nbsp;(كبدل لتكبد الطرف الأول عناء الإصلاح بذاته) ويكون اجمالي تكاليف
                             الإصلاح مساويا لمجموع تكاليف المواد والمصنعيه (أجور الاعمال) مضافا اليها ما يتكبده الطرف
-                            الأول من جهد ومقدر أعلاه بالنسبه الموصوفه.&nbsp;</span></li>
-                    <li><span style='font-family:"Times New Roman";font-size:10.0pt;'>&nbsp;كما يجب على الطرف الثاني في
+                            الأول من جهد ومقدر أعلاه بالنسبه الموصوفه.&nbsp;</span>
+                   <span style='font-family:"Times New Roman";font-size:10.0pt;'>&nbsp;كما يجب على الطرف الثاني في
                             حالة انتهاء مدة العقد وعدم رغبته في تجديده إخبار المؤجر بذلك خطيا قبل انتهاء مدة العقد
                             ب<u>شهر (31 يوم تقويمي)</u> على الأقل وإلا يعتبر شاغرا للعقار لغايه تسليمه للعقار بشكل رسمي
-                            حسب ما هو موصوف أعلاه</span></li>
-                    <li><span style="font-size:10.0pt;">في حال تخلف الطرف الثاني عن تسليم العقار بالاليه الموصوفه
+                            حسب ما هو موصوف أعلاه</span>
+                   <span style="font-size:10.0pt;">في حال تخلف الطرف الثاني عن تسليم العقار بالاليه الموصوفه
                             أعلاه, وتم فتح العقار بواسطة التنفيذ القانوني للمحكمه، فان الطرف الثاني يكون ملتزما ببدل
                             المثل (الموصوف في الفقره الخامسه) &nbsp;مضافا اليه الفترات الزمنيه التي تنقضي خلال فترات
-                            التقاضي وتقدير الخبراء والإصلاح معا مجتمعات.</span></li>
-                    <li><span style="font-size:10.0pt;">بما ان العقد محدد المده، فانه لا يجب على الطرف الأول انذار او
+                            التقاضي وتقدير الخبراء والإصلاح معا مجتمعات.</span><
+                   <span style="font-size:10.0pt;">بما ان العقد محدد المده، فانه لا يجب على الطرف الأول انذار او
                             اعلام الطرف الثاني بنيته لعدم تجديد العقد ما لم يقرر الطرف الأول ذلك، ويكون الطرف الثاني
                             ملزما باشعار الطرف الاول بنيته لتجديد العقد اوعدم تجديده حسب ما ذكر في نص العقد وذلك من خلال
                             ارسال ايميل فقط على عنوان الطرف الأول الالكتروني المشار اليه بالصفحه الأولى. &nbsp;وبكل
@@ -740,8 +720,7 @@
                             dir="LTR" style='font-family:"Times New Roman";font-size:10.0pt;'>&nbsp;)</span><span
                             style='font-family:"Times New Roman";'>سبعة أيام تقويمية)، وفي حال عدم رد الطرف الأول قبولا
                             اورفضا على طلب الطرف الثاني، يلزم الطرف الثاني بارسال انذار عدلي رسمي الى الطرف
-                            الاول</span><span style='font-family:"Times New Roman";'>.</span></li>
-                </ol>
+                            الاول</span><span style='font-family:"Times New Roman";'>.</span>
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
                     <u><span style="text-decoration:none;">&nbsp;</span></u></p>
@@ -816,6 +795,7 @@
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-top:0in;margin-right:.5in;margin-left:9.0pt;text-indent:-.5in;'>
                     <span style="font-size:11px;font-weight:normal;">&nbsp;</span></p>
+                    
                 <h1 dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:right;font-size:19px;font-family:"Calibri Light",sans-serif;color:black;'>
                     <span style='font-size:21px;font-family:"Times New Roman",serif;font-weight:normal;'>البند السابع:
@@ -837,6 +817,7 @@
                             style="color:#363636;background:white;">الطرف الثاني</span>&quot; يتحملها الطرف الثاني و لا
                         يجوز له باي وجه من الاوجه مطالبة الطرف الاول بها او خصمها من مبلغ الاجرة الا بموافقه خطية و
                         مسبقة من المؤجر موثقة حسب الاصول.</span></p>
+                        <br><br><br><br><br>
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
                     <span style="font-size:13px;font-weight:normal;">فيما يتعلق باي مصاريف تشغيليه تصاحب اشغال الشقه:
@@ -848,15 +829,15 @@
                         عن المساهمة الاختيارية بهذه المصاريف, ولا يحق له باي شكل من الاشكال اقتطاع اي مبلغ من الايجار
                         لسداد اي من المصاريف التشغيليه (المذكوره اعلاه) دون الرجوع الى الطرف الاول واخذ موافقته الكلية
                         بهذا الخصوص.&nbsp;</span></p>
-                <p dir="RTL"
+                
+                         <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
                     <span style="font-size:11px;font-weight:normal;">&nbsp;</span></p>
                 <h1 dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:right;font-size:19px;font-family:"Calibri Light",sans-serif;color:black;'>
                     <span style='font-size:21px;font-family:"Times New Roman",serif;font-weight:normal;'>البند الثامن:
                         انهاء العقد</span><span dir="LTR">.</span></h1>
-                <ol style="list-style-type: undefined;margin-left:-1px;">
-                    <li><span style='font-family:"Times New Roman";font-size:10.0pt;'>لا يحق &nbsp;للطرف الثاني انهاء
+                   <span style='font-family:"Times New Roman";font-size:10.0pt;'>لا يحق &nbsp;للطرف الثاني انهاء
                             العقد قبل انقضاء المدة التعاقدية المشار اليها اعلاه الا برضا الطرف الأول (بشكل رسمي ومكتوب)
                             و في حال عدم رضا الطرف الأول لمطالب الطرف الثاني</span><span dir="LTR"
                             style='font-family:"Times New Roman";font-size:8.0pt;'>&nbsp;</span><span
@@ -867,16 +848,15 @@
                             style='font-family:"Times New Roman";font-size:10.0pt;'>بالبقاء&nbsp;</span><span
                             style='font-family:"Times New Roman";font-size:10.0pt;'>مستاجراً&nbsp;</span><span
                             style='font-family:"Times New Roman";font-size:10.0pt;'>للعقار وانهاء المده التعاقدية او
-                            باخلاء العقار مع دفع تسويه يتفق عليها في حينه برضا الطرف الأول وحسب شروطه.</span></li>
-                    <li><span style='font-family:"Times New Roman";font-size:10.0pt;'>لا يحق للطرف الأول ان يطالب الطرف
+                            باخلاء العقار مع دفع تسويه يتفق عليها في حينه برضا الطرف الأول وحسب شروطه.</span>
+                   <span style='font-family:"Times New Roman";font-size:10.0pt;'>لا يحق للطرف الأول ان يطالب الطرف
                             الثاني بافراغ العقار قبل حلول نهايه المده التعاقديه، الا برضا الطرف الثاني (بشكل رسمي
-                            ومكتوب) و يكون على الطرف الأول تعويضه تعويضا يتم الاتفاق عليه في حينه.&nbsp;</span></li>
-                    <li><span style='font-family:"Times New Roman";font-size:10.0pt;'>في حال تخلف &nbsp;الطرف الثاني عن
+                            ومكتوب) و يكون على الطرف الأول تعويضه تعويضا يتم الاتفاق عليه في حينه.&nbsp;</span>
+                   <span style='font-family:"Times New Roman";font-size:10.0pt;'>في حال تخلف &nbsp;الطرف الثاني عن
                             تسليم العقار خاليا من العيوب يحق للطرف الأول (المؤجر) رفض استلام العقار و يعتبر الطرف الثاني
                             مستمرا في استعمال العقار من دون اذن الطرف الأول و تنطبق عليه الاجره المذكوره في البند الرابع
                             أعلاه لحين اجراء الصيانه المطلوبه ودفع جميع الذمم المستحقة على العقار ( فواتير مياه وكهرباء
-                            وضرائب ورسوم امانة عمان (تشمل المسقفات، المعارف، الصرف الصحي.... الخ).</span></li>
-                </ol>
+                            وضرائب ورسوم امانة عمان (تشمل المسقفات، المعارف، الصرف الصحي.... الخ).</span>
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-top:0in;margin-right:14.15pt;margin-left:9.0pt;'>
                     <span style="font-size:13px;font-weight:normal;">&nbsp;</span></p>
@@ -912,29 +892,28 @@
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
                     <span style="font-size:11px;font-weight:normal;">&nbsp;</span></p>
                 <ol style="list-style-type: decimal;margin-left:-1px;">
-                    <li><span style='font-family:"Times New Roman";font-size:10.0pt;'>في حال تأخر الطرف الثاني في
+                   <span style='font-family:"Times New Roman";font-size:10.0pt;'>في حال تأخر الطرف الثاني في
                             السداد بالتاريخ الموصوف في متن العقد تصبح جميع الدفعات المستقبليه لعقد الايجار مستحقة
-                            الدفع.</span></li>
-                    <li><span style='font-family:"Times New Roman";font-size:10.0pt;'>ان الطرف الثاني ملزم بسداد الاجره
+                            الدفع.</span>
+                   <span style='font-family:"Times New Roman";font-size:10.0pt;'>ان الطرف الثاني ملزم بسداد الاجره
                             الشهريه مقدما وبشكل منتظم في اليوم الأول من الشهر الميلادي, في حال تأخره عن السداد في الموعد
                             المحدد (الأول من كل شهر) يمهل الطرف الاول الطرف الثاني خمس أيام تقويميه للسداد واذا لم يقم
                             الطرف الثاني بالسداد خلال فتره الامهال يعتبر متاخرا عن الدفع ويلتزم بسداد غرامة التاخر
                             (المشار اليها في جدول التعويض الاتفاقي) ويصبح هذا التعويض الاتفاقي جزءاً من المبالغ المستحقة
                             على الطرف الثاني دون أي انتقاص لحقوق الطرف الأول القانونية والاجرائية المترتبة على تأخر
                             الدفع، ودون الانتقاص من حق الطرف الاول في المطالبة بالاجور المتاخرة وتوجيه الإنذارات
-                            والاخلاء.&nbsp;</span></li>
-                    <li><span style='font-family:"Times New Roman";font-size:10.0pt;'>في حال تخلف &nbsp;الطرف الثاني عن
+                            والاخلاء.&nbsp;</span>
+                   <span style='font-family:"Times New Roman";font-size:10.0pt;'>في حال تخلف &nbsp;الطرف الثاني عن
                             دفع الاجره الشهرية كما هي مقرره في نص العقد هذا فانه يحق للطرف الأول فسخ العقد و المطالبه
                             بجميع الأجور والغرامات كما هو موصوف في هذ العقد ولا ينقص فسخ العقد من حق الطرف الأول في
-                            استلام المأجور خاليا من العيوب او أي من الحقوق المذكورة في هذا العقد.</span></li>
-                    <li><span style='font-family:"Times New Roman";font-size:10.0pt;'>إذا امتنع أو تأخرالطرف الثاني عن
+                            استلام المأجور خاليا من العيوب او أي من الحقوق المذكورة في هذا العقد.</span>
+                   <span style='font-family:"Times New Roman";font-size:10.0pt;'>إذا امتنع أو تأخرالطرف الثاني عن
                             دفع قسط من الأقساط في ميعاد استحقاقه &quot; اليوم الاول من بدايه كل شهر تعاقدي&quot; تصبح
                             جميع الأقساط الأخرى مستحقة الأداء حالا ويحق للطرف الأول المطالبة بفسخ هذا العقد واستلام
                             المأجور ولو أن مدة الإجارة لم تنتهي كما وله الحق بوضع يده عليه وإجارته للغير بالبدل الذي
                             يراه مناسبا على أن يعود بالفرق بين البدلين على المستأجر بحال نقصان البدل الثاني عن الأول وهو
                             مصدق من هذه الجهة بقوله وبلا يمين. ويجب على الطرف الثاني ابراز ايصالات الدفع البنكيه لاثبات
-                            ما تم دفعه من بدلات الاجره.</span></li>
-                </ol>
+                            ما تم دفعه من بدلات الاجره.</span>
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                     <span style="font-size:13px;font-weight:normal;">يستثنى من التاخير الاعياد الرسميه و العطل اذا وقعت
@@ -1044,7 +1023,7 @@
                 <h1 dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:right;font-size:19px;font-family:"Calibri Light",sans-serif;color:black;'>
                     <span style='font-size:21px;font-family:"Times New Roman",serif;font-weight:normal;'>البند الحادي
-                        عشر: تضامن العقد.</span></h1>
+                        عشر تضامن العقد.</span></h1>
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
                     <span style="font-size:13px;font-weight:normal;">في حالة حدوث أن كان&nbsp;</span><span
@@ -1063,59 +1042,34 @@
                 <h1 dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:right;font-size:19px;font-family:"Calibri Light",sans-serif;color:black;'>
                     <span style='font-size:21px;font-family:"Times New Roman",serif;font-weight:normal;'>البند الثاني
-                        عشر: الإنذارات.</span></h1>
+                        عشر الإنذارات.</span></h1>
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
                     <span style="font-size:16px;font-weight:normal;">&nbsp;</span><span
                         style="font-size:13px;font-weight:normal;">لا حاجة لتبادل أي أخطار أو إنذار بين الاطراف في هذا
                         العقد إلا في الحالات التي نص فيها العقد على ذلك وهي كالاتي:</span></p>
-                <ol style="list-style-type: undefined;margin-left:-1px;">
-                    <li><span style='font-family:"Times New Roman";font-size:10.0pt;'>اذا رغب الطرف الثاني باخلاء
+                   <span style='font-family:"Times New Roman";font-size:10.0pt;'>اذا رغب الطرف الثاني باخلاء
                             الماجور وفسخ العقد بالتراضي وتحديد موعد تسليم المأجور. يتم الإنذار بواسطة انذار عدلي يوجه
                             للطرف الأول و يشترط إبلاغه بنسخه منه على البريد الالكتروني للطرف الأول بالاضافه للطرق
-                            القانونيه بالتبيلغ وعلى العنوان المشار اليه.</span></li>
-                    <li><span style='font-family:"Times New Roman";font-size:10.0pt;'>اذا رغب الطرف الطرف الثاني بعدم
+                            القانونيه بالتبيلغ وعلى العنوان المشار اليه.</span>
+                   <span style='font-family:"Times New Roman";font-size:10.0pt;'>اذا رغب الطرف الطرف الثاني بعدم
                             تجديد العقد لفتره تعاقديه اضافيه، ويرغب بتسليم الماجور عند نهاية العقد. يتم اعلا م الطرف
                             الأول &nbsp;بواسطة انذار عدلي يوجه من قبل الطرف الثاني للطرف الأول و يشترط إبلاغه بنسخه منه
                             على البريد الالكتروني للطرف الأول بالاضافه للطرق القانونيه بالتبيلغ وعلى العنوان المشار
-                            اليه.</span></li>
-                    <li><span style='font-family:"Times New Roman";font-size:10.0pt;'>اذا رغب الطرف الأول بعدم
+                            اليه.</span>
+                   <span style='font-family:"Times New Roman";font-size:10.0pt;'>اذا رغب الطرف الأول بعدم
                             &nbsp;تجديد العقد فعليه ان ينذر الطرف الثاني قبل مدة 31 يوم من نهاية العقد بضرورة اخلاء
                             المأجور في موعد انتهاء العقد. يتم الاعلام من خلال بريد الكتروني او رساله نصيه على رقم الواتس
                             اب المشار اليه بالعقد. و لا يطلب من الطرف الأول توجيه انذار عدلي بهذا الخصوص ويكتفى بارسال
-                            رساله الكترونيه وتنبيه على الواتس اب.</span></li>
-                </ol>
+                            رساله الكترونيه وتنبيه على الواتس اب.</span>
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-top:0in;margin-right:.5in;margin-left:9.0pt;'>
                     <span dir="LTR">&nbsp;</span></p>
-                <h1 dir="RTL"
-                    style='margin:0in;margin-bottom:.0001pt;text-align:right;font-size:19px;font-family:"Calibri Light",sans-serif;color:black;'>
-                    <span style='font-size:21px;font-family:"Times New Roman",serif;font-weight:normal;'>البند الرابع
-                        عشر : الغايه من استعمال المأجور.</span></h1>
-                <ol style="list-style-type: undefined;margin-left:-1px;">
-                    <li><span style='font-family:"Times New Roman";font-size:10.0pt;'>لا يحق للطرف الثاني تاجير العقد
-                            من الباطن تحت أي ظرف من الظروف. في حال خالف الطرف الثاني هذا الشرط تطبق شروط التعويض
-                            الاتفاقي.</span></li>
-                    <li><span style='font-family:"Times New Roman";font-size:10.0pt;'>لا يحق للطرف الثاني &nbsp;او
-                            استعماله بغير الصفه والغرض المتفق عليه (الاستعمال العائلي) وبحال خالف الطرف الثاني أي من هذه
-                            الشروط يعتبر العقد لاغيا ويحق للطرف الأول استرداد العقار واخلاء الطرف الثاني والزامه بجميع
-                            قيمة العقد التعاقديه ودفع جميع التكاليف والغرامات المنصوص عليها ادناه لتسليم
-                            العقار.&nbsp;</span><span style="font-size:10.0pt;">وبشكل عام لا يحق للطرف الثاني أن يشغل
-                            المأجور لغير الغاية التي استأجره لأجلها أو أن يستعمله فيما يخالف الشرع والقانون وأنظمة
-                            البلاد والآداب العامة.</span><span style="font-size:10.0pt;">&nbsp;في حال خالف الطرف الثاني
-                            هذا الشرط تطبق شروط التعويض الاتفاقي.</span></li>
-                    <li><u><span style="font-size:14.0pt;">تعويض اتفاقي</span></u><span
-                            style='font-family:"Times New Roman";font-size:14.0pt;'>:</span><span
-                            style='font-family:"Times New Roman";font-size:14.0pt;'>&nbsp;</span><span
-                            style='font-family:"Times New Roman";font-size:11.0pt;'>في حال الاخلال باي من مواد الفقره
-                            أعلاه،</span><span style='font-family:"Times New Roman";'>&nbsp;</span><span
-                            style='font-family:"Times New Roman";'>يتم الاستناد للبند رقم <u>واحد وعشرين</u> الخاص
-                            بالتعويضات الاتفاقيه.</span></li>
-                </ol>
+               
                 <h1 dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:right;font-size:19px;font-family:"Calibri Light",sans-serif;color:black;'>
                     <span style='font-size:21px;font-family:"Times New Roman",serif;font-weight:normal;'>البند الثالث
-                        عشر : موطن التبليغات.</span></h1>
+                        عشر  موطن التبليغات.</span></h1>
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
                     <span style="font-size:12px;font-weight:normal;">يعتبر المأجور عنواناً للُمستأجر طوال مدة الايجار
@@ -1155,35 +1109,31 @@
                                 <td
                                     style="width:239.75pt;border:solid windowtext 1.0pt;border-top:  none;padding:0in 5.4pt 0in 5.4pt;height:41.8pt;">
                                     <p dir="RTL"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
-                                        <span style="font-size:15px;font-weight:normal;">الاسم :................
-                                            ..................(حصرا )</span></p>
+                                        style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
+                                       الاسم
                                     <p dir="RTL"
                                         style='margin: 0in 0in 0.0001pt 9pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
-                                        <span style="font-size:15px;font-weight:normal;">منزل :
-                                            &nbsp;......................... &nbsp; &nbsp;</span></p>
-                                    <p dir="RTL"
-                                        style='margin: 0in 0in 0.0001pt 9pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
-                                        <span style="font-size:15px;font-weight:normal;">موبايل&nbsp;</span><span
-                                            style="font-size:16px;font-weight:normal;">&nbsp;.......................................</span>
-                                    </p>
-                                    <p dir="RTL"
-                                        style='margin: 0in 0in 0.0001pt 9pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
-                                        <span style="font-size:16px;font-weight:normal;">ايميل:
-                                            .........................................</span></p>
+                                       منزل 
+                                       <p dir="RTL"
+                                       style='margin: 0in 0in 0.0001pt 9pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
+                                      موبايل 
+                                      <p dir="RTL"
+                                      style='margin: 0in 0in 0.0001pt 9pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
+                                     ايميل 
+                                  
                                 </td>
                                 <td
                                     style="width:288.45pt;border-top:none;border-left:solid windowtext 1.0pt;border-bottom:solid windowtext 1.0pt;border-right:none;padding:0in 5.4pt 0in 5.4pt;height:41.8pt;">
                                     <p dir="RTL"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
-                                        <span style="font-size:15px;font-weight:normal;">الاسم :................
-                                            .......................................او من ينوب عنه</span></p>
+                                        style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
+                                       الاسم
+                                            .......................................او من ينوب عنه
                                     <p dir="RTL"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
+                                        style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
                                         <span style="font-size:15px;font-weight:normal;">العنوان: المدينه ... .........
                                             &ndash; حي &nbsp;.................... &ndash;&nbsp;</span></p>
                                     <p dir="RTL"
-                                        style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
+                                        style='margin:0in;margin-bottom:.0001pt;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
                                         <span style="font-size:15px;font-weight:normal;">&nbsp;شارع &nbsp;
                                             &nbsp;.............................. -مقابل ..................... &nbsp;
                                             &nbsp; &nbsp;عماره رقم ........... &nbsp; &nbsp;الشقه
@@ -1201,8 +1151,31 @@
                             </tr>
                         </tbody>
                     </table>
+                    
                 </div>
-                <p dir="RTL"
+                <h1 dir="RTL"
+                style='margin:0in;margin-bottom:.0001pt;text-align:right;font-size:19px;font-family:"Calibri Light",sans-serif;color:black;'>
+                <span style='font-size:21px;font-family:"Times New Roman",serif;font-weight:normal;'>البند الرابع
+                    عشر  الغايه من استعمال المأجور.</span></h1>
+               <span style='font-family:"Times New Roman";font-size:10.0pt;'>لا يحق للطرف الثاني تاجير العقد
+                        من الباطن تحت أي ظرف من الظروف. في حال خالف الطرف الثاني هذا الشرط تطبق شروط التعويض
+                        الاتفاقي.</span>
+               <span style='font-family:"Times New Roman";font-size:10.0pt;'>لا يحق للطرف الثاني &nbsp;او
+                        استعماله بغير الصفه والغرض المتفق عليه (الاستعمال العائلي) وبحال خالف الطرف الثاني أي من هذه
+                        الشروط يعتبر العقد لاغيا ويحق للطرف الأول استرداد العقار واخلاء الطرف الثاني والزامه بجميع
+                        قيمة العقد التعاقديه ودفع جميع التكاليف والغرامات المنصوص عليها ادناه لتسليم
+                        العقار.&nbsp;</span><span style="font-size:10.0pt;">وبشكل عام لا يحق للطرف الثاني أن يشغل
+                        المأجور لغير الغاية التي استأجره لأجلها أو أن يستعمله فيما يخالف الشرع والقانون وأنظمة
+                        البلاد والآداب العامة.</span><span style="font-size:10.0pt;">&nbsp;في حال خالف الطرف الثاني
+                        هذا الشرط تطبق شروط التعويض الاتفاقي.</span>
+               <u><span style="font-size:14.0pt;">تعويض اتفاقي</span></u><span
+                        style='font-family:"Times New Roman";font-size:14.0pt;'>:</span><span
+                        style='font-family:"Times New Roman";font-size:14.0pt;'>&nbsp;</span><span
+                        style='font-family:"Times New Roman";font-size:11.0pt;'>في حال الاخلال باي من مواد الفقره
+                        أعلاه،</span><span style='font-family:"Times New Roman";'>&nbsp;</span><span
+                        style='font-family:"Times New Roman";'>يتم الاستناد للبند رقم <u>واحد وعشرين</u> الخاص
+                        بالتعويضات الاتفاقيه.</span>
+                 {{-- <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-left:9.0pt;'>
                     <span style="font-size:13px;font-weight:normal;">&nbsp;</span></p>
                 <h1 dir="RTL"
@@ -1238,9 +1211,8 @@
                                 إقرار منه بقبوله تحمل النفقات جميعها المشار اليها أعلاه بمجرد استحقاقها وليس بمجرد
                                 دفعها، اذ يكفي للطرف الأول ابراز ما يثبت استحقاقها على العقار الموصوف. ويسقط للطرف
                                 الثاني أي حق بالتعذر بوجود أي قانون يلزم الطرف الأول بدفعها و/او دفعها للمطالبه بها
-                                قضائيا.</span></li>
-                    </ol>
-                </div>
+                                قضائيا.</span>
+                    </div>
                 <p dir="RTL"
                     style='margin:0in;margin-bottom:.0001pt;text-align:justify;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;margin-top:0in;margin-right:.5in;margin-left:9.0pt;'>
                     <span style="font-size:13px;font-weight:normal;">&nbsp;</span></p>
@@ -2000,19 +1972,19 @@
                 <span style='font-size:21px;font-family:"Times New Roman",serif;font-weight:normal;'>جدول رقم 1: كشف
                     معاينه و استلام الشقه</span></h1>
             <ol style="list-style-type: undefined;">
-                <li><span style="font-size:11.0pt;">اقر انا الموقع ادناه باستلام الشقه وفقا للوصف و الحاله ادناه , و
+               <span style="font-size:11.0pt;">اقر انا الموقع ادناه باستلام الشقه وفقا للوصف و الحاله ادناه , و
                         بذلك اتعهد بتسليم الشقه ( عند انتهاء الفتره التعاقديه او ما يتفرع عنها من تجديدات ) بنفس الحاله
-                        اللتي تم تسليم الشقه فيها و بكمال المكونات الموجوده فيها دونما انتقاص منها .</span></li>
-                <li><span style="font-size:11.0pt;">في حال وجود اعطال و/او تلفيات وأو خلل في مكونات الشقه &quot;
+                        اللتي تم تسليم الشقه فيها و بكمال المكونات الموجوده فيها دونما انتقاص منها .</span>
+               <span style="font-size:11.0pt;">في حال وجود اعطال و/او تلفيات وأو خلل في مكونات الشقه &quot;
                         المذكوره ادناه &quot; فيحق للمالك اصلاح هذه الاعطال و/او الخلل بالاضافه للمطالبه بأجور المواد
-                        و/او العماله المصاحبه اللازمه لاصلاح هذه الأعطال و الخلل.&nbsp;</span></li>
-                <li><span style="font-size:11.0pt;">يثبت حق الطرف الأول في المطالبه بتكاليف الإصلاح والصيانه بمجرد
+                        و/او العماله المصاحبه اللازمه لاصلاح هذه الأعطال و الخلل.&nbsp;</span>
+               <span style="font-size:11.0pt;">يثبت حق الطرف الأول في المطالبه بتكاليف الإصلاح والصيانه بمجرد
                         احضار فاتوره واحده فقط &quot; لكل ماده من مواد الاصلاح و اجور العمل &quot; وتعتبر هذه الفواتير
                         دليل قاطعا للاصلاح واثباتا قطعيا لتكليفه , و يكون ملزما بدفع المبلغ فور اظهار و تقديم هذه
-                        الاثباتات &quot; الفاتوره و/او الفواتير &quot;.</span></li>
-                <li><span style="font-size:11.0pt;">يسقط للطرف الثاني أي حق بالادعاء بعدم صحه البينات المقدمه لاثبات
+                        الاثباتات &quot; الفاتوره و/او الفواتير &quot;.</span>
+               <span style="font-size:11.0pt;">يسقط للطرف الثاني أي حق بالادعاء بعدم صحه البينات المقدمه لاثبات
                         الإصلاحات من ادعاء بعدم صحتها و/او عدمة صحة محررها و/او المغالة في أسعارها، كون ان الطرف الثاني
-                        قصر في تسليم العقار تسليما صحيحا كما نص عليه العقد.</span></li>
+                        قصر في تسليم العقار تسليما صحيحا كما نص عليه العقد.</span>
             </ol>
             <p dir="RTL"
                 style='margin: 0in 0in 0.0001pt;font-size:19px;font-family: "Times New Roman", serif;font-weight: bold;'>
@@ -2613,15 +2585,15 @@
                                         <li
                                             style='margin:0in;margin-bottom:.0001pt;text-align:right;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                             <span style='font-family:"Times New Roman";'>لا وجود لرطوبه في الجدران او
-                                                الاسقف</span></li>
+                                                الاسقف</span>
                                         <li
                                             style='margin:0in;margin-bottom:.0001pt;text-align:right;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                             <span style='font-family:"Times New Roman";'>لا وجود لبقع و كتابات او سواد
-                                                على الدهان</span></li>
+                                                على الدهان</span>
                                         <li
                                             style='margin:0in;margin-bottom:.0001pt;text-align:right;font-size:19px;font-family:"Times New Roman",serif;font-weight:bold;'>
                                             <span style='font-family:"Times New Roman";'>يتوجب على المستاجر تسليم
-                                                العقار مدهونا او خاليا من اي عيوب و ناصع البياض</span></li>
+                                                العقار مدهونا او خاليا من اي عيوب و ناصع البياض</span>
                                     </ul>
                                 </div>
                                 <p dir="RTL"
