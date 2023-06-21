@@ -9,12 +9,19 @@ use Illuminate\Support\Facades\Validator;
 class PaymentController extends Controller
 {
     public function  get(Request $request) {
-        $owner_id=$request->input('owner_id');
-         $Payment = Payment::where('owner_id',$owner_id)->get();
-       
+        $payments = Payment::where('owner_id', $owner_id)->get();
+        foreach ($payments as $payment) {
+            $owner_data = Client::find($payment->owner_id);
+            $client_data = Client::find($payment->client_id);
+            // You can access the client name using $owner_data->name and $client_data->name
+            $payment['owner_name'] = $owner_data->name;
+            $payment['client_name'] = $client_data->name;
+        }
+
          return response()->json([
              'message' => 'Payment retrieved successfully',
              'data' => $Payment,
+
              'status' => 200,
          ]);
      }
