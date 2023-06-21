@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Payment extends Model
 {
+    protected $table = 'payment';
     protected $fillable = ['owner_id', 'client_id', 'contract_id', 'date', 'amount'];
 
     public function owner()
