@@ -62,19 +62,21 @@ class MobileContractController extends Controller
 
     // Save the contract
     $paymentarr=json_decode($request->input('due_dates'));
-    var_dump($paymentarr);
-    die();
-    $contract->save();
-
-    // Create a new Payment
-   /*  $paymentData = [
+ foreach ($paymentarr as $key => $value) {
+    $paymentData = [
         'owner_id' => $contract->owner_id,
         'client_id' => $contract->owner_id,
         'contract_id' => $contract->id,
-        'date' => now(), // Set the payment date as the current date
-        'amount' => $contract->price,
+        'date' => $paymentarr->dateFormat, // Set the payment date as the current date
+        'amount' => $paymentarr->amount,
+        'status'=>0,
     ];
-    $payment = Payment::create($paymentData); */
+    $payment = Payment::create($paymentData);
+ }
+    $contract->save();
+
+    // Create a new Payment
+   /*  $ */
 
     // Optionally, perform additional operations or logic related to the payment
 
