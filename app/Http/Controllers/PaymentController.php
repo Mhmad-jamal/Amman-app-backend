@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 class PaymentController extends Controller
 {
     public function  get(Request $request) {
+        $owner_id=$request->input('owner_id');
         $payments = Payment::where('owner_id', $owner_id)->get();
         foreach ($payments as $payment) {
             $owner_data = Client::find($payment->owner_id);
