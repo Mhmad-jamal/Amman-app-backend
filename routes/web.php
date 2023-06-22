@@ -28,12 +28,15 @@ use App\Http\Livewire\UpgradeToPro;
 use App\Http\Livewire\Users;
 use App\Http\Controllers\Mobile\MobileRegisterController;
 use App\Http\Controllers\Mobile\LoginMobile;
+use App\Http\Controllers\Mobile\MaintinanceController;
+
 use App\Http\Controllers\Mobile\Property;
 use App\Http\Controllers\Web\WebProperties;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\ContractController;
 use App\Http\Controllers\Mobile\MobileContractController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ClientController;
 
 
 
@@ -165,6 +168,10 @@ Route::get('api/contract/details/pdf/{id}', [ContractController::class, 'Contrac
 // for payment
 Route::any('api/payment/get', [PaymentController::class, 'get']);
 Route::any('api/payment/update/status', [PaymentController::class, 'updateStatus']);
+//for Client
+Route::any('api/client/get', [ClientController::class, 'get']);
+//maintenance 
+Route::any('api/maintenance/create', [MaintinanceController::class, 'create']);
 
 
 

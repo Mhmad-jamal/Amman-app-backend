@@ -122,18 +122,25 @@ class MobileContractController extends Controller
                 ->value('id');
     
     
-    
-     foreach ($paymentarr as $key => $value) {
-        $paymentData = [
-            'owner_id' => $contract->owner_id,
-            'client_id' => $client_id,
-            'contract_id' => $contract->id,
-            'date' => $value->dateFormat, // Set the payment date as the current date
-            'amount' => $value->amount,
-            'status'=>0,
-        ];
-        $payment = Payment::create($paymentData);
-     }
+                foreach ($paymentarr as $key => $value) {
+                    $paymentData = [
+                        'owner_id' => $contract->owner_id,
+                        'client_id' => $client_id,
+                        'contract_id' => $contract->id,
+                        'date' => $value->dateFormat, // Set the payment date as the current date
+                        'amount' => $value->amount,
+                        'status' => 0,
+                    ];
+                    //check if exist update it else create it
+                    
+                    $payment = Payment::updateOrCreate(['id' => $value->payment_id], $paymentData);
+                
+                    // If an existing payment was updated, you can perform additional actions here
+                    if (!$payment->wasRecentlyCreated) {
+                        // Existing payment found and updated
+                        // Perform additional actions if needed
+                    }
+                }
         return response()->json([
             'status' => 200,
             'message' => 'Contract updated successfully',

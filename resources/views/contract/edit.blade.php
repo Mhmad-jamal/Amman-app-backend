@@ -98,13 +98,14 @@
            </div>
            @foreach ($contract['payment'] as $key => $item)   
            <div class="row due_dates">
+           
              <div class="col-md-3">
                <label for="date">Date</label>
-               <input disabled type="date" class="form-control" id="date{{$key}}" name="dateFormat" value="{{$item['date']}}" required="">
+               <input  type="date" class="form-control" id="date{{$key}}" name="dateFormat" value="{{$item['date']}}" required="">
              </div>
              <div class="col-md-3">
                <label for="amount">Amount</label>
-               <input disabled type="text" class="form-control" id="amount{{$key}}" name="amount" value="{{$item['amount']}}" required="">
+               <input  type="text" class="form-control" id="amount{{$key}}" name="amount" value="{{$item['amount']}}" required="">
              </div>
              <input type="hidden" name="payment_id[]" value="{{$item['id']}}">
            </div>
@@ -176,19 +177,17 @@ formData.append('due_dates', json);
 
 
 
-console.log(due_dates);
-return false;
 
   // Send the data to the server
   $.ajax({
-    url: '../../api/cotnract/update',
+    url: '../../api/contract/update',
     type: 'POST',
     data: formData,
     cache: false,
     contentType: false,
     processData: false,
     success: function(data) {
-      console.log(data.status);
+console.log("true");
       if (data.status == 200) {
         Swal.fire({
   title: 'Success',
