@@ -136,6 +136,8 @@ Route::post('/banner/delete', [BannerController::class, 'delete'])->name('delete
 
 // for sign-in and register 
 Route::post('api/register', [MobileRegisterController::class, 'register']);
+Route::post('api/client/update', [MobileRegisterController::class, 'update']);
+
 Route::post('api/login', [LoginMobile::class, 'login']);
 // for property
 
