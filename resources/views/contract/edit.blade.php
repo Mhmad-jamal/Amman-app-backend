@@ -96,22 +96,20 @@
                 <input type="text" class="form-control" id="price" name="price" value="{{$contract->price}}" required="">
             </div>
            </div>
-          @php
-          
-          $due_date= json_decode($contract->due_dates);
-                @endphp
-           @foreach ( $due_date as $key => $item)
+           @foreach ($contract['payment'] as $key => $item)   
            <div class="row due_dates">
              <div class="col-md-3">
-               <label for="dateFormat">Date</label>
-               <input type="date" class="form-control" id="dateFormat{{$key}}" name="dateFormat" value="{{$item->dateFormat}}" required="">
+               <label for="date">Date</label>
+               <input disabled type="date" class="form-control" id="date{{$key}}" name="dateFormat" value="{{$item['date']}}" required="">
              </div>
              <div class="col-md-3">
-               <label for="amount">amount</label>
-               <input type="text" class="form-control" id="amount{{$key}}" name="amount" value="{{$item->amount}}" required="">
+               <label for="amount">Amount</label>
+               <input disabled type="text" class="form-control" id="amount{{$key}}" name="amount" value="{{$item['amount']}}" required="">
              </div>
+             <input type="hidden" name="payment_id[]" value="{{$item['id']}}">
            </div>
-         @endforeach
+        @endforeach
+
          <div id="due_date">
 
          </div>
@@ -145,36 +143,41 @@
   `);
     });
  
-              $('#propertytable').DataTable();
-           
-    $('#saveButton').on('click', function() {
-        var formData = new FormData();
+    $('#propertytable').DataTable();
+
+$('#saveButton').on('click', function() {
+  var formData = new FormData();
   $(':input:not(:disabled)').each(function() {
-    if($(this).attr('name')!= "dateFormat"|| ($(this).attr('name')!= "amount")){
-    formData.append($(this).attr('name'), $(this).val());
+    if ($(this).attr('name') != 'dateFormat' || $(this).attr('name') != 'amount') {
+      formData.append($(this).attr('name'), $(this).val());
     }
   });
-  var due_dates = [];
-  var due_dates = [];
-$('.due_dates').each(function() {
-  var dateFormat = $(this).find('input[name="dateFormat"]').val();
-  var amount = $(this).find('input[name="amount"]').val();
-  if (dateFormat !== "" && amount !== "") {
-    due_dates.push({
-      'dateFormat': dateFormat,
-      'amount': amount
-    });
-  }
 
+  var due_dates = [];
+  $('.due_dates').each(function() {
+    var dateFormat = $(this).find('input[name="dateFormat"]').val();
+    var amount = $(this).find('input[name="amount"]').val();
+    var paymentIdInput = $(this).find('input[name="payment_id[]"]');
+    var paymentId = paymentIdInput.length > 0 ? paymentIdInput.val() : 0;
+    if (dateFormat !== '' && amount !== '') {
+      due_dates.push({
+        'dateFormat': dateFormat,
+        'amount': amount,
+        'payment_id': paymentId
+      });
+    }
+  });
 
+  var json = JSON.stringify(due_dates);
+
+  // Rest of your code
 });
-var json = JSON.stringify(due_dates);
 formData.append('due_dates', json);
 
-for (var entry of formData.entries()) {
-  console.log(entry[0], entry[1]);
-}
 
+
+console.log(due_dates);
+return false;
 
   // Send the data to the server
   $.ajax({

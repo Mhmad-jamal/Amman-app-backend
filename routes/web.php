@@ -161,7 +161,7 @@ Route::any('api/payment/create', [PaymentController::class, 'create'])->name('cr
 
 Route::any('api/contract/get', [MobileContractController::class, 'get']);
 
-Route::get('api/contract/details/{id}', [ContractController::class, 'ContractPdf'])->name('contract_details_pdf');
+Route::get('api/contract/details/pdf/{id}', [ContractController::class, 'ContractPdf'])->name('contract_details_pdf');
 // for payment
 Route::any('api/payment/get', [PaymentController::class, 'get']);
 Route::any('api/payment/update/status', [PaymentController::class, 'updateStatus']);

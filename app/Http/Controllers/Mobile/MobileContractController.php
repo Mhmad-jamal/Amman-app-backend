@@ -116,6 +116,24 @@ class MobileContractController extends Controller
         }
         $contract = Contract::findOrFail($id);
         $contract->update($request->all());
+        $paymentarr=json_decode($request->input('due_dates'));
+        $client_id = DB::table('clients')
+                ->where('nationalty_number', $contract->user_national_number)
+                ->value('id');
+    
+    
+    
+     foreach ($paymentarr as $key => $value) {
+        $paymentData = [
+            'owner_id' => $contract->owner_id,
+            'client_id' => $client_id,
+            'contract_id' => $contract->id,
+            'date' => $value->dateFormat, // Set the payment date as the current date
+            'amount' => $value->amount,
+            'status'=>0,
+        ];
+        $payment = Payment::create($paymentData);
+     }
         return response()->json([
             'status' => 200,
             'message' => 'Contract updated successfully',

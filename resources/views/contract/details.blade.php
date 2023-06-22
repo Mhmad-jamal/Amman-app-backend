@@ -96,22 +96,18 @@
                 <input  disabled type="text" class="form-control" id="price" name="price" value="{{$contract->price}}" required="">
             </div>
            </div>
-          @php
-          
-          $due_date= json_decode($contract->due_dates);
-                @endphp
-           @foreach ( $due_date as $key => $item)
+           @foreach ( $contract['payment'] as $key => $item)   
            <div class="row due_dates">
              <div class="col-md-3">
-               <label for="dateFormat">Date</label>
-               <input  disabled type="date" class="form-control" id="dateFormat{{$key}}" name="dateFormat" value="{{$item->dateFormat}}" required="">
+               <label for="date">Date</label>
+               <input  disabled type="date" class="form-control" id="date{{$key}}" name="date" value="{{$item["date"]}}" required="">
              </div>
              <div class="col-md-3">
                <label for="amount">amount</label>
-               <input  disabled type="text" class="form-control" id="amount{{$key}}" name="amount" value="{{$item->amount}}" required="">
+               <input  disabled type="text" class="form-control" id="amount{{$key}}" name="amount" value="{{$item["amount"]}}" required="">
              </div>
            </div>
-         @endforeach
+         @endforeach 
          <div id="due_date">
 
          </div>

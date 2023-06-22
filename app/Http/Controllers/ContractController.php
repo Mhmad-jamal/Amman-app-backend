@@ -7,6 +7,8 @@ use PDF;
 use Illuminate\Http\Request;
 use App\Models\Contract;
 use App\Models\Client;
+use App\Models\Payment;
+
 
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
@@ -26,9 +28,17 @@ class ContractController extends Controller
     public function details($id)
     {
         $contract = Contract::join('clients', 'clients.id', '=', 'contracts.owner_id')
-            ->select('contracts.*', 'clients.name as owner_name','clients.nationalty_number as owner_nationalty_number', 'clients.phone as owner_phone', 'clients.country_code as owner_country_code')
-            ->where('contracts.id', $id)
-            ->first();
+    ->select('contracts.*', 'clients.name as owner_name', 'clients.nationalty_number as owner_nationalty_number', 'clients.phone as owner_phone', 'clients.country_code as owner_country_code')
+    ->where('contracts.id', $id)
+    ->first();
+
+$contract_id = $contract->id;
+
+$payments = Payment::where('contract_id', $contract_id)->get();
+
+$contract['payment'] = $payments->map(function ($payment) {
+    return $payment->toArray();
+});
     
         // Check if the contract exists
         if (!$contract) {
@@ -40,9 +50,17 @@ class ContractController extends Controller
     public function edit($id)
 {
     $contract = Contract::join('clients', 'clients.id', '=', 'contracts.owner_id')
-        ->select('contracts.*', 'clients.name as owner_name','clients.nationalty_number as owner_nationalty_number', 'clients.phone as owner_phone', 'clients.country_code as owner_country_code')
-        ->where('contracts.id', $id)
-        ->first();
+    ->select('contracts.*', 'clients.name as owner_name', 'clients.nationalty_number as owner_nationalty_number', 'clients.phone as owner_phone', 'clients.country_code as owner_country_code')
+    ->where('contracts.id', $id)
+    ->first();
+
+$contract_id = $contract->id;
+
+$payments = Payment::where('contract_id', $contract_id)->get();
+
+$contract['payment'] = $payments->map(function ($payment) {
+    return $payment->toArray();
+});
 
     // Check if the contract exists
     if (!$contract) {
