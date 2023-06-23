@@ -132,6 +132,7 @@ Route::post('//api/update/banner', [BannerController::class, 'update'])->name('u
 Route::post('/banner/delete', [BannerController::class, 'delete'])->name('delete_banner_image');
 
 Route::get('Contract/request/check', [ContractController::class, 'checkRequestView'])->name('check.request');
+
 /// this is maintenance route 
 Route::get('/order/maintenance/view', [OrderController::class, 'view_maintenance_order'])->name('view_maintenance_order');
 Route::get('/order/general/view', [OrderController::class, 'view_general_order'])->name('view_general_order');
@@ -172,6 +173,9 @@ Route::any('/api/contract/create', [MobileContractController::class, 'create']);
 Route::any('/api/contract/update', [MobileContractController::class, 'update']);
 Route::any('/api/check/status/update', [ContractController::class, 'updateStatus']);
 Route::any('/api/order/status/update', [OrderController::class, 'updateStatus']);
+Route::post('api/Contract/request/get', [ContractController::class, 'getCheck'])->name('get.check');
+Route::post('api/order/get', [OrderController::class, 'getOrder'])->name('get.order');
+
 
 Route::any('/api/payment/create', [PaymentController::class, 'create'])->name('create_payment');
 

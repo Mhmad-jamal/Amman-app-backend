@@ -114,6 +114,7 @@ if ($contract) {
         // For example, you can add data to each client
         $client->owner_name = Client::where('id', $client->owner_id)->pluck('name')->first();
         $client->client_name = Client::where('nationalty_number', $client->nationalty_number)->pluck('name')->first();
+        $client->client_id = Client::where('nationalty_number', $client->nationalty_number)->pluck('id')->first();
 
         
         return $client;
@@ -136,6 +137,19 @@ public function updateStatus(Request $request)
     return response()->json([
         'message' => 'check status change successfully',
         'status' => 200,
-    ]);}
+    ]);
+
+}
+
+public function getCheck(Request $request)  {
+   
+    $id=$request->input('owner_id');
+    $CheckClient = CheckClient::where('owner_id', $id)->get();
+    return response()->json([
+        'message' => 'check status change successfully',
+        'status' => 200,
+        'data'=>$CheckClient,
+    ]);
+}
 
 }

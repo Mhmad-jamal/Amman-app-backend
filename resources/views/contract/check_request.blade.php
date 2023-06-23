@@ -10,7 +10,7 @@
        
 
         <div class="card card-body shadow border-0 table-wrapper table-responsive">
-            <h2 class="h5 mb-4">Contracts information</h2>
+            <h2 class="h5 mb-4">Request information</h2>
 
             <table class="table user-table table-hover align-items-center" id="checkTable">
                 <thead>
@@ -41,8 +41,10 @@
                             <td><span
                                     class="fw-normal d-flex align-items-center">{{$checkRequest->client_name}}</span>
                             </td>
-                            <td><span
-                                class="fw-normal d-flex align-items-center">{{$checkRequest->nationalty_number}}</span>
+                            <td>
+                                
+                               <a class="text-success" href="{{ route('view_user', ['id' => $checkRequest->client_id]) }}">
+                                {{$checkRequest->nationalty_number}}</a>
                         </td>
                         
 

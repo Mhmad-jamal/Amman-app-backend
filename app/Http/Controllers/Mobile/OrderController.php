@@ -205,5 +205,15 @@ return view('order.maintenance_order')->with('orders',$order);
             'message' => 'Order status change successfully',
             'status' => 200,
         ]);}    
+        public function getOrder(Request $request) {
+            $id=$request->input('client_id');
+    $Order = Order::where('client_id', $id)->get();
+    return response()->json([
+        'message' => 'Order retrive successfully',
+        'status' => 200,
+        'data'=>$Order,
+    ]);
+            
+        }
 
 }

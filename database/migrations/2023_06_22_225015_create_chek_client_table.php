@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('check_client', function (Blueprint $table) {
             $table->id();
-            $table->integer('check_status')->default(0);
             $table->string('nationalty_number');
             $table->unsignedBigInteger("owner_id");
             $table->foreign('nationalty_number')
@@ -26,6 +25,8 @@ return new class extends Migration
                   ->references('id')
                   ->on('clients')
                   ->onDelete('cascade');
+                  $table->integer('check_status')->default(0);
+
             $table->timestamps();
         });
         
