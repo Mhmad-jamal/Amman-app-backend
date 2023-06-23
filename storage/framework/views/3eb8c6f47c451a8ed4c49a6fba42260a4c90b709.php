@@ -180,16 +180,16 @@
             </svg>
         </span>
     </a>
-    <div class="multi-level collapse <?php echo e(Request::segment(1) == 'maintenance' ? 'show' : ''); ?> " id="submenu-app3">
+    <div class="multi-level collapse <?php echo e(Request::segment(1) == 'order' ? 'show' : ''); ?> " id="submenu-app3">
       <ul class="flex-column nav">
          
-          <li class="nav-item <?php echo e((Request::segment(2) == 'view' && Request::segment(1) == 'maintenance' && Request::segment(3)== "maintenance") ? 'active' : ''); ?>">
+          <li class="nav-item <?php echo e((Request::segment(2) == 'view' && Request::segment(1) == 'order' && Request::segment(3)== "maintenance") ? 'active' : ''); ?>">
             <a class="nav-link" href="<?php echo e(route('view_maintenance_order')); ?>">
                   <span class="sidebar-text">Maintenance Order</span>
               </a>
           </li>
-          <li   class="nav-item <?php echo e((Request::segment(2)== "view" && Request::segment(1) == 'Contract' && Request::segment(3)== "General") ? 'active' : ''); ?>">
-              <a class="nav-link" href="<?php echo e(route('check.request')); ?>">
+          <li   class="nav-item <?php echo e((Request::segment(2)== "view" && Request::segment(1) == 'order' && Request::segment(3)== "General") ? 'active' : ''); ?>">
+              <a class="nav-link" href="<?php echo e(route('view_general_order')); ?>">
                   <span class="sidebar-text"> General Order</span>
               </a>
           </li>

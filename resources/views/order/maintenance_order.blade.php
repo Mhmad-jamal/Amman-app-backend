@@ -17,11 +17,13 @@
                     <tr>
 
                         <th class="border-bottom">Id</th>
-                        <th class="border-bottom"> Nationality Number</th>
+                        <th class="border-bottom">Order Type</th>
+
+                        <th class="border-bottom"> Client Id</th>
 
                         <th class="border-bottom"> Type </th>
-                        <th class="border-bottom">description </th>
-                        <th class="border-bottom"> image  </th>
+{{--                         <th class="border-bottom">description </th>
+ --}}                        <th class="border-bottom"> image  </th>
 
                         <th class="border-bottom"> date </th>
 
@@ -38,18 +40,23 @@
                             <td>
                                {{$item->id}}
                             </td>
+                            
+
+                            <td>
+                                {{$item->type}}
+                             </td>
                             <td>
                                <a class="text-success" href="{{ route('view_user', ['id' => $item->client_id]) }}">
                                  {{$item->client_nationality_number}}</a>
                              </td>
                             <td><span class="fw-normal"></span>{{$item->name}}
                             </td>
-                            <td>
+                        {{--     <td>
                                 <span class="fw-normal d-flex align-items-center text-truncate" style="max-width: 150px;">
                                     {{ $item->description }}
                                 </span>
                            
-                            </td>
+                            </td> --}}
                           
                                 <td>
                                     <div class="d-flex align-items-center">

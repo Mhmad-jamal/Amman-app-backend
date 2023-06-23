@@ -1,11 +1,16 @@
 <?php
 
 namespace App\Http\Livewire;
+use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Hash;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
+
 
 class Profile extends Component
 {
@@ -42,9 +47,36 @@ class Profile extends Component
         $this->showSavedAlert = true;
         }
     }
-
+    
     public function render()
     {
         return view('livewire.profile');
     }
+    
+    public function editPassword(Request $request)
+    {
+        // Validate the input data
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'new_password' => 'required|min:8',
+        ]);
+    
+        // Get the user by their ID
+        $user = User::findOrFail($request->input('user_id'));
+    
+        // Verify the current password
+        if (!Hash::check($request->input('current_password'), $user->password)) {
+            Alert::error('Current password is incorrect')->persistent(true);
+            return redirect()->back();
+        }
+    
+        // Update the user's password
+        $user->password = Hash::make($request->input('new_password'));
+        $user->save();
+    
+        Alert::success('Password changed successfully')->persistent(true);
+    
+        return redirect()->back();
+    }
+    
 }

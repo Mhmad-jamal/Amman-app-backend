@@ -78,6 +78,8 @@ Route::get('/upgrade-to-pro', UpgradeToPro::class)->name('upgrade-to-pro');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', Profile::class)->name('profile');
+    Route::post('/change/password', [Profile::class, 'editPassword'])->name('edit_password');
+
     Route::get('/profile-example', ProfileExample::class)->name('profile-example');
     Route::get('/users', Users::class)->name('users');
     Route::get('/login-example', LoginExample::class)->name('login-example');
@@ -132,6 +134,8 @@ Route::post('/banner/delete', [BannerController::class, 'delete'])->name('delete
 Route::get('Contract/request/check', [ContractController::class, 'checkRequestView'])->name('check.request');
 /// this is maintenance route 
 Route::get('/order/maintenance/view', [OrderController::class, 'view_maintenance_order'])->name('view_maintenance_order');
+Route::get('/order/general/view', [OrderController::class, 'view_general_order'])->name('view_general_order');
+
 Route::get('/order/maintenance/details/{id}', [OrderController::class, 'details_maintenance_order'])->name('details_maintenance_order');
 
 });

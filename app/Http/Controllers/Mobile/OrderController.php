@@ -165,7 +165,23 @@ class OrderController extends Controller
     });
 return view('order.maintenance_order')->with('orders',$order);        
     }
+    public function view_general_order()  {
+        
+        $order = Order::where('status', 0)
+        ->whereNotIn('type', ['maintenance'])
+        ->get();
+        $order->map(function ($client) {
+        // Perform your desired action on each $client
+        // For example, you can add data to each client
+        $client->client_name = Client::where('id', $client->client_id)->pluck('name')->first();
+        $client->client_nationality_number = Client::where('id', $client->client_id)->pluck('nationalty_number')->first();
 
+        
+        return $client;
+        
+    });
+return view('order.maintenance_order')->with('orders',$order);        
+    }
 
     public function details_maintenance_order($id)
     {
