@@ -62,14 +62,16 @@
       <li class="nav-item {{ request()->routeIs('all_property', 'properties_edit','properties_view') ? 'active' : '' }}" >
         <a href="{{route('all_property')}}" class="nav-link">
 
-        <span class="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
-          data-bs-target="#submenu-laravel" aria-expanded="true">
           <span>
-            <span class="sidebar-icon"><i class="fab fa-laravel me-2" style="color: #fb503b;"></i></span>
-            <span class="sidebar-text" style="color: #fb503b;">Properties</span>
+            <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z"
+                  clip-rule="evenodd"></path>
+                <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"></path>
+              </svg></span>
+            <span class="sidebar-text"> Properties</span>
           </span>
-          
-        </span>
       </a>
        
       </li>
@@ -152,14 +154,53 @@
                       <span class="sidebar-text">All contract</span>
                   </a>
               </li>
-              <li class="nav-item {{ (Request::segment(2)== "request" && Request::segment(1) == 'Contract') ? 'active' : '' }}">
-                  <a class="nav-link" href="#">
-                      <span class="sidebar-text">Request Check </span>
+              <li   class="nav-item {{ (Request::segment(2)== "request" && Request::segment(1) == 'Contract') ? 'active' : '' }}">
+                  <a class="nav-link" href="{{route('check.request')}}">
+                      <span class="sidebar-text"> Check Request</span>
                   </a>
               </li>
           </ul>
       </div>
+     
   </li>
+
+  <li class="nav-item">
+    <a class="nav-link d-flex justify-content-between align-items-center" href="#" role="button"
+        onclick="toggleSubMenu('submenu-app3')">
+        <span>
+          <span class="sidebar-icon">
+            <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l2.293 2.293A1 1 0 0018 16V6a1 1 0 00-.293-.707z" clip-rule="evenodd"></path>
+            </svg>
+          </span>
+            <span class="sidebar-text">Order</span>
+        </span>
+        <span class="link-arrow">
+            <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </span>
+    </a>
+    <div class="multi-level collapse {{ Request::segment(1) == 'maintenance' ? 'show' : '' }} " id="submenu-app3">
+      <ul class="flex-column nav">
+         
+          <li class="nav-item {{ (Request::segment(2) == 'view' && Request::segment(1) == 'maintenance' && Request::segment(3)== "maintenance") ? 'active' : '' }}">
+            <a class="nav-link" href="{{route('view_maintenance_order')}}">
+                  <span class="sidebar-text">Maintenance Order</span>
+              </a>
+          </li>
+          <li   class="nav-item {{ (Request::segment(2)== "view" && Request::segment(1) == 'Contract' && Request::segment(3)== "General") ? 'active' : '' }}">
+              <a class="nav-link" href="{{route('check.request')}}">
+                  <span class="sidebar-text"> General Order</span>
+              </a>
+          </li>
+      </ul>
+  </div>
+   
+</li>
     {{--
        <li class="nav-item {{ Request::segment(1) == 'transactions' ? 'active' : '' }}">
         <a href="/transactions" class="nav-link">
@@ -406,4 +447,5 @@
     const submenu = document.getElementById(id);
     submenu.classList.toggle('show');
 }
+
 </script>

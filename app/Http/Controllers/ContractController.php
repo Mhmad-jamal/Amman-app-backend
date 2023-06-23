@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\Contract;
 use App\Models\Client;
 use App\Models\Payment;
+use App\Models\CheckClient;
+
 
 
 use RealRashid\SweetAlert\Facades\Alert;
@@ -103,5 +105,37 @@ if ($contract) {
 
 }
 
-   
+ /// function for request check 
+ public function checkRequestView()
+{
+    $CheckClient = CheckClient::where('check_status', 0)->get();
+    $CheckClient->map(function ($client) {
+        // Perform your desired action on each $client
+        // For example, you can add data to each client
+        $client->owner_name = Client::where('id', $client->owner_id)->pluck('name')->first();
+        $client->client_name = Client::where('nationalty_number', $client->nationalty_number)->pluck('name')->first();
+
+        
+        return $client;
+        
+    });
+
+    return view('contract.check_request')->with('checkRequests', $CheckClient);
+}
+public function updateStatus(Request $request)
+{
+    $id = $request->input('id');
+    $check_status = $request->input('check_status');
+
+    $checkClient = CheckClient::findOrFail($id);
+    $checkClient->check_status = $check_status;
+    $checkClient->save();
+
+    // Additional code if needed
+
+    return response()->json([
+        'message' => 'check status change successfully',
+        'status' => 200,
+    ]);}
+
 }

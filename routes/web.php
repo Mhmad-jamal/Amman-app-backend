@@ -28,7 +28,7 @@ use App\Http\Livewire\UpgradeToPro;
 use App\Http\Livewire\Users;
 use App\Http\Controllers\Mobile\MobileRegisterController;
 use App\Http\Controllers\Mobile\LoginMobile;
-use App\Http\Controllers\Mobile\MaintinanceController;
+use App\Http\Controllers\Mobile\OrderController;
 
 use App\Http\Controllers\Mobile\Property;
 use App\Http\Controllers\Web\WebProperties;
@@ -126,54 +126,61 @@ Route::get('/Contract/details/{id}', [ContractController::class, 'details'])->na
 
 // end contract 
 Route::post('/Banner/add', [BannerController::class, 'create'])->name('create_banner');
-Route::post('/api/update/banner', [BannerController::class, 'update'])->name('update_banner');
+Route::post('//api/update/banner', [BannerController::class, 'update'])->name('update_banner');
 Route::post('/banner/delete', [BannerController::class, 'delete'])->name('delete_banner_image');
 
+Route::get('Contract/request/check', [ContractController::class, 'checkRequestView'])->name('check.request');
+/// this is maintenance route 
+Route::get('/order/maintenance/view', [OrderController::class, 'view_maintenance_order'])->name('view_maintenance_order');
+Route::get('/order/maintenance/details/{id}', [OrderController::class, 'details_maintenance_order'])->name('details_maintenance_order');
 
 });
 
 //route for mobile
 
 // for sign-in and register 
-Route::post('api/register', [MobileRegisterController::class, 'register']);
-Route::post('api/client/update', [MobileRegisterController::class, 'update']);
+Route::post('/api/register', [MobileRegisterController::class, 'register']);
+Route::post('/api/client/update', [MobileRegisterController::class, 'update']);
 
-Route::post('api/login', [LoginMobile::class, 'login']);
+Route::post('/api/login', [LoginMobile::class, 'login']);
 // for property
 
-Route::post('api/createproperty', [Property::class, 'Create']);
-Route::post('api/deletePropertyImage', [Property::class, 'deletePropertyImage']);
+Route::post('/api/createproperty', [Property::class, 'Create']);
+Route::post('/api/deletePropertyImage', [Property::class, 'deletePropertyImage']);
 
 
-Route::any('api/getallproperties', [Property::class, 'getallproperties']);
-Route::any('api/getallpropertiesSearch', [Property::class, 'getallpropertiesSearch']);
+Route::any('/api/getallproperties', [Property::class, 'getallproperties']);
+Route::any('/api/getallpropertiesSearch', [Property::class, 'getallpropertiesSearch']);
 
-Route::any('api/getpropertiesbyclientId', [Property::class, 'getpropertiesbyclientId']);
-Route::any('api/getpropertiesbySection', [Property::class, 'getpropertiesbySection']);
-Route::any('api/getpropertiesbyid', [Property::class, 'getpropertiesbyid']);
-Route::any('api/editpropety', [Property::class, 'editpropety']);
-Route::any('api/deleteproperty', [Property::class, 'deleteproperty']);
-Route::any('api/likeProperty', [Property::class, 'likeProperty']);
-Route::any('api/getlikeProperty', [Property::class, 'getlikeProperty']);
+Route::any('/api/getpropertiesbyclientId', [Property::class, 'getpropertiesbyclientId']);
+Route::any('/api/getpropertiesbySection', [Property::class, 'getpropertiesbySection']);
+Route::any('/api/getpropertiesbyid', [Property::class, 'getpropertiesbyid']);
+Route::any('/api/editpropety', [Property::class, 'editpropety']);
+Route::any('/api/deleteproperty', [Property::class, 'deleteproperty']);
+Route::any('/api/likeProperty', [Property::class, 'likeProperty']);
+Route::any('/api/getlikeProperty', [Property::class, 'getlikeProperty']);
 
 // for banner 
 
-Route::any('api/getbannerimage', [BannerMobileController::class, 'get']);
+Route::any('/api/getbannerimage', [BannerMobileController::class, 'get']);
 // for contract
-Route::any('api/contract/create', [MobileContractController::class, 'create']);
-Route::any('api/contract/update', [MobileContractController::class, 'update']);
-Route::any('api/payment/create', [PaymentController::class, 'create'])->name('create_payment');
+Route::any('/api/contract/create', [MobileContractController::class, 'create']);
+Route::any('/api/contract/update', [MobileContractController::class, 'update']);
+Route::any('/api/check/status/update', [ContractController::class, 'updateStatus']);
+Route::any('/api/order/status/update', [OrderController::class, 'updateStatus']);
 
-Route::any('api/contract/get', [MobileContractController::class, 'get']);
+Route::any('/api/payment/create', [PaymentController::class, 'create'])->name('create_payment');
 
-Route::get('api/contract/details/pdf/{id}', [ContractController::class, 'ContractPdf'])->name('contract_details_pdf');
+Route::any('/api/contract/get', [MobileContractController::class, 'get']);
+
+Route::get('/api/contract/details/pdf/{id}', [ContractController::class, 'ContractPdf'])->name('contract_details_pdf');
 // for payment
-Route::any('api/payment/get', [PaymentController::class, 'get']);
-Route::any('api/payment/update/status', [PaymentController::class, 'updateStatus']);
+Route::any('/api/payment/get', [PaymentController::class, 'get']);
+Route::any('/api/payment/update/status', [PaymentController::class, 'updateStatus']);
 //for Client
-Route::any('api/client/get', [ClientController::class, 'get']);
+Route::any('/api/client/get', [ClientController::class, 'get']);
 //maintenance 
-Route::any('api/maintenance/create', [MaintinanceController::class, 'create']);
+Route::any('/api/order/create', [OrderController::class, 'create']);
 
 
 
