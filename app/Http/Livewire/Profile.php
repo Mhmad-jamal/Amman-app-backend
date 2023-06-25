@@ -4,9 +4,9 @@ namespace App\Http\Livewire;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 use App\Models\User;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
@@ -78,5 +78,6 @@ class Profile extends Component
     
         return redirect()->back();
     }
+   
     
 }

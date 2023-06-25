@@ -37,18 +37,12 @@ use App\Http\Controllers\ContractController;
 use App\Http\Controllers\Mobile\MobileContractController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ClientController;
-
+use App\Http\Controllers\AdminController;
 
 
 
 
 use App\Http\Controllers\Mobile\BannerMobileController;
-
-
-
-
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -77,6 +71,8 @@ Route::get('/500', Err500::class)->name('500');
 Route::get('/upgrade-to-pro', UpgradeToPro::class)->name('upgrade-to-pro');
 
 Route::middleware('auth')->group(function () {
+
+
     Route::get('/profile', Profile::class)->name('profile');
     Route::post('/change/password', [Profile::class, 'editPassword'])->name('edit_password');
 
@@ -138,6 +134,14 @@ Route::get('/order/maintenance/view', [OrderController::class, 'view_maintenance
 Route::get('/order/general/view', [OrderController::class, 'view_general_order'])->name('view_general_order');
 
 Route::get('/order/maintenance/details/{id}', [OrderController::class, 'details_maintenance_order'])->name('details_maintenance_order');
+//users
+Route::get('/users/view', [AdminController::class, 'view'])->name('view_admin');
+Route::get('/users/view/details/{id}', [AdminController::class, 'details'])->name('details_admin');
+Route::get('/users/edit/{id}', [AdminController::class, 'edit'])->name('edit_admin');
+Route::post('/users/edit/password', [AdminController::class, 'editPassowrd'])->name('Admin_edit_Password');
+Route::post('/users/update', [AdminController::class, 'update'])->name('Admin_update');
+Route::get('/users/delete/{id}', [AdminController::class, 'delete'])->name('Admin_delete');
+
 
 });
 

@@ -171,7 +171,6 @@ $('#saveButton').on('click', function() {
 
   var json = JSON.stringify(due_dates);
 
-  // Rest of your code
 
 formData.append('due_dates', json);
 

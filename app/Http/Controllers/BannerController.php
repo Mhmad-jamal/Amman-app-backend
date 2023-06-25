@@ -15,6 +15,7 @@ class BannerController extends Controller
     //
     public function add()
     {
+
         $banners = Banner::all();
         return view('banner.add')->with('banners', $banners);
     }
