@@ -141,6 +141,8 @@ Route::get('/users/edit/{id}', [AdminController::class, 'edit'])->name('edit_adm
 Route::post('/users/edit/password', [AdminController::class, 'editPassowrd'])->name('Admin_edit_Password');
 Route::post('/users/update', [AdminController::class, 'update'])->name('Admin_update');
 Route::get('/users/delete/{id}', [AdminController::class, 'delete'])->name('Admin_delete');
+Route::post('/users/add/admin', [AdminController::class, 'add'])->name('add_new_admin');
+
 
 
 });

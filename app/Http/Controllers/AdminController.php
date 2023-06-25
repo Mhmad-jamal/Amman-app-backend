@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use App\Models\UserRole;
+
+
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -107,6 +110,50 @@ public function delete($id){
     // Redirect back
     return redirect()->back();
 }
+public function add(Request $request)
+{
+    // Validate the form data
+    $validator = Validator::make($request->all(), [
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|min:6',
+        'passwordConfirmation' => 'required|same:password',
+    ], [
+        'email.unique' => 'The email has already been taken.',
+    ]);
 
+    if ($validator->fails()) {
+        $errors = $validator->errors()->all();
+        $errorMessage = implode( $errors);
 
+        Alert::error('Validation Error', $errorMessage)->html()->autoClose(5000);
+
+        return redirect()->back()->withInput();
+    }
+
+    // Create a new Admin model instance
+    $admin = new Admin;
+    $admin->email = $request->input('email');
+    $admin->password = Hash::make($request->input('password'));
+    // Set any other properties as needed
+
+    // Save the new admin
+    $admin->save();
+
+    // Create a new user_role record
+    $userRole = new UserRole;
+    $userRole->user_id = $admin->id;
+    $userRole->role = 'admin';
+    $userRole->Permission = json_encode(['Ahmad', 'ahmad']);
+    // Set any other properties as needed
+
+    // Save the new user_role record
+    $userRole->save();
+
+    Alert::success('Success', 'Admin created successfully.');
+    return redirect()->back();
 }
+}
+
+
+
+

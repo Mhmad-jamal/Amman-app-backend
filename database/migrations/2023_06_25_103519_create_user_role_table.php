@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
         
             $table->string('role'); // JSON column for role
-            $table->json('Permition'); // JSON column for role
+            $table->json('Permission'); // JSON column for role
         
             $table->timestamps();
         
