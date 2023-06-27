@@ -64,11 +64,27 @@ public function editPassowrd(Request $request ){
 
 public function update(Request $request)
 {
-   
     $validator = Validator::make($request->all(), [
         'first_name' => 'required',
         'last_name' => 'required',
-        'email' => 'required|email|unique:users,email,' . $request->input('id'),
+        'email' => [
+            'sometimes',
+            'required',
+            'email',
+            function ($attribute, $value, $fail) use ($request) {
+                $userId = $request->input('id');
+                $user = Admin::find($userId);
+                
+                if ($user && $user->email === $value) {
+                    return; // Skip validation if the email remains the same
+                }
+                
+                $count = Admin::where('email', $value)->count();
+                if ($count > 0) {
+                    $fail('The email has already been taken.');
+                }
+            },
+        ],
         'gender' => 'required',
         'address' => 'required',
         'number' => 'required',
@@ -87,8 +103,8 @@ public function update(Request $request)
 
     $id = $request->input('id');
     $user = Admin::find($id);
-    $user->email = $request->input('email');
 
+    $user->email = $request->input('email');
     $user->first_name = $request->input('first_name');
     $user->last_name = $request->input('last_name');
     $user->gender = $request->input('gender');
@@ -102,6 +118,7 @@ public function update(Request $request)
 
     return redirect()->back();
 }
+
 public function delete($id){
     $user = Admin::findOrFail($id);
     $user->delete();
