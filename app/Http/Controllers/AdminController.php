@@ -29,7 +29,7 @@ public function details($id){
 }
 public function edit($id){
     $users = Admin::join('user_role', 'users.id', '=', 'user_role.user_id')
-    ->select('users.*', 'user_role.role')
+    ->select('users.*', 'user_role.Permission')
     ->where('users.id', $id)
     ->first();
     return view('admin.edit')->with('user',$users);
@@ -160,8 +160,111 @@ public function add(Request $request)
     $userRole = new UserRole;
     $userRole->user_id = $admin->id;
     $userRole->role = 'admin';
-    $userRole->Permission = json_encode(['Ahmad', 'ahmad']);
-    // Set any other properties as needed
+    $userRole->Permission = json_encode([
+        [
+            "page" => "Dashboard",
+            "pageId" => "dashboard",
+            "action" => [
+                "Show" => 1
+            ]
+        ],
+        [
+            "page" => "Client Page",
+            "pageId" => "client_page",
+            "action" => [
+                "Show" => 1,
+                "view_client" => 1,
+                "edit_client" => 1,
+                "delete_client" => 1
+            ]
+        ],
+        [
+            "page" => "Properties",
+            "pageId" => "properties",
+            "action" => [
+                "Show" => 1,
+                "view_property" => 1,
+                "edit_property" => 1,
+                "delete_property" => 1
+            ]
+        ],
+        [
+            "page" => "Banner",
+            "pageId" => "banner_Page",
+            "action" => [
+                "Show" => 1,
+                "view_banner" => 1,
+                "edit_banner" => 1,
+                "delete_banner" => 1
+            ]
+        ],
+        [
+            "page" => "Contract",
+            "pageId" => "contract_page",
+            "action" => [
+                "Show" => 1,
+                "view_all_contract" => 1,
+                "view_check_request" => 1
+            ]
+        ],
+        [
+            "page" => "All Contract",
+            "pageId" => "all_contract_page",
+            "action" => [
+                "Show" => 1,
+                "view_contract" => 1,
+                "edit_contract" => 1,
+                "delete_contract" => 1
+            ]
+        ],
+        [
+            "page" => "Check Request",
+            "pageId" => "Check_request",
+            "action" => [
+                "Show" => 1,
+                "Approve" => 1,
+                "Reject" => 1
+            ]
+        ],
+        [
+            "page" => "Order Page",
+            "pageId" => "order_page",
+            "action" => [
+                "Show" => 1,
+                "view_maintenance_order" => 1,
+                "view_general_order" => 1
+            ]
+        ],
+        [
+            "page" => "Maintenance Order Page",
+            "pageId" => "maintenance_order_page",
+            "action" => [
+                "Show" => 1,
+                "Approve" => 1,
+                "Reject" => 1
+            ]
+        ],
+        [
+            "page" => "General Order Page",
+            "pageId" => "general_order_page",
+            "action" => [
+                "Show" => 1,
+                "Approve" => 1,
+                "Reject" => 1
+            ]
+        ],
+        [
+            "page" => "Admin Page",
+            "pageId" => "admin_page",
+            "action" => [
+                "Show" => 1,
+                "view" => 1,
+                "edit" => 1,
+                "delete" => 1
+            ]
+        ]
+    ]);
+        // Set any other properties as needed
 
     // Save the new user_role record
     $userRole->save();
@@ -169,6 +272,22 @@ public function add(Request $request)
     Alert::success('Success', 'Admin created successfully.');
     return redirect()->back();
 }
+public function updatePermission(Request $request)
+{
+    $id = $request->input('id');
+    $permission = $request->input('permission');
+    
+    UserRole::where('user_id', $id)->update([
+        'Permission' => $permission,
+    ]); 
+    
+    return response()->json([
+        'status' => 200,
+        'message' => 'Permission updated successfully.',
+        'permission'=>$permission
+    ]);
+}
+
 }
 
 

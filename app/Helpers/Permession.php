@@ -2,10 +2,10 @@
 
 namespace App\Helpers;
 
-class Permession
+class Permission
 {
-    public static function getPermission()
+    public function checkPermission($user,$page)
     {
-dd("hey");
+        // Add your permission logic here
     }
 }

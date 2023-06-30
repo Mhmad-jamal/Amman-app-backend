@@ -124,7 +124,7 @@ Route::get('/Contract/details/{id}', [ContractController::class, 'details'])->na
 
 // end contract 
 Route::post('/Banner/add', [BannerController::class, 'create'])->name('create_banner');
-Route::post('//api/update/banner', [BannerController::class, 'update'])->name('update_banner');
+Route::post('/api/update/banner', [BannerController::class, 'update'])->name('update_banner');
 Route::post('/banner/delete', [BannerController::class, 'delete'])->name('delete_banner_image');
 
 Route::get('Contract/request/check', [ContractController::class, 'checkRequestView'])->name('check.request');
@@ -142,6 +142,7 @@ Route::post('/users/edit/password', [AdminController::class, 'editPassowrd'])->n
 Route::post('/users/update', [AdminController::class, 'update'])->name('Admin_update');
 Route::get('/users/delete/{id}', [AdminController::class, 'delete'])->name('Admin_delete');
 Route::post('/users/add/admin', [AdminController::class, 'add'])->name('add_new_admin');
+Route::post('/api/users/update/permession', [AdminController::class, 'updatePermission'])->name('update_permession');
 
 
 
