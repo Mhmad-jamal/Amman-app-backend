@@ -73,6 +73,7 @@
                         <br>
                         
 @php
+      $userId = auth()->id();
 
 $response = $permission->checkPermission($userId, 'banner_Page','add_banner');
 
