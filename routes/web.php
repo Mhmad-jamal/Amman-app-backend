@@ -19,6 +19,7 @@ use App\Http\Livewire\ForgotPasswordExample;
 use App\Http\Livewire\Index;
 use App\Http\Livewire\LoginExample;
 use App\Http\Livewire\ProfileExample;
+use App\Http\Middleware\CheckPermission;
 
 use App\Http\Livewire\RegisterExample;
 use App\Http\Livewire\Transactions;
@@ -77,13 +78,17 @@ Route::middleware('auth')->group(function () {
     Route::post('/change/password', [Profile::class, 'editPassword'])->name('edit_password');
 
     Route::get('/profile-example', ProfileExample::class)->name('profile-example');
-    Route::get('/clients', Users::class)->name('users');
-    Route::get('/login-example', LoginExample::class)->name('login-example');
-    Route::get('/register-example', RegisterExample::class)->name('register-example');
-    Route::get('/forgot-password-example', ForgotPasswordExample::class)->name('forgot-password-example');
-    Route::get('/reset-password-example', ResetPasswordExample::class)->name('reset-password-example');
+    Route::middleware('checkPermission:client_page,Show')->group(function () {
+        // Routes that require permission to access
+        Route::get('/clients', Users::class)->name('users');
+    });
+ 
+
+Route::middleware('checkPermission:dashboard,Show')->group(function () {
+    // Routes that require permission to access
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
-    Route::get('/transactions', Transactions::class)->name('transactions');
+});
+ Route::get('/transactions', Transactions::class)->name('transactions');
     Route::get('/bootstrap-tables', BootstrapTables::class)->name('bootstrap-tables');
     Route::get('/lock', Lock::class)->name('lock');
     Route::get('/buttons', Buttons::class)->name('buttons');
@@ -108,14 +113,23 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/properties/addimage', [WebProperties::class, 'addImage'])->name('add_image');
     Route::get('/properties/delete/{id}', [WebProperties::class, 'delete'])->name('properties_delete');
-    Route::get('/properties', [WebProperties::class, 'view_all'])->name('all_property');
+    Route::middleware('checkPermission:properties,Show')->group(function () {
+        // Routes that require permission to access
+        Route::get('/properties', [WebProperties::class, 'view_all'])->name('all_property');
+    });
 // for banner 
-Route::get('/Banner/add', [BannerController::class, 'add'])->name('add_new_banner');
-Route::get('/Banner/view', [BannerController::class, 'view'])->name('view_banner');
-Route::get('/Banner/edit', [BannerController::class, 'edit'])->name('edit_banner');
-
-// end bannner
-// contract
+Route::middleware('checkPermission:banner_Page,view_banner')->group(function () {
+    // Routes that require permission to access
+    Route::get('/Banner/view', [BannerController::class, 'view'])->name('view_banner');
+});
+Route::middleware('checkPermission:banner_Page,edit_banner')->group(function () {
+    // Routes that require permission to access
+    Route::get('/Banner/edit', [BannerController::class, 'edit'])->name('edit_banner');
+});
+Route::middleware('checkPermission:banner_Page,add_banner')->group(function () {
+    // Routes that require permission to access
+    Route::get('/Banner/add', [BannerController::class, 'add'])->name('add_new_banner');
+});
 Route::get('/Contract/add', [ContractController::class, 'add'])->name('add_new_contract');
 Route::get('/Contract/view', [ContractController::class, 'view'])->name('view_contract');
 Route::get('/Contract/edit/{id}', [ContractController::class, 'edit'])->name('edit_contract');

@@ -57,6 +57,8 @@
           <span class="sidebar-text">Dashboard</span>
         </a>
       </li>
+      
+
       <?php endif; ?>
       <?php
       $response = $permission->checkPermission($userId, 'client_page','Show');
