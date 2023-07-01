@@ -194,40 +194,65 @@
                                             </td>
 
 
-                                            <td>
+                                         
 
-                                                <div class="btn-group">
-                                                    <button
-                                                        class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
-                                                        data-bs-toggle="dropdown" aria-haspopup="true"
-                                                        aria-expanded="false">
-                                                        <svg class="icon icon-xs" fill="currentColor"
-                                                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                            <path
-                                                                d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z">
-                                                            </path>
-                                                        </svg>
-                                                        <span class="visually-hidden">Toggle Dropdown</span>
-                                                    </button>
-                                                    <div
-                                                        class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
-                                                        <a class="dropdown-item d-flex align-items-center"
-                                                            href="{{ route('properties_view', ['id' => $property->id]) }}">
-                                                            <span class="fas fa-box "></span>
-                                                            View Details
-                                                        </a>
-                                                        <a class="dropdown-item d-flex align-items-center"
-                                                            href="{{ route('properties_edit', ['id' => $property->id]) }}">
-                                                            <span class="fas fa-edit"></span>
-                                                            Edit Property
-                                                        </a>
-                                                        <a class="dropdown-item text-danger d-flex align-items-center"  href="{{ route('properties_delete', ['id' => $property->id]) }}">
-                                                            <span class="fas fa-trash-alt"></span>
-                                                            Delete Property
-                                                        </a>
-                                                    </div>
+                                        <td>
+
+                                            <div class="btn-group">
+                                                <button
+                                                    class="btn btn-link text-dark dropdown-toggle dropdown-toggle-split m-0 p-0"
+                                                    data-bs-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false">
+                                                    <svg class="icon icon-xs" fill="currentColor"
+                                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z">
+                                                        </path>
+                                                    </svg>
+                                                    <span class="visually-hidden">Toggle Dropdown</span>
+                                                </button>
+                                                <div
+                                                    class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
+                                                    @php
+                                                          $userId = auth()->id();
+
+                                                    $response = $permission->checkPermission($userId, 'properties','view_property');
+     
+                                                    @endphp
+                                                
+                                                @if ($response->getStatusCode() === 200)
+                                                    <a class="dropdown-item d-flex align-items-center"
+                                                        href="{{ route('properties_view', ['id' => $property->id]) }}">
+                                                        <span class="fas fa-box "></span>
+                                                        View Details
+                                                    </a>
+                                                    @endif
+                                                    @php
+                                                          $response = $permission->checkPermission($userId, 'properties','edit_property');
+     
+                                                     @endphp
+ 
+                                                    @if ($response->getStatusCode() === 200)
+                                                    <a class="dropdown-item d-flex align-items-center"
+                                                        href="{{ route('properties_edit', ['id' => $property->id]) }}">
+                                                        <span class="fas fa-edit"></span>
+                                                        Edit Property
+                                                    </a>
+                                                    @endif
+                                                    @php
+                                                    $response = $permission->checkPermission($userId, 'properties','delete_property');
+
+                                               @endphp
+
+                                              @if ($response->getStatusCode() === 200)
+                                                    <a class="dropdown-item text-danger d-flex align-items-center"  href="{{ route('properties_delete', ['id' => $property->id]) }}">
+                                                        <span class="fas fa-trash-alt"></span>
+                                                        Delete Property
+                                                    </a>
+                                                    @endif
                                                 </div>
-                                            </td>
+                                            </div>
+                                        </td>
                                         </tr>
                                         <!-- Display other client details -->
                                     @endforeach

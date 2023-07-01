@@ -10,7 +10,7 @@
        
 
         <div class="card card-body shadow border-0 table-wrapper table-responsive">
-            <h2 class="h5 mb-4">Maintenanc order</h2>
+            <h2 class="h5 mb-4"> Orders</h2>
 
             <table class="table user-table table-hover align-items-center" id="checkTable">
                 <thead>
@@ -107,20 +107,46 @@
                                     </button>
                                     <div
                                         class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
+                                        @php
+                                          $userId = auth()->id();
+                                            $response = $permission->checkPermission($userId, 'orders', 'View');
+                                            
+                                        @endphp
+
+                                        @if ($response->getStatusCode() === 200)
+                                         
                                         <a href="{{ route('details_maintenance_order', ['id' => $item->id]) }}" class="dropdown-item d-flex align-items-center">
                                             <span class="fas fa-eye" style="color: rgb(4, 81, 145);"></span>
                                             View
                                         </a>
+                                        @endif
+                                        @php
+                                            
+                                            $response = $permission->checkPermission($userId, 'orders', 'Approve');
+                                            
+                                        @endphp
+
+                                        @if ($response->getStatusCode() === 200)
+                                         
                                         <a onclick="updateStates({{$item->id}},1)" class="dropdown-item d-flex align-items-center">
                                             <span class="fas fa-check" style="color: green;"></span>
                                             Approve
                                         </a>
+                                        @endif
+                                        @php
+                                            
+                                            $response = $permission->checkPermission($userId, 'orders', 'Reject');
+                                            
+                                        @endphp
+
+                                        @if ($response->getStatusCode() === 200)
+                                         
                                         <a onclick="updateStates({{$item->id}},2)" class="dropdown-item d-flex align-items-center"
                                              {{-- href="{{ route('edit_contract', ['id' => $checkRequest->id]) }}" --}}>
                                              <span class="fas fa-times" style="color: red;"></span>
                                              Reject
                                         </a>
-                                        
+                                        @endif
                                         
                                     </div>
                                 </div>

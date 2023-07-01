@@ -77,7 +77,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/change/password', [Profile::class, 'editPassword'])->name('edit_password');
 
     Route::get('/profile-example', ProfileExample::class)->name('profile-example');
-    Route::get('/users', Users::class)->name('users');
+    Route::get('/clients', Users::class)->name('users');
     Route::get('/login-example', LoginExample::class)->name('login-example');
     Route::get('/register-example', RegisterExample::class)->name('register-example');
     Route::get('/forgot-password-example', ForgotPasswordExample::class)->name('forgot-password-example');
@@ -92,7 +92,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/modals', Modals::class)->name('modals');
     Route::get('/typography', Typography::class)->name('typography');
     //for users
-    Route::get('/users', Users::class)->name('users');
 
     Route::get('/user/view/{id}', [Users::class, 'View'])->name('view_user');
 

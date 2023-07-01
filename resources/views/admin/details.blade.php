@@ -98,7 +98,7 @@
                         <div class="col-12 mb-4">
                             <div class="card shadow border-0 text-center p-0">
                                 <div wire:ignore.self class="profile-cover rounded-top"
-                                    data-background="../assets/img/profile-cover.jpg"></div>
+                                    data-background="../../../assets/img/profile-cover.jpg"></div>
                                 <div class="card-body pb-5">
                                     @if ($user->gender=="Female")
                                         

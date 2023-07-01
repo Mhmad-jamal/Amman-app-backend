@@ -193,6 +193,8 @@ public function add(Request $request)
             "pageId" => "banner_Page",
             "action" => [
                 "Show" => 1,
+                "add_banner" => 1,
+
                 "view_banner" => 1,
                 "edit_banner" => 1,
                 "delete_banner" => 1
@@ -211,7 +213,6 @@ public function add(Request $request)
             "page" => "All Contract",
             "pageId" => "all_contract_page",
             "action" => [
-                "Show" => 1,
                 "view_contract" => 1,
                 "edit_contract" => 1,
                 "delete_contract" => 1
@@ -221,7 +222,6 @@ public function add(Request $request)
             "page" => "Check Request",
             "pageId" => "Check_request",
             "action" => [
-                "Show" => 1,
                 "Approve" => 1,
                 "Reject" => 1
             ]
@@ -236,23 +236,15 @@ public function add(Request $request)
             ]
         ],
         [
-            "page" => "Maintenance Order Page",
-            "pageId" => "maintenance_order_page",
+            "page" => " Orders",
+            "pageId" => "orders",
             "action" => [
-                "Show" => 1,
+                "View" => 1,
                 "Approve" => 1,
                 "Reject" => 1
             ]
         ],
-        [
-            "page" => "General Order Page",
-            "pageId" => "general_order_page",
-            "action" => [
-                "Show" => 1,
-                "Approve" => 1,
-                "Reject" => 1
-            ]
-        ],
+   
         [
             "page" => "Admin Page",
             "pageId" => "admin_page",

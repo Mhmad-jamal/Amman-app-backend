@@ -149,21 +149,45 @@
                                     <span class="visually-hidden">Toggle Dropdown</span>
                                 </button>
                                 <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
+                                    
+                                    @php
+                                    $userId = auth()->id();
+
+      $response = $permission->checkPermission($userId, 'properties','view_property');
+     
+      @endphp
+  
+  @if ($response->getStatusCode() === 200)
                                     <a class="dropdown-item d-flex align-items-center"
                                     href="/properties/view/${property.id}">
                                         <span class="fas fa-box"></span>
                                         View Details
                                     </a>
+                                    @endif
+                                    @php 
+                                    $response = $permission->checkPermission($userId, 'properties','edit_property');
+     
+     @endphp
+ 
+ @if ($response->getStatusCode() === 200)
                                     <a class="dropdown-item d-flex align-items-center"
                                     href="/properties/edit/${property.id}">
                                         <span class="fas fa-edit"></span>
                                         Edit Property
                                     </a>
+                                    @endif
+                                    @php 
+                                    $response = $permission->checkPermission($userId, 'properties','delete_property');
+     
+     @endphp
+ 
+ @if ($response->getStatusCode() === 200)
                                     <a class="dropdown-item text-danger d-flex align-items-center"
                                         href="/properties/delete/${property.id}">
                                         <span class="fas fa-trash-alt"></span>
                                         Delete Property
                                     </a>
+                                    @endif
                                 </div>
                             </div>
                         </td>

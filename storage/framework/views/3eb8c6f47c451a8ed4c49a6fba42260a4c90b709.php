@@ -7,7 +7,7 @@
             alt="Bonnie Green">
         </div>
         <div class="d-block">
-          <h2 class="h5 mb-3">Hi, Jane</h2>
+          <h2 class="h5 mb-3">Hi</h2>
           <a href="/login" class="btn btn-secondary btn-sm d-inline-flex align-items-center">
             <svg class="icon icon-xxs me-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg">
@@ -40,6 +40,13 @@
           </span>
         </a>
       </li>
+      <?php
+      $userId = auth()->id();
+      $response = $permission->checkPermission($userId, 'dashboard','Show');
+     
+  ?>
+  
+  <?php if($response->getStatusCode() === 200): ?>
       <li class="nav-item <?php echo e(Request::segment(1) == 'dashboard' ? 'active' : ''); ?>">
         <a href="/dashboard" class="nav-link">
           <span class="sidebar-icon"> <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
@@ -50,8 +57,15 @@
           <span class="sidebar-text">Dashboard</span>
         </a>
       </li>
+      <?php endif; ?>
+      <?php
+      $response = $permission->checkPermission($userId, 'client_page','Show');
+     
+      ?>
+  
+  <?php if($response->getStatusCode() === 200): ?>
       <li class="nav-item <?php echo e(request()->routeIs('view_user', 'edit_user','users') ? 'active' : ''); ?>">
-        <a href="/users" class="nav-link">
+        <a href="<?php echo e(route('users')); ?>" class="nav-link">
           <span class="sidebar-icon"> <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path d="M10 0C4.486 0 0 4.486 0 10v8h20v-8c0-5.514-4.486-10-10-10zm0 2c3.682 0 6.82 2.493 7.75 6H2.25C3.18 4.493 6.318 2 10 2zm0 16c-3.86 0-7-3.14-7-7a6.99 6.99 0 014.547-6.57A5.954 5.954 0 0010 2c3.86 0 7 3.14 7 7 0 1.657-.568 3.172-1.516 4.375A6.99 6.99 0 0110 18z"/>
           </svg>
@@ -59,6 +73,13 @@
           <span class="sidebar-text">Clients</span>
         </a>
       </li>
+      <?php endif; ?>
+      <?php
+      $response = $permission->checkPermission($userId, 'properties','Show');
+     
+      ?>
+  
+  <?php if($response->getStatusCode() === 200): ?>
       <li class="nav-item <?php echo e(request()->routeIs('all_property', 'properties_edit','properties_view') ? 'active' : ''); ?>" >
         <a href="<?php echo e(route('all_property')); ?>" class="nav-link">
 
@@ -75,8 +96,13 @@
       </a>
        
       </li>
-    
-    
+    <?php endif; ?>
+    <?php
+      $response = $permission->checkPermission($userId, 'banner_Page','Show');
+     
+      ?>
+  
+  <?php if($response->getStatusCode() === 200): ?>
       <li class="nav-item">
         <a class="nav-link d-flex justify-content-between align-items-center" href="#" role="button"
             onclick="toggleSubMenu('submenu-app')">
@@ -102,24 +128,52 @@
         </a>
         <div class="multi-level collapse <?php echo e(Request::segment(1) == 'Banner' ? 'show' : ''); ?>" id="submenu-app">
             <ul class="flex-column nav">
+              <?php
+              $response = $permission->checkPermission($userId, 'banner_Page','add_banner');
+             
+              ?>
+          
+          <?php if($response->getStatusCode() === 200): ?>
                 <li class="nav-item <?php echo e(Request::segment(2) == 'add' ? 'active' : ''); ?>">
                     <a class="nav-link" href="<?php echo e(route('add_new_banner')); ?>">
                         <span class="sidebar-text">Add</span>
                     </a>
                 </li>
+                <?php endif; ?>
+                <?php
+                $response = $permission->checkPermission($userId, 'banner_Page','view_banner');
+               
+                ?>
+            
+            <?php if($response->getStatusCode() === 200): ?>
                 <li class="nav-item <?php echo e((Request::segment(2) == 'view' && Request::segment(1) == 'Banner') ? 'active' : ''); ?>">
                     <a class="nav-link" href="<?php echo e(route('view_banner')); ?>">
                         <span class="sidebar-text">View</span>
                     </a>
                 </li>
-                <li class="nav-item <?php echo e(Request::segment(2) == 'edit' ? 'active' : ''); ?>">
+                <?php endif; ?>
+                <?php
+                $response = $permission->checkPermission($userId, 'banner_Page','edit_banner');
+               
+                ?>
+            
+            <?php if($response->getStatusCode() === 200): ?>
+                <li class="nav-item <?php echo e(Request::segment(2) == 'edit' && Request::segment(1)=='Banner'  ? 'active' : ''); ?>">
                     <a class="nav-link" href="<?php echo e(route('edit_banner')); ?>">
                         <span class="sidebar-text">Edit</span>
                     </a>
                 </li>
+                <?php endif; ?>
             </ul>
         </div>
     </li>
+    <?php endif; ?>
+    <?php
+      $response = $permission->checkPermission($userId, 'contract_page','Show');
+     
+      ?>
+  
+  <?php if($response->getStatusCode() === 200): ?>
     <li class="nav-item">
       <a class="nav-link d-flex justify-content-between align-items-center" href="#" role="button"
           onclick="toggleSubMenu('submenu-app2')">
@@ -145,21 +199,41 @@
       <div class="multi-level collapse <?php echo e(Request::segment(1) == 'Contract' ? 'show' : ''); ?>" id="submenu-app2">
           <ul class="flex-column nav">
               
+              <?php
+              $response = $permission->checkPermission($userId, 'contract_page','view_all_contract');
+             
+              ?>
+          
+          <?php if($response->getStatusCode() === 200): ?>
               <li class="nav-item <?php echo e((Request::segment(2) == 'view' && Request::segment(1) == 'Contract') ? 'active' : ''); ?>">
                 <a class="nav-link" href="<?php echo e(route('view_contract')); ?>">
                       <span class="sidebar-text">All contract</span>
                   </a>
               </li>
+              <?php endif; ?>
+              <?php
+              $response = $permission->checkPermission($userId, 'contract_page','view_check_request');
+             
+              ?>
+          
+          <?php if($response->getStatusCode() === 200): ?>
               <li   class="nav-item <?php echo e((Request::segment(2)== "request" && Request::segment(1) == 'Contract') ? 'active' : ''); ?>">
                   <a class="nav-link" href="<?php echo e(route('check.request')); ?>">
                       <span class="sidebar-text"> Check Request</span>
                   </a>
               </li>
+              <?php endif; ?>
           </ul>
       </div>
      
   </li>
-
+<?php endif; ?>
+<?php
+      $response = $permission->checkPermission($userId, 'order_page','Show');
+     
+      ?>
+  
+  <?php if($response->getStatusCode() === 200): ?>
   <li class="nav-item">
     <a class="nav-link d-flex justify-content-between align-items-center" href="#" role="button"
         onclick="toggleSubMenu('submenu-app3')">
@@ -182,22 +256,41 @@
     </a>
     <div class="multi-level collapse <?php echo e(Request::segment(1) == 'order' ? 'show' : ''); ?> " id="submenu-app3">
       <ul class="flex-column nav">
-         
+        <?php
+        $response = $permission->checkPermission($userId, 'order_page','view_maintenance_order');
+       
+        ?>
+    
+    <?php if($response->getStatusCode() === 200): ?>
           <li class="nav-item <?php echo e((Request::segment(2) == 'view' && Request::segment(1) == 'order' && Request::segment(3)== "maintenance") ? 'active' : ''); ?>">
             <a class="nav-link" href="<?php echo e(route('view_maintenance_order')); ?>">
                   <span class="sidebar-text">Maintenance Order</span>
               </a>
           </li>
+          <?php endif; ?>
+          <?php
+      $response = $permission->checkPermission($userId, 'order_page','view_general_order');
+     
+      ?>
+  
+  <?php if($response->getStatusCode() === 200): ?>
           <li   class="nav-item <?php echo e((Request::segment(2)== "view" && Request::segment(1) == 'order' && Request::segment(3)== "General") ? 'active' : ''); ?>">
               <a class="nav-link" href="<?php echo e(route('view_general_order')); ?>">
                   <span class="sidebar-text"> General Order</span>
               </a>
           </li>
+          <?php endif; ?>
       </ul>
   </div>
    
 </li>
+<?php endif; ?>
+<?php
+$response = $permission->checkPermission($userId, 'admin_page','Show');
 
+?>
+
+<?php if($response->getStatusCode() === 200): ?>
        <li class="nav-item <?php echo e(Request::segment(1) == 'transactions' ? 'active' : ''); ?>">
         <a href="<?php echo e(route('view_admin')); ?>" class="nav-link">
           <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
@@ -210,6 +303,7 @@
           <span class="sidebar-text">Admin </span>
         </a>
       </li>
+      <?php endif; ?>
           
     </ul>
   </div>

@@ -48,8 +48,16 @@
                                                                                     
                                                     <button onclick="edit({{ $banner->id }})" type="button" class="btn btn-primary edit-btn mt-3"><i class="fas fa-pencil-alt"></i></button>
 
-                                        <button type="submit" class="btn btn-danger delete-btn mt-3"><i class="fas fa-trash-alt"></i></button>
+@php
+      $userId = auth()->id();
 
+      $response = $permission->checkPermission($userId, 'banner_Page','delete_banner');
+     
+     @endphp
+ 
+ @if ($response->getStatusCode() === 200)    
+ <button type="submit" class="btn btn-danger delete-btn mt-3"><i class="fas fa-trash-alt"></i></button>
+@endif
                                                     
                                  </div>
                       
@@ -63,6 +71,14 @@
                             <br>
                         <hr>
                         <br>
+                        
+@php
+
+$response = $permission->checkPermission($userId, 'banner_Page','add_banner');
+
+@endphp
+
+@if ($response->getStatusCode() === 200)    
                         <h2 class="h5 mb-4">Add New image</h2>
                         <div class="row flex-column">
                             <form method="POST" action="{{route('add_new_banner')}}" enctype="multipart/form-data">
@@ -83,7 +99,8 @@
                                 <button type="submit" class="btn btn-primary">Add Images</button>
                                 </div>
                             </form>
-                        </div>      
+                        </div>   
+                        @endif   
                 </div>
                     </div>
                 </div>

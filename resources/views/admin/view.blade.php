@@ -157,20 +157,48 @@
                                     </button>
                                     <div
                                         class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
+                                        @php
+                                              $userId = auth()->id();
+
+                                        $response = $permission->checkPermission($userId, 'admin_page','view');
+                                       
+                                        @endphp
+                                    
+                                    @if ($response->getStatusCode() === 200)
                                         <a class="dropdown-item d-flex align-items-center"
                                             href=" {{ route('details_admin', ['id' => $user->id]) }} ">
                                             <span class="fas fa-box "></span>
                                             View Details
                                         </a>
+                                        @endif
+                                        @if ($user->role !="super admin")
+                                        @php
+
+                                  $response = $permission->checkPermission($userId, 'admin_page','edit');
+                                 
+                                  @endphp
+                              
+                              @if ($response->getStatusCode() === 200)
                                         <a class="dropdown-item d-flex align-items-center"
                                             href="{{ route('edit_admin', ['id' => $user->id]) }}">
                                             <span class="fas fa-edit"></span>
                                             Edit Admin
                                         </a>
+                                        @endif
+                                        @php
+
+                                  $response = $permission->checkPermission($userId, 'admin_page','delete');
+                                 
+                                  @endphp
+                              
+                              @if ($response->getStatusCode() === 200)
                                         <a class="dropdown-item text-danger d-flex align-items-center"  href="{{ route('Admin_delete', ['id' => $user->id]) }}  ">
                                             <span class="fas fa-trash-alt"></span>
                                             Delete Admin
                                         </a>
+                                        @endif
+                                        @endif
+
                                     </div>
                                 </div>
                             </td>

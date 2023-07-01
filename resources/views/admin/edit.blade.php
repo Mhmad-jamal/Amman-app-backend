@@ -103,21 +103,21 @@
                         <select id="Page"  data-select2-id="select2-data-Page" tabindex="-1" class="select2-hidden-accessible form-select" aria-hidden="true"> 
                             <option selected value="Select" disabled data-id="Select">Select Page</option>
 
-                            <option value="dashboard" data-id="dashboard">Dashboard</option>
+                            <option value="dashboard" data-id="dashboard">Dashboard Page</option>
             
-                            <option value="client_page" data-id="Client Page">Client </option>
+                            <option value="client_page" data-id="Client Page">Client Page</option>
                             
-                            <option value="properties" data-id="properties">Properties </option>
+                            <option value="properties" data-id="properties">Properties Page</option>
                             
-                            <option value="banner_Page" data-id="banner_Page">banner</option>
+                            <option value="banner_Page" data-id="banner_Page">Banner Page</option>
                             
                             <option value="contract_page" data-id="contract page">Contract page</option>
                             <option value="all_contract_page" data-id="all_contract_page">All contract Page</option>
                             <option value="Check_request" data-id="Check_request">Check request</option>
             
-                            <option value="order_page" data-id="order_page">Orders</option>
-                            <option value="maintenance_order_page" data-id="maintenance_order_page">Maintenance Orders</option>
-                            <option value="general_order_page" data-id="general_order_page">General Orders</option>
+                            <option value="order_page" data-id="order_page">Orders Page</option>
+                            <option value="orders" data-id="orders">Orders Controller</option>
+
                             <option value="admin_page" data-id="admin_page">Admin</option>
             
                             

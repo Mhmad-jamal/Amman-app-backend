@@ -88,16 +88,34 @@
                                     </button>
                                     <div
                                         class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
+                                        @php
+                                            $userId = auth()->id();
+                                            
+                                            $response = $permission->checkPermission($userId, 'Check_request', 'Approve');
+                                            
+                                        @endphp
+
+                                        @if ($response->getStatusCode() === 200)
+                                           
                                         <a onclick="updateStates({{$checkRequest->id}},1)" class="dropdown-item d-flex align-items-center">
                                             <span class="fas fa-check" style="color: green;"></span>
                                             Approve
                                         </a>
+                                        @endif
+                                        @php
+                                            
+                                            $response = $permission->checkPermission($userId, 'Check_request', 'Reject');
+                                            
+                                        @endphp
+
+                                        @if ($response->getStatusCode() === 200)
+                                         
                                         <a onclick="updateStates({{$checkRequest->id}},2)" class="dropdown-item d-flex align-items-center"
                                              {{-- href="{{ route('edit_contract', ['id' => $checkRequest->id]) }}" --}}>
                                              <span class="fas fa-times" style="color: red;"></span>
                                              Reject
                                         </a>
-                                        
+                                        @endif
                                     </div>
                                 </div>
                             </td>
@@ -125,7 +143,7 @@ console.log("true");
       if (data.status == 200) {
         Swal.fire({
   title: 'Success',
-  text: 'Contract updated successfully',
+  text: 'update Check successfully',
   icon: 'success',
 }).then(function() {
   location.reload(); // Reload the page

@@ -75,18 +75,41 @@
                             <span class="visually-hidden">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu dashboard-dropdown dropdown-menu-start mt-2 py-1">
+                            @php
+                                  $userId = auth()->id();
+
+                            $response = $permission->checkPermission($userId, 'client_page','view_client');
+                           
+                            @endphp
+                        
+                        @if ($response->getStatusCode() === 200)
                             <a class="dropdown-item d-flex align-items-center" href="{{ route('view_user', ['id' => $client->id]) }}">
                                 <span class="fas fa-user-shield me-2"></span>
                                 View Details
                             </a>
+                            @endif
+                            @php
+                            $response = $permission->checkPermission($userId, 'client_page','edit_client');
+                           
+                            @endphp
+                        
+                        @if ($response->getStatusCode() === 200)
                             <a class="dropdown-item d-flex align-items-center" href="{{ route('edit_user', ['id' => $client->id]) }}">
                                 <span class="fas fa-user-edit me-2"></span>
-                                Edit user
+                                Edit Client
                             </a>
+                            @endif
+                            @php
+                            $response = $permission->checkPermission($userId, 'client_page','delete_client');
+                           
+                            @endphp
+                        
+                        @if ($response->getStatusCode() === 200)
                             <a class="dropdown-item text-danger d-flex align-items-center"   href="{{ route('delete_user', ['id' => $client->id]) }}">
                                 <span class="fas fa-user-times me-2"></span>
-                                Delete user
+                                Delete Client
                             </a>
+                            @endif
                         </div>
                     </div>
                 </td>

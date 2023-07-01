@@ -87,7 +87,7 @@ class Users extends Component
 
     if ($user) {
         $user->delete();
-        Alert::success('Success', 'User deleted successfully!');
+        Alert::success('Success', 'Client deleted successfully!');
     } else {
         Alert::error('Error', 'User not found!');
     }
