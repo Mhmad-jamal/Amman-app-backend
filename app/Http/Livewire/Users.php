@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Illuminate\Http\Request;
 use App\Models\Client;
+use App\Models\Order;
 use App\Models\PropertyModel;
 use Illuminate\Support\Facades\Validator;
 
@@ -30,19 +31,23 @@ class Users extends Component
         $user = Client::find($id);
         $properties = PropertyModel::where('owner_id', $id)
         ->where('status', '!=', '2')
-        ->get();   
-        return view('view-user')->with('user', $user)->with('properties', $properties);
+        ->get();
+        $orders = Order::where('client_id',$id)->get();  
+        return view('view-user')->with('user', $user)->with('properties', $properties)->with('orders',$orders);
     }
     public function edit($id){
         $user = Client::find($id);
         $properties = PropertyModel::where('owner_id', $id)
         ->where('status', '!=', '2')
         ->get();   
-        return view('edit-user')->with('user', $user)->with('properties', $properties);
+        $orders = Order::where('client_id',$id)->get();  
+
+        return view('edit-user')->with('user', $user)->with('properties', $properties)->with('orders',$orders);
+    }
         
 
        
-    }
+    
     public function editUser(Request $request)
 {
     $validator = Validator::make($request->all(), [

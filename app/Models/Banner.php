@@ -15,6 +15,7 @@ class Banner extends Model
         'id',
         'image',
         'href',
+        'views',
         // Add other fillable attributes here
     ];
 

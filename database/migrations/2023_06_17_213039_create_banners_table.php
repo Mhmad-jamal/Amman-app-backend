@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->json('image');
             $table->string('href')->nullable();
+            $table->integer('views')->default(0);
 
             // Add other columns if needed
             $table->timestamps();

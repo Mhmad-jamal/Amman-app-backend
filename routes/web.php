@@ -218,6 +218,8 @@ Route::any('/api/getlikeProperty', [Property::class, 'getlikeProperty']);
 // for banner 
 
 Route::any('/api/getbannerimage', [BannerMobileController::class, 'get']);
+Route::any('/api/views/counter', [BannerMobileController::class, 'counter']);
+
 // for contract
 Route::any('/api/contract/create', [MobileContractController::class, 'create']);
 Route::any('/api/contract/update', [MobileContractController::class, 'update']);

@@ -38,6 +38,10 @@
                                     {{$banner->href}}
                                     </div>
                                 </a>
+                                <br>
+                                <div class="col-md-4 mt-3 mb-3 d-flex flex-column align-items-center">
+                                    <h5>عدد المشاهدات   </h5> <span class="text-succses">({{$banner->views}})</span>
+                                </div>
                             </div>
                             @endforeach
                         </div>
