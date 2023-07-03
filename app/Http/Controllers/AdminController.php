@@ -179,6 +179,16 @@ public function add(Request $request)
             ]
         ],
         [
+            "page" => "subsicription Page",
+            "pageId" => "subsicription",
+            "action" => [
+                "Show" => 1,
+                "view_subsicription" => 1,
+                "edit_subsicription" => 1,
+                "delete_subsicription" => 1
+            ]
+        ],
+        [
             "page" => "Properties",
             "pageId" => "properties",
             "action" => [

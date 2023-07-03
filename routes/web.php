@@ -39,6 +39,8 @@ use App\Http\Controllers\Mobile\MobileContractController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SubsicriptionController;
+
 
 
 
@@ -82,13 +84,13 @@ Route::middleware('auth')->group(function () {
         // Routes that require permission to access
         Route::get('/clients', Users::class)->name('users');
     });
- 
 
-Route::middleware('checkPermission:dashboard,Show')->group(function () {
-    // Routes that require permission to access
-    Route::get('/dashboard', Dashboard::class)->name('dashboard');
-});
- Route::get('/transactions', Transactions::class)->name('transactions');
+
+    Route::middleware('checkPermission:dashboard,Show')->group(function () {
+        // Routes that require permission to access
+        Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    });
+    Route::get('/transactions', Transactions::class)->name('transactions');
     Route::get('/bootstrap-tables', BootstrapTables::class)->name('bootstrap-tables');
     Route::get('/lock', Lock::class)->name('lock');
     Route::get('/buttons', Buttons::class)->name('buttons');
@@ -117,78 +119,81 @@ Route::middleware('checkPermission:dashboard,Show')->group(function () {
         // Routes that require permission to access
         Route::get('/properties', [WebProperties::class, 'view_all'])->name('all_property');
     });
-// for banner 
-Route::middleware('checkPermission:banner_Page,view_banner')->group(function () {
-    // Routes that require permission to access
-    Route::get('/Banner/view', [BannerController::class, 'view'])->name('view_banner');
-});
-Route::middleware('checkPermission:banner_Page,edit_banner')->group(function () {
-    // Routes that require permission to access
-    Route::get('/Banner/edit', [BannerController::class, 'edit'])->name('edit_banner');
-});
-Route::middleware('checkPermission:banner_Page,add_banner')->group(function () {
-    // Routes that require permission to access
-    Route::get('/Banner/add', [BannerController::class, 'add'])->name('add_new_banner');
-});
-Route::get('/Contract/add', [ContractController::class, 'add'])->name('add_new_contract');
-Route::middleware('checkPermission:contract_page,view_all_contract')->group(function () {
-    // Routes that require permission to access
-    Route::get('/Contract/view', [ContractController::class, 'view'])->name('view_contract');
-});
-Route::middleware('checkPermission:all_contract_page,edit_contract')->group(function () {
-    // Routes that require permission to access
-    Route::get('/Contract/edit/{id}', [ContractController::class, 'edit'])->name('edit_contract');
-});
-Route::middleware('checkPermission:all_contract_page,view_contract')->group(function () {
-    // Routes that require permission to access
-    Route::get('/Contract/details/{id}', [ContractController::class, 'details'])->name('details_contract');
-});
-Route::middleware('checkPermission:contract_page,view_check_request')->group(function () {
-    // Routes that require permission to access
-    Route::get('Contract/request/check', [ContractController::class, 'checkRequestView'])->name('check.request');
-});
+    // for banner 
+    Route::middleware('checkPermission:banner_Page,view_banner')->group(function () {
+        // Routes that require permission to access
+        Route::get('/Banner/view', [BannerController::class, 'view'])->name('view_banner');
+    });
+    Route::middleware('checkPermission:banner_Page,edit_banner')->group(function () {
+        // Routes that require permission to access
+        Route::get('/Banner/edit', [BannerController::class, 'edit'])->name('edit_banner');
+    });
+    Route::middleware('checkPermission:banner_Page,add_banner')->group(function () {
+        // Routes that require permission to access
+        Route::get('/Banner/add', [BannerController::class, 'add'])->name('add_new_banner');
+    });
+    Route::get('/Contract/add', [ContractController::class, 'add'])->name('add_new_contract');
+    Route::middleware('checkPermission:contract_page,view_all_contract')->group(function () {
+        // Routes that require permission to access
+        Route::get('/Contract/view', [ContractController::class, 'view'])->name('view_contract');
+    });
+    Route::middleware('checkPermission:all_contract_page,edit_contract')->group(function () {
+        // Routes that require permission to access
+        Route::get('/Contract/edit/{id}', [ContractController::class, 'edit'])->name('edit_contract');
+    });
+    Route::middleware('checkPermission:all_contract_page,view_contract')->group(function () {
+        // Routes that require permission to access
+        Route::get('/Contract/details/{id}', [ContractController::class, 'details'])->name('details_contract');
+    });
+    Route::middleware('checkPermission:contract_page,view_check_request')->group(function () {
+        // Routes that require permission to access
+        Route::get('Contract/request/check', [ContractController::class, 'checkRequestView'])->name('check.request');
+    });
 
-// end contract 
-Route::post('/Banner/add', [BannerController::class, 'create'])->name('create_banner');
-Route::post('/api/update/banner', [BannerController::class, 'update'])->name('update_banner');
-Route::post('/banner/delete', [BannerController::class, 'delete'])->name('delete_banner_image');
-
-
-/// this is maintenance route 
-Route::middleware('checkPermission:order_page,view_maintenance_order')->group(function () {
-    // Routes that require permission to access
-    Route::get('/order/maintenance/view', [OrderController::class, 'view_maintenance_order'])->name('view_maintenance_order');
-});
-Route::middleware('checkPermission:order_page,view_general_order')->group(function () {
-    // Routes that require permission to access
-    Route::get('/order/general/view', [OrderController::class, 'view_general_order'])->name('view_general_order');
-});
-Route::middleware('checkPermission:orders,View')->group(function () {
-    // Routes that require permission to access
-    Route::get('/order/maintenance/details/{id}', [OrderController::class, 'details_maintenance_order'])->name('details_maintenance_order');
-});
-
-//users
-Route::middleware('checkPermission:admin_page,Show')->group(function () {
-    // Routes that require permission to access
-    Route::get('/users/view', [AdminController::class, 'view'])->name('view_admin');
-});
-Route::middleware('checkPermission:admin_page,view')->group(function () {
-    // Routes that require permission to access
-    Route::get('/users/view/details/{id}', [AdminController::class, 'details'])->name('details_admin');
-});
-Route::middleware('checkPermission:admin_page,edit')->group(function () {
-    // Routes that require permission to access
-    Route::get('/users/edit/{id}', [AdminController::class, 'edit'])->name('edit_admin');
-});
-Route::post('/users/edit/password', [AdminController::class, 'editPassowrd'])->name('Admin_edit_Password');
-Route::post('/users/update', [AdminController::class, 'update'])->name('Admin_update');
-Route::get('/users/delete/{id}', [AdminController::class, 'delete'])->name('Admin_delete');
-Route::post('/users/add/admin', [AdminController::class, 'add'])->name('add_new_admin');
-Route::post('/api/users/update/permession', [AdminController::class, 'updatePermission'])->name('update_permession');
+    // end contract 
+    Route::post('/Banner/add', [BannerController::class, 'create'])->name('create_banner');
+    Route::post('/api/update/banner', [BannerController::class, 'update'])->name('update_banner');
+    Route::post('/banner/delete', [BannerController::class, 'delete'])->name('delete_banner_image');
 
 
+    /// this is maintenance route 
+    Route::middleware('checkPermission:order_page,view_maintenance_order')->group(function () {
+        // Routes that require permission to access
+        Route::get('/order/maintenance/view', [OrderController::class, 'view_maintenance_order'])->name('view_maintenance_order');
+    });
+    Route::middleware('checkPermission:order_page,view_general_order')->group(function () {
+        // Routes that require permission to access
+        Route::get('/order/general/view', [OrderController::class, 'view_general_order'])->name('view_general_order');
+    });
+    Route::middleware('checkPermission:orders,View')->group(function () {
+        // Routes that require permission to access
+        Route::get('/order/maintenance/details/{id}', [OrderController::class, 'details_maintenance_order'])->name('details_maintenance_order');
+    });
 
+    //users
+    Route::middleware('checkPermission:admin_page,Show')->group(function () {
+        // Routes that require permission to access
+        Route::get('/users/view', [AdminController::class, 'view'])->name('view_admin');
+    });
+    Route::middleware('checkPermission:admin_page,view')->group(function () {
+        // Routes that require permission to access
+        Route::get('/users/view/details/{id}', [AdminController::class, 'details'])->name('details_admin');
+    });
+    Route::middleware('checkPermission:admin_page,edit')->group(function () {
+        // Routes that require permission to access
+        Route::get('/users/edit/{id}', [AdminController::class, 'edit'])->name('edit_admin');
+    });
+    Route::middleware('checkPermission:subsicription,Show')->group(function () {
+        
+        Route::get('/subsicription', [SubsicriptionController::class, 'view'])->name('view_subsicription');
+    });
+  
+
+    Route::post('/users/edit/password', [AdminController::class, 'editPassowrd'])->name('Admin_edit_Password');
+    Route::post('/users/update', [AdminController::class, 'update'])->name('Admin_update');
+    Route::get('/users/delete/{id}', [AdminController::class, 'delete'])->name('Admin_delete');
+    Route::post('/users/add/admin', [AdminController::class, 'add'])->name('add_new_admin');
+    Route::post('/api/users/update/permession', [AdminController::class, 'updatePermission'])->name('update_permession');
 });
 
 //route for mobile
@@ -241,7 +246,3 @@ Route::any('/api/payment/update/status', [PaymentController::class, 'updateStatu
 Route::any('/api/client/get', [ClientController::class, 'get']);
 //maintenance 
 Route::any('/api/order/create', [OrderController::class, 'create']);
-
-
-
-

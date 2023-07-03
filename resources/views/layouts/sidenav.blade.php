@@ -77,6 +77,26 @@
       </li>
       @endif
       @php
+      $response = $permission->checkPermission($userId, 'subsicription','Show');
+     
+      @endphp
+  
+  @if ($response->getStatusCode() === 200)
+      <li class="nav-item {{ request()->routeIs('view_subsicription') ? 'active' : '' }}" >
+        <a href="{{route('view_subsicription')}}" class="nav-link">
+
+          <span>
+            <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z"></path>
+              <path fill-rule="evenodd" d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+            </svg></span>
+            <span class="sidebar-text"> Subsecription</span>
+          </span>
+      </a>
+       
+      </li>
+    @endif
+      @php
       $response = $permission->checkPermission($userId, 'properties','Show');
      
       @endphp
@@ -200,11 +220,7 @@
       </a>
       <div class="multi-level collapse {{ Request::segment(1) == 'Contract' ? 'show' : '' }}" id="submenu-app2">
           <ul class="flex-column nav">
-              {{-- <li class="nav-item {{ Request::segment(2) == 'add' ? 'active' : '' }}">
-                  <a class="nav-link" href="{{route('add_new_banner')}}">
-                      <span class="sidebar-text">Add</span>
-                  </a>
-              </li> --}}
+          
               @php
               $response = $permission->checkPermission($userId, 'contract_page','view_all_contract');
              
