@@ -65,8 +65,21 @@
                 
             </div>
             
-           </div>
-          
+       
+           <div class="col-md-4">
+            <label for="client_name"> Guarantor Name</label>
+            <input type="text" disabled class="form-control is-valid" name="client_name" id="client_name" value="{{$contract->guarantor_name}}" required="">
+            <div class="valid-feedback">
+                
+            </div>  
+        </div>
+        <div class="col-md-4">
+          <label for="client_name"> Guarantor Phone</label>
+          <input type="text" disabled class="form-control " name="client_name" id="client_name" value="{{$contract->guarantor_number}}" required="">
+          <div class="valid-feedback">
+              
+          </div>  
+        </div>
         </div>
         <br><br>
         <div class="card card-body shadow border-0 p-3">
@@ -95,6 +108,13 @@
                 <label for="price">price</label>
                 <input  disabled type="text" class="form-control" id="price" name="price" value="{{$contract->price}}" required="">
             </div>
+            <div class="col-md-4">
+                <label for="price">Contract Status</label>
+                <select disabled class="form-control form-select" id="status" name="status" required>
+                  <option value="0" {{ $contract->status == 0 ? 'selected' : '' }}>مغلق</option>
+                  <option value="1" {{ $contract->status == 1 ? 'selected' : '' }}>مفتوح</option>
+                </select>
+                          </div>
            </div>
            @foreach ( $contract['payment'] as $key => $item)   
            <div class="row due_dates">
@@ -106,6 +126,15 @@
                <label for="amount">amount</label>
                <input  disabled type="text" class="form-control" id="amount{{$key}}" name="amount" value="{{$item["amount"]}}" required="">
              </div>
+             <div class="col-md-3">
+
+                <label for="Status">Status</label>
+                <br>
+                <label style="margin-left: 10px" class="mt-2">
+                 <input disabled  type="checkbox" name="Paymentstatus" data-id="{{$item["id"]}}" {{ ($item["status"] == 1 ? 'checked' : '') }}>
+                 Payed
+             </label>
+                </div>
            </div>
          @endforeach 
          <div id="due_date">

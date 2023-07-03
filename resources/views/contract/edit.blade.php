@@ -64,7 +64,20 @@
                 <input disabled type="text" name="user_national_number" class="form-control " id="user_national_number" value="{{$contract->user_national_number}}" required="">
                 
             </div>
-            
+            <div class="col-md-4">
+              <label for="guarantor_name"> Guarantor Name</label>
+              <input type="text" class="form-control is-valid" name="guarantor_name" id="guarantor_name" value="{{$contract->guarantor_name}}" required="">
+              <div class="valid-feedback">
+                  
+              </div>  
+          </div>
+          <div class="col-md-4">
+            <label for="guarantor_number"> Guarantor Phone</label>
+            <input type="text" class="form-control " name="guarantor_number" id="guarantor_number" value="{{$contract->guarantor_number}}" required="">
+            <div class="valid-feedback">
+                
+            </div>  
+        </div>
            </div>
           
         </div>
@@ -95,9 +108,16 @@
                 <label for="price">price</label>
                 <input type="text" class="form-control" id="price" name="price" value="{{$contract->price}}" required="">
             </div>
+            <div class="col-md-4">
+              <label for="price">Contract Status</label>
+              <select class="form-control form-select" id="status" name="status" required>
+                <option value="0" {{ $contract->status == 0 ? 'selected' : '' }}>مغلق</option>
+                <option value="1" {{ $contract->status == 1 ? 'selected' : '' }}>مفتوح</option>
+              </select>
+               </div>
            </div>
            @foreach ($contract['payment'] as $key => $item)   
-           <div class="row due_dates">
+           <div class="row due_dates mt-3">
            
              <div class="col-md-3">
                <label for="date">Date</label>
@@ -108,6 +128,19 @@
                <input  type="text" class="form-control" id="amount{{$key}}" name="amount" value="{{$item['amount']}}" required="">
              </div>
              <input type="hidden" name="payment_id[]" value="{{$item['id']}}">
+             <div class="col-md-3">
+
+             <label for="Status">Status</label>
+             <br>
+             <label style="margin-left: 10px" class="mt-2">
+              <input  type="checkbox" name="Paymentstatus" data-id="{{$item["id"]}}" {{ ($item["status"] == 1 ? 'checked' : '') }}>
+              Payed
+          </label>
+             </div>
+             
+
+          
+         
            </div>
         @endforeach
 
@@ -129,6 +162,7 @@
 
 <script>
      $(document).ready(function() {
+     
         $('#add-due-date').click(function() {
   $("#due_date").append(`
   <div class="row due_dates">
@@ -144,15 +178,19 @@
   `);
     });
  
-    $('#propertytable').DataTable();
 
-$('#saveButton').on('click', function() {
+    $('#saveButton').on('click', function() {
+      
   var formData = new FormData();
   $(':input:not(:disabled)').each(function() {
-    if ($(this).attr('name') != 'dateFormat' || $(this).attr('name') != 'amount') {
+
+    if ($(this).attr('name') !== 'dateFormat' && $(this).attr('name') !== 'amount' && $(this).attr('name') !== 'Paymentstatus') {
+
       formData.append($(this).attr('name'), $(this).val());
     }
   });
+
+
 
   var due_dates = [];
   $('.due_dates').each(function() {
@@ -174,7 +212,9 @@ $('#saveButton').on('click', function() {
 
 formData.append('due_dates', json);
 
-
+for (const [key, value] of formData.entries()) {
+    console.log(`${key}: ${value}`);
+  }
 
 
   // Send the data to the server
@@ -186,7 +226,7 @@ formData.append('due_dates', json);
     contentType: false,
     processData: false,
     success: function(data) {
-console.log("true");
+      console.log(data);
       if (data.status == 200) {
         Swal.fire({
   title: 'Success',
@@ -207,6 +247,59 @@ console.log("true");
   }
   });
     });
+  
+   // Get all checkboxes with the name attribute "status"
+
+// Iterate through each checkbox
+// Get all checkboxes with the name attribute "status"
+const checkboxes = document.querySelectorAll('input[name="Paymentstatus"]');
+
+// Iterate through each checkbox
+checkboxes.forEach(checkbox => {
+  // Retrieve the data-id attribute value
+  const dataId = checkbox.dataset.id;
+
+  // Add onclick event listener
+  checkbox.addEventListener('click', () => {
+    const value = checkbox.checked ? 1 : 0;
+    console.log('Clicked checkbox data-id:', dataId);
+    console.log('Checkbox value:', value);
+    let formData=new FormData();
+    formData.append('id',dataId);
+    formData.append('status',value);
+
+    $.ajax({
+    url: '../../api/payment/update/status',
+    type: 'POST',
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function(data) {
+      console.log(data);
+      if (data.status == 200) {
+        Swal.fire({
+  title: 'Success',
+  text: 'Payment updated successfully',
+  icon: 'success',
+}).then(function() {
+  location.reload(); // Reload the page
+});
+
+
+    } else {
+      Swal.fire('Error', 'Failed to update Payment', 'error');
+    }
+  },
+  error: function(error) {
+    // Handle the error
+    Swal.fire('Error', 'An error occurred', 'error');
+  }
+  });
+  });
+});
+
+
 });
 
 </script>

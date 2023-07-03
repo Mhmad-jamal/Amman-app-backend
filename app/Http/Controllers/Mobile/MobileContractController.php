@@ -24,6 +24,8 @@ class MobileContractController extends Controller
         'client_name' => 'required|string',
         'client_phone' => 'required|string',
         'user_national_number' => 'required|string|exists:clients,nationalty_number',
+        'guarantor_name'=>'string',
+        'guarantor_number'=>'string',
         'start_date' => 'required|date',
         'end_date' => 'required|date',
         'clause' => 'required|string',
@@ -68,6 +70,7 @@ class MobileContractController extends Controller
     $contract->save();
 
     $paymentarr=json_decode($request->input('due_dates'));
+    
     $client_id = DB::table('clients')
             ->where('nationalty_number', $contract->user_national_number)
             ->value('id');
@@ -103,11 +106,13 @@ class MobileContractController extends Controller
     public function update(Request $request)
     {
         $id=$request->input('id');
+     
         $validator = Validator::make($request->all(), [
             'start_date' => 'required',
             'end_date' => 'required',
             'price' => 'required',
         ]);
+       
         if ($validator->fails()) {
             return response()->json([
                 'status' => '201',
@@ -115,7 +120,9 @@ class MobileContractController extends Controller
             ]);
         }
         $contract = Contract::findOrFail($id);
+     
         $contract->update($request->all());
+       
         $paymentarr=json_decode($request->input('due_dates'));
         $client_id = DB::table('clients')
                 ->where('nationalty_number', $contract->user_national_number)

@@ -13,6 +13,8 @@ class Contract extends Model
         'client_name',
         'client_phone',
         'user_national_number',
+        'guarantor_name',
+        'guarantor_number',
         'start_date',
         'end_date',
         'clause',

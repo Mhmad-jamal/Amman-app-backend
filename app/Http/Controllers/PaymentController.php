@@ -32,7 +32,7 @@ class PaymentController extends Controller
      public function updateStatus(Request $request)
      {
          $id = $request->input('id');
-         
+         $status=$request->input('status');
          $payment = Payment::find($id);
      
          if (!$payment) {
@@ -41,8 +41,12 @@ class PaymentController extends Controller
                  'status' => 404,
              ], 404);
          }
-     
+         if(isset($_POST['status'])){
+            $status = $_POST['status'];
+            $payment->status = $status;
+        }else {
          $payment->status = 1;
+        }
          $payment->save();
      
          return response()->json([

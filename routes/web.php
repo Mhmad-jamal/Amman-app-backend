@@ -131,26 +131,56 @@ Route::middleware('checkPermission:banner_Page,add_banner')->group(function () {
     Route::get('/Banner/add', [BannerController::class, 'add'])->name('add_new_banner');
 });
 Route::get('/Contract/add', [ContractController::class, 'add'])->name('add_new_contract');
-Route::get('/Contract/view', [ContractController::class, 'view'])->name('view_contract');
-Route::get('/Contract/edit/{id}', [ContractController::class, 'edit'])->name('edit_contract');
-Route::get('/Contract/details/{id}', [ContractController::class, 'details'])->name('details_contract');
+Route::middleware('checkPermission:contract_page,view_all_contract')->group(function () {
+    // Routes that require permission to access
+    Route::get('/Contract/view', [ContractController::class, 'view'])->name('view_contract');
+});
+Route::middleware('checkPermission:all_contract_page,edit_contract')->group(function () {
+    // Routes that require permission to access
+    Route::get('/Contract/edit/{id}', [ContractController::class, 'edit'])->name('edit_contract');
+});
+Route::middleware('checkPermission:all_contract_page,view_contract')->group(function () {
+    // Routes that require permission to access
+    Route::get('/Contract/details/{id}', [ContractController::class, 'details'])->name('details_contract');
+});
+Route::middleware('checkPermission:contract_page,view_check_request')->group(function () {
+    // Routes that require permission to access
+    Route::get('Contract/request/check', [ContractController::class, 'checkRequestView'])->name('check.request');
+});
 
 // end contract 
 Route::post('/Banner/add', [BannerController::class, 'create'])->name('create_banner');
 Route::post('/api/update/banner', [BannerController::class, 'update'])->name('update_banner');
 Route::post('/banner/delete', [BannerController::class, 'delete'])->name('delete_banner_image');
 
-Route::get('Contract/request/check', [ContractController::class, 'checkRequestView'])->name('check.request');
 
 /// this is maintenance route 
-Route::get('/order/maintenance/view', [OrderController::class, 'view_maintenance_order'])->name('view_maintenance_order');
-Route::get('/order/general/view', [OrderController::class, 'view_general_order'])->name('view_general_order');
+Route::middleware('checkPermission:order_page,view_maintenance_order')->group(function () {
+    // Routes that require permission to access
+    Route::get('/order/maintenance/view', [OrderController::class, 'view_maintenance_order'])->name('view_maintenance_order');
+});
+Route::middleware('checkPermission:order_page,view_general_order')->group(function () {
+    // Routes that require permission to access
+    Route::get('/order/general/view', [OrderController::class, 'view_general_order'])->name('view_general_order');
+});
+Route::middleware('checkPermission:orders,View')->group(function () {
+    // Routes that require permission to access
+    Route::get('/order/maintenance/details/{id}', [OrderController::class, 'details_maintenance_order'])->name('details_maintenance_order');
+});
 
-Route::get('/order/maintenance/details/{id}', [OrderController::class, 'details_maintenance_order'])->name('details_maintenance_order');
 //users
-Route::get('/users/view', [AdminController::class, 'view'])->name('view_admin');
-Route::get('/users/view/details/{id}', [AdminController::class, 'details'])->name('details_admin');
-Route::get('/users/edit/{id}', [AdminController::class, 'edit'])->name('edit_admin');
+Route::middleware('checkPermission:admin_page,Show')->group(function () {
+    // Routes that require permission to access
+    Route::get('/users/view', [AdminController::class, 'view'])->name('view_admin');
+});
+Route::middleware('checkPermission:admin_page,view')->group(function () {
+    // Routes that require permission to access
+    Route::get('/users/view/details/{id}', [AdminController::class, 'details'])->name('details_admin');
+});
+Route::middleware('checkPermission:admin_page,edit')->group(function () {
+    // Routes that require permission to access
+    Route::get('/users/edit/{id}', [AdminController::class, 'edit'])->name('edit_admin');
+});
 Route::post('/users/edit/password', [AdminController::class, 'editPassowrd'])->name('Admin_edit_Password');
 Route::post('/users/update', [AdminController::class, 'update'])->name('Admin_update');
 Route::get('/users/delete/{id}', [AdminController::class, 'delete'])->name('Admin_delete');
