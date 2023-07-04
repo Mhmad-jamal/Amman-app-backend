@@ -82,7 +82,7 @@
       ?>
   
   <?php if($response->getStatusCode() === 200): ?>
-      <li class="nav-item <?php echo e(request()->routeIs('view_subsicription') ? 'active' : ''); ?>" >
+      <li class="nav-item <?php echo e(request()->routeIs('view_subsicription','details_subsicription') ? 'active' : ''); ?>" >
         <a href="<?php echo e(route('view_subsicription')); ?>" class="nav-link">
 
           <span>

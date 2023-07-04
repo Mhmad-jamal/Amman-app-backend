@@ -82,7 +82,7 @@
       @endphp
   
   @if ($response->getStatusCode() === 200)
-      <li class="nav-item {{ request()->routeIs('view_subsicription') ? 'active' : '' }}" >
+      <li class="nav-item {{ request()->routeIs('view_subsicription','details_subsicription') ? 'active' : '' }}" >
         <a href="{{route('view_subsicription')}}" class="nav-link">
 
           <span>

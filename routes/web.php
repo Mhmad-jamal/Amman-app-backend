@@ -187,7 +187,19 @@ Route::middleware('auth')->group(function () {
         
         Route::get('/subsicription', [SubsicriptionController::class, 'view'])->name('view_subsicription');
     });
+    Route::middleware('checkPermission:subsicription,view_subsicription')->group(function () {
+        
+        Route::get('/client/subsicription/{id}', [SubsicriptionController::class, 'details'])->name('details_subsicription');
+    });
+    Route::middleware('checkPermission:subsicription,edit_subsicription')->group(function () {
+        
+        Route::get('/client/subsicription/edit/{id}', [SubsicriptionController::class, 'edit'])->name('edit_subsicription');
+    });
+    Route::post('/client/subsicription/delete', [SubsicriptionController::class, 'delete'])->name('delete_subsicription');
+    Route::post('/client/subsicription/update', [SubsicriptionController::class, 'update'])->name('update_subsicription');
+
   
+    Route::post('/subsicription', [SubsicriptionController::class, 'create'])->name('create_subsicription');
 
     Route::post('/users/edit/password', [AdminController::class, 'editPassowrd'])->name('Admin_edit_Password');
     Route::post('/users/update', [AdminController::class, 'update'])->name('Admin_update');

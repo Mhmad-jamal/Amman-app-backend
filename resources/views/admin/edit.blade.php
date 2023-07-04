@@ -105,8 +105,8 @@
 
                             <option value="dashboard" data-id="dashboard">Dashboard Page</option>
             
-                            <option value="client_page" data-id="Client Page">Client Page</option>
-                            <option value="subsicription" data-id="subsicription Page">subsicription Page</option>
+                            <option value="client_page" data-id="Client_Page">Client Page</option>
+                            <option value="subsicription" data-id="subsicription_Page">subsicription Page</option>
 
                             <option value="properties" data-id="properties">Properties Page</option>
                             
