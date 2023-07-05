@@ -224,6 +224,8 @@ Route::post('/api/deletePropertyImage', [Property::class, 'deletePropertyImage']
 Route::any('/api/getallproperties', [Property::class, 'getallproperties']);
 Route::any('/api/getallpropertiesSearch', [Property::class, 'getallpropertiesSearch']);
 
+Route::any('/api/getsubsecription', [SubsicriptionController::class, 'getsubsicription']);
+
 Route::any('/api/getpropertiesbyclientId', [Property::class, 'getpropertiesbyclientId']);
 Route::any('/api/getpropertiesbySection', [Property::class, 'getpropertiesbySection']);
 Route::any('/api/getpropertiesbyid', [Property::class, 'getpropertiesbyid']);

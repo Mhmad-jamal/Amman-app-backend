@@ -16,6 +16,7 @@ class SubsicriptionController extends Controller
         return view('subsicription.view', ['clients' => $clients]);
     }
   
+
    
     
     public function create(Request $request)
@@ -129,6 +130,29 @@ class SubsicriptionController extends Controller
         Alert::success('تم', 'تم تحديث الأشتراك بنجاح')->persistent(true)->autoClose(3000);
     
         return redirect()->back();
+    }
+    public function getsubsicription(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'id' => 'required|integer', // Validate 'id' parameter as a required integer
+        ]);
+    
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => 'Validation error',
+                'errors' => $validator->errors(),
+                'status' => 201,
+            ], 400);
+        }
+    
+        $id = $request->input('id');
+        $subscriptions = Subscription::where('client_id', $id)->get();
+    
+        return response()->json([
+            'message' => 'Subscriptions retrieved successfully',
+            'data' => $subscriptions,
+            'status' => 200,
+        ]);
     }
     
     
