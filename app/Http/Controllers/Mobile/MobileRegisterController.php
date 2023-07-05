@@ -57,20 +57,18 @@ public function update(Request $request )
     if ($request->filled('id')) {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'country_code' => 'required',
-            'phone' => 'required|min:10',
-            'nationalty_number' => [
+            'phone' => 'required|min:9',
+           /*  'nationalty_number' => [
                 'required',
                 'min:6',
                 'max:10',
                 Rule::unique('clients')->ignore($id),
-            ],
+            ], */
             'email' => [
                 'required',
                 'email',
                 Rule::unique('clients')->ignore($id),
             ],
-            'password' => 'required|min:6',
         ]);
     
         if ($validator->fails()) {
