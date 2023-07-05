@@ -137,7 +137,7 @@
 
                         </div>
                     </div>
-                    <div class="table-responsive">
+                    <div class="table-responsive" dir="rtl">
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                             <tr>
