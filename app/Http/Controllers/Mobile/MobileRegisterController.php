@@ -16,7 +16,7 @@ class MobileRegisterController extends Controller
     $validator = Validator::make($request->all(), [
         'name' => 'required',
         'country_code' => 'required',
-        'phone' => 'required|min:10',
+        'phone' => 'required|min:9',
         'nationalty_number' => 'required|unique:clients|min:6|max:10',
         'email' => 'required|email|unique:clients',
         'customer_type' => 'required',
