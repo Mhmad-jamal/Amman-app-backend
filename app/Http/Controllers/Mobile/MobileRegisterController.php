@@ -87,10 +87,10 @@ public function update(Request $request )
         $client->password = Hash::make($request->input('password'));
     
         // Additional fields
-        $client->country_code = $request->input('country_code');
-        $client->phone = $request->input('phone');
-        $client->nationalty_number = $request->input('nationalty_number');
-    
+/*         $client->country_code = $request->input('country_code');
+ */        $client->phone = $request->input('phone');
+/*         $client->nationalty_number = $request->input('nationalty_number');
+ */    
         $client->save();
     
         return response()->json([
