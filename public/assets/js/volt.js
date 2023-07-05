@@ -174,9 +174,9 @@ d.addEventListener("DOMContentLoaded", function(event) {
     if(d.querySelector('.ct-chart-sales-value')) {
         //Chart 5
           new Chartist.Line('.ct-chart-sales-value', {
-            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            labels: ['11','10','9','8','7','6','5', '4', '3', '2', '1', '12' ],
             series: [
-                [0, 10, 30, 40, 80, 60, 100]
+                [0, 10, 25,30,45, 40,70, 80, 60,60,80, 100]
             ]
           }, {
             low: 0,
@@ -203,7 +203,7 @@ d.addEventListener("DOMContentLoaded", function(event) {
 
     if(d.querySelector('.ct-chart-ranking')) {
         var chart = new Chartist.Bar('.ct-chart-ranking', {
-            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            labels: ['8','7','6','5', '4', '3', '2', '1', '12' ],
             series: [
               [1, 5, 2, 5, 4, 3],
               [2, 3, 4, 8, 1, 2],
