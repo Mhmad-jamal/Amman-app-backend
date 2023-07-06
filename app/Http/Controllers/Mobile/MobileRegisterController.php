@@ -81,10 +81,8 @@ public function update(Request $request )
         // Find the client record
         $client = Client::findOrFail($id);
     
-        // Update the client record
         $client->name = $request->input('name');
         $client->email = $request->input('email');
-        $client->password = Hash::make($request->input('password'));
     
         // Additional fields
 /*         $client->country_code = $request->input('country_code');
