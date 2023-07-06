@@ -28,7 +28,7 @@
             <div class="row mt-3 mb-3">
                 <div class="col-12 ">
                     <div class="card card-body border-0 shadow mb-4">
-                        <h2 class="h5 mb-4">Banner image</h2>
+                        <h2 class="h5 mb-4">معرض الصور</h2>
                         <div class="row">
                             @foreach ($banners as $index => $banner)
                             <div class="col-md-4 mt-3 mb-3 d-flex flex-column align-items-center">
@@ -39,7 +39,7 @@
                                     </div>
                                 </a>
                                 <br>
-                                <div class="col-md-4 mt-3 mb-3 d-flex flex-column align-items-center">
+                                <div class="col-md-12 mt-3 mb-3 d-flex flex-column align-items-center">
                                     <h5>عدد المشاهدات   </h5> <span class="text-succses">({{$banner->views}})</span>
                                 </div>
                             </div>

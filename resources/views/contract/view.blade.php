@@ -15,20 +15,19 @@
             <table class="table user-table table-hover align-items-center" id="propertytable">
                 <thead>
                     <tr>
-
-                        <th class="border-bottom">Id</th>
-                        <th class="border-bottom"> Owner name </th>
-                        <th class="border-bottom">Client name </th>
-
-                        <th class="border-bottom">Start date </th>
-                        <th class="border-bottom">end date </th>
-
-
-                        <th class="border-bottom">Owner phone </th>
-                        <th class="border-bottom">client phone </th>
-                        <th class="border-bottom">status</th>
-
-                        <th class="border-bottom">Action</th>
+                        <th class="border-bottom">الرقم </th>
+                        <th class="border-bottom">اسم المالك</th>
+                        <th class="border-bottom">اسم العميل</th>
+                        
+                        <th class="border-bottom">تاريخ البدء</th>
+                        <th class="border-bottom">تاريخ الانتهاء</th>
+                        
+                        <th class="border-bottom">هاتف المالك</th>
+                        <th class="border-bottom">هاتف العميل</th>
+                        <th class="border-bottom">الحالة</th>
+                        
+                        <th class="border-bottom">إجرائات</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -55,11 +54,11 @@
                             </td>
 
                             @if ($contract->status == 1)
-                                <td><span class="fw-normal d-flex align-items-center text-success">Active</span></td>
+                                <td><span class="fw-normal d-flex align-items-center text-success">فعــال</span></td>
                             @elseif ($contract->status == 0)
-                                <td><span class="fw-normal d-flex align-items-center text-warining">Draft</span></td>
+                                <td><span class="fw-normal d-flex align-items-center text-warining">غير فــعال</span></td>
                             @else
-                                <td><span class="fw-normal d-flex align-items-center text-danger ">Deleted</span></td>
+                                <td><span class="fw-normal d-flex align-items-center text-danger ">محذوف</span></td>
                             @endif
 
 
@@ -91,7 +90,7 @@
                                         <a class="dropdown-item d-flex align-items-center"
                                             href=" {{ route('details_contract', ['id' => $contract->id]) }} ">
                                             <span class="fas fa-box "></span>
-                                            View Details
+                                            مشاهدة
                                         </a>
                                         @endif
                                         @php
@@ -105,7 +104,7 @@
                                         <a class="dropdown-item d-flex align-items-center"
                                             href="{{ route('edit_contract', ['id' => $contract->id]) }}">
                                             <span class="fas fa-edit"></span>
-                                            Edit Contract
+                                           تعديل
                                         </a>
                                         @endif
                                         @php
@@ -119,7 +118,7 @@
                                         <a class="dropdown-item text-danger d-flex align-items-center"
                                             href="{{-- {{ route('Contracts_delete', ['id' => $Contract->id]) }} --}}">
                                             <span class="fas fa-trash-alt"></span>
-                                            Delete Contract
+                                           حذف
                                         </a>
                                         @endif
                                     </div>

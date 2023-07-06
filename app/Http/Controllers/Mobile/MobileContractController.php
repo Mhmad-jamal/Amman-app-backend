@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Mobile;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Contract;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 use App\Models\Payment;
 
@@ -162,6 +163,28 @@ class MobileContractController extends Controller
             'data' => $contract,
             'status' => 200,
         ]);
+    }
+    public function terminate(Request $request)
+    {
+        try {
+            $id = $request->input('id');
+            $contract = Contract::findOrFail($id);
+    
+            $contract->status = 0; // Set the status to 0
+    
+            $contract->save(); // Save the updated contract
+    
+            return response()->json([
+                'message' => 'Contract updated successfully',
+                'data' => $contract,
+                'status' => 200,
+            ]);
+        } catch (ModelNotFoundException $exception) {
+            return response()->json([
+                'message' => 'Contract not found',
+                'status' => 404,
+            ], 404);
+        }
     }
  
  

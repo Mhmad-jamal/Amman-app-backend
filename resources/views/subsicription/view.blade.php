@@ -13,7 +13,7 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
             <div class="d-block mb-4 mb-md-0">
 
-                <h2 class="h4">قائمة العملاء </h2>
+                <h2 class="h4">قائمة المالكـين  </h2>
 
             </div>
             <div class="btn-toolbar mb-2 mb-md-0">
@@ -38,14 +38,14 @@
             <table class="table user-table table-hover align-items-center" id="usersTable">
                 <thead>
                     <tr>
-
-                        <th class="border-bottom">Name</th>
-                        <th class="border-bottom"> User Type </th>
-                        <th class="border-bottom">Phone Number</th>
-                        <th class="border-bottom">ID/Passport</th>
-
-                        <th class="border-bottom">Status</th>
-                        <th class="border-bottom">Action</th>
+                
+                        <th class="border-bottom">الأسم</th>
+                        <th class="border-bottom">نوع المستخم </th>
+                        <th class="border-bottom">رقم الهاتف</th>
+                        <th class="border-bottom">الرقم الوطني</th>
+        
+                        <th class="border-bottom">الحالة</th>
+                        <th class="border-bottom">إجرائات</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -62,8 +62,11 @@
                                     </div>
                                 </a>
                             </td>
-                            <td><span class="fw-normal">{{ $client->customer_type }}</span></td>
-                            <td><span
+                            <td>
+                                <span class="fw-normal">
+                                  {{$client->customer_type === 'owner' ? 'مـالك' : 'مستخدم'}}
+                                </span>
+                              </td>                            <td><span
                                     class="fw-normal d-flex align-items-center">{{ $client->country_code . $client->phone }}</span>
                             </td>
                             <td><span
@@ -71,9 +74,9 @@
                             </td>
 
                             @if ($client->active == 1)
-                                <td><span class="fw-normal text-success">Active</span></td>
+                                <td><span class="fw-normal text-success">فعال</span></td>
                             @else
-                                <td><span class="fw-normal text-danger">Inactive</span></td>
+                                <td><span class="fw-normal text-danger">غير فعال</span></td>
                             @endif
                             <td>
 
@@ -131,11 +134,12 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">اضافة اشتراك جديد</h5>
+
                         <button type="button" style="background: none;border: none;" class="close  "
                             data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
-                        <h5 class="modal-title" id="exampleModalLabel">اضافة اشتراك جديد</h5>
 
                     </div>
                     <div class="modal-body" dir="rtl">
@@ -205,8 +209,11 @@
         </script>
         <script>
             $(document).ready(function() {
-                $('#usersTable').DataTable();
-            });
+                var table = new DataTable('#usersTable', {
+    language: {
+        url: '//cdn.datatables.net/plug-ins/1.13.5/i18n/ar.json',
+    },
+});            });
         </script>
 
         @include('layouts.footer')

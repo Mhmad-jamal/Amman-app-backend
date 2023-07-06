@@ -54,7 +54,7 @@
               <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
               <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
             </svg></span></span>
-          <span class="sidebar-text">Dashboard</span>
+          <span class="sidebar-text">لوحة التحكم</span>
         </a>
       </li>
       
@@ -72,7 +72,7 @@
             <path d="M10 0C4.486 0 0 4.486 0 10v8h20v-8c0-5.514-4.486-10-10-10zm0 2c3.682 0 6.82 2.493 7.75 6H2.25C3.18 4.493 6.318 2 10 2zm0 16c-3.86 0-7-3.14-7-7a6.99 6.99 0 014.547-6.57A5.954 5.954 0 0010 2c3.86 0 7 3.14 7 7 0 1.657-.568 3.172-1.516 4.375A6.99 6.99 0 0110 18z"/>
           </svg>
           </span></span>
-          <span class="sidebar-text">Clients</span>
+          <span class="sidebar-text">الــعــملاء</span>
         </a>
       </li>
       @endif
@@ -90,7 +90,7 @@
               <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z"></path>
               <path fill-rule="evenodd" d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" clip-rule="evenodd"></path>
             </svg></span>
-            <span class="sidebar-text"> Subsecription</span>
+            <span class="sidebar-text"> الأشتــــراكات</span>
           </span>
       </a>
        
@@ -113,7 +113,7 @@
                   clip-rule="evenodd"></path>
                 <path d="M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z"></path>
               </svg></span>
-            <span class="sidebar-text"> Properties</span>
+            <span class="sidebar-text"> العقــــارات</span>
           </span>
       </a>
        
@@ -137,16 +137,13 @@
                             clip-rule="evenodd"></path>
                     </svg>
                 </span>
-                <span class="sidebar-text">Banner</span>
+                <span class="sidebar-text">معرض الصور</span>
             </span>
             <span class="link-arrow">
-                <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </span>
+              <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M12.707 14.707a1 1 0 010-1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L10.414 10l3.293 3.293a1 1 0 01-1.414 1.414z" clip-rule="evenodd"></path>
+              </svg>
+          </span>
         </a>
         <div class="multi-level collapse {{ Request::segment(1) == 'Banner' ? 'show' : '' }}" id="submenu-app">
             <ul class="flex-column nav">
@@ -158,7 +155,7 @@
           @if ($response->getStatusCode() === 200)
                 <li class="nav-item {{ Request::segment(2) == 'add' ? 'active' : '' }}">
                     <a class="nav-link" href="{{route('add_new_banner')}}">
-                        <span class="sidebar-text">Add</span>
+                        <span class="sidebar-text">أضافة</span>
                     </a>
                 </li>
                 @endif
@@ -170,7 +167,7 @@
             @if ($response->getStatusCode() === 200)
                 <li class="nav-item {{ (Request::segment(2) == 'view' && Request::segment(1) == 'Banner') ? 'active' : '' }}">
                     <a class="nav-link" href="{{route('view_banner')}}">
-                        <span class="sidebar-text">View</span>
+                        <span class="sidebar-text">مشاهدة</span>
                     </a>
                 </li>
                 @endif
@@ -182,7 +179,7 @@
             @if ($response->getStatusCode() === 200)
                 <li class="nav-item {{ Request::segment(2) == 'edit' && Request::segment(1)=='Banner'  ? 'active' : '' }}">
                     <a class="nav-link" href="{{route('edit_banner')}}">
-                        <span class="sidebar-text">Edit</span>
+                        <span class="sidebar-text">تعديل</span>
                     </a>
                 </li>
                 @endif
@@ -207,16 +204,13 @@
                     clip-rule="evenodd"></path>
                 </svg>
               </span>
-              <span class="sidebar-text">Contract</span>
+              <span class="sidebar-text">العــقود</span>
           </span>
           <span class="link-arrow">
-              <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd"
-                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                      clip-rule="evenodd"></path>
-              </svg>
-          </span>
+            <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M12.707 14.707a1 1 0 010-1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L10.414 10l3.293 3.293a1 1 0 01-1.414 1.414z" clip-rule="evenodd"></path>
+            </svg>
+        </span>
       </a>
       <div class="multi-level collapse {{ Request::segment(1) == 'Contract' ? 'show' : '' }}" id="submenu-app2">
           <ul class="flex-column nav">
@@ -229,7 +223,7 @@
           @if ($response->getStatusCode() === 200)
               <li class="nav-item {{ (Request::segment(2) == 'view' && Request::segment(1) == 'Contract') ? 'active' : '' }}">
                 <a class="nav-link" href="{{route('view_contract')}}">
-                      <span class="sidebar-text">All contract</span>
+                      <span class="sidebar-text">جميع العقود</span>
                   </a>
               </li>
               @endif
@@ -241,7 +235,7 @@
           @if ($response->getStatusCode() === 200)
               <li   class="nav-item {{ (Request::segment(2)== "request" && Request::segment(1) == 'Contract') ? 'active' : '' }}">
                   <a class="nav-link" href="{{route('check.request')}}">
-                      <span class="sidebar-text"> Check Request</span>
+                      <span class="sidebar-text"> الفحص القضائي</span>
                   </a>
               </li>
               @endif
@@ -265,16 +259,13 @@
               <path fill-rule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.293A1 1 0 002 4v10a1 1 0 00.293.707L6 18.414V5.586L3.707 3.293zM17.707 5.293L14 1.586v12.828l2.293 2.293A1 1 0 0018 16V6a1 1 0 00-.293-.707z" clip-rule="evenodd"></path>
             </svg>
           </span>
-            <span class="sidebar-text">Order</span>
+            <span class="sidebar-text">الطلبــات</span>
         </span>
         <span class="link-arrow">
-            <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clip-rule="evenodd"></path>
-            </svg>
-        </span>
+          <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M12.707 14.707a1 1 0 010-1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L10.414 10l3.293 3.293a1 1 0 01-1.414 1.414z" clip-rule="evenodd"></path>
+          </svg>
+      </span>
     </a>
     <div class="multi-level collapse {{ Request::segment(1) == 'order' ? 'show' : '' }} " id="submenu-app3">
       <ul class="flex-column nav">
@@ -286,7 +277,7 @@
     @if ($response->getStatusCode() === 200)
           <li class="nav-item {{ (Request::segment(2) == 'view' && Request::segment(1) == 'order' && Request::segment(3)== "maintenance") ? 'active' : '' }}">
             <a class="nav-link" href="{{route('view_maintenance_order')}}">
-                  <span class="sidebar-text">Maintenance Order</span>
+                  <span class="sidebar-text"> طلبــات الصيانة</span>
               </a>
           </li>
           @endif
@@ -298,7 +289,7 @@
   @if ($response->getStatusCode() === 200)
           <li   class="nav-item {{ (Request::segment(2)== "view" && Request::segment(1) == 'order' && Request::segment(3)== "General") ? 'active' : '' }}">
               <a class="nav-link" href="{{route('view_general_order')}}">
-                  <span class="sidebar-text"> General Order</span>
+                  <span class="sidebar-text">  الطلبــات العامة</span>
               </a>
           </li>
           @endif
@@ -322,7 +313,7 @@ $response = $permission->checkPermission($userId, 'admin_page','Show');
                 d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
                 clip-rule="evenodd"></path>
             </svg></span>
-          <span class="sidebar-text">Admin </span>
+          <span class="sidebar-text">المسؤوليــن </span>
         </a>
       </li>
       @endif

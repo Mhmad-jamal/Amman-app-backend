@@ -249,6 +249,7 @@ Route::post('api/order/get', [OrderController::class, 'getOrder'])->name('get.or
 
 
 Route::any('/api/payment/create', [PaymentController::class, 'create'])->name('create_payment');
+Route::any('/api/contract/terminate', [MobileContractController::class, 'terminate'])->name('terminate');
 
 Route::any('/api/contract/get', [MobileContractController::class, 'get']);
 
