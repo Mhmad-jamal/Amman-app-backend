@@ -13,7 +13,10 @@
             <div wire:id="IOiqzSHsz63Wn7uuPcTg" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
                 <div class="d-block mb-4 mb-md-0">
                    
-                    <h2 class="h4">Admin List</h2>
+                    <h2 class="h4">قائمة المسؤولين</h2>
+
+
+
                  
                 </div>
                 <div class="btn-toolbar mb-2 mb-md-0">
@@ -22,16 +25,23 @@
                         <svg class="icon icon-xs me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                         </svg>
-                        New Admin
-                      </button>
+                        مسؤول جديد
+
+
+
+
+                    </button>
                 </div>
             </div>
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Add New Admin</h5>
-                      <button type="button" style="background: none;border: none;" class="close  " data-dismiss="modal" aria-label="Close">
+                        <h5 class="modal-title" id="exampleModalLabel">إضافة مسؤول جديد</h5>
+
+
+
+                        <button type="button" style="background: none;border: none;" class="close  " data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
@@ -40,7 +50,7 @@
                             <!-- Form -->
                             @csrf
                             <div class="form-group mt-4 mb-4">
-                                <label for="email">Your Email</label>
+                                <label for="email">البريد الألكتروني  </label>
                                 <div class="input-group">
                                     <span class="input-group-text" id="basic-addon3"><svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg></span>
                                     <input name="email" id="email" type="email" class="form-control" placeholder="example@company.com" autofocus required>
@@ -51,7 +61,7 @@
                             <div class="form-group">
                                 <!-- Form -->
                                 <div class="form-group mb-4">
-                                    <label for="password">Your Password</label>
+                                    <label for="password">كلمة المرور</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon4"><svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg></span>
                                         <input name="password" type="password" placeholder="Password" class="form-control" id="password" required>
@@ -61,7 +71,7 @@
                                 <!-- End of Form -->
                                 <!-- Form -->
                                 <div class="form-group mb-4">
-                                    <label for="confirm_password">Confirm Password</label>
+                                    <label for="confirm_password">تأكيد كلمة المرور</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon5"><svg class="icon icon-xs text-gray-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg></span>
                                         <input name="passwordConfirmation" type="password" placeholder="Confirm Password" class="form-control" id="confirm_password" required>
@@ -69,38 +79,29 @@
                                 </div>
                                 <!-- End of Form -->
                                 <div class="form-check mb-4">
-                                    <input class="form-check-input" type="checkbox" value="" id="terms" required>
-                                    <label class="form-check-label fw-normal mb-0" for="terms">
-                                        I agree to the <a href="#">terms and conditions</a>
-                                    </label>
+                                 
                                 </div>
                             </div>
                             
                        
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary">Save changes</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                      <button type="submit" class="btn btn-primary"> حفظ</button>
                     </div>
                 </form>
                   </div>
                 </div>
               </div>
-            <table class="table user-table table-hover align-items-center" id="propertytable">
+            <table class="table user-table table-hover align-items-center" id="adminTable">
                 <thead>
                     <tr>
-
-                        <th class="border-bottom">Id</th>
-                        <th class="border-bottom">  name </th>
-                        <th class="border-bottom">  email </th>
-
-                        <th class="border-bottom"> Role  </th>
-                        
-                        <th class="border-bottom">Created At </th>
-
-                        
-
-                        <th class="border-bottom">Action</th>
+                        <th class="border-bottom">المعرف</th>
+                        <th class="border-bottom">الاسم</th>
+                        <th class="border-bottom">البريد الإلكتروني</th>
+                        <th class="border-bottom">النوع</th>
+                        <th class="border-bottom">تاريخ الإنشاء</th>
+                        <th class="border-bottom">الإجراء</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -118,7 +119,8 @@
                         
 
                             <td><span
-                                    class="fw-normal d-flex align-items-center">{{$user->role}}</span>
+                                    class="fw-normal d-flex align-items-center">    {{$user->role === 'admin' ? 'مسؤول' : ($user->role === 'super admin' ? 'كبير المسؤولين' : '')}}
+                                </span>
                             </td>
                             <td>
                                 <span class="fw-normal d-flex align-items-center">{{ $user->created_at->format('Y-m-d') }}</span>
@@ -168,7 +170,7 @@
                                         <a class="dropdown-item d-flex align-items-center"
                                             href=" {{ route('details_admin', ['id' => $user->id]) }} ">
                                             <span class="fas fa-box "></span>
-                                            View Details
+                                           مشاهدة
                                         </a>
                                         @endif
                                         @if ($user->role !="super admin")
@@ -182,7 +184,7 @@
                                         <a class="dropdown-item d-flex align-items-center"
                                             href="{{ route('edit_admin', ['id' => $user->id]) }}">
                                             <span class="fas fa-edit"></span>
-                                            Edit Admin
+                                            تعديل
                                         </a>
                                         @endif
                                         @php
@@ -194,7 +196,7 @@
                               @if ($response->getStatusCode() === 200)
                                         <a class="dropdown-item text-danger d-flex align-items-center"  href="{{ route('Admin_delete', ['id' => $user->id]) }}  ">
                                             <span class="fas fa-trash-alt"></span>
-                                            Delete Admin
+                                           حذف
                                         </a>
                                         @endif
                                         @endif
@@ -210,7 +212,11 @@
         </div>
 <script>
      $(document).ready(function() {
-              $('#propertytable').DataTable();
+              var table = new DataTable('#adminTable', {
+    language: {
+        url: '//cdn.datatables.net/plug-ins/1.13.5/i18n/ar.json',
+    },
+});
             });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

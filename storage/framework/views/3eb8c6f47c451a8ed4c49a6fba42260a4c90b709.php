@@ -137,7 +137,7 @@
                             clip-rule="evenodd"></path>
                     </svg>
                 </span>
-                <span class="sidebar-text">معرض الصور</span>
+                <span class="sidebar-text">معـــرض الصور</span>
             </span>
             <span class="link-arrow">
               <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

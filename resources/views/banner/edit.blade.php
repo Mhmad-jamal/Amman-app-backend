@@ -152,21 +152,22 @@
 
                         // Display SweetAlert success message
                         Swal.fire({
-                            icon: 'success',
-                            title: 'Success',
-                            text: 'Banner updated successfully',
-                        });
+icon: 'success',
+title: 'تم بنجاح',
+text: 'تم تحديث البانر بنجاح',
+});
                     })
                     .catch(error => {
                         console.log(error);
                         // Code to handle errors
 
                         // Display SweetAlert error message
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Error',
-                            text: 'Failed to update banner',
-                        });
+                      
+Swal.fire({
+icon: 'error',
+title: 'خطأ',
+text: 'فشل تحديث البانر',
+});
                     });
             }
         </script>

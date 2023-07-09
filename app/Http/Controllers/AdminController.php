@@ -74,14 +74,14 @@ public function update(Request $request)
             function ($attribute, $value, $fail) use ($request) {
                 $userId = $request->input('id');
                 $user = Admin::find($userId);
-                
+    
                 if ($user && $user->email === $value) {
                     return; // Skip validation if the email remains the same
                 }
-                
+    
                 $count = Admin::where('email', $value)->count();
                 if ($count > 0) {
-                    $fail('The email has already been taken.');
+                    $fail('تم استخدام البريد الإلكتروني بالفعل.');
                 }
             },
         ],
@@ -90,13 +90,25 @@ public function update(Request $request)
         'number' => 'required',
         'city' => 'required',
         'ZIP' => 'required',
+    ], [
+        'first_name.required' => 'حقل الاسم الأول مطلوب.',
+        'last_name.required' => 'حقل اسم العائلة مطلوب.',
+        'email.required' => 'حقل البريد الإلكتروني مطلوب.',
+        'email.email' => 'يجب أن يكون حقل البريد الإلكتروني صالحًا.',
+        'email.unique' => 'تم استخدام البريد الإلكتروني بالفعل.',
+        'gender.required' => 'حقل الجنس مطلوب.',
+        'address.required' => 'حقل العنوان مطلوب.',
+        'number.required' => 'حقل الرقم مطلوب.',
+        'city.required' => 'حقل المدينة مطلوب.',
+        'ZIP.required' => 'حقل الرمز البريدي مطلوب.',
     ]);
+    
 
     if ($validator->fails()) {
         $errors = $validator->errors()->all();
         $errorMessage = implode('<br>', $errors);
 
-        Alert::error('Validation Error', $errorMessage)->html()->autoClose(5000);
+        Alert::error('خطأ في التحقق', $errorMessage)->html()->autoClose(5000);
 
         return redirect()->back()->withInput();
     }
@@ -114,7 +126,7 @@ public function update(Request $request)
     $user->ZIP = $request->input('ZIP');
     $user->save();
 
-    Alert::success('Success', 'User updated successfully')->autoClose(3000);
+    Alert::success('تم بنجاح', 'تم تحديث المستخدم بنجاح')->autoClose(3000);
 
     return redirect()->back();
 }
@@ -122,7 +134,7 @@ public function update(Request $request)
 public function delete($id){
     $user = Admin::findOrFail($id);
     $user->delete();
-    Alert::success('Success', 'Resource deleted successfully.');
+    Alert::success('تم بنجاح', 'تم حذف المسؤول بنجاح.');
 
     // Redirect back
     return redirect()->back();
@@ -135,14 +147,21 @@ public function add(Request $request)
         'password' => 'required|min:6',
         'passwordConfirmation' => 'required|same:password',
     ], [
-        'email.unique' => 'The email has already been taken.',
+        'email.required' => 'حقل البريد الإلكتروني مطلوب.',
+        'email.email' => 'يجب أن يكون حقل البريد الإلكتروني صالحًا.',
+        'email.unique' => 'تم استخدام البريد الإلكتروني بالفعل.',
+        'password.required' => 'حقل كلمة المرور مطلوب.',
+        'password.min' => 'يجب أن تتكون كلمة المرور من الحد الأدنى للأحرف المسموح بها.',
+        'passwordConfirmation.required' => 'حقل تأكيد كلمة المرور مطلوب.',
+        'passwordConfirmation.same' => 'حقل تأكيد كلمة المرور يجب أن يتطابق مع حقل كلمة المرور.',
     ]);
+    
 
     if ($validator->fails()) {
         $errors = $validator->errors()->all();
         $errorMessage = implode( $errors);
 
-        Alert::error('Validation Error', $errorMessage)->html()->autoClose(5000);
+        Alert::error('خطأ في التحقق', $errorMessage)->html()->autoClose(5000);
 
         return redirect()->back()->withInput();
     }
@@ -271,7 +290,7 @@ public function add(Request $request)
     // Save the new user_role record
     $userRole->save();
 
-    Alert::success('Success', 'Admin created successfully.');
+    Alert::success('تم الإنشاء', 'تم إنشاء المسؤول بنجاح.');
     return redirect()->back();
 }
 public function updatePermission(Request $request)
@@ -285,8 +304,8 @@ public function updatePermission(Request $request)
     
     return response()->json([
         'status' => 200,
-        'message' => 'Permission updated successfully.',
-        'permission'=>$permission
+        'message' => 'تم تحديث الصلاحيات بنجاح.',
+        'permission' => $permission
     ]);
 }
 

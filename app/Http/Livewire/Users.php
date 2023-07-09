@@ -59,7 +59,21 @@ class Users extends Component
         'nationalty_number' => 'required|min:6|max:10|unique:clients,nationalty_number,' . $request->input('id'),
         'customer_type' => 'required',
         'status' => 'required|in:0,1',
-    ]);
+        ], [
+        'id.required' => 'حقل الهوية مطلوب.',
+        'id.exists' => 'العميل المحدد غير موجود.',
+        'name.required' => 'حقل الاسم مطلوب.',
+        'country_code.required' => 'حقل رمز الدولة مطلوب.',
+        'phone.required' => 'حقل الهاتف مطلوب.',
+        'email.required' => 'حقل البريد الإلكتروني مطلوب.',
+        'nationalty_number.required' => 'حقل الرقم الوطني مطلوب.',
+        'nationalty_number.min' => 'يجب أن يحتوي حقل الرقم الوطني على الحد الأدنى من :min أحرف.',
+        'nationalty_number.max' => 'يجب أن يحتوي حقل الرقم الوطني على الحد الأقصى من :max أحرف.',
+        'nationalty_number.unique' => 'الرقم الوطني مُستخدم بالفعل.',
+        'customer_type.required' => 'حقل نوع العميل مطلوب.',
+        'status.required' => 'حقل الحالة مطلوب.',
+        'status.in' => 'قيمة حقل الحالة يجب أن تكون مالك أو مستخدم فقط.',
+        ]);
 
     if ($validator->fails()) {
         return redirect()->back()->withErrors($validator)->withInput();
@@ -69,7 +83,7 @@ class Users extends Component
     $client = Client::find($id);
 
     if (!$client) {
-        return redirect()->back()->with('error', 'Client not found');
+        return redirect()->back()->with('خطــأ', 'العميل غير موجود');
     }
 
     $client->name = $request->input('name');
@@ -81,7 +95,8 @@ class Users extends Component
     $client->active = $request->input('status');
 
     $client->save();
-    Alert::success('Success', 'Client  update successfully !');
+    Alert::success('نجاح', 'تم تحديث بيانات العميل بنجاح!');
+
 
     return redirect()->route('edit_user', ['id' => $id]);
 }
@@ -90,12 +105,12 @@ class Users extends Component
        
         $user = Client::find($id);
 
-    if ($user) {
-        $user->delete();
-        Alert::success('Success', 'Client deleted successfully!');
-    } else {
-        Alert::error('Error', 'User not found!');
-    }
+        if ($user) {
+            $user->delete();
+            Alert::success('نجاح', 'تم حذف العميل بنجاح!');
+            } else {
+            Alert::error('خطأ', 'المستخدم غير موجود!');
+            }
 
     return Redirect::back();
         

@@ -14177,7 +14177,7 @@ textarea.form-control-lg {
     left: auto; }
   .navbar-nav .dropdown-menu-center {
     left: 50%;
-    transform: translateX(-50%); }
+    transform: translateX(50%); }
   .navbar-nav .dropdown-menu.show,
   .navbar-nav .dropdown-megamenu.show,
   .navbar-nav .dropdown-megamenu-md.show {

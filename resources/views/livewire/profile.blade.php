@@ -11,19 +11,19 @@
             <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
             <div class="card card-body border-0 shadow mb-4">
-                <h2 class="h5 mb-4">General information</h2>
+                <h2 class="h5 mb-4">معلومات عامة </h2>
                 <form wire:submit.prevent="save" action="#" method="POST">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div>
-                                <label for="first_name">First Name</label>
+                                <label for="first_name">الأسم الأول</label>
                                 <input wire:model="user.first_name" class="form-control" id="first_name" type="text"
                                     placeholder="Enter your first name" required>
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div>
-                                <label for="last_name">Last Name</label>
+                                <label for="last_name"> الأسم الأخير</label>
                                 <input wire:model="user.last_name" class="form-control" id="last_name" type="text"
                                     placeholder="Also your last name">
                             </div>
@@ -32,28 +32,28 @@
                     <div class="row align-items-center">
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <label for="email">Email</label>
+                                <label for="email">البريد الألكتروني</label>
                                 <input wire:model="user.email" class="form-control" id="email" type="email"
                                     placeholder="name@company.com" disabled>
                             </div>
                             @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="gender">Gender</label>
+                            <label for="gender">الجنس</label>
                             <select wire:model="user.gender" class="form-select mb-0" id="gender"
                                 aria-label="Gender select example">
-                                <option selected>Choose...</option>
-                                <option value="Female">Female</option>
-                                <option value="Male">Male</option>
+                                <option selected>اختار...</option>
+                                <option value="Female">انثى</option>
+                                <option value="Male">ذكر</option>
                             </select>
                             @error('user.gender') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
                     </div>
-                    <h2 class="h5 my-4">Location</h2>
+                    <h2 class="h5 my-4">الموقع</h2>
                     <div class="row">
                         <div class="col-sm-9 mb-3">
                             <div class="form-group">
-                                <label for="address">Address</label>
+                                <label for="address">العنوان</label>
                                 <input wire:model="user.address" class="form-control" id="address" type="text"
                                     placeholder="Enter your home address">
                             </div>
@@ -61,7 +61,7 @@
                         </div>
                         <div class="col-sm-3 mb-3">
                             <div class="form-group">
-                                <label for="number">Number</label>
+                                <label for="number">رقم الهاتف</label>
                                 <input wire:model="user.number" class="form-control" id="number" type="number"
                                     placeholder="No.">
                             </div>
@@ -71,7 +71,7 @@
                     <div class="row">
                         <div class="col-sm-4 mb-3">
                             <div class="form-group">
-                                <label for="city">City</label>
+                                <label for="city">المدينة</label>
                                 <input wire:model="user.city" class="form-control" id="city" type="text"
                                     placeholder="City">
                             </div>
@@ -79,14 +79,14 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="zip">ZIP</label>
+                                <label for="zip">الرمز البريدي</label>
                                 <input wire:model="user.ZIP" class="form-control" id="zip" type="tel" placeholder="ZIP">
                             </div>
                         </div>
                         @error('user.ZIP') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
                     <div class="mt-3">
-                        <button type="submit" class="btn btn-gray-800 mt-2 animate-up-2">Save All</button>
+                        <button type="submit" class="btn btn-gray-800 mt-2 animate-up-2"> حفظ</button>
                     </div>
                 </form>
               
@@ -120,7 +120,7 @@
                                 <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"></path>
                                 </svg>
-                                Change Password
+                                تغيير كلمة السر
                             </a>
                             <!-- Modal -->
 
@@ -129,7 +129,8 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="changePasswordModalLabel">Change Password</h5>
+                                        <h5 class="modal-title" id="changePasswordModalLabel"> تغيير كلمة السر
+                                        </h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -137,18 +138,18 @@
                                             @csrf
                                             <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
                                             <div class="mb-3">
-                                                <label for="current_password" class="form-label">Current Password</label>
+                                                <label for="current_password" class="form-label">كلمة المرور الحالية</label>
                                                 <input type="password" class="form-control" id="current_password" placeholder="Enter new password" name="current_password">
                                             </div> 
                                             <div class="mb-3">
-                                                <label for="new_password" class="form-label">New Password</label>
+                                                <label for="new_password" class="form-label">كلمة المرور الجديدة </label>
                                                 <input type="password" class="form-control" id="new_password" placeholder="Enter new password" name="new_password">
                                             </div>
                                             
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary">Save Changes</button>
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">حفظ </button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
                                     </div>
                                 </form>
                                 </div>

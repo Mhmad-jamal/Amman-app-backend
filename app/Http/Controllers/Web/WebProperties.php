@@ -39,7 +39,7 @@ class WebProperties extends Controller
             'floor' => 'nullable',
             'construction_age' => 'required',
             'furnished' => 'required',
-            'features' => 'required|array', // Change validation rule to 'array'
+            'features' => 'required|array',
             'price' => 'required|numeric',
             'ad_title' => 'required',
             'ad_details' => 'required',
@@ -47,7 +47,32 @@ class WebProperties extends Controller
             'status' => 'required|in:0,1,2',
             'owner_id' => 'required|exists:clients,id',
             'image' => 'nullable',
-            'image.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Validate image files
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ], [
+            'section.required' => 'حقل القسم مطلوب.',
+            'section.in' => 'قيمة حقل القسم يجب أن تكون إما "الإيجار" أو "البيع".',
+            'sub_section.required' => 'حقل القسم الفرعي مطلوب.',
+            'room_number.required' => 'حقل عدد الغرف مطلوب.',
+            'bath_number.required' => 'حقل عدد الحمامات مطلوب.',
+            'building_area.required' => 'حقل مساحة المبنى مطلوب.',
+            'building_area.numeric' => 'حقل مساحة المبنى يجب أن يكون رقمًا.',
+            'floor.nullable' => 'حقل الطابق يجب أن يكون فارغًا أو رقمًا.',
+            'construction_age.required' => 'حقل عمر البناء مطلوب.',
+            'furnished.required' => 'حقل التجهيز مطلوب.',
+            'features.required' => 'حقل الميزات مطلوب.',
+            'features.array' => 'حقل الميزات يجب أن يكون مصفوفة.',
+            'price.required' => 'حقل السعر مطلوب.',
+            'price.numeric' => 'حقل السعر يجب أن يكون رقمًا.',
+            'ad_title.required' => 'حقل عنوان الإعلان مطلوب.',
+            'ad_details.required' => 'حقل تفاصيل الإعلان مطلوب.',
+            'address.required' => 'حقل العنوان مطلوب.',
+            'status.required' => 'حقل الحالة مطلوب.',
+            'status.in' => 'قيمة حقل الحالة يجب أن تكون إما 0 أو 1 أو 2.',
+            'owner_id.required' => 'حقل معرّف المالك مطلوب.',
+            'owner_id.exists' => 'معرّف المالك المحدد غير موجود.',
+            'image.*.image' => 'حقل الصورة يجب أن يكون صورة.',
+            'image.*.mimes' => 'حقل الصورة يجب أن يكون بتنسيقات jpeg أو png أو jpg أو gif.',
+            'image.*.max' => 'حجم حقل الصورة يجب أن لا يتجاوز 2048 كيلوبايت.',
         ]);
     
         if ($validator->fails()) {
@@ -80,7 +105,8 @@ class WebProperties extends Controller
                 if ($imagePath) {
                     $propertyData['image'] = [$imagePath];
                 } else {
-                    return redirect()->back()->with('error', 'Failed to store image.');
+                    return redirect()->back()->with('error', 'فشل في حفظ الصورة.');
+
                 }
             }
         }
@@ -89,7 +115,11 @@ class WebProperties extends Controller
     
         $property->update($propertyData);
     
-        Alert::success('Success', 'Property updated successfully!');
+        Alert::success('تم بنجاح', 'تم تحديث العقار بنجاح!');
+
+
+
+
     
         return redirect()->route('properties_edit', ['id' => $id]);
     }
@@ -113,7 +143,11 @@ class WebProperties extends Controller
         }
     
         // Redirect back to the page or any other desired action
-        Alert::success('Success', 'Image Deleted successfully!');
+        Alert::success('تم بنجاح', 'تم حذف الصورة بنجاح!');
+
+
+
+
 
         return redirect()->back();
     }
@@ -147,10 +181,18 @@ class WebProperties extends Controller
             $property->save();
     
             // Success message
-            Alert::success('Success', 'Images uploaded successfully!');
+            Alert::success('تم بنجاح', 'تم تحميل الصور بنجاح!');
+
+
+
+
         } else {
             // Handle case when no image files are uploaded
-            Alert::error('Error', 'No image files selected!');
+            Alert::error('خطأ', 'لم يتم تحديد ملفات الصور!');
+
+
+
+
             return redirect()->back();
         }
     
@@ -165,7 +207,11 @@ class WebProperties extends Controller
         // Change the property status to 2
         $property->status = '2';
         $property->save();
-        Alert::success('Success', 'Property delete  successfully!');
+        Alert::success('تم بنجاح', 'تم حذف العقار بنجاح!');
+
+
+
+
 
         // Redirect back to the page or any other desired action
         return redirect()->back();

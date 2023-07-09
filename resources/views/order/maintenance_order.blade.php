@@ -10,27 +10,19 @@
        
 
         <div class="card card-body shadow border-0 table-wrapper table-responsive">
-            <h2 class="h5 mb-4"> Orders</h2>
+            <h2 class="h5 mb-4">الطلبات</h2>
 
             <table class="table user-table table-hover align-items-center" id="checkTable">
                 <thead>
                     <tr>
-
-                        <th class="border-bottom">Id</th>
-                        <th class="border-bottom">Order Type</th>
-
-                        <th class="border-bottom"> Client Id</th>
-
-                        <th class="border-bottom"> Type </th>
-{{--                         <th class="border-bottom">description </th>
- --}}                        <th class="border-bottom"> image  </th>
-
-                        <th class="border-bottom"> date </th>
-
-                        
-                        <th class="border-bottom"> Status </th>
-
-                        <th class="border-bottom">Action</th>
+                        <th class="border-bottom">المعرف</th>
+                        <th class="border-bottom">نوع الطلب</th>
+                        <th class="border-bottom">الرقم الوطني </th>
+                        <th class="border-bottom">النوع</th>
+                        <th class="border-bottom">الصورة</th>
+                        <th class="border-bottom">التاريخ</th>
+                        <th class="border-bottom">الحالة</th>
+                        <th class="border-bottom">الإجراء</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -76,15 +68,15 @@
                        
                     
                             @if ($item->status==1)
-                            <td><span class="fw-normal d-flex align-items-center text-success">Approve</span></td>
+                            <td><span class="fw-normal d-flex align-items-center text-success">موافق عليه</span></td>
 
                                 
                            @elseif ($item->status==0)
                             <td>
-                                <span class="fw-normal d-flex align-items-center text-warning">On hold</span></td>
+                                <span class="fw-normal d-flex align-items-center text-warning"> قيد الأنتظار</span></td>
 
                             @else
-                            <td><span class="fw-normal d-flex align-items-center text-danger ">Reject</span></td>
+                            <td><span class="fw-normal d-flex align-items-center text-danger ">مرفوض</span></td>
 
                             @endif
                           
@@ -117,7 +109,7 @@
                                          
                                         <a href="{{ route('details_maintenance_order', ['id' => $item->id]) }}" class="dropdown-item d-flex align-items-center">
                                             <span class="fas fa-eye" style="color: rgb(4, 81, 145);"></span>
-                                            View
+                                            مشاهدة
                                         </a>
                                         @endif
                                         @php
@@ -130,7 +122,7 @@
                                          
                                         <a onclick="updateStates({{$item->id}},1)" class="dropdown-item d-flex align-items-center">
                                             <span class="fas fa-check" style="color: green;"></span>
-                                            Approve
+                                            موافقة
                                         </a>
                                         @endif
                                         @php
@@ -144,7 +136,7 @@
                                         <a onclick="updateStates({{$item->id}},2)" class="dropdown-item d-flex align-items-center"
                                              {{-- href="{{ route('edit_contract', ['id' => $checkRequest->id]) }}" --}}>
                                              <span class="fas fa-times" style="color: red;"></span>
-                                             Reject
+                                             رفض
                                         </a>
                                         @endif
                                         
@@ -174,28 +166,40 @@
 console.log("true");
       if (data.status == 200) {
         Swal.fire({
-  title: 'Success',
-  text: 'Contract updated successfully',
-  icon: 'success',
+ 
+title: 'تم بنجاح',
+text: 'تم تحديث الطلب بنجاح',
+icon: 'success',
 }).then(function() {
   location.reload(); // Reload the page
 });
 
 
     } else {
-      Swal.fire('Error', 'Failed to update contract', 'error');
-    }
+        Swal.fire('خطأ', 'فشل تحديث الطلب', 'error');
+
+
+
+
+}
   },
   error: function(error) {
     // Handle the error
-    Swal.fire('Error', 'An error occurred', 'error');
-  }
+    Swal.fire('خطأ', 'حدث خطأ', 'error');
+
+
+
+
+}
   });
 
     }
      $(document).ready(function() {
- $('#checkTable').DataTable();
- 
+ var table = new DataTable('#checkTable', {
+    language: {
+        url: '//cdn.datatables.net/plug-ins/1.13.5/i18n/ar.json',
+    },
+});
 
 
 

@@ -66,7 +66,7 @@ class Profile extends Component
     
         // Verify the current password
         if (!Hash::check($request->input('current_password'), $user->password)) {
-            Alert::error('Current password is incorrect')->persistent(true);
+            Alert::error('كلمة المرور الحالية غير صحيحة')->persistent(true);
             return redirect()->back();
         }
     
@@ -74,7 +74,7 @@ class Profile extends Component
         $user->password = Hash::make($request->input('new_password'));
         $user->save();
     
-        Alert::success('Password changed successfully')->persistent(true);
+        Alert::success('تم تغيير كلمة المرور بنجاح')->persistent(true);
     
         return redirect()->back();
     }

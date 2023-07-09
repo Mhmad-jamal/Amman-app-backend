@@ -10,7 +10,10 @@
 
 
         <div class="card card-body shadow border-0 table-wrapper table-responsive">
-            <h2 class="h5 mb-4">Contracts information</h2>
+            <h2 class="h5 mb-4">معلومات العقد</h2>
+
+
+
 
             <table class="table user-table table-hover align-items-center" id="propertytable">
                 <thead>
@@ -113,14 +116,14 @@
                                             
                                         @endphp
 
-                                        @if ($response->getStatusCode() === 200)
+                                       {{--  @if ($response->getStatusCode() === 200)
                                            
                                         <a class="dropdown-item text-danger d-flex align-items-center"
-                                            href="{{-- {{ route('Contracts_delete', ['id' => $Contract->id]) }} --}}">
+                                            href="{{-- {{ route('Contracts_delete', ['id' => $Contract->id]) }} ">
                                             <span class="fas fa-trash-alt"></span>
                                            حذف
                                         </a>
-                                        @endif
+                                        @endif --}}
                                     </div>
                                 </div>
                             </td>
@@ -132,7 +135,11 @@
         </div>
         <script>
             $(document).ready(function() {
-                $('#propertytable').DataTable();
+                var table = new DataTable('#propertytable', {
+    language: {
+        url: '//cdn.datatables.net/plug-ins/1.13.5/i18n/ar.json',
+    },
+});
             });
         </script>
         @include('layouts.footer')

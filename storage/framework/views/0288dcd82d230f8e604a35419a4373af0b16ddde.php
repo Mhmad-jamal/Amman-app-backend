@@ -148,22 +148,22 @@
                   d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
                   clip-rule="evenodd"></path>
               </svg>
-              My Profile
+              صفحتي الشخصية
             </a>
             <div role="separator" class="dropdown-divider my-1"></div>
             <a class="dropdown-item d-flex align-items-center">
               <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('logout', [])->html();
-} elseif ($_instance->childHasBeenRendered('DSBfbi7')) {
-    $componentId = $_instance->getRenderedChildComponentId('DSBfbi7');
-    $componentTag = $_instance->getRenderedChildComponentTagName('DSBfbi7');
+} elseif ($_instance->childHasBeenRendered('2pQt6Ph')) {
+    $componentId = $_instance->getRenderedChildComponentId('2pQt6Ph');
+    $componentTag = $_instance->getRenderedChildComponentTagName('2pQt6Ph');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('DSBfbi7');
+    $_instance->preserveRenderedChild('2pQt6Ph');
 } else {
     $response = \Livewire\Livewire::mount('logout', []);
     $html = $response->html();
-    $_instance->logRenderedChild('DSBfbi7', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('2pQt6Ph', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?></a>

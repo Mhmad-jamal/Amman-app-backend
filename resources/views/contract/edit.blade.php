@@ -10,33 +10,32 @@
        
 
         <div class="card card-body shadow border-0 p-3 mt-3">
-            <h2 class="h5 mb-4"> Owner Information </h2>
-            <input type="hidden" name="id" value="{{$contract->id}}" >
+          <h2 class="h5 mb-4">معلومات المالك</h2>
+          <input type="hidden" name="id" value="{{$contract->id}}" >
            <div class="row">
             <div class="col-md-3">
-                <label for="owner_name"> name</label>
-                <input type="text" disabled class="form-control is-valid" id="owner_name" value="{{$contract->owner_name}}" required="">
+              <label for="owner_name"> الأسم</label>
+              <input type="text" disabled class="form-control is-valid" id="owner_name" value="{{$contract->owner_name}}" required="">
                 <div class="valid-feedback">
                     
                 </div>  
             </div>
            
             <div class="col-md-3">
-                <label for="owner_name"> Phone</label>
-                <input disabled type="text" class="form-control " id="owner_name" value="{{$contract->owner_country_code.'-'.$contract->owner_phone}}" required="">
+              <label for="owner_name"> رقم الهاتف</label>
+              <input disabled type="text" class="form-control " id="owner_name" value="{{$contract->owner_country_code.'-'.$contract->owner_phone}}" required="">
                 
             </div>
             <div class="col-md-3">
-                <label for="owner_name"> Nationality ID</label>
-                <input type="text"  name="user_national_number" class="form-control " id="owner_name" value="{{$contract->owner_nationalty_number}}" disabled required="">
+              <label for="owner_name">  الرقم الوطني</label>
+              <input type="text"  name="user_national_number" class="form-control " id="owner_name" value="{{$contract->owner_nationalty_number}}" disabled required="">
                 
             </div>
             <div class="col-md-3  pt-3">
 
                 <a href="{{ route('properties_view', ['id' => $contract->property_id]) }}">
-                    <button type="button" class="btn btn-info mt-3" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Click here to see property" data-bs-trigger="hover">
-                        View the property
-                    </button>
+                  <button type="button" class="btn btn-info mt-3" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Click here to see property" data-bs-trigger="hover">
+                    مشاهدة  العقار                   </button>
                 </a>
             </div>
            </div>
@@ -45,34 +44,34 @@
         <br>
         <br>
         <div class="card card-body shadow border-0 p-3">
-            <h2 class="h5 mb-4">Client Information </h2>
-           <div class="row">
+          <h2 class="h5 mb-4"> معلومات المستخدم </h2>
+          <div class="row">
             <div class="col-md-4">
-                <label for="client_name"> Name</label>
-                <input type="text" class="form-control is-valid" name="client_name" id="client_name" value="{{$contract->client_name}}" required="">
+              <label for="client_name"> الأسم</label>
+              <input type="text" class="form-control is-valid" name="client_name" id="client_name" value="{{$contract->client_name}}" required="">
                 <div class="valid-feedback">
                     
                 </div>  
             </div>
             <div class="col-md-4">
-                <label for="client_phone">Phone</label>
+              <label for="client_name"> رقم الهاتف</label>
                 <input type="text" class="form-control" name="client_phone" id="client_phone" value="{{$contract->client_phone}}" required="">
                 
             </div>
             <div class="col-md-4">
-                <label for="user_national_number"> Nationality ID</label>
-                <input disabled type="text" name="user_national_number" class="form-control " id="user_national_number" value="{{$contract->user_national_number}}" required="">
+              <label for="client_name">  الرقم الوطني</label>
+              <input disabled type="text" name="user_national_number" class="form-control " id="user_national_number" value="{{$contract->user_national_number}}" required="">
                 
             </div>
             <div class="col-md-4">
-              <label for="guarantor_name"> Guarantor Name</label>
+              <label for="guarantor_name">  اسم المعرف</label>
               <input type="text" class="form-control is-valid" name="guarantor_name" id="guarantor_name" value="{{$contract->guarantor_name}}" required="">
               <div class="valid-feedback">
                   
               </div>  
           </div>
           <div class="col-md-4">
-            <label for="guarantor_number"> Guarantor Phone</label>
+            <label for="guarantor_number"> رقم هاتف المعرف</label>
             <input type="text" class="form-control " name="guarantor_number" id="guarantor_number" value="{{$contract->guarantor_number}}" required="">
             <div class="valid-feedback">
                 
@@ -83,33 +82,33 @@
         </div>
         <br><br>
         <div class="card card-body shadow border-0 p-3">
-            <h2 class="h5 mb-4">Contract Information </h2>
-           <div class="row">
+          <h2 class="h5 mb-4"> معلومات العقد </h2>
+          <div class="row">
             <div class="col-md-4">
-                <label for="start_date"> Start Date</label>
-                <input type="date" class="form-control " name="start_date" id="start_date" value="{{$contract->start_date}}" required="">
+              <label for="end_date"> تاريخ النهاية</label>
+              <input type="date" class="form-control text-end " name="start_date" id="start_date" value="{{$contract->start_date}}" required="">
              
             </div>
             <div class="col-md-4">
-                <label for="end_date"> End Date</label>
-                <input type="date" class="form-control " id="end_date" name="end_date" value="{{$contract->end_date}}" required="">
+              <label for="end_date"> تاريخ النهاية</label>
+              <input type="date" class="form-control text-end" id="end_date" name="end_date" value="{{$contract->end_date}}" required="">
                 
             </div>
             <div class="col-md-4">
-                    <label for="textarea">Additional Clause </label>
-                    <textarea name="clause" class="form-control" placeholder="" id="clause" rows="1">{{$contract->clause}}</textarea>
+              <label for="textarea"> بنود اضافية </label>
+              <textarea name="clause" class="form-control " placeholder="" id="clause" rows="1">{{$contract->clause}}</textarea>
                 
             </div>
             <div class="col-md-4">
-                <label for="discount">Discount</label>
-                <input type="text" class="form-control" id="discount" name="discount" value="{{$contract->discount}}" required="">
+              <label for="discount">الخصم</label>
+              <input type="text" class="form-control" id="discount" name="discount" value="{{$contract->discount}}" required="">
             </div>
             <div class="col-md-4">
-                <label for="price">price</label>
-                <input type="text" class="form-control" id="price" name="price" value="{{$contract->price}}" required="">
+              <label for="price">السعر</label>
+              <input type="text" class="form-control" id="price" name="price" value="{{$contract->price}}" required="">
             </div>
             <div class="col-md-4">
-              <label for="price">Contract Status</label>
+              <label for="price"> الحالة</label>
               <select class="form-control form-select" id="status" name="status" required>
                 <option value="0" {{ $contract->status == 0 ? 'selected' : '' }}>مغلق</option>
                 <option value="1" {{ $contract->status == 1 ? 'selected' : '' }}>مفتوح</option>
@@ -120,21 +119,21 @@
            <div class="row due_dates mt-3">
            
              <div class="col-md-3">
-               <label for="date">Date</label>
-               <input  type="date" class="form-control" id="date{{$key}}" name="dateFormat" value="{{$item['date']}}" required="">
+              <label for="date">التاريخ</label>
+              <input  type="date" class="form-control" id="date{{$key}}" name="dateFormat" value="{{$item['date']}}" required="">
              </div>
              <div class="col-md-3">
-               <label for="amount">Amount</label>
-               <input  type="text" class="form-control" id="amount{{$key}}" name="amount" value="{{$item['amount']}}" required="">
+              <label for="amount">القيمة </label>
+              <input  type="text" class="form-control" id="amount{{$key}}" name="amount" value="{{$item['amount']}}" required="">
              </div>
              <input type="hidden" name="payment_id[]" value="{{$item['id']}}">
              <div class="col-md-3">
 
-             <label for="Status">Status</label>
-             <br>
+              <label for="Status">الحالة</label>
+              <br>
              <label style="margin-left: 10px" class="mt-2">
               <input  type="checkbox" name="Paymentstatus" data-id="{{$item["id"]}}" {{ ($item["status"] == 1 ? 'checked' : '') }}>
-              Payed
+              مدفوع
           </label>
              </div>
              
@@ -149,13 +148,13 @@
          </div>
 <div class="row">
     <div class="col-md-3">
-        <button type="button" class="btn btn-primary mt-3" id="add-due-date">Add Due Date</button>
+        <button type="button" class="btn btn-primary mt-3" id="add-due-date">  اضافة تاريخ الاستحقاق</button>
 
     </div>
 </div>
 <div class="row justify-content-center">
     <div class="col-md-12 d-flex justify-content-center">
-      <button type="button" class="btn btn-tertiary mt-3" id="saveButton">Save</button>
+      <button type="button" class="btn btn-tertiary mt-3" id="saveButton">حفظ</button>
     </div>
   </div>
         </div>
@@ -167,11 +166,11 @@
   $("#due_date").append(`
   <div class="row due_dates">
     <div class="col-md-3">
-        <label for="dateFormat"> Date</label>
+        <label for="dateFormat"> التاريخ</label>
         <input type="date" class="form-control "  name="dateFormat" value="" required="">
     </div>
     <div class="col-md-3">
-        <label for="amount"> amount</label>
+        <label for="amount"> القيمة</label>
         <input type="text" class="form-control" name="amount" value="" required="">
     </div>
 </div> 
@@ -229,22 +228,30 @@ for (const [key, value] of formData.entries()) {
       console.log(data);
       if (data.status == 200) {
         Swal.fire({
-  title: 'Success',
-  text: 'Contract updated successfully',
-  icon: 'success',
+          title: 'تم بنجاح',
+text: 'تم تحديث العقد بنجاح',
+icon: 'success',
 }).then(function() {
   location.reload(); // Reload the page
 });
 
 
     } else {
-      Swal.fire('Error', 'Failed to update contract', 'error');
-    }
+      Swal.fire('خطأ', 'فشل تحديث العقد', 'error');
+
+
+
+
+}
   },
   error: function(error) {
     // Handle the error
-    Swal.fire('Error', 'An error occurred', 'error');
-  }
+    Swal.fire('خطأ', 'حدث خطأ', 'error');
+
+
+
+
+}
   });
     });
   
@@ -279,22 +286,35 @@ checkboxes.forEach(checkbox => {
       console.log(data);
       if (data.status == 200) {
         Swal.fire({
-  title: 'Success',
-  text: 'Payment updated successfully',
-  icon: 'success',
+          title: 'تم بنجاح',
+text: 'تم تحديث الدفعة بنجاح',
+icon: 'success',
+
+
+
+
+
 }).then(function() {
   location.reload(); // Reload the page
 });
 
 
     } else {
-      Swal.fire('Error', 'Failed to update Payment', 'error');
-    }
+      Swal.fire('خطأ', 'فشل تحديث الدفعة', 'error');
+
+
+
+
+}
   },
   error: function(error) {
     // Handle the error
-    Swal.fire('Error', 'An error occurred', 'error');
-  }
+    Swal.fire('خطأ', 'حدث خطأ', 'error');
+
+
+
+
+}
   });
   });
 });

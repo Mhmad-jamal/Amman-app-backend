@@ -15,21 +15,21 @@
                     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         
                     <div class="card card-body border-0 shadow mb-4">
-                        <h2 class="h5 mb-4">General information</h2>
+                        <h2 class="h5 mb-4"> معلومات عامة</h2>
                         <form  action="{{route('Admin_update')}}" method="POST">
                             @csrf
                             <input type="hidden" name="id" value="{{$user->id}}">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <div>
-                                        <label for="first_name">First Name</label>
+                                        <label for="first_name"> الأسم الأول </label>
                                         <input name="first_name" class="form-control" id="first_name" type="text"
                                             value="{{$user->first_name}}" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div>
-                                        <label for="last_name">Last Name</label>
+                                        <label for="last_name"> الأسم الأخير</label>
                                         <input name="last_name" class="form-control" id="last_name" type="text"
                                             value="{{$user->last_name}}">
                                     </div>
@@ -38,37 +38,37 @@
                             <div class="row align-items-center">
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
-                                        <label for="email">Email</label>
+                                        <label for="email">البريد الألكتروني</label>
                                         <input name="email" class="form-control" id="email" type="email"
                                            value="{{$user->email}}" >
                                     </div>
                                     @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label for="gender">Gender</label>
+                                    <label for="gender">الجنس</label>
                                     <select name="gender" class="form-select mb-0" id="gender"
                                         aria-label="Gender select example">
                                         <option >Choose...</option>
                                         
-                                        <option {{ $user->gender == "Female" ? "selected" : "" }} value="Female">Female</option>
-                                        <option {{ $user->gender == "Male" ? "selected" : "" }} value="Male">Male</option>
+                                        <option {{ $user->gender == "Female" ? "selected" : "" }} value="Female">انثى</option>
+                                        <option {{ $user->gender == "Male" ? "selected" : "" }} value="Male">ذكر</option>
 
                                     </select>
                                     @error('gender') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                 </div>
                             </div>
-                            <h2 class="h5 my-4">Location</h2>
+                            <h2 class="h5 my-4">الموقع</h2>
                             <div class="row">
                                 <div class="col-sm-9 mb-3">
                                     <div class="form-group">
-                                        <label for="address">Address</label>
+                                        <label for="address">العنوان</label>
                                         <input value="{{$user->address}}" name="address" class="form-control" id="address" type="text">
                                     </div>
                                     @error('address') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                 </div>
                                 <div class="col-sm-3 mb-3">
                                     <div class="form-group">
-                                        <label for="number">Number</label>
+                                        <label for="number">رقم الهاتف</label>
                                         <input name="number" class="form-control" id="number" type="number"
                                        value="{{$user->number}}"     placeholder="No.">
                                     </div>
@@ -78,7 +78,7 @@
                             <div class="row">
                                 <div class="col-sm-4 mb-3">
                                     <div class="form-group">
-                                        <label for="city">City</label>
+                                        <label for="city">المدينة</label>
                                         <input name="city" value="{{$user->city}}" class="form-control" id="city" type="text"
                                            >
                                     </div>
@@ -86,44 +86,34 @@
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="form-group">
-                                        <label for="zip">ZIP</label>
+                                        <label for="zip">الرمز البريدي</label>
                                         <input value="{{$user->ZIP}}" name="ZIP" class="form-control" id="zip" type="tel" placeholder="ZIP">
                                     </div>
                                 </div>
                                 @error('ZIP') <div class="invalid-feedback">{{ $message }}</div> @enderror
                             </div>
                             <div class="mt-3">
-                                <button type="submit" class="btn btn-gray-800 mt-2 animate-up-2">Save All</button>
+                                <button type="submit" class="btn btn-gray-800 mt-2 animate-up-2"> حفظ</button>
                             </div>
                         </form>
                       
                     </div>
                     <div class="card card-body border-0 shadow mb-4">
-                        <h2 class="h5 mb-4">Admin Permission</h2>
-                        <select id="Page"  data-select2-id="select2-data-Page" tabindex="-1" class="select2-hidden-accessible form-select" aria-hidden="true"> 
-                            <option selected value="Select" disabled data-id="Select">Select Page</option>
-
-                            <option value="dashboard" data-id="dashboard">Dashboard Page</option>
-            
-                            <option value="client_page" data-id="Client_Page">Client Page</option>
-                            <option value="subsicription" data-id="subsicription_Page">subsicription Page</option>
-
-                            <option value="properties" data-id="properties">Properties Page</option>
-                            
-                            <option value="banner_Page" data-id="banner_Page">Banner Page</option>
-                            
-                            <option value="contract_page" data-id="contract page">Contract page</option>
-                            <option value="all_contract_page" data-id="all_contract_page">All contract Page</option>
-                            <option value="Check_request" data-id="Check_request">Check request</option>
-            
-                            <option value="order_page" data-id="order_page">Orders Page</option>
-                            <option value="orders" data-id="orders">Orders Controller</option>
-
-                            <option value="admin_page" data-id="admin_page">Admin</option>
-            
-                            
-                            
-                            </select>
+                        <h2 class="h5 mb-4"> صلاحية المسؤوول</h2>
+                        <select id="Page" data-select2-id="select2-data-Page" tabindex="-1" class="select2-hidden-accessible form-select" aria-hidden="true">
+                            <option selected value="Select" disabled data-id="Select">اختر الصفحة</option>
+                            <option value="dashboard" data-id="dashboard">صفحة لوحة التحكم</option>
+                            <option value="client_page" data-id="Client_Page">صفحة العميل</option>
+                            <option value="subsicription" data-id="subsicription_Page">صفحة الاشتراك</option>
+                            <option value="properties" data-id="properties">صفحة العقارات</option>
+                            <option value="banner_Page" data-id="banner_Page">صفحة البانر</option>
+                            <option value="contract_page" data-id="contract page">صفحة العقد</option>
+                            <option value="all_contract_page" data-id="all_contract_page">صفحة جميع العقود</option>
+                            <option value="Check_request" data-id="Check_request">صفحة التحقق</option>
+                            <option value="order_page" data-id="order_page">صفحة الطلبات</option>
+                            <option value="orders" data-id="orders">تحكم الطلبات </option>
+                            <option value="admin_page" data-id="admin_page">المسؤولين</option>
+                        </select>
                             <div id="action" class="mt-3"></div>
 
                             <div class="mt-3">
@@ -161,7 +151,7 @@
                                         <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"></path>
                                         </svg>
-                                        Change Password
+                                        تغيير كلمة السر
                                     </a>
                                     <!-- Modal -->
         
@@ -170,7 +160,8 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="changePasswordModalLabel">Change Password</h5>
+                                                <h5 class="modal-title" id="changePasswordModalLabel">                                        تغيير كلمة السر
+                                                </h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
@@ -179,14 +170,14 @@
                                                     <input type="hidden" name="user_id" value="{{$user->id}}">
                                                
                                                     <div class="mb-3">
-                                                        <label for="new_password" class="form-label">New Password</label>
+                                                        <label for="new_password" class="form-label">كلمة مرور جديدة</label>
                                                         <input type="password" class="form-control" id="new_password" placeholder="Enter new password" name="new_password">
                                                     </div>
                                                     
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="submit" class="btn btn-primary">Save Changes</button>
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">حفظ</button>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">اغلاق</button>
                                             </div>
                                         </form>
                                         </div>
@@ -220,6 +211,8 @@
         for (let key in e.action) {
           x++;
           console.log(key + ": " + e.action[key]);
+          let translatedKey = translateToArabic(key.replace(/_/g, " "));
+
           if (e.action[key] == 1) {
             $("#action").append(
               `
@@ -227,7 +220,7 @@
             <input class="form-check-input  " checked type="checkbox" role="switch" id="Radio` +
                 x +
                 `" value="${key.replace(/_/g, " ")}">
-            <label class="form-check-label">${key.replace(/_/g, " ")}</label>
+            <label class="form-check-label">${translateToArabic(key)}</label>
           </div>`);
           } else {
             $("#action").append(`
@@ -235,7 +228,7 @@
             <input class="form-check-input " type="checkbox" role="switch" value="${key.replace(/_/g, " ")}"  id="Radio` +
             x +
             `">
-            <label class="form-check-label">${key.replace(/_/g, " ")}</label>
+            <label class="form-check-label">${translateToArabic(key)}</label>
           </div>
         
         `);
@@ -289,7 +282,43 @@ if(e.pageId==selected_Page ){
       }
     });
   };
-  
+  function translateToArabic(text) {
+        // Define your translations here
+        var translations = {
+    "Show": "عرض",
+    "view_client": "عرض العميل",
+    "edit_client": "تعديل العميل",
+    "delete_client": "حذف العميل",
+    "view_subsicription": "عرض الاشتراك",
+    "edit_subsicription": "تعديل الاشتراك",
+    "delete_subsicription": "حذف الاشتراك",
+    "view_property": "عرض العقار",
+    "edit_property": "تعديل العقار",
+    "delete_property": "حذف العقار",
+    "add_banner": "إضافة بانر",
+    "view_banner": "عرض البانر",
+    "edit_banner": "تعديل البانر",
+    "delete_banner": "حذف البانر",
+    "view_all_contract": "عرض جميع العقود",
+    "view_check_request": "عرض طلبات التحقق",
+    "view_contract": "عرض العقد",
+    "edit_contract": "تعديل العقد",
+    "delete_contract": "حذف العقد",
+    "Approve": "الموافقة",
+    "Reject": "الرفض",
+    "view_maintenance_order": "عرض طلبات الصيانة",
+    "view_general_order": "عرض الطلبات العامة",
+    "View": "عرض",
+    "Approve": "الموافقة",
+    "Reject": "الرفض",
+    "view": "عرض",
+    "edit": "تعديل",
+    "delete": "حذف"
+};
+
+
+        return translations[text] || text; // Return the translated text if available, otherwise return the original text
+    }
 
   document.getElementById("permessionbtn").addEventListener("click", function(){
 let formData=new FormData();
@@ -307,8 +336,8 @@ let formData=new FormData();
       if (response["status"] === 200) {
    console.log("done");
    swal({
-    title: "Success",
-    text: response.message,
+    title: "تم بنجاح",
+    text: "تم تحديث الصلاحيات بنجاح",
     icon: "success",
     button: "OK",
   });

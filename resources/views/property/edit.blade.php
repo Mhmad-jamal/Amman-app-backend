@@ -5,7 +5,6 @@
     <main class="content">
         {{-- TopBar --}}
         @include('layouts.topbar')
-        <title>Edit Property</title>
         <div>
             <br>
             <form action="{{route('properties_update')}}" method="POST">
@@ -13,19 +12,19 @@
             <div class="row">
                 <div class="col-12 ">
                     <div class="card card-body border-0 shadow mb-4">
-                        <h2 class="h5 mb-4">Property Details</h2>
+                        <h2 class="h5 mb-4">تفاصيل العقار</h2>
                         <input  type="hidden" value="{{$property->id}}" name="id">
                         <input  type="hidden" value="{{$property->owner_id}}" name="owner_id">
 
                         <div class="row">
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
-                                        <label for="section">Section <span class="text-danger">*</span></label>
-                                        <select  class="form-select mb-0" id="section" name="section">
+                                        <label for="section">القسم <span class="text-danger">*</span></label>
+                                        <select   class="form-select mb-0" id="section" name="section">
                                             <option value="Sale"
-                                                {{ $property->section == 'Sale' ? 'selected' : '' }}>Sale</option>
+                                                {{ $property->section == 'Sale' ? 'selected' : '' }}>بيع</option>
                                             <option value="Rent"
-                                                {{ $property->section == 'Rent' ? 'selected' : '' }}>Rent</option>
+                                                {{ $property->section == 'Rent' ? 'selected' : '' }}>إيجار</option>
                                         </select>
                                         @if ($errors->has('section'))
                                             <span class="text-danger">{{ $errors->first('section') }}</span>
@@ -35,16 +34,16 @@
 
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
-                                        <label for="sub_section">Sub Section <span class="text-danger">*</span></label>
-                                        <select class="form-select mb-0" id="sub_section" name="sub_section">
-                                            <option value="Apartments" <?php echo $property->sub_section === 'Apartments' ? 'selected' : ''; ?>>Apartments</option>
-                                            <option value="Villa - Palace" <?php echo $property->sub_section === 'Villa - Palace' ? 'selected' : ''; ?>>Villa - Palace</option>
-                                            <option value="Townhouses" <?php echo $property->sub_section === 'Townhouses' ? 'selected' : ''; ?>>Townhouses</option>
-                                            <option value="Lands" <?php echo $property->sub_section === 'Lands' ? 'selected' : ''; ?>>Lands</option>
-                                            <option value="Commercial" <?php echo $property->sub_section === 'Commercial' ? 'selected' : ''; ?>>Commercial</option>
-                                            <option value="Farms & Chalets" <?php echo $property->sub_section === 'Farms & Chalets' ? 'selected' : ''; ?>>Farms & Chalets</option>
-                                            <option value="Whole Building" <?php echo $property->sub_section === 'Whole Building' ? 'selected' : ''; ?>>Whole Building</option>
-                                            <option value="Foreign Real Estate" <?php echo $property->sub_section === 'Foreign Real Estate' ? 'selected' : ''; ?>>Foreign Real Estate</option>
+                                        <label for="sub_section">القسم الفرعي <span class="text-danger">*</span></label>
+                                        <select  class="form-select mb-0" id="sub_section" name="sub_section">
+                                            <option value="Apartments" <?php echo $property->sub_section === 'Apartments' ? 'selected' : ''; ?>>شقق</option>
+                                            <option value="Villa - Palace" <?php echo $property->sub_section === 'Villa - Palace' ? 'selected' : ''; ?>>فلل - قصور</option>
+                                            <option value="Townhouses" <?php echo $property->sub_section === 'Townhouses' ? 'selected' : ''; ?>>منازل المدينة </option>
+                                            <option value="Lands" <?php echo $property->sub_section === 'Lands' ? 'selected' : ''; ?>>أراضي</option>
+                                            <option value="Commercial" <?php echo $property->sub_section === 'Commercial' ? 'selected' : ''; ?>>تجاري</option>
+                                            <option value="Farms & Chalets" <?php echo $property->sub_section === 'Farms & Chalets' ? 'selected' : ''; ?>>مزارع وشاليهات</option>
+                                            <option value="Whole Building" <?php echo $property->sub_section === 'Whole Building' ? 'selected' : ''; ?>>عمارة كاملة</option>
+                                            <option value="Foreign Real Estate" <?php echo $property->sub_section === 'Foreign Real Estate' ? 'selected' : ''; ?>>عقارات خارجية</option>
                                           </select>
                                           
                                         @if ($errors->has('sub_section'))
@@ -55,15 +54,15 @@
 
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
-                                        <label for="room_number">Room number <span class="text-danger">*</span></label>
-                                        <select  name="room_number" class="form-select mb-0">
+                                        <label for="room_number">عدد الغرف <span class="text-danger">*</span></label>
+                                        <select   name="room_number" class="form-select mb-0">
                                             <option value="1" {{$property->room_number == '1' ? 'selected' : ''}}>1</option>
                                             <option value="2" {{$property->room_number == '2' ? 'selected' : ''}}>2</option>
                                             <option value="3" {{$property->room_number == '3' ? 'selected' : ''}}>3</option>
                                             <option value="4" {{$property->room_number == '4' ? 'selected' : ''}}>4</option>
                                             <option value="5" {{$property->room_number == '5' ? 'selected' : ''}}>5</option>
                                             <option value="6+" {{$property->room_number == '6+' ? 'selected' : ''}}>6+</option>
-                                            <option value="Studio" {{$property->room_number == 'Studio' ? 'selected' : ''}}>Studio</option>
+                                            <option value="Studio" {{$property->room_number == 'Studio' ? 'selected' : ''}}>استوديو</option>
                                         </select>
                                         
                                         @if ($errors->has('room_number'))
@@ -74,9 +73,9 @@
 
                                 <div class="col-md-3 mb-3">
                                     <div class="form-group">
-                                        <label for="bath_number">Bath number <span class="text-danger">*</span></label>
-                                        <select  name="bath_number" class="form-select mb-0">
-                                            <option value="One" {{$property->bath_number == 'One' ? 'selected' : ''}}>One</option>
+                                        <label for="bath_number">عدد الحمامات <span class="text-danger">*</span></label>
+                                        <select   name="bath_number" class="form-select mb-0">
+                                            <option value="One" {{$property->bath_number == 'One' ? 'selected' : ''}}>1</option>
 
                                             <option value="2" {{$property->bath_number == '2' ? 'selected' : ''}}>2</option>
                                             <option value="3" {{$property->bath_number == '3' ? 'selected' : ''}}>3</option>
@@ -93,8 +92,8 @@
                                 <div class="row">
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
-                                            <label for="building_area">Building area <span
-                                                    class="text-danger">*</span></label>
+                                            <label for="building_area"> مساحة البناء <span
+                                                class="text-danger">*</span></label>
                                                     <input  class="form-control" name="building_area" id="building_area"
                                                     value="{{ $property->building_area }}" type="text">
                                                                                                       
@@ -105,15 +104,15 @@
                                     </div>
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
-                                            <label for="floor">Floor <span class="text-danger">*</span></label>
-                                            <select  class="form-select mb-0" id="floor" name="floor">
-                                                <option value="Basement" {{$property->floor == 'Basement' ? 'selected' : ''}}>Basement</option>
-                                                <option value="Ground Floor" {{$property->floor == 'Ground Floor' ? 'selected' : ''}}>Ground Floor</option>
-                                                <option value="First Floor" {{$property->floor == 'First Floor' ? 'selected' : ''}}>First Floor</option>
-                                                <option value="Second Floor" {{$property->floor == 'Second Floor' ? 'selected' : ''}}>Second Floor</option>
-                                                <option value="Third Floor" {{$property->floor == 'Third Floor' ? 'selected' : ''}}>Third Floor</option>
-                                                <option value="Fourth Floor" {{$property->floor == 'Fourth Floor' ? 'selected' : ''}}>Fourth Floor</option>
-                                                <option value="Fifth Floor" {{$property->floor == 'Fifth Floor' ? 'selected' : ''}}>Fifth Floor</option>
+                                            <label for="floor">الطابق <span class="text-danger">*</span></label>
+                                            <select   class="form-select mb-0" id="floor" name="floor">
+                                                <option value="Basement" {{$property->floor == 'Basement' ? 'selected' : ''}}>دور سفلي</option>
+                                                <option value="Ground Floor" {{$property->floor == 'Ground Floor' ? 'selected' : ''}}>الطابق الأرضي</option>
+                                                <option value="First Floor" {{$property->floor == 'First Floor' ? 'selected' : ''}}> الطابق الأول </option>
+                                                <option value="Second Floor" {{$property->floor == 'Second Floor' ? 'selected' : ''}}> الطابق الثاني </option>
+                                                <option value="Third Floor" {{$property->floor == 'Third Floor' ? 'selected' : ''}}>الطابق الثالث</option>
+                                                <option value="Fourth Floor" {{$property->floor == 'Fourth Floor' ? 'selected' : ''}}> الطابق الرابع</option>
+                                                <option value="Fifth Floor" {{$property->floor == 'Fifth Floor' ? 'selected' : ''}}> الطابق الخامس </option>
                                             </select>
                                             
                                             
@@ -125,16 +124,16 @@
 
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
-                                            <label for="construction_age">Construction age <span
-                                                    class="text-danger">*</span></label>
-                                                    <select  class="form-select mb-0" id="construction_age" name="construction_age">
-                                                        <option value="0-11 months" {{$property->construction_age == '0-11 months' ? 'selected' : ''}}>0-11 months</option>
-                                                        <option value="1-5 years" {{$property->construction_age == '1-5 years' ? 'selected' : ''}}>1-5 years</option>
-                                                        <option value="6-9 years" {{$property->construction_age == '6-9 years' ? 'selected' : ''}}>6-9 years</option>
-                                                        <option value="10-19 years" {{$property->construction_age == '10-19 years' ? 'selected' : ''}}>10-19 years</option>
-                                                        <option value="20+ years" {{$property->construction_age == '20+ years' ? 'selected' : ''}}>20+ years</option>
-                                                        <option value="Under Construction" {{$property->construction_age == 'Under Construction' ? 'selected' : ''}}>Under Construction</option>
-                                                    </select>
+                                            <label for="construction_age"> عمر البناء  <span
+                                                class="text-danger">*</span></label>
+                                                <select  class="form-select mb-0" id="construction_age" name="construction_age">
+                                                    <option value="0-11 months" {{$property->construction_age == '0-11 months' ? 'selected' : ''}}>0-11 شهرًا</option>
+                                                    <option value="1-5 years" {{$property->construction_age == '1-5 years' ? 'selected' : ''}}>1-5 سنوات</option>
+                                                    <option value="6-9 years" {{$property->construction_age == '6-9 years' ? 'selected' : ''}}>6-9 سنوات</option>
+                                                    <option value="10-19 years" {{$property->construction_age == '10-19 years' ? 'selected' : ''}}>10-19 سنة</option>
+                                                    <option value="20+ years" {{$property->construction_age == '20+ years' ? 'selected' : ''}}>أكثر من 20 سنة</option>
+                                                    <option value="Under Construction" {{$property->construction_age == 'Under Construction' ? 'selected' : ''}}>تحت الإنشاء</option>
+                                                </select>
                                             @if ($errors->has('construction_age'))
                                                 <span
                                                     class="text-danger">{{ $errors->first('construction_age') }}</span>
@@ -144,11 +143,11 @@
 
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
-                                            <label for="furnished">Furnished <span class="text-danger">*</span></label>
-                                            <select  name="furnished" class="form-select mb-0">
-                                                <option value="Furnished" {{$property->furnished == 'Furnished' ? 'selected' : ''}}>Furnished</option>
-                                                <option value="Semi Furnished" {{$property->furnished == 'Semi Furnished' ? 'selected' : ''}}>Semi Furnished</option>
-                                                <option value="Unfurnished" {{$property->furnished == 'Unfurnished' ? 'selected' : ''}}>Unfurnished</option>
+                                            <label for="furnished">مفروش  <span class="text-danger">*</span></label>
+                                            <select   name="furnished" class="form-select mb-0">
+                                                <option value="Furnished" {{$property->furnished == 'Furnished' ? 'selected' : ''}}>مفروش</option>
+                                                <option value="Semi Furnished" {{$property->furnished == 'Semi Furnished' ? 'selected' : ''}}> شبه مفروش</option>
+                                                <option value="Unfurnished" {{$property->furnished == 'Unfurnished' ? 'selected' : ''}}>غير مفروش</option>
                                             </select>
                                             
                                             @if ($errors->has('furnished'))
@@ -160,14 +159,14 @@
 
                                 <div class="row">
                                     <div class="col-md-3 mb-3">
-                                        <label for="status">Status <span class="text-danger">*</span></label>
-                                        <select  class="form-select mb-0" id="status" name="status">
+                                        <label for="status">الحالة <span class="text-danger">*</span></label>
+                                        <select   class="form-select mb-0" id="status" name="status">
                                             <option value="0" {{ $property->status == '0' ? 'selected' : '' }}>
-                                                Draft</option>
+                                                مؤرشفة </option>
                                             <option value="1" {{ $property->status == '1' ? 'selected' : '' }}>
-                                                Publish</option>
+                                                منشورة </option>
                                             <option value="2" {{ $property->status == '2' ? 'selected' : '' }}>
-                                                Cancel</option>
+                                                محذوفة </option>
                                         </select>
                                         @if ($errors->has('status'))
                                             <span class="text-danger">{{ $errors->first('status') }}</span>
@@ -176,7 +175,7 @@
 
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
-                                            <label for="ad_title">Ad title <span class="text-danger">*</span></label>
+                                            <label for="ad_title">العنوان <span class="text-danger">*</span></label>
                                             <input  class="form-control" id="ad_title" name="ad_title"
                                                 type="text" value="{{ $property->ad_title }}">
                                             @if ($errors->has('ad_title'))
@@ -187,8 +186,8 @@
 
                                     <div class="col-md-3 mb-3">
                                         <div class="form-group">
-                                            <label for="electric_bill">Electric bill <span
-                                                    class="text-danger">*</span></label>
+                                            <label for="electric_bill"> فاتورة الكهرباء <span
+                                                class="text-danger">*</span></label>
                                             <input  class="form-control" id="electric_bill" name="electric_bill"
                                                 type="text" value="{{ $property->electric_bill }}">
                                             @if ($errors->has('electric_bill'))
@@ -200,8 +199,8 @@
                                     <div class="col-md-3 mb-3">
                                         
                                         <div class="form-group">
-                                            <label for="water_bill">Water bill <span
-                                                    class="text-danger">*</span></label>
+                                            <label for="water_bill"> فاتورة المياه <span
+                                                class="text-danger">*</span></label>
                                             <input  class="form-control" id="water_bill" name="water_bill"
                                                 type="text" value="{{ $property->water_bill }}">
                                             @if ($errors->has('water_bill'))
@@ -214,7 +213,7 @@
                                 <div class="row">
                                     <div class="col-md-4 mb-3">
                                         <div class="form-group">
-                                            <label for="ad_details">Ad details <span class="text-danger">*</span></label>
+                                            <label for="ad_details"> التفاصيل <span class="text-danger">*</span></label>
                                             <textarea class="form-control" id="ad_details" name="ad_details" rows="1" oninput="autoResize(this)">{{ $property->ad_details }}</textarea>
                                             @if ($errors->has('ad_details'))
                                                 <span class="text-danger">{{ $errors->first('ad_details') }}</span>
@@ -223,7 +222,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="form-group">
-                                            <label for="address">Address <span class="text-danger">*</span></label>
+                                            <label for="address">العنوان <span class="text-danger">*</span></label>
                                             <input  class="form-control" id="address" name="address" type="text"
                                                 value="{{ $property->address }}">
                                             @if ($errors->has('address'))
@@ -233,7 +232,7 @@
                                     </div>
                                     <div class="col-md-4 mb-3">
                                         <div class="form-group">
-                                            <label for="payment_type">Payment Type <span class="text-danger"></span></label>
+                                            <label for="payment_type"> نوع الدفعة <span class="text-danger"></span></label>
                                             <select class="form-control" id="payment_type" name="payment_type">
                                                 <option value="cash" {{ $property->payment_type == 'cash' ? 'selected' : '' }}>Cash</option>
                                                 <option value="installments" {{ $property->payment_type == 'installments' ? 'selected' : '' }}>Installments</option>
@@ -250,43 +249,43 @@
                             <div class="row">
                             
                                 <div class="form-group">
-                                    <label for="features">Features</label>
+                                    <label for="features">الميزات</label>
                                     <br>
                                     @php
                                     $features = [
-                                        'Air Conditioning',
-                                        'Central Air Conditioning',
-                                        'Heating',
-                                        'Balcony',
-                                        'Maid Room',
-                                        'Laundry Room',
-                                        'Built in Wardrobes',
-                                        'Private Pool',
-                                        'Double Glazed Windows',
-                                        'Jacuzzi',
-                                        'Installed Kitchen',
-                                        'Electric Shutters',
-                                        'Underfloor Heating',
-                                        'Washing Machine',
-                                        'Dishwasher',
-                                        'Microwave',
-                                        'Oven',
-                                        'Refrigerator'
+                                        'Air Conditioning' => 'تكييف الهواء',
+                                        'Central Air Conditioning' => 'تكييف الهواء المركزي',
+                                        'Heating' => 'تدفئة',
+                                        'Balcony' => 'شرفة',
+                                        'Maid Room' => 'غرفة خادمة',
+                                        'Laundry Room' => 'غرفة غسيل',
+                                        'Built in Wardrobes' => 'خزائن مدمجة',
+                                        'Private Pool' => 'مسبح خاص',
+                                        'Double Glazed Windows' => 'نوافذ زجاجية مزدوجة',
+                                        'Jacuzzi' => 'جاكوزي',
+                                        'Installed Kitchen' => 'مطبخ مجهز',
+                                        'Electric Shutters' => 'ستائر كهربائية',
+                                        'Underfloor Heating' => 'تدفئة تحت الأرض',
+                                        'Washing Machine' => 'غسالة',
+                                        'Dishwasher' => 'غسالة صحون',
+                                        'Microwave' => 'ميكروويف',
+                                        'Oven' => 'فرن',
+                                        'Refrigerator' => 'ثلاجة'
                                     ];
                                     @endphp
                                 
-                                    @foreach ($features as $index => $feature)
-                                        @if ($index % 4 === 0)
+                                    @foreach ($features as $key => $value)
+                                        @if ($loop->index % 4 === 0)
                                             <div class="row">
                                         @endif
                                         <div class="col-md-3">
                                             <label style="margin-left: 10px">
-                                                <input type="checkbox" name="features[]" value="{{ $feature }}"
-                                                {{ in_array($feature, json_decode($property->features, true)) ? 'checked' : '' }}>
-                                                {{ $feature }}
+                                                <input  type="checkbox" name="features[]" value="{{ $key }}"
+                                                {{ in_array($key, json_decode($property->features, true)) ? 'checked' : '' }}>
+                                                {{ $value }}
                                             </label>
                                         </div>
-                                        @if (($index + 1) % 4 === 0 || $index === count($features) - 1)
+                                        @if (($loop->index + 1) % 4 === 0 || $loop->last)
                                             </div>
                                         @endif
                                     @endforeach
@@ -309,13 +308,13 @@
                                     </div>
                                 </div>
                                 <div class="mt-3">
-                                    <button type="submit" class="btn btn-gray-800 mt-2 animate-up-2">Save
-                                        All</button>
+                                    <button type="submit" class="btn btn-gray-800 mt-2 animate-up-2">حفظ
+                                        </button>
                                 </div>
                             </form>
                             <br>
                             <div class="row">
-                                <h2 class="h5 mb-4">Property Images</h2>
+                                <h2 class="h5 mb-4"> صور العقار</h2>
                                 <br>
                                 @php
                                 $images = json_decode($property->image, true);
@@ -345,7 +344,7 @@
                                         <input type="hidden" name="id" value="{{ $property->id }}">
                                         <input class="form-control" type="file" name="image[]" multiple accept="image/*">
                                         <br>
-                                        <button type="submit" class="btn btn-primary">Add Images</button>
+                                        <button type="submit" class="btn btn-primary"> أضافة صور</button>
                                     </form>
                                 </div>
                             </div>
@@ -379,13 +378,16 @@
         
         // Show SweetAlert confirmation dialog
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Yes, delete it!'
+    title: 'هل أنت متأكد؟',
+    text: 'لن تكون قادرًا على التراجع عن هذا!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#3085d6',
+    confirmButtonText: 'نعم، احذفه!',
+    cancelButtonText: 'إلغاء'
+
+
         }).then((result) => {
             if (result.isConfirmed) {
                 // Submit the form if user confirms deletion

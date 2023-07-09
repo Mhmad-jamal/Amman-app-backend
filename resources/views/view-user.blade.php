@@ -5,7 +5,6 @@
     <main class="content">
         {{-- TopBar --}}
         @include('layouts.topbar')
-        <title>View user</title>
         <div>
           <br>
             <div class="row">
@@ -39,7 +38,7 @@
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
-                                        <label for="email">الأيميل</label>
+                                        <label for="email">البريد الألكتروني </label>
                                         <input  class="form-control" id="email" value="{{$user->email}}" type="email"
                                             placeholder="name@company.com" disabled>
                                     </div>

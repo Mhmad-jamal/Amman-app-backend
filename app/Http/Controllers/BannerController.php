@@ -37,17 +37,25 @@ class BannerController extends Controller
         $banner->href = $href;
         $banner->save();
         if (!$banner) {
-            return response()->json(['status'=>201,'message' => 'Banner not found'], 404);
+            return response()->json(['status'=>201,'message' => 'البانر غير موجود'], 404);
+
+
+
+
         }
         
         if (!$banner->save()) {
-            return response()->json(['status'=>201,'message' => 'Failed to update banner'], 500);
+            return response()->json(['status'=>201,'message' => 'فشل تحديث البانر'], 500);
+
+
+
+
         }
         
         return response()->json([
             'status'=>200
-            ,'message' => 'Banner updated successfully']);
-    }
+            ,'message' => 'تم تحديث البانر بنجاح']);
+        }
     public function delete(Request $request)
     {
         $id = $request->input('id');
@@ -57,7 +65,11 @@ class BannerController extends Controller
         
         if (!$banner) {
 
-            Alert::warning('Warning', 'the image not found!');
+            Alert::warning('تحذير', 'لم يتم العثور على الصورة!');
+
+
+
+
 
             // Banner not found
             
@@ -66,13 +78,21 @@ class BannerController extends Controller
         
         // Delete the banner
         if ($banner->delete()) {
-            Alert::success('Success', 'Image delete successfully!');
+            Alert::success('تم بنجاح', 'تم حذف الصورة بنجاح!');
+
+
+
+
 
             // Banner deleted successfully
             return redirect()->back();
         } else {
             // Failed to delete the banner
-            Alert::errorr('Error', 'sorry something worng!');
+            Alert::error('خطأ', 'عذرًا، حدث خطأ ما!');
+
+
+
+
 
             return redirect()->back();
         }
@@ -80,13 +100,21 @@ class BannerController extends Controller
    public function create(Request $request)
 {
     $validator = Validator::make($request->all(), [
-        'image.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-    ]);
+        'image.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', [
+            'required' => 'حقل الصورة مطلوب.',
+            'image' => 'يجب أن يكون الملف ملف صورة.',
+            'mimes' => 'يجب أن يكون الملف بصيغة jpeg أو png أو jpg أو gif.',
+            'max' => 'يجب ألا يتجاوز حجم الملف 2048 كيلوبايت.',
+            ],    ]);
     if ($validator->fails()) {
         $errors = $validator->errors();
     
         // Flash the error messages to the session
-        Alert::error('Validation Error', 'Please fix the following errors:')->footer($errors->all()[0]);
+        Alert::error('خطأ في التحقق', 'يرجى إصلاح الأخطاء التالية:')->footer($errors->all()[0]);
+
+
+
+
     
         return redirect()->back()->withErrors($errors)->withInput();
     }
@@ -121,10 +149,18 @@ class BannerController extends Controller
             $banner->href=$href;
             $banner->save();
         }
-        Alert::success('Success', 'Image(s) saved successfully!');
+        Alert::success('تم بنجاح', 'تم حفظ الصور بنجاح!');
+
+
+
+
     } else {
         // No image is uploaded
-        Alert::warning('Warning', 'No image uploaded!');
+        Alert::warning('تحذير', 'لم يتم تحميل أي صورة!');
+
+
+
+
     }
 
     return redirect()->back();
