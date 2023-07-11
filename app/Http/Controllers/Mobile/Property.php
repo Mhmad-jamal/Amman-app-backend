@@ -155,7 +155,7 @@ class Property extends Controller
     {
         $properties = PropertyModel::join('clients', 'properties.owner_id', '=', 'clients.id')
         ->select('properties.id as id', 'clients.id as clients_id', 'properties.section', 'properties.sub_section', 'properties.room_number', 'properties.bath_number', 'properties.building_area', 'properties.floor', 'properties.construction_age', 'properties.furnished', 'properties.features', 'properties.price', 'properties.ad_title', 'properties.ad_details', 'properties.address', 'properties.status', 'properties.electric_bill', 'properties.water_bill', 'properties.image', 'properties.owner_id', 'properties.created_at', 'properties.updated_at', 'clients.name', 'clients.country_code', 'clients.phone', 'clients.nationalty_number', 'clients.email', 'clients.customer_type', 'clients.password', 'clients.active')
-        ->where('properties.status', '!=', '2')
+        ->where('properties.status', '=', '1')
         ->get();
 
 
