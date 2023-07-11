@@ -192,7 +192,7 @@ class Property extends Controller
     ];
     $properties = PropertyModel::join('clients', 'properties.owner_id', '=', 'clients.id')
     ->select( 'properties.*', 'clients.name', 'clients.phone', 'clients.country_code','clients.nationalty_number')
-    ->where('properties.status', '!=', '2');
+    ->where('properties.status', '=', '1');
 
 
 
