@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 use App\Models\Payment;
+use App\Models\Terminate;
 
 
 
@@ -166,14 +167,71 @@ class MobileContractController extends Controller
     }
     public function terminate(Request $request)
     {
-        try {
+        
+            try {
             $id = $request->input('id');
             $contract = Contract::findOrFail($id);
     
             $contract->status = 0; // Set the status to 0
     
+            $validator = Validator::make($request->all(), [
+                'description' => 'required',
+                'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            ]);
+            
+            if ($validator->fails()) {
+                return response()->json([
+                    'message' => 'Validation error',
+                    'errors' => $validator->errors(),
+                    'status' => 422, // Unprocessable Entity
+                ]);
+            }
+        
+            $contract->status = 0; // Set the status to 0
             $contract->save(); // Save the updated contract
-    
+        
+            $terminate = new Terminate();
+            $terminate->contract_id = $id;
+            $terminate->description = $validator->validated()['description'];
+            
+        
+            if ($request->has('image')) {
+                $images = $request->file('image');
+        
+                if (is_array($images)) {
+                    $imagePaths = [];
+        
+                    foreach ($images as $image) {
+                        $imagePath = $image->store('terminate/images', 'public');
+        
+                        if ($imagePath) {
+                            $imagePaths[] = $imagePath;
+                        } else {
+                            return response()->json([
+                                'message' => 'Failed to store image',
+                                'status' => 200,
+                            ]);                }
+                    }
+        
+                    $terminate->image = $imagePaths;
+                } else {
+                    $imagePath = $images->store('terminate/images', 'public');
+        
+                    if ($imagePath) {
+                        $terminate->image = $imagePath;
+                    } else {
+                        return response()->json([
+                            'message' => 'Failed to store image',
+                            'status' => 200,
+                        ]);
+                    }
+                }
+            }else {
+                $terminate->image="";
+            }
+            $terminate->save();
+        
+            // Return the response or redirect as needed
             return response()->json([
                 'message' => 'Contract updated successfully',
                 'data' => $contract,

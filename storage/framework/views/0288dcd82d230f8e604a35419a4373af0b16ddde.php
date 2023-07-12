@@ -133,7 +133,7 @@
           <a class="nav-link dropdown-toggle pt-1 px-0" href="#" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             <div class="media d-flex align-items-center">
-              <img class="avatar rounded-circle" alt="Image placeholder" src="/assets/img/team/profile-picture-1.jpg">
+              <img class="avatar rounded-circle" alt="Image placeholder" src="/assets/img/team/man-with-beard-avatar-character-isolated-icon-free-vector.jpg">
               <div class="media-body ms-2 text-dark align-items-center d-none d-lg-block">
                 <span
                   class="mb-0 font-small fw-bold text-gray-900"><?php echo e(auth()->user()->first_name ? auth()->user()->first_name . ' ' . auth()->user()->last_name : 'User Name'); ?></span>
@@ -155,15 +155,15 @@
               <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('logout', [])->html();
-} elseif ($_instance->childHasBeenRendered('ZUtLAs1')) {
-    $componentId = $_instance->getRenderedChildComponentId('ZUtLAs1');
-    $componentTag = $_instance->getRenderedChildComponentTagName('ZUtLAs1');
+} elseif ($_instance->childHasBeenRendered('Pl9oayV')) {
+    $componentId = $_instance->getRenderedChildComponentId('Pl9oayV');
+    $componentTag = $_instance->getRenderedChildComponentTagName('Pl9oayV');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('ZUtLAs1');
+    $_instance->preserveRenderedChild('Pl9oayV');
 } else {
     $response = \Livewire\Livewire::mount('logout', []);
     $html = $response->html();
-    $_instance->logRenderedChild('ZUtLAs1', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('Pl9oayV', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?></a>
