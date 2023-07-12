@@ -83,7 +83,7 @@
                     
 
                     <div class="card card-body shadow border-0 table-wrapper table-responsive">
-                        <h2 class="h5 mb-4">معلومات القعار </h2>
+                        <h2 class="h5 mb-4">معلومات العقار </h2>
 
                         <table class="table user-table table-hover align-items-center" id="propertytable">
                             <thead>

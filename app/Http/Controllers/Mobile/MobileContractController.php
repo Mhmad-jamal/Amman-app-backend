@@ -186,7 +186,54 @@ class MobileContractController extends Controller
             ], 404);
         }
     }
- 
+ /*         
+    $id = $request->input('id');
+    $contract = Contract::findOrFail($id);
+
+    // Validate the request data
+    $validatedData = $request->validate([
+        'description' => 'required',
+        'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
+
+    $contract->status = 0; // Set the status to 0
+    $contract->save(); // Save the updated contract
+
+    $terminate = new Terminate();
+    $terminate->contract_id = $id;
+    $terminate->description = $validatedData['description'];
+
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+
+        if ($image->isValid()) {
+            $imageName = Str::random(10) . '.' . $image->getClientOriginalExtension();
+            $imagePath = $image->storeAs('public/terminate/images', $imageName);
+
+            if ($imagePath) {
+                $terminate->image = 'terminate/images/' . $imageName;
+            } else {
+                return response()->json([
+                    'message' => 'Failed to store image.',
+                    'status' => 500
+                ], 500);
+            }
+        } else {
+            return response()->json([
+                'message' => 'Invalid image file.',
+                'status' => 400
+            ], 400);
+        }
+    }
+
+    $terminate->save();
+
+    // Return the response or redirect as needed
+    return response()->json([
+        'message' => 'Contract updated successfully',
+        'data' => $contract,
+        'status' => 200,
+    ]);*/
  
 
    

@@ -246,7 +246,6 @@ Route::any('/api/order/status/update', [OrderController::class, 'updateStatus'])
 Route::post('api/Contract/request/get', [ContractController::class, 'getCheck'])->name('get.check');
 Route::post('api/order/get', [OrderController::class, 'getOrder'])->name('get.order');
 
-
 Route::any('/api/payment/create', [PaymentController::class, 'create'])->name('create_payment');
 Route::any('/api/contract/terminate', [MobileContractController::class, 'terminate'])->name('terminate');
 
