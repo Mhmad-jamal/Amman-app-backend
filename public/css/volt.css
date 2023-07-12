@@ -14228,7 +14228,7 @@ textarea.form-control-lg {
     transform: translate(0, 0); } }
   @media (max-width: 991.98px) and (max-width: 991.98px) {
     .dropdown-menu-center {
-      transform: translateX(-75%); } }
+      transform: translateX(70%); } }
 
 @media (max-width: 991.98px) {
   .navbar-collapse {

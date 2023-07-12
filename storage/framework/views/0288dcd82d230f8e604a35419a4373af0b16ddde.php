@@ -24,7 +24,7 @@
                 <div class="row align-items-center">
                   <div class="col-auto">
                     <!-- Avatar -->
-                    <img alt="Image placeholder" src="/assets/img/team/profile-picture-1.jpg" class="avatar-md rounded">
+                    <img alt="Image placeholder" src="/assets/img/team/man-with-beard-avatar-character-isolated-icon-free-vector.jpg" class="avatar-md rounded">
                   </div>
                   <div class="col ps-0 ms-2">
                     <div class="d-flex justify-content-between align-items-center">
@@ -155,15 +155,15 @@
               <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('logout', [])->html();
-} elseif ($_instance->childHasBeenRendered('2pQt6Ph')) {
-    $componentId = $_instance->getRenderedChildComponentId('2pQt6Ph');
-    $componentTag = $_instance->getRenderedChildComponentTagName('2pQt6Ph');
+} elseif ($_instance->childHasBeenRendered('ZUtLAs1')) {
+    $componentId = $_instance->getRenderedChildComponentId('ZUtLAs1');
+    $componentTag = $_instance->getRenderedChildComponentTagName('ZUtLAs1');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('2pQt6Ph');
+    $_instance->preserveRenderedChild('ZUtLAs1');
 } else {
     $response = \Livewire\Livewire::mount('logout', []);
     $html = $response->html();
-    $_instance->logRenderedChild('2pQt6Ph', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('ZUtLAs1', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?></a>

@@ -39,7 +39,7 @@
                 <div class="row align-items-center">
                   <div class="col-auto">
                     <!-- Avatar -->
-                    <img alt="Image placeholder" src="/assets/img/team/profile-picture-1.jpg" class="avatar-md rounded">
+                    <img alt="Image placeholder" src="/assets/img/team/man-with-beard-avatar-character-isolated-icon-free-vector.jpg" class="avatar-md rounded">
                   </div>
                   <div class="col ps-0 ms-2">
                     <div class="d-flex justify-content-between align-items-center">
