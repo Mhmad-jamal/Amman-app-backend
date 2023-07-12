@@ -146,7 +146,7 @@ public function getCheck(Request $request)  {
     $id=$request->input('owner_id');
     $CheckClient = CheckClient::where('owner_id', $id)->get();
     return response()->json([
-        'message' => 'check status change successfully',
+        'message' => 'check status retrive successfully',
         'status' => 200,
         'data'=>$CheckClient,
     ]);
